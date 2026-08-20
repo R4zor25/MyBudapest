@@ -1,0 +1,44 @@
+BUDAPESTI NAPI LISTA — {{ weekday_label }}, {{ date_label }}
+{% if has_events %}
+{{ new_count }} új program, ebből {{ free_count }} ingyenes — {{ tonight_count }} ma este
+{% else %}
+0 új program — ma nincs semmi.
+
+A gyűjtés lefutott, a szűrő átment mindenen, csak nem akadt semmi, ami elég jó lett volna
+ahhoz, hogy felírjam ide. Ez nem hiba: ez az életjel. Ha az email megjött, a rendszer él.
+{% endif %}
+{% if grouped_rows %}
+
+FESZTIVÁL
+{% for row in grouped_rows %}
+* {{ row.venue_name }} — {{ row.day_word }} {{ row.group_size }} program ({{ row.time_label }}-tól{% if row.district_label %}, {{ row.district_label }}{% endif %})
+  {{ row.description }}{% if row.remaining > 0 %} és további {{ row.remaining }} program{% endif %}
+  {{ row.url }}
+{% endfor %}
+{% endif %}
+{% for section in category_sections %}
+
+{{ section.label|upper }} ({{ section.count }})
+{% for event in section.rows %}
+* {{ event.title }}
+  {{ event.weekday_label }} {{ event.time_label }}{% if event.night_note %} ({{ event.night_note }}){% endif %} — {{ event.meta_text }} — {{ event.score_label }} pont
+{% if event.description %}
+  {{ event.description }}
+{% endif %}
+  {{ event.url }}
+{% endfor %}
+{% endfor %}
+{% if expiring_rows %}
+
+HAMAROSAN LEJÁR
+{% for row in expiring_rows %}
+* {{ row.title }} — {{ row.weekday_label }} {{ row.time_label }}
+  {% for part in row.meta_parts %}{{ part.text }}{% if not loop.last %} · {% endif %}{% endfor %} — {{ row.score_label }} pont
+  {{ row.url }}
+{% endfor %}
+{% endif %}
+
+---
+{{ source_health_line }} · futás: {{ run_time_label }}
+Archívum és szűrők: {{ archive_url }}
+A pontszám a saját szabályrendszered szerint számolt. Holnap reggel 7-kor újra.

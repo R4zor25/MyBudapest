@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.env
+*.env
+.env.*
+# AUDIT-3 MINOR-1: DEPLOY.md's own local-testing instructions (`export PROFILE_YAML="$(cat
+# ~/profile.yaml)"`) have the operator keep a plaintext copy of the full private profile on
+# disk, by convention outside the repo — this stops it from being swept up by a routine
+# `git add -A` if it's ever dropped inside the repo directory instead, for convenience.
+profile.yaml
+*profile*.y*ml

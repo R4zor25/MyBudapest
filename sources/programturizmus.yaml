@@ -1,0 +1,31 @@
+id: programturizmus
+name: Programturizmus
+enabled: false
+priority: 40
+fetcher: http
+rate_limit_seconds: 2
+plugin: null
+
+# PLACEHOLDER — deliberately empty, do not guess selectors here.
+#
+# A real, fetchable listing exists (e.g. /kategoria-kulturalis-program.html, checked
+# 2026-08-16), but three separate problems make it a poor declarative-engine candidate
+# even with a normalize.py date fix:
+#
+# 1. Its frontend is Next.js with CSS Modules — every class is hash-suffixed
+#    ("ContentItemCard_titleContainer__7403T") and will change on their next deploy.
+#    There is no stable selector to anchor on: the classes are reused for unrelated UI
+#    (the same "Text_menu-button__*" class styles both a card's date AND footer nav
+#    links elsewhere on the page), so even a structural fallback would be guessing.
+# 2. Each event renders three times in the same page (a responsive-variant artifact —
+#    ~30 ".ContentItemCard_..." nodes for ~10 real events), which a naive item_selector
+#    would triple-count.
+# 3. The category page is nationwide, not Budapest-scoped — sampled cards named venues
+#    in Lövő, Újkígyós and the Balaton region, with no obvious Budapest-only URL/filter
+#    found in the time spent looking.
+#
+# None of these are "I could not fetch the page" (I did) — they are "I could fetch it,
+# but building selectors here would ship something structurally fragile and
+# wrong-scoped," which requirement 7's spirit rules out just as much as guessing would.
+listing:
+  urls: []

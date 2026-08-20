@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<meta name="color-scheme" content="dark light">
+<meta name="supported-color-schemes" content="dark light">
+<title>Budapest — {{ date_label }}</title>
+<style>
+  @media only screen and (max-width: 620px) {
+    .wrap { width: 100% !important; }
+    .pad { padding-left: 16px !important; padding-right: 16px !important; }
+    .date { font-size: 24px !important; }
+  }
+  @media (prefers-color-scheme: light) {
+    .outer { background: #202235 !important; }
+  }
+</style>
+</head>
+<body style="margin:0; padding:0; width:100%; background-color:#12131f; color:#e9e9ed; -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:100%; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+
+<div style="display:none; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden; color:#12131f;">Ma nincs semmi. A gyűjtés lefutott, {{ source_health_line }}. &#8203;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;</div>
+
+<table role="presentation" class="outer" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#12131f" style="background-color:#12131f; border-collapse:collapse;">
+<tr>
+<td align="center" style="padding:20px 10px 44px 10px;">
+
+<table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px; border-collapse:collapse; background-color:#161826;">
+
+  <!-- ══ FEJLÉC ══════════════════════════════════════════════════════ -->
+  <tr>
+  <td bgcolor="#262a60" class="pad" style="background-color:#262a60; padding:26px 28px 24px 28px;">
+    <p style="margin:0 0 14px 0; font-size:11px; line-height:1; letter-spacing:0.16em; text-transform:uppercase; color:#b5abfc;">Budapesti napi lista</p>
+    <p class="date" style="margin:0 0 8px 0; font-size:28px; line-height:1.14; font-weight:500; letter-spacing:-0.02em; color:#f3f5fe;">{{ weekday_label }},<br>{{ date_label }}</p>
+    <p style="margin:0; font-size:14px; line-height:1.5; color:#d2cefd;">0 új program — ma nincs semmi</p>
+  </td>
+  </tr>
+
+  <!-- ══ ÜRES ÁLLAPOT — szándékos, nem hibaüzenet ═══════════════════ -->
+  <tr>
+  <td class="pad" style="padding:40px 28px 4px 28px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+    <tr>
+      <td width="70" valign="top" style="width:70px; padding:0 12px 0 0;">
+        <!-- ugyanaz a bal sáv, csak üresen: hét halvány osztás -->
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; margin-top:8px;">
+        <tr>
+          <td width="6" height="4" bgcolor="#282a3a" style="width:6px; height:4px; font-size:0; line-height:4px; background-color:#282a3a;">&nbsp;</td><td width="3" style="width:3px; font-size:0; line-height:4px;">&nbsp;</td>
+          <td width="6" height="4" bgcolor="#282a3a" style="width:6px; height:4px; font-size:0; line-height:4px; background-color:#282a3a;">&nbsp;</td><td width="3" style="width:3px; font-size:0; line-height:4px;">&nbsp;</td>
+          <td width="6" height="4" bgcolor="#282a3a" style="width:6px; height:4px; font-size:0; line-height:4px; background-color:#282a3a;">&nbsp;</td><td width="3" style="width:3px; font-size:0; line-height:4px;">&nbsp;</td>
+          <td width="6" height="4" bgcolor="#282a3a" style="width:6px; height:4px; font-size:0; line-height:4px; background-color:#282a3a;">&nbsp;</td><td width="3" style="width:3px; font-size:0; line-height:4px;">&nbsp;</td>
+          <td width="6" height="4" bgcolor="#282a3a" style="width:6px; height:4px; font-size:0; line-height:4px; background-color:#282a3a;">&nbsp;</td><td width="3" style="width:3px; font-size:0; line-height:4px;">&nbsp;</td>
+          <td width="6" height="4" bgcolor="#282a3a" style="width:6px; height:4px; font-size:0; line-height:4px; background-color:#282a3a;">&nbsp;</td><td width="3" style="width:3px; font-size:0; line-height:4px;">&nbsp;</td>
+          <td width="6" height="4" bgcolor="#282a3a" style="width:6px; height:4px; font-size:0; line-height:4px; background-color:#282a3a;">&nbsp;</td>
+        </tr>
+        </table>
+      </td>
+      <td valign="top" style="padding:0;">
+        <p style="margin:0 0 10px 0; font-size:22px; line-height:1.25; font-weight:500; letter-spacing:-0.015em; color:#e9e9ed;">Ma este szabad vagy.</p>
+        <p style="margin:0 0 8px 0; font-size:14px; line-height:1.65; color:#b2b6ca;">A gyűjtés lefutott, a szűrő átment mindenen — csak nem akadt semmi, ami elég jó lett volna ahhoz, hogy felírjam ide.</p>
+        <p style="margin:0; font-size:13px; line-height:1.65; color:#75798c;">Ez nem hiba: ez az életjel. Ha az email megjött, a rendszer él.</p>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+
+  <tr>
+  <td class="pad" style="padding:26px 28px 0 28px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; background-color:#1a1c29;">
+    <tr>
+      <td style="padding:14px 16px 15px 16px;">
+        <p style="margin:0 0 4px 0; font-size:11px; line-height:1; letter-spacing:0.16em; text-transform:uppercase; color:#75798c;">Amit tehetsz</p>
+        <p style="margin:0; font-size:13px; line-height:1.65; color:#9397ab;">Az archívumban a pontszám-plafon lejjebb vehető, vagy nézhetsz előre a hétvégére — a szűrőket ott lazíthatod, nem itt.</p>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+
+  <!-- ══ LÁBLÉC ══════════════════════════════════════════════════════ -->
+  <tr>
+  <td class="pad" style="padding:34px 28px 30px 28px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+    <tr><td height="1" bgcolor="#282a3a" style="height:1px; font-size:0; line-height:1px; background-color:#282a3a;">&nbsp;</td></tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+    <tr>
+      <td valign="middle" style="padding:16px 0 0 0;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+        <tr>
+          <td width="6" valign="middle" style="width:6px; padding:0 7px 0 0;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr><td width="6" height="6" bgcolor="#9184d9" style="width:6px; height:6px; font-size:0; line-height:6px; border-radius:3px; background-color:#9184d9;">&nbsp;</td></tr></table>
+          </td>
+          <td style="font-size:12px; line-height:1.5; color:#9397ab;">{{ source_health_line }} &nbsp;·&nbsp; futás: {{ run_time_label }}</td>
+        </tr>
+        </table>
+      </td>
+      <td align="right" valign="middle" style="padding:16px 0 0 0;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate; border-radius:8px; border:1px solid #9184d9;">
+        <tr>
+          <td align="center" style="padding:8px 14px; border-radius:8px;">
+            <a href="{{ archive_url }}" style="font-size:13px; line-height:1.2; font-weight:500; color:#b5abfc; text-decoration:none; display:inline-block;">Archívum &amp; szűrők →</a>
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+    <p style="margin:18px 0 0 0; font-size:11px; line-height:1.6; color:#595d6c;">Holnap reggel 7-kor újra.</p>
+  </td>
+  </tr>
+
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>

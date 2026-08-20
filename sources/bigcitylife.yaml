@@ -1,0 +1,37 @@
+id: bigcitylife
+name: Big City Life
+enabled: true
+priority: 30
+fetcher: http
+rate_limit_seconds: 2
+plugin: null
+
+# Real, verified against a fetched page (tests/fixtures/bigcitylife_list.html, saved
+# 2026-08-16): a plain server-rendered listing, no pagination on this URL — every
+# upcoming-weekend event is on the one page. Two of the eleven `.eventBox` elements on
+# that page are Google AdSense slots that reuse the class for styling, not events; they
+# have no `h2 a` and are correctly skipped as a missing required field (§ package 11
+# report), not a selector bug.
+#
+# The date text ("2026. augusztus 16., vasárnap 18:00") needed a small, additive fix to
+# normalize.py's date parsing (a spelled-out Hungarian month name) — see the package 11
+# report for why that crossed outside this package's file list.
+listing:
+  urls:
+    - "https://bigcitylife.hu/hetvegi-programok-budapesten"
+  item_selector: "div.eventBox"
+
+fields:
+  title: { selector: "h2 a", attr: text }
+  url: { selector: "h2 a", attr: href, absolute: true }
+  start_raw: { selector: ".eventDate", attr: text }
+  venue_name: { selector: ".eventTags .eventPlace", attr: text, optional: true }
+  price_raw: { selector: ".eventPrices .eventPrice", attr: text, optional: true }
+  image_url: { selector: "img", attr: "data-src", optional: true }
+  description: { selector: "p", attr: text, optional: true }
+
+transforms:
+  title: [html_unescape, strip]
+  # Strips the card's own "További részletek" (read more) link text, which node.text()
+  # otherwise pulls in as part of the description — a no-op if the phrase isn't there.
+  description: [html_unescape, strip, 'regex:^(.*?)\s*További részletek$:1', "truncate:400"]

@@ -1,0 +1,25 @@
+id: port-hu
+name: Port.hu
+# AUDIT-5 BLOCKER (fix): was `enabled: true` with an empty listing.urls below — a source
+# labeled "the backbone" that silently produced 0 events on every real run, forever, with
+# no automated way to notice (selector_drift needs a last_count > 10 this source could
+# never earn while stuck at 0). Disabled until SPEC.md §17 question 1 is answered and a
+# real listing.urls is filled in — re-enable at that point, not before.
+enabled: false
+priority: 10          # the backbone source: most complete record, wins dedup merges
+fetcher: api
+rate_limit_seconds: 2
+plugin: port_hu
+
+listing:
+  # PLACEHOLDER — deliberately empty.
+  #
+  # The real listing endpoint URL and its query parameters are still an open question
+  # (SPEC.md §17, question 1). Until it is confirmed from DevTools on the live site, this
+  # list stays empty: discover() then yields no tasks and logs why, and the plugin is
+  # exercised from the saved fixture instead (tests/fixtures/port_hu_list.json).
+  #
+  # Do not guess a URL here. A wrong endpoint does not fail loudly — it looks like a
+  # working source that happens to return nothing, which is the one failure mode the
+  # selector-drift check in SPEC.md §13 cannot tell apart from "no events today".
+  urls: []

@@ -1,0 +1,23 @@
+id: szinhazak
+name: Színházak
+enabled: false
+priority: 30
+fetcher: http
+rate_limit_seconds: 2
+plugin: null
+
+# PLACEHOLDER — deliberately empty, do not guess selectors here.
+#
+# Checked both plausible domains (2026-08-16):
+#   - szinhazak.hu resolves to a parked-domain page ("Kezdőlap | parkolo") behind a
+#     self-signed certificate (CN=byte.hu, a shared-hosting default) — the domain is
+#     dead, not the intended site.
+#   - szinhaz.hu ("Színház.hu") is real and live, but it is an editorial blog (built on
+#     blog.hu, generator "blfr4 [at] blog.hu") with news articles, not a structured
+#     repertoire/ticketing listing — its own RSS feed's most recent visible item was
+#     from 2020. There is no per-performance listing page with date/venue/price cards to
+#     select against.
+#
+# Neither is a working substitute for a real theatre-repertoire source.
+listing:
+  urls: []

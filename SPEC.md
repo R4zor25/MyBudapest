@@ -1,0 +1,1107 @@
+# Budapest Event Digest — Technikai specifikáció v1.0
+
+> Ez a dokumentum a projekt egyetlen igazságforrása. A `CLAUDE.md` ennek a desztillátuma
+> az agent számára; a `prompt-packages.md` a mérföldkövenkénti feladatcsomagokat tartalmazza.
+> Ha a kód és a spec ellentmond, a spec nyer — vagy a specet kell módosítani, előbb.
+
+---
+
+# 1. Cél
+
+Napi egyszer összegyűjti a budapesti programokat több forrásból, normalizálja, deduplikálja,
+kategorizálja, szabályok szerint pontozza, és reggel emailben kiküldi az újakat. Emellett
+publikál egy böngészhető, szűrhető statikus oldalt. Szerver nélkül, GitHub Actionsön,
+nulla forintból.
+
+**Nem cél:** jegyvásárlás, naptár-szinkron, több felhasználó, valós idejű frissítés,
+mobilalkalmazás.
+
+**Sikerkritérium:** minden reggel 7 körül megérkezik egy email, amiben legfeljebb ~25 program
+van, kategóriák szerint rendezve, és nincs benne olyan, amit korábban már láttál.
+
+---
+
+# 2. Rendszerkép
+
+```
+GitHub Actions (cron 04:30 UTC, workflow_dispatch)
+  │
+  ├─ 1. checkout (config + sources + state)
+  ├─ 2. profil-titok betöltése és merge-elése
+  ├─ 3. digest run
+  │      fetch → normalize → dedup → recurrence → group
+  │            → categorize → filter → score → render → deliver
+  ├─ 4. state/state.json commit vissza a default branchre
+  └─ 5. site/ deploy → GitHub Pages
+```
+
+Nincs szerver, nincs adatbázis, nincs böngésző, nincs webframework. A futás egy 3-5 perces
+batch job, ami után minden leáll. Az egyetlen perzisztens állapot egy ~120 KB-os JSON a repóban.
+
+---
+
+# 3. Repo struktúra
+
+```
+budapest-event-digest/
+├── .github/workflows/digest.yml
+├── CLAUDE.md                       # agent-konvenciók
+├── SPEC.md                         # ez a fájl
+├── README.md
+├── pyproject.toml
+├── config.yaml                     # PUBLIKUS beállítások
+├── sources/                        # forrásleírók
+│   ├── port-hu.yaml
+│   ├── jegy-hu.yaml
+│   ├── welovebudapest.yaml
+│   ├── fidelio.yaml
+│   ├── bigcitylife.yaml
+│   ├── programturizmus.yaml
+│   ├── szinhazak.yaml
+│   ├── kvizestek.yaml
+│   ├── redandblack.yaml
+│   ├── kedvesidegen.yaml
+│   └── meetup.yaml
+├── state/
+│   └── state.json                  # a ledger, committolva
+├── site/                           # Pages kimenet (generált, committolva)
+│   ├── index.html
+│   ├── events.json
+│   ├── status.html
+│   └── archive/YYYY-MM-DD.html
+├── src/digest/
+│   ├── __init__.py
+│   ├── cli.py                      # Typer app
+│   ├── config.py                   # config betöltés + profil merge + validáció
+│   ├── models.py                   # RawEvent, Event, SourceSpec, ...
+│   ├── state.py                    # ledger load/save/purge
+│   ├── errors.py
+│   ├── fetch/
+│   │   ├── base.py                 # FetchTask, FetchResult, FetchError
+│   │   ├── http.py                 # httpx GET + retry + rate limit + ETag
+│   │   └── api.py                  # JSON GET, azonos alap
+│   ├── sources/
+│   │   ├── registry.py             # auto-discovery: YAML + plugin
+│   │   ├── declarative.py          # YAML-vezérelt forrásmotor
+│   │   └── plugins/
+│   │       ├── port_hu.py
+│   │       └── meetup.py
+│   ├── pipeline/
+│   │   ├── normalize.py
+│   │   ├── dedup.py
+│   │   ├── recurrence.py
+│   │   ├── group.py
+│   │   ├── categorize.py
+│   │   ├── filter.py
+│   │   └── score.py
+│   ├── llm/
+│   │   ├── base.py                 # Categorizer protokoll
+│   │   └── gemini.py
+│   ├── render/
+│   │   ├── email.py
+│   │   ├── web.py
+│   │   └── templates/
+│   │       ├── email.html.j2
+│   │       ├── email.txt.j2
+│   │       ├── index.html.j2
+│   │       └── status.html.j2
+│   └── delivery/
+│       ├── base.py                 # Deliverer protokoll
+│       ├── smtp.py
+│       └── telegram.py
+└── tests/
+    ├── conftest.py
+    ├── fixtures/
+    │   ├── port_hu_list.json
+    │   ├── meetup_next_data.json
+    │   └── ...
+    ├── test_config.py
+    ├── test_normalize.py
+    ├── test_dedup.py
+    ├── test_recurrence.py
+    ├── test_group.py
+    ├── test_categorize.py
+    ├── test_score.py
+    ├── test_state.py
+    ├── test_declarative_source.py
+    ├── test_source_port_hu.py
+    ├── test_render.py
+    └── test_config_privacy.py      # a publikus config nem tartalmaz profilt
+```
+
+---
+
+# 4. Adatmodell
+
+`src/digest/models.py`. Pydantic v2, `model_config = ConfigDict(frozen=True)` ahol lehet.
+
+```python
+class RawEvent(BaseModel):
+    """Amit egy forrás ad, még normalizálás előtt. Minden mező opcionális,
+    a normalizáló feladata a hiányzókat kezelni vagy a rekordot eldobni."""
+    source_id: str
+    source_event_key: str          # a forrás saját azonosítója
+    title: str
+    url: str
+    description: str | None = None
+    start_raw: str | None = None
+    end_raw: str | None = None
+    venue_name: str | None = None
+    address_raw: str | None = None
+    postal_code: str | None = None
+    district_raw: int | str | None = None
+    lat: float | None = None
+    lon: float | None = None
+    price_raw: str | None = None
+    image_url: str | None = None
+    native_category: str | None = None   # pl. Port.hu "type"
+    url_category: str | None = None      # pl. az URL 2. szegmense
+    extra: dict[str, Any] = {}
+
+
+class Event(BaseModel):
+    id: str                        # lásd 4.1
+    source_ids: list[str]
+    urls: list[str]
+    title: str
+    description: str | None
+    start: datetime                # tz-aware, Europe/Budapest
+    end: datetime | None
+    effective_date: date           # a hajnali eltolás után (§7.7)
+    is_series: bool = False        # end - start > series_threshold_days
+    venue_name: str | None
+    district: str | None           # "XI." vagy None
+    lat: float | None
+    lon: float | None
+    distance_km: float | None
+    price_min: int | None          # HUF
+    price_max: int | None
+    is_free: bool = False
+    categories: list[str]
+    image_url: str | None
+    score: float = 0.0
+    score_breakdown: dict[str, float] = {}
+    group_key: str | None = None   # ha fesztivál-csoport tagja
+    group_size: int = 1            # összevont sorban a csoport mérete
+```
+
+## 4.1 Az `id` képzése
+
+```python
+def make_event_id(title: str, start: datetime, venue: str | None) -> str:
+    basis = f"{normalize_title(title)}|{start.date().isoformat()}|{normalize_venue(venue)}"
+    return hashlib.sha256(basis.encode()).hexdigest()[:16]
+```
+
+Szándékosan **nem** a forrás saját id-je: ugyanaz az esemény több forrásból is jön, és a
+ledgernek forrásfüggetlenül kell azonosítania. A `normalize_title` és `normalize_venue`
+ugyanaz a függvény, amit a dedup használ (§7.2) — így az id-egyezés a dedup 0. szintje.
+
+### Két függvény, két feladat
+
+A cím-normalizálás **két** függvényre bomlik, és nem cserélhetők fel:
+
+```python
+def normalize_title(s: str) -> str:
+    """Konzervatív. Kizárólag: kisbetűsítés, ékezet-eltávolítás (NFKD), legfeljebb
+    2 tokenes zárójeles utótag levágása, whitespace összevonása. Elválasztónál NEM vág."""
+
+def strip_venue_suffix(title: str, venue: str | None) -> str:
+    """Helyszín-tudatos. Kizárólag a dedup fuzzy szintje (§7.2) hívja."""
+```
+
+Az `id` és a ledger a `normalize_title`-t használja. A `make_event_id` **soha** nem hívja a
+`strip_venue_suffix`-et: az id-nek a legóvatosabb normalizálásra kell épülnie.
+
+### Miért konzervatív a `normalize_title` — ellenpélda
+
+Kézenfekvőnek tűnik az elválasztó (` | `, ` - `) utáni részt levágni, hiszen gyakran a
+helyszín áll ott. **Bármelyik oldalon vágunk, események olvadnak össze:**
+
+| Vágás | Bemenet | `normalize_title` | Eredmény |
+|---|---|---|---|
+| első elválasztónál | `Koncert - Sub Focus`<br>`Koncert - Chase & Status` | `koncert`<br>`koncert` | azonos id |
+| utolsó elválasztónál | `A38 \| Koncert X`<br>`A38 \| Koncert Y` | `a38`<br>`a38` | azonos id |
+
+A két hiba egymás tükörképe, és nincs olyan oldal, amelyik biztonságos: a címformátum
+forrásonként — sőt rekordonként — más. Van, ahol a helyszín a végén áll (`Sub Focus | A38`),
+van, ahol az elején (`A38 | Koncert X`). Az elválasztó önmagában nem árulja el, melyik.
+
+Az azonos id a rendszer legdrágább hibája: a dedup 0. szintje összevonja a két eseményt, a
+ledger pedig a másodikat **véglegesen elnémítja** — soha nem megy ki, és nyoma sem marad.
+Ezért a `normalize_title` csak azt vágja le, ami bizonyítottan zaj: a rövid, zárójeles
+ország- vagy városjelölést. A `(Budapest)`, `(HU)`, `(UK)` megy; a
+`(Deluxe Anniversary Edition)` marad, mert 2 tokennél hosszabb, tehát a címhez tartozik.
+
+A bent maradt zajt a dedup fuzzy szintje fogja el a futáson belül. **Az alulvágás ára egy
+ismétlődő email, a túlvágásé egy végleg elveszett esemény — a kettő nem egyenrangú.**
+
+### `strip_venue_suffix` — mindhárom feltétel kötelező
+
+A dedup fuzzy szintjének kell a helyszín-utótag levágása, de csak akkor szabad, ha
+bizonyítható, hogy tényleg a helyszín az:
+
+1. `venue` nem `None`, és normalizálva nem üres;
+2. a címben van elválasztóval (` | ` vagy ` - `) bevezetett **záró** szegmens;
+3. `token_set_ratio(normalize_venue(szegmens), normalize_venue(venue)) >= 85` — ugyanaz a
+   primitív és küszöb, amit a §7.2 a helyszín-összehasonlításra használ.
+
+Ha bármelyik nem teljesül, a függvény a címet **változatlanul** adja vissza. A 3. feltétel
+zárja ki a fenti tükörhibát: az `A38 | Koncert X` záró szegmense (`Koncert X`) nem egyezik
+az `A38 Hajó` helyszínnel, tehát nem vágunk.
+
+**Következmény, amit tudni kell:** ha egy forrás úgy írja át a címet, hogy a
+`normalize_title` nem tünteti el a különbséget (`Sub Focus` → `Sub Focus | A38`), az id
+megváltozik és az esemény újra kimegy. Ezt a dedup fuzzy szintje fogja el a futáson belül,
+a ledger viszont csak az id-t tárolja. Ezért a ledger a `(id, start_date, title_norm)`
+hármast tárolja, és a `sent_before()` ellenőrzés fuzzy is (§8.2).
+
+---
+
+# 5. Konfiguráció
+
+Három forrásból áll össze, ebben a sorrendben (később felülír):
+
+1. `config.yaml` — a repóban, **publikus**
+2. `sources/*.yaml` — a repóban, **publikus**
+3. `PROFILE_YAML` GitHub Actions secret — **privát**, a személyes rész
+
+## 5.1 `config.yaml` (publikus)
+
+```yaml
+version: 1
+
+schedule:
+  timezone: Europe/Budapest
+  horizon_days: 14
+
+fetch:
+  user_agent: "budapest-event-digest/1.0 (+https://github.com/<user>/<repo>)"
+  timeout_seconds: 20
+  max_retries: 3
+  backoff_base_seconds: 2
+  default_rate_limit_seconds: 1.5
+  respect_robots_txt: true
+
+categories:
+  # kategória -> jelek. A pontszám összeadódik, a legmagasabb nyer.
+  koncert:
+    keywords: { koncert: 3, "élő zene": 3, lemezbemutató: 2, zenekar: 2, akusztik: 2 }
+    venue_prior: { "A38 Hajó": 2, "Akvárium Klub": 2, "Dürer Kert": 2, "Kobuci Kert": 2 }
+    url_patterns: ["/koncert/", "/zene/"]
+    native_types: ["concert"]
+  klub:
+    keywords: { dj: 3, techno: 3, house: 2, party: 2, "lemezlovas": 2, rave: 3 }
+    venue_prior: { "Ötkert": 2, "Instant": 2, "Turbina": 2 }
+    native_types: []
+  szinhaz:
+    keywords: { előadás: 2, színház: 4, dráma: 2, bemutató: 2, stúdió: 1 }
+    url_patterns: ["/szinhaz/"]
+    native_types: ["theater", "theatre"]
+  kiallitas:
+    keywords: { kiállítás: 4, tárlat: 3, galéria: 2, múzeum: 2, "enteriőr": 1 }
+    url_patterns: ["/kiallitas/"]
+    native_types: ["exhibition"]
+  film:
+    keywords: { film: 3, vetítés: 3, mozi: 3, premier: 2 }
+    url_patterns: ["/film/", "/mozi/"]
+    native_types: ["movie", "screening"]
+  meetup:
+    keywords: { meetup: 4, workshop: 2, előadás: 1, "közösségi": 2, networking: 3 }
+  tarsasjatek:
+    keywords: { társasjáték: 4, "board game": 4, játékest: 4, "társasozás": 4, "játékklub": 3 }
+    venue_prior: { "Red & Black": 3, "Játsz/Ma": 3 }
+  kviz:
+    keywords: { kvíz: 4, quiz: 4, vetélkedő: 3, "kvízest": 4, pubquiz: 4 }
+  gasztro:
+    keywords: { borkóstoló: 3, sörkóstoló: 3, gasztro: 3, vacsora: 2, piac: 2, street food: 3 }
+  fesztival:
+    keywords: { fesztivál: 4, festival: 4 }
+  outdoor:
+    keywords: { túra: 3, séta: 2, kirándulás: 3, futás: 2, kerékpár: 2 }
+  sport:
+    keywords: { mérkőzés: 3, bajnokság: 2, verseny: 2, edzés: 2 }
+  csaladi:
+    keywords: { gyerek: 3, családi: 3, bábszínház: 3 }
+min_category_score: 2
+fallback_category: egyeb
+
+grouping:
+  collapse_by: [venue_name, effective_date, primary_category]
+  min_group_size: 4
+  max_per_venue: 3
+
+recurrence:
+  series_threshold_days: 7
+  series_behavior: send_once
+  run_behavior: send_at_start
+
+night_shift:
+  before_hour: 5          # 00:00-04:59 az előző naphoz tartozik
+
+newsletter:
+  per_category_limit: 5
+  total_limit: 25
+  send_when_empty: true   # heartbeat — az email hiánya a riasztás
+  expiring_section:
+    enabled: true
+    within_days: 3
+
+llm:
+  enabled: false          # M7-ben kapcsoljuk be
+  provider: gemini
+  model: gemini-2.5-flash-lite
+  batch_size: 35
+  max_calls_per_run: 12
+  on_quota_error: fallback_to_rules
+  only_for: [uncategorized, ambiguous_dedup]
+
+delivery:
+  - type: smtp
+    enabled: true
+  - type: telegram
+    enabled: false
+
+site:
+  base_path: "/budapest-event-digest"
+  archive_keep_days: 90
+```
+
+## 5.2 `PROFILE_YAML` secret (privát)
+
+```yaml
+recipient_email: "..."
+home:
+  district: "XI."
+  lat: 47.47
+  lon: 19.05
+scoring:
+  category_weights:
+    tarsasjatek: 5
+    koncert: 4
+    kviz: 4
+    gasztro: 3
+    kiallitas: 2
+    klub: 2
+    szinhaz: 2
+    film: 1
+  keyword_boosts: { koreai: 3, "craft beer": 2, sörkóstoló: 2, "board game": 2 }
+  free_bonus: 2
+  cheap_bonus: { under_huf: 4000, points: 1 }
+  proximity:
+    same_district_bonus: 2
+    max_distance_km: 8
+    distance_penalty_per_km: 0.3
+  novelty_bonus: 2
+  soon_bonus: { within_days: 7, points: 1 }
+  weekday_weights: { mon: 0, tue: 0, wed: 1, thu: 1, fri: 2, sat: 2, sun: 1 }
+filters:
+  categories: [koncert, klub, szinhaz, kiallitas, film, meetup, tarsasjatek, kviz, gasztro, fesztival, outdoor]
+  max_price_huf: 12000
+  blocked_keywords: ["gyerekprogram", "bábszínház"]
+  min_score: 3
+```
+
+## 5.3 Merge és validáció
+
+`config.py`:
+
+```python
+def load_config(
+    config_path: Path,
+    sources_dir: Path,
+    profile_yaml: str | None,   # a secret tartalma, nem fájlnév
+) -> Config: ...
+```
+
+- A profil **mélyen merge-elődik** a configra (dict update rekurzívan, lista felülír).
+- Pydantic modellre validál; ismeretlen kulcs → hiba, nem néma átugrás.
+- **Kötelező védőteszt (`test_config_privacy.py`):** a `config.yaml` nem tartalmazhat
+  `scoring`, `home`, `recipient_email` vagy `filters` kulcsot. Ha igen, a teszt elhasal.
+  Ez véd attól, hogy egy elgépelt commit kirakja a profilodat a publikus repóba.
+- Ha a `PROFILE_YAML` hiányzik, a futás **nem hal el**, hanem beépített semleges
+  alapértelmezéssel megy (minden súly 1, nincs proximity). Így a repo klónozható és
+  futtatható idegen által is, csak nem lesz személyre szabott.
+
+---
+
+# 6. Forrásréteg
+
+## 6.1 Döntési sorrend új forrásnál
+
+Végig kell menni, és az **elsőnél megállni, ami működik**:
+
+1. Van hivatalos API / RSS / iCal? → `fetcher: api`
+2. Nincs? DevTools → Network → Fetch/XHR, töltsd újra a listát. Van JSON végpont? → `fetcher: api`
+3. A HTML-ben ott az adat (SSR)? → `fetcher: http`, deklaratív YAML
+4. Csak JS után létezik és nincs végpont? → elvileg Playwright — **de a v1-ben nincs implementáció**
+5. Blokkol vagy hetente törik? → **dobd a forrást.** Van másik tizenöt.
+
+**Miért nincs Playwright.** Egyetlen dolgot ad, a JS-futtatást, amit a 2. lépés általában
+kivált. Cserébe 500-900 MB RAM és oldalanként 2-8 másodperc. És amit gyakran tévesen várnak
+tőle: **nem véd a blokkolástól, hanem rontja** — a headless Chromiumot az anti-bot rendszerek
+célzottan azonosítják (`navigator.webdriver`, CDP-nyomok, canvas/WebGL fingerprint,
+TLS/JA3 eltérés). A `fetcher` mező a sémában marad, hogy egy későbbi backend plugin legyen,
+ne refactor.
+
+## 6.2 A `Source` protokoll
+
+```python
+class Source(Protocol):
+    id: str
+    name: str
+    enabled: bool
+    priority: int                  # dedup-merge sorrend, kisebb = erősebb
+    fetcher: Literal["http", "api"]
+    rate_limit_seconds: float
+
+    def discover(self) -> Iterable[FetchTask]:
+        """Milyen URL-eket kell lehívni. Lapozás itt bomlik ki."""
+
+    def parse(self, result: FetchResult) -> Iterable[RawEvent]:
+        """Egy letöltött válaszból nyers eseményeket ad. Nem dob kivételt
+        egyedi rekord hibájára — azt logolja és kihagyja."""
+```
+
+Két implementáció: `DeclarativeSource` (YAML-ből példányosítva) és a `plugins/` alatti
+Python osztályok. A `registry.py` mindkettőt felfedezi:
+
+```python
+def load_sources(sources_dir: Path, config: Config) -> list[Source]:
+    # 1. minden sources/*.yaml -> DeclarativeSource, KIVÉVE ha van `plugin:` kulcs
+    # 2. plugin: port_hu  ->  importlib import digest.sources.plugins.port_hu
+    #    és a modul `build(spec, config) -> Source` függvényét hívja
+```
+
+## 6.3 Deklaratív YAML forrásmotor
+
+Teljes mezőkészlet:
+
+```yaml
+id: welovebudapest            # kötelező, egyedi, = fájlnév
+name: We Love Budapest
+enabled: true
+priority: 30
+fetcher: http                 # http | api
+rate_limit_seconds: 2
+plugin: null                  # ha kitöltött, Python plugin veszi át
+
+listing:
+  urls:
+    - "https://welovebudapest.com/programok/?page={page}"
+  pagination:
+    param: page
+    start: 1
+    max: 5
+    stop_when_empty: true     # ha egy oldal 0 elemet ad, ne lapozz tovább
+  item_selector: "article.program-card"      # http esetén CSS
+  json_path: "data.events[*]"                # api esetén JSONPath
+
+fields:
+  title:        { selector: "h3", attr: text }
+  url:          { selector: "a", attr: href, absolute: true }
+  start_raw:    { selector: "time", attr: datetime }
+  venue_name:   { selector: ".venue", attr: text, optional: true }
+  price_raw:    { selector: ".price", attr: text, optional: true }
+  image_url:    { selector: "img", attr: src, optional: true }
+  description:  { selector: ".lead", attr: text, optional: true }
+
+# api esetén a `selector` helyett `path` (JSONPath a tételen belül):
+# fields:
+#   title: { path: "title" }
+#   start_raw: { path: "eventStart" }
+
+transforms:                   # opcionális, mezőnként, sorrendben fut
+  description: [html_unescape, strip, truncate:400]
+  title: [html_unescape, strip]
+```
+
+Támogatott `attr` értékek: `text`, `html`, vagy bármely attribútumnév (`href`, `src`, `datetime`).
+Támogatott transzformok: `html_unescape`, `strip`, `lower`, `truncate:<n>`, `absolute_url`,
+`regex:<pattern>:<group>`.
+
+**Kötelező viselkedés:** ha egy nem-`optional` mező hiányzik egy tételnél, azt a tételt
+kihagyjuk és `WARNING`-ot logolunk a forrás id-jével — de a futás megy tovább.
+
+## 6.4 Fetch réteg
+
+```python
+@dataclass(frozen=True)
+class FetchTask:
+    url: str
+    method: str = "GET"
+    headers: dict[str, str] = field(default_factory=dict)
+    params: dict[str, Any] | None = None
+    json_body: dict | None = None
+
+@dataclass(frozen=True)
+class FetchResult:
+    task: FetchTask
+    status: int
+    text: str
+    json: Any | None
+    from_cache: bool
+```
+
+Követelmények:
+- `httpx.Client`, közös `User-Agent` a configból
+- Forrásonként `rate_limit_seconds` késleltetés a kérések között
+- Retry: `max_retries`, exponenciális backoff, csak 5xx és hálózati hibára. **429-re nem
+  retryolunk azonnal**, hanem megvárjuk a `Retry-After`-t, vagy kihagyjuk a forrást
+- `robots.txt` ellenőrzés forrásonként egyszer, cache-elve a futás idejére
+- `If-None-Match` / `If-Modified-Since` küldése, ha a ledgerben van korábbi ETag
+
+## 6.5 Port.hu — igazolt leképezés
+
+A válasz `{"event-<id>": {...}}` objektum. Plugin: `plugins/port_hu.py`.
+
+| `Event` / `RawEvent` mező | Port.hu forrás | Megjegyzés |
+|---|---|---|
+| `source_event_key` | `id` (`"event-6258530"`) | stabil |
+| `title` | `title` | tiszta |
+| `description` | `description` | **HTML-entitás kódolt ÉS csonkolt** → `html.unescape()` |
+| `start_raw` | `eventStart` (`"2026-08-14 19:00:00"`) | **nincs tz** → `Europe/Budapest` |
+| `end_raw` | `end` (`"- 08. 21. 23:59"`) | **év nélküli display string**, lásd lent |
+| `venue_name` | `place` | |
+| `url` | `url` | relatív → `https://port.hu` prefix |
+| `lat` / `lon` | `address.gps.geoPoint.lat` / `.lon` | **minden rekordon** |
+| `district_raw` | `address.district` | **megbízhatatlan**, lásd lent |
+| `postal_code` | `address.zip` | |
+| `native_category` | `type` (`"concert"`) | |
+| `url_category` | az `url` 2. szegmense (`/esemeny/zene/...` → `zene`) | |
+| `image_url` | `thumbnail` | |
+| ár | — | **nincs**, a `ticket` tömb üres |
+
+**Három kötelező szabály ehhez a forráshoz:**
+
+1. **A `gallery` tömböt teljesen el kell dobni.** Egy rekordban 24 kép is lehet, köztük az
+   eseményhez nem kapcsolódók. Csak a `thumbnail` kell. Ez a payload ~90%-át levágja.
+2. **A `district` fallback az irányítószámból.** Az A38-nál `11`, a Szigetnél `null` — pedig
+   mindkettő Budapest. Budapesti `1XYZ` irányítószám esetén `XY` a kerület:
+   `1113` → `XI.`, `1033` → `III.`. Determinisztikus, a mintaadat megerősíti.
+3. **Detail oldalak kihagyva.** A csonkolt leírás email-digesthez elég, cserébe futásonként
+   ~300 HTTP-kéréssel kevesebb.
+
+**Az `end` mező parseolása.** Formátuma `" - 08. 21. 23:59"` — nincs benne év. Szabály:
+vedd a `start` évét; ha az így kapott `end` korábbi lenne, mint a `start`, akkor `start.year + 1`.
+
+**Nyitott: a listázó végpont URL-je és paraméterei.** A specbe be kell írni, amint megvan.
+Amíg nincs, a `sources/port-hu.yaml` `listing.urls` mezője placeholder, és a plugin egy
+fixture-ből olvas a tesztekben. Ugyanígy nyitott a `type` mező teljes szótára — a mintában
+csak `"concert"` szerepelt. Az M0 egyik feladata ezt feltárni (`digest fetch port-hu --dump-types`).
+
+## 6.6 Forráslista
+
+**A. Gerinc**
+
+| Forrás | Út | Mit ad |
+|---|---|---|
+| Port.hu | 2. — JSON, igazolva | minden, ár kivételével |
+| Jegy.hu | 2. — JSON | **árat** — ez tölti a `free_bonus`/`cheap_bonus` szabályt |
+| We Love Budapest | 3. — SSR | erős ingyenes-program lefedettség |
+| Fidelio | 3. — programkereső | klasszikus, színház, kultúra |
+| bigcitylife.hu | 3. — SSR | koncert, klub, fesztivál |
+| Programturizmus | 3. — SSR | széles merítés |
+| Színházak.hu | 3. — SSR | színházi repertoár |
+
+**B. Közösségi réteg** — kis oldalak, heti pár eseménnyel. Épp az alacsony volumenük az
+érték: ellensúlyozzák a fesztivál-elárasztást.
+
+kvizestek.hu/esemenyek · redandblack.hu/programok · esemenyek.kedvesidegen.hu ·
+Játsz/Ma Társasjáték Kávézó · Illegál kvízest · Meetup
+
+**Meetup: az API nem járható.** A nyílt REST API megszűnt; a GraphQL érdemi elérése Meetup Pro
+előfizetéshez és jóváhagyott OAuth consumerhez kötött, és a Pro sem garantálja a jóváhagyást.
+Helyette: a publikus csoportoldalak beágyazott `__NEXT_DATA__` blokkja bejelentkezés nélkül
+parse-olható. Plugin: `plugins/meetup.py`, a configban **konkrét csoport-slugok listája** —
+"minden budapesti esemény" nem kérdezhető le.
+
+**C. Gazdagító (nem `Source`)** — Ticketswap. Viszontértékesítő piactér, a listái már létező
+eseményekhez tartoznak. `Enricher` interfészen tesz rá `resale_available` flaget. M8.
+
+**D. Elvetve** — Facebook Events (ToS). Ticketmaster (gyenge magyar lefedettség, itt az Eventim
+domináns). Bandsintown/Songkick (**előadó-központú**: előadónként kérdezel le, nem városra —
+városi digesthez rossz illeszkedés). Eventbrite (alacsony budapesti volumen).
+
+---
+
+# 7. Pipeline
+
+Minden szakasz tiszta függvény, `(list[Event], Config) -> list[Event]` alakú, kivéve ahol jelezve.
+Sorrend kötött.
+
+## 7.1 `normalize(raw: list[RawEvent], config) -> list[Event]`
+
+- Dátum parseolás: `eventStart`-szerű ISO, magyar display formátumok (`2026. 08. 14. 19:00`),
+  ISO 8601 `datetime` attribútum. Ismeretlen formátum → rekord eldobva + WARNING.
+- Minden `datetime` `Europe/Budapest`-re tz-aware-ré alakítva.
+- `description`: `html.unescape()`, whitespace normalizálás, 400 karakteren csonkolva.
+- Ár: `price_raw`-ból regexszel (`"3 500 Ft"`, `"ingyenes"`, `"2000-4500 Ft"`).
+  `ingyenes|free|díjtalan` → `is_free = True, price_min = 0`.
+- Kerület: `district_raw`, ha nincs → irányítószámból, ha az sincs → `None`.
+- `distance_km`: haversine a profil `home.lat/lon`-jától, ha van `lat/lon`.
+- `effective_date`: §7.7.
+- Horizonton kívüli és múltbeli események eldobva.
+
+## 7.2 `dedup(events, config) -> list[Event]`
+
+Normalizáló segédfüggvények (a dedup és az `id` is ezt használja):
+
+```python
+def normalize_title(s: str) -> str:
+    # kisbetűsítés, ékezet-eltávolítás (unicodedata NFKD),
+    # zárójeles utótagok levágása: "(Budapest)", "(HU)", "(UK)"
+    # elválasztó utáni helyszín-utótag levágása: " | A38", " - élő koncert"
+    # többszörös whitespace -> egy szóköz
+```
+
+Három szint, ebben a sorrendben:
+
+1. **Exact:** azonos `id` → merge.
+2. **Strong:** normalizált URL egyezés (query string, UTM, fragment levágva) → merge.
+3. **Fuzzy:** `rapidfuzz.fuzz.token_set_ratio(t_a, t_b) >= 88`
+   **ÉS** `abs(start_a - start_b) <= 90 perc`
+   **ÉS** (`token_set_ratio(venue_a, venue_b) >= 85` **VAGY** az egyik venue `None`).
+
+**Merge szabály:** a kisebb `priority` értékű forrás rekordja a bázis. Mezőnként:
+a hosszabb `description` nyer; a nem-`None` ár nyer; a `lat/lon` az elsőtől, akinek van;
+`urls` és `source_ids` unióz; `categories` unióz.
+
+Minden merge döntés a futásnaplóba kerül (`source_a`, `source_b`, `score`, `reason`).
+A 80-88 közötti fuzzy sáv **nem** merge-el, de `ambiguous_dedup` jelöléssel naplózódik —
+ez az opcionális LLM hook bemenete.
+
+## 7.3 `recurrence(events, config) -> list[Event]`
+
+A mintaadat két esetet mutat:
+- **Fut egy ideig:** `2026-08-14` → `2026-08-21` (egy hét)
+- **Sorozat egy rekordként:** `2026-05-06` → `2026-09-30`, "minden szerdán"
+
+```python
+if event.end and (event.end - event.start).days > config.recurrence.series_threshold_days:
+    event.is_series = True
+```
+
+`series_behavior: send_once` → a ledger úgy kezeli, mint bármely eseményt: egyszer kimegy,
+utána néma. `run_behavior: send_at_start` → a többnapos futás a kezdőnapján megy ki.
+
+## 7.4 `group(events, config) -> list[Event]`
+
+**Kötelező, nem opcionális.** A Port.hu mintaadatban húsz rekordból tizenhét egyetlen fesztivál
+(Sziget) fellépése volt. Összevonás nélkül egy többnapos fesztivál augusztusban kiszorítana
+mindent.
+
+```
+csoportkulcs = (venue_name, effective_date, primary_category)
+ha a csoport mérete >= min_group_size (4):
+    egyetlen összevont Event jön létre:
+        title       = f"{venue_name} — {len(group)} program"
+        score       = max(e.score for e in group)     # a scoring UTÁN fut, lásd sorrend
+        group_size  = len(group)
+        urls        = [a helyszín gyűjtő URL-je, ha van, különben a legmagasabb pontszámú tagé]
+        description = a 3 legmagasabb pontszámú tag címe, vesszővel
+egyébként:
+    a csoport tagjai változatlanul mennek tovább, de venue-nként
+    legfeljebb max_per_venue (3) darab, pontszám szerint
+```
+
+**Fontos sorrend:** a `group` a `score` UTÁN fut, mert a csoport pontszáma a tagok
+pontszámától függ. A pipeline tényleges sorrendje tehát:
+`normalize → dedup → recurrence → categorize → filter → score → group → limit`.
+
+## 7.5 `categorize(events, config) -> list[Event]`
+
+Kategóriánként pontszám négy jelből: `keywords` (cím + leírás, súlyozva),
+`venue_prior`, `url_patterns`, `native_types`. A `native_types` egyezés **erős**: +4.
+
+A legmagasabb pontszámú kategória a `primary_category`; minden `min_category_score` fölötti
+bekerül a `categories` listába. Ha egy sem éri el, `fallback_category` (`egyeb`).
+
+`digest categorize --explain <id>` kiírja a pontok eredetét.
+
+**Opcionális Gemini réteg.** `Categorizer` protokoll, két implementáció. Csak akkor hívódik,
+ha `llm.enabled` és az esemény `egyeb` lett és a leírás > 200 karakter.
+
+Kvótaszámítás: ~12 forrás × ~40 esemény ≈ 480 nyers, dedup után ~300; ebből ~25% `egyeb`
+→ 75 esemény → 35-ös kötegekkel 3 hívás, plusz 1-2 a dedup-párokra. **Napi 4-6 hívás.**
+A publikus források a napi kvótára 250 / 1000 / 1500 közötti számokat mondanak, csúcsidőben
+kevesebbet — a kötegelés miatt ez mindegy. **Az `on_quota_error: fallback_to_rules` nem opció,
+hanem követelmény: az LLM soha nem lehet a pipeline kritikus útján.**
+
+## 7.6 `filter(events, config) -> list[Event]`
+
+Kizár: horizonton kívül · nem engedett kategória · `price_min > max_price_huf` ·
+`blocked_keywords` egyezés · a ledger szerint már kiküldött (§8.2) · `min_score` alatt.
+
+## 7.7 `score(events, config) -> list[Event]`
+
+```
+score = category_weight(primary_category)
+      + Σ keyword_boosts ahol a kulcsszó szerepel a címben vagy leírásban
+      + (free_bonus ha is_free)
+      + (cheap_bonus.points ha price_min < cheap_bonus.under_huf)
+      + (proximity.same_district_bonus ha district == home.district)
+      - (distance_km * proximity.distance_penalty_per_km) ha van distance_km
+      + (novelty_bonus ha most jelent meg először a ledgerben)
+      + (soon_bonus.points ha start - now <= soon_bonus.within_days)
+      + weekday_weights[effective_date.weekday()]
+```
+
+Minden tag bekerül a `score_breakdown` dictbe a saját nevén — ez hajtja a `digest explain`
+parancsot (a Pages UI-nak nincs ilyen nézete, lásd §9.0 AUDIT-1 BLOCKER-2).
+
+**Hajnali eltolás.** A fesztiválszettek 00:00 és 05:00 közé esnek, de az **előző** estéhez
+tartoznak. Eltolás nélkül egy péntek éjjeli 02:00-s buli szombati `weekday_weight`-et kapna.
+
+```python
+effective_date = (start - timedelta(hours=config.night_shift.before_hour)).date()
+```
+
+---
+
+# 8. Állapot
+
+## 8.1 `state/state.json`
+
+A teljes eseménytörzsek **nem** élik túl a futást — az email amúgy is tartalmazza őket.
+Egyetlen dolognak muszáj átmennie: mit küldtünk már ki. Enélkül egy két hét múlva induló
+koncert 14 egymást követő reggelen bekerülne a hírlevélbe.
+
+```json
+{
+  "version": 1,
+  "last_run": "2026-08-16T04:34:11Z",
+  "sent": [
+    { "id": "a3f9c21e8b04d7f6", "t": "sub focus", "d": "2026-08-29", "s": "2026-08-16", "u": "2026-08-29" }
+  ],
+  "source_health": {
+    "port-hu": {
+      "consecutive_failures": 0,
+      "last_ok": "2026-08-16",
+      "last_count": 312,
+      "etag": "W/\"a1b2c3\"",
+      "disabled_until": null
+    }
+  },
+  "run_log": [
+    { "date": "2026-08-16", "raw": 487, "after_dedup": 301, "sent": 18, "seconds": 142 }
+  ]
+}
+```
+
+Mezőrövidítések a `sent` tömbben szándékosak (`t` = normalizált cím, `d` = esemény dátuma,
+`s` = kiküldés dátuma, `u` = eddig védett — lásd lent) — 2000 bejegyzésnél ez ~120 KB
+helyett ~180 KB-ot spórol.
+
+**`u` külön mező, nem `d` (AUDIT-5 BLOCKER, javítás).** Egy még futó esemény (több napos
+kiállítás, heti sorozat) a `normalize()` "még nem múlt el" kivétele miatt napokig,
+hetekig a pipeline-ban marad — de a `d` mező az *első* megjelenés dátumára fagy. Ha a
+purge is `d`-t nézné, a ledger védelme egy nappal az első kiküldés után lejárna, miközben
+az esemény még mindig újra és újra "új"-ként jelenne meg. `u` az esemény tényleges
+záródátuma (`event.end.date()`, ha van `end`; egyébként ugyanaz, mint `d`) — eddig
+tartja életben a ledger bejegyzést a `purge()`.
+
+## 8.2 Műveletek
+
+```python
+def purge(state, today) -> State:
+    """Minden `sent` bejegyzés törlődik, aminek a `u` mezője < today."""
+
+def was_sent(state, event) -> bool:
+    """Exact id egyezés VAGY (azonos `d` ÉS token_set_ratio(t, title_norm) >= 92).
+    A fuzzy ág azért kell, mert a forrás átírhatja a címet, és akkor az id megváltozik."""
+```
+
+`run_log`: csak az utolsó 30 futás marad meg.
+
+---
+
+# 9. Renderelés
+
+## 9.0 Két renderelési profil — kötelező
+
+A két kimenet **jogilag és gyakorlatilag különböző helyzetben van**, ezért különböző
+mezőkészletet kap.
+
+| | `email` profil | `web` profil |
+|---|---|---|
+| Jelleg | személyes használat, egy címzett | **publikálás a nyílt neten** |
+| Cím, időpont, helyszín, kerület | ✅ | ✅ |
+| Ár, kategória, pontszám | ✅ | ✅ |
+| **Pontszám-bontás** (miért ennyi: `score_breakdown`) | ✅ | ❌ |
+| **Átvett leírás** | ✅ | ❌ |
+| **Forrásoldali kép** | ✅ (hotlink elfogadható) | ❌ **soha, se beágyazva, se hotlinkelve** |
+| Link a forráshoz | ✅ | ✅ (kötelező, minden tételen) |
+
+**Indoklás.** Az emailbe bemásolni mások leírását és bélyegképét személyes felhasználás.
+A Pages oldal viszont publikálás: ott mások által írt szöveget tennénk ki a nyílt netre, és
+hotlinkelt képekkel az ő sávszélességüket használnánk. Ettől néz ki a projekt konkurens
+aggregátornak a személyes eszköz helyett. A szűrhetőség ettől nem sérül, mert az a
+strukturált mezőkön megy.
+
+**A pontszám-bontás nem publikus (AUDIT-1 BLOCKER-2, döntés).** A `score_breakdown`
+egyes tagjai szó szerint a privát profil számai — `breakdown.category` pontosan
+`category_weights[az esemény kategóriája]`, `breakdown.weekday` pontosan
+`weekday_weights[az esemény napja]`, következtetés nélkül. Ez ugyanaz a "olvasható térkép
+az ízlésedről" probléma, amiért a `scoring` blokk egyáltalán a `PROFILE_YAML` secretben él
+(§12) — a bontás publikálása megkerülte volna a szétvágást. Az összesített `score` marad
+publikus (rendezéshez, a pontsávhoz), csak a tagonkénti bontás nem. Ez a döntés kizárólag
+a `web` profilt érinti; a `render/email.py` felé menő `Event` objektumokból ez a javítás
+semmit nem vágott le.
+
+Következmény: az `events.json`-ban **nincs `description`, nincs `image` és nincs
+`breakdown` mező**. A `render/web.py` explicit mezőlistával épít, nem `model_dump()`-pal —
+hogy egy jövőbeli új mező ne szivárogjon ki magától.
+
+## 9.1 Sablonok
+
+Három kimenet, mind Jinja2:
+
+| Sablon | Kimenet | Megkötés |
+|---|---|---|
+| `email.html.j2` | SMTP HTML body | táblázat-alapú, inline CSS, max 600px, lásd Claude Design brief |
+| `email.txt.j2` | plain text alternatíva | kötelező, nem opcionális |
+| `index.html.j2` | `site/index.html` | statikus, kliensoldali szűrés `events.json` fölött |
+| `status.html.j2` | `site/status.html` | forrás-health tábla |
+
+A `render/web.py` az `index.html` mellé kiírja a `site/events.json`-t is. **A `web` profil
+szerint (§9.0): nincs benne `description`, `image`, sem `breakdown`.**
+
+```json
+{
+  "generated_at": "2026-08-16T04:34:11Z",
+  "events": [
+    {
+      "id": "a3f9c21e8b04d7f6",
+      "title": "...",
+      "url": "...",
+      "start": "2026-08-29T20:00:00+02:00",
+      "venue": "A38 Hajó",
+      "district": "XI.",
+      "categories": ["koncert"],
+      "price_min": 4500,
+      "is_free": false,
+      "score": 11.3,
+      "group_size": 1
+    }
+  ]
+}
+```
+
+Az archívum `site/archive/YYYY-MM-DD.html` néven **a `web` profillal** renderelődik —
+nem az email HTML másolata. `archive_keep_days` fölött a régiek törlődnek a commit előtt.
+
+**Kötelező teszt (`test_web_render.py`):** az `events.json` egyetlen rekordja sem
+tartalmazhat `description`, `image` vagy `breakdown` kulcsot, és a generált `site/*.html`
+egyetlen `<img>` tagje sem mutathat forrásoldali domainre.
+
+---
+
+# 10. Delivery
+
+```python
+class Deliverer(Protocol):
+    type: str
+    def send(self, subject: str, html: str, text: str, config: Config) -> bool: ...
+```
+
+- **smtp**: Gmail app password, `SMTP_HOST`/`SMTP_USER`/`SMTP_PASSWORD` envből,
+  `recipient_email` a profilból. `EmailMessage` multipart/alternative.
+- **telegram**: rövidített változat, csak a top 5, Markdown.
+
+**A visszatérési érték kötelező (AUDIT-2 BLOCKER).** `send` `True`-t ad vissza, ha ténylegesen
+kiment valami, és `False`-t egy kegyelmi, szándékos no-op esetén (pl. hiányzó
+`recipient_email`, §5.3). A hívó (`cli._deliver`) ez alapján dönti el, hogy `record_sent`
+lefusson-e — enélkül egy hiányzó/hibás `PROFILE_YAML` némán és véglegesen "kiküldöttként"
+jelölné meg az adott nap összes eseményét, holott soha senkihez nem jutottak el.
+
+`newsletter.send_when_empty: true` → **a hírlevél akkor is kimegy, ha nulla új program van**,
+"ma 0 új találat" sorral. Így az email *hiánya* a riasztás. Ez a rendszer teljes monitoringja —
+de csak akkor, ha a `send_when_empty` melletti tényleges kiküldés is sikerül; ha a levelezés
+maga hibázik, ugyanez a hiba vonatkozik rá is.
+
+---
+
+# 11. GitHub Actions
+
+`.github/workflows/digest.yml`:
+
+```yaml
+name: digest
+
+on:
+  schedule:
+    - cron: "30 4 * * *"        # ~06:30 Europe/Budapest nyáron
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: digest
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -e .
+
+      - name: Run digest
+        env:
+          PROFILE_YAML:    ${{ secrets.PROFILE_YAML }}
+          SMTP_HOST:       ${{ secrets.SMTP_HOST }}
+          SMTP_USER:       ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD:   ${{ secrets.SMTP_PASSWORD }}
+          GEMINI_API_KEY:  ${{ secrets.GEMINI_API_KEY }}
+        run: digest run
+
+      - name: Commit state
+        run: |
+          git config user.name  "digest-bot"
+          git config user.email "digest-bot@users.noreply.github.com"
+          git add state/state.json site/
+          git diff --staged --quiet || git commit -m "chore: digest run $(date -u +%F)"
+          git push
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deploy
+        uses: actions/deploy-pages@v4
+```
+
+**Költség.** Privát repóban havi 2000 ingyenes Linux-perc, publikusban korlátlan.
+Napi 3-5 perces futás ≈ 150 perc/hó.
+
+**A 60 napos szabály.** Publikus repóban az ütemezett workflow letiltódik 60 nap repo-aktivitás
+nélkül. "Aktivitás" = commit a default branchre; issue-komment és csillagozás nem számít.
+Nálunk a napi `state.json` commit ezt lefedi, külön keepalive nem kell.
+
+**Az ütemezés nem pontos.** A GitHub cron UTC-ben jár, csúcsidőben 5-30 perc csúszás normális,
+és explicit "best effort" SLA nélkül. Reggeli hírlevélnél ez irreleváns. A nyári/téli
+időszámítás nincs kezelve — vagy elfogadod az egy óra elcsúszást, vagy évente kétszer átírod.
+
+---
+
+# 12. Biztonság és configszétvágás
+
+| Hol | Mi |
+|---|---|
+| repo, publikus | `sources/*.yaml`, kategória-szabályok, `schedule`, sablonok, kód |
+| Actions Secret `PROFILE_YAML` | pontozási súlyok, `keyword_boosts`, `home`, `recipient_email`, `filters` |
+| Actions Secrets | `SMTP_*`, `GEMINI_API_KEY` |
+
+A profil azért secret, mert a súlyok, a kulcsszó-boostok és a kerület együtt **olvasható térkép
+az ízlésedről és arról, hol laksz.** A `test_config_privacy.py` védőteszt ezt kényszeríti ki
+(mind a `config.yaml`-ra, mind a `sources/*.yaml`-ra).
+
+A Pages oldal publikus (a privát Pages Enterprise Cloudot igényelne). A tartalma nyilvános
+programlisták, tehát ez nem szivárogtat semmit — feltéve, hogy a szétvágás megvan.
+Az URL-be kerüljön egy véletlen szegmens, ha nem szeretnéd, hogy találomra megtalálják.
+
+**Elfogadott, nem javított kockázat (AUDIT-3 MAJOR-3, döntés).** A publikus `events.json`
+a `filters` szerint már megszűrt eseménylista — aki ugyanazokat a nyilvános forrásokat
+(port.hu, bigcitylife, …) is böngészi, és a kettőt összeveti, közvetetten következtethet
+arra, mit zárt ki a `filters` (mely kategóriák, hozzávetőleges ár-plafon, mely kulcsszavak
+sosem jelennek meg). Ez nem kódhiba — a pipeline pontosan a specifikált sorrendben szűr —,
+hanem szerkezeti következménye annak, hogy "publikálj egy szűrt nézetet nyilvános
+forrásokból". Elfogadva: motivált támadót és tényleges korrelációs munkát igényel, nem
+egyetlen paranccsal kiolvasható adat, és a `filters.categories` amúgy is a `config.yaml`
+teljesen publikus kategórialistájának nagy részhalmaza — a marginális információ kicsi.
+Nem lett belőle kód-változtatás a `render/web.py`-ban.
+
+---
+
+# 13. Hibakezelés és health
+
+- **Per-source izoláció:** egy forrás hibája sosem buktatja el a futást.
+- **Selector drift:** ha egy forrás korábban >10 eseményt adott és most 0-t, az nem
+  "nincs program", hanem törött parser → `ERROR` szint és megjelenik a `/status.html`-en.
+- **Auto-disable:** 5 egymást követő hiba után `disabled_until = today + 7 nap`.
+- **Strukturált logolás** (`structlog`), futás végén összefoglaló: forrásonként darabszám,
+  dedup merge-ek, kiszűrtek, időtartam.
+- Ha a teljes futás elhasal, a GitHub emailben értesít a workflow hibáról.
+
+---
+
+# 14. Tesztelés
+
+- `pytest` + `respx` (httpx mockolás). **Egyetlen teszt sem megy ki a hálózatra.**
+- Minden forráshoz egy valós, lementett fixture a `tests/fixtures/` alatt.
+  A Port.hu fixture a már meglévő minta legyen, csonkolatlanul.
+- Külön teszt minden pipeline szakaszra, kézzel írt `Event` listákkal.
+- **Kötelező regressziós tesztek:**
+  - `test_group.py`: 17 azonos helyszínű esemény → 1 összevont sor
+  - `test_recurrence.py`: 5 hónapos rekord → `is_series = True`
+  - `test_score.py`: 02:00-s péntek éjjeli esemény pénteki súlyt kap
+  - `test_state.py`: átírt cím esetén a fuzzy ág elfogja
+  - `test_config_privacy.py`: a publikus config nem tartalmaz profil-kulcsot
+  - `test_source_port_hu.py`: `gallery` nem kerül a `RawEvent`-be; `1113` → `XI.`
+
+---
+
+# 15. Tech stack
+
+Python 3.12 · `httpx` · `selectolax` · `pydantic v2` · `Jinja2` · `rapidfuzz` · `PyYAML` ·
+`typer` · `structlog` · `google-genai` (opcionális extra) · `pytest` + `respx` · `ruff`
+
+Nincs: adatbázis-szerver, webframework, Docker, böngésző, VPS, ORM.
+`pyproject.toml`, `[project.scripts] digest = "digest.cli:app"`.
+
+---
+
+# 16. Mérföldkövek
+
+| # | Tartalom | Kimenet |
+|---|---|---|
+| M0 | Repo, `CLAUDE.md`, modellek, config-betöltés, CLI váz, Port.hu plugin | `digest fetch port-hu` fut fixture-ből |
+| M1 | normalize + dedup + recurrence, Jegy.hu és Meetup | `digest run --dry` rendezett listát ad |
+| M2 | categorize + filter + score + group, `state.json` ledger | pontozott, összevont lista |
+| M3 | email sablonok, SMTP delivery, "0 találat" heartbeat | első valódi hírlevél lokálisan |
+| M4 | GitHub Actions, secrets, `PROFILE_YAML` merge, state-commit | autonóm napi futás |
+| M5 | deklaratív YAML motor + 5 SSR forrás | forrás hozzáadása kód nélkül |
+| M6 | Pages deploy, `events.json`, olvasó UI, `status.html` | böngészhető, szűrhető archívum |
+| M7 | Gemini réteg, `.ics` export, Telegram | finomhangolás |
+| M8 | Író UI: PAT + Contents API + `workflow_dispatch`; Ticketswap enricher | böngészőből kapcsolható |
+
+**M0-M4 után a rendszer működik és hasznos.** Minden további javítás, nem feltétel.
+
+---
+
+# 17. Nyitott kérdések
+
+1. **Port.hu listázó végpont pontos URL-je és paraméterei** — ez blokkolja az M0 véglegesítését.
+2. **A Port.hu `type` mező teljes szótára** — a minta csak `"concert"`-et tartalmazott.
+3. **Meetup csoport-slugok** — konkrét lista kell.
+4. **Delivery:** csak email, vagy Telegram is?
+5. **Fesztiválok:** az összevont sor elég, vagy a nagy fesztiváloknak külön szekció kell?
+
+**Eldőlt:** futtatás GitHub Actionsön · Playwright kimarad · publikus repo + configszétvágás ·
+UI kétlépcsős (olvasó M6, író M8) · **geokódolás nem kell** (a Port.hu ad `lat`/`lon`-t,
+a kerület az irányítószámból determinisztikus).
+
+---
+
+# 18. Design
+
+Az email és a webes olvasó UI vizuális terve külön briefből készül
+(`claude-design-brief.md`). Az elkészült Claude Design artefakt linkje:
+
+**Claude Design link:** _<ide illeszd be>_
+
+A sablonok abból a HTML-ből származnak: az agent **nem generálja újra a markupot**, csak
+Jinja2 változókat és ciklusokat helyez el benne.

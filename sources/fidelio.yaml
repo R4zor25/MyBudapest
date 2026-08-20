@@ -1,0 +1,23 @@
+id: fidelio
+name: Fidelio
+enabled: false
+priority: 30
+fetcher: http
+rate_limit_seconds: 2
+plugin: null
+
+# PLACEHOLDER — deliberately empty, do not guess selectors here.
+#
+# robots.txt is fully open (only a Sitemap line), so this is not an access problem — it
+# is that no "programkereső" (event finder) listing page could be found (checked
+# 2026-08-16). fidelio.hu is a magazine: its sitemap index is entirely article-based
+# ("gsitemap_*", Google News style), its nav is editorial categories (Klasszikus,
+# Színház, Zenés színház, Tánc, Jazz/World, Vizuál, Könyv), and /programok, /koncertek
+# and /programajanlo all resolve to generic pages with no repeated event-card structure
+# — no `item_selector` guess would be honest here (requirement 7). If Fidelio does
+# publish a structured event calendar, it was not discoverable by URL-guessing,
+# robots.txt/sitemap inspection or a site-search pass within reasonable effort; a fresh
+# look with real DevTools access might find a JSON endpoint SPEC 6.1 step 2 would prefer
+# anyway.
+listing:
+  urls: []

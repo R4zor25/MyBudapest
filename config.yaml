@@ -1,0 +1,96 @@
+version: 1
+
+schedule:
+  timezone: Europe/Budapest
+  horizon_days: 14
+
+fetch:
+  user_agent: "budapest-event-digest/1.0 (+https://github.com/R4zor25/MyBudapest)"
+  timeout_seconds: 20
+  max_retries: 3
+  backoff_base_seconds: 2
+  default_rate_limit_seconds: 1.5
+  respect_robots_txt: true
+
+categories:
+  # kategória -> jelek. A pontszám összeadódik, a legmagasabb nyer.
+  koncert:
+    keywords: { koncert: 3, "élő zene": 3, lemezbemutató: 2, zenekar: 2, akusztik: 2 }
+    venue_prior: { "A38 Hajó": 2, "Akvárium Klub": 2, "Dürer Kert": 2, "Kobuci Kert": 2 }
+    url_patterns: ["/koncert/", "/zene/"]
+    native_types: ["concert"]
+  klub:
+    keywords: { dj: 3, techno: 3, house: 2, party: 2, "lemezlovas": 2, rave: 3 }
+    venue_prior: { "Ötkert": 2, "Instant": 2, "Turbina": 2 }
+    native_types: []
+  szinhaz:
+    keywords: { előadás: 2, színház: 4, dráma: 2, bemutató: 2, stúdió: 1 }
+    url_patterns: ["/szinhaz/"]
+    native_types: ["theater", "theatre"]
+  kiallitas:
+    keywords: { kiállítás: 4, tárlat: 3, galéria: 2, múzeum: 2, "enteriőr": 1 }
+    url_patterns: ["/kiallitas/"]
+    native_types: ["exhibition"]
+  film:
+    keywords: { film: 3, vetítés: 3, mozi: 3, premier: 2 }
+    url_patterns: ["/film/", "/mozi/"]
+    native_types: ["movie", "screening"]
+  meetup:
+    keywords: { meetup: 4, workshop: 2, előadás: 1, "közösségi": 2, networking: 3 }
+  tarsasjatek:
+    keywords: { társasjáték: 4, "board game": 4, játékest: 4, "társasozás": 4, "játékklub": 3 }
+    venue_prior: { "Red & Black": 3, "Játsz/Ma": 3 }
+  kviz:
+    keywords: { kvíz: 4, quiz: 4, vetélkedő: 3, "kvízest": 4, pubquiz: 4 }
+  gasztro:
+    keywords: { borkóstoló: 3, sörkóstoló: 3, gasztro: 3, vacsora: 2, piac: 2, street food: 3 }
+  fesztival:
+    keywords: { fesztivál: 4, festival: 4 }
+  outdoor:
+    keywords: { túra: 3, séta: 2, kirándulás: 3, futás: 2, kerékpár: 2 }
+  sport:
+    keywords: { mérkőzés: 3, bajnokság: 2, verseny: 2, edzés: 2 }
+  csaladi:
+    keywords: { gyerek: 3, családi: 3, bábszínház: 3 }
+min_category_score: 2
+fallback_category: egyeb
+
+grouping:
+  collapse_by: [venue_name, effective_date, primary_category]
+  min_group_size: 4
+  max_per_venue: 3
+
+recurrence:
+  series_threshold_days: 7
+  series_behavior: send_once
+  run_behavior: send_at_start
+
+night_shift:
+  before_hour: 5          # 00:00-04:59 az előző naphoz tartozik
+
+newsletter:
+  per_category_limit: 5
+  total_limit: 25
+  send_when_empty: true   # heartbeat — az email hiánya a riasztás
+  expiring_section:
+    enabled: true
+    within_days: 3
+
+llm:
+  enabled: false          # M7-ben kapcsoljuk be
+  provider: gemini
+  model: gemini-2.5-flash-lite
+  batch_size: 35
+  max_calls_per_run: 12
+  on_quota_error: fallback_to_rules
+  only_for: [uncategorized, ambiguous_dedup]
+
+delivery:
+  - type: smtp
+    enabled: true
+  - type: telegram
+    enabled: false
+
+site:
+  base_path: "/budapest-event-digest"
+  archive_keep_days: 90

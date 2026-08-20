@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<meta name="color-scheme" content="dark light">
+<meta name="supported-color-schemes" content="dark light">
+<title>Budapest — {{ date_label }}</title>
+<style>
+  /* A design nem függ ettől a blokktól: Gmail levághatja. Csak finomítás. */
+  @media only screen and (max-width: 620px) {
+    .wrap { width: 100% !important; }
+    .pad { padding-left: 16px !important; padding-right: 16px !important; }
+    .rail { width: 58px !important; }
+    .time { font-size: 19px !important; }
+    .thumb, .thumbcell { display: none !important; width: 0 !important; }
+    .date { font-size: 24px !important; }
+  }
+  @media (prefers-color-scheme: light) {
+    /* A sötét alap szándékos; világos módban is ez marad, csak a törzs körüli
+       ground halkul, hogy ne vágjon élesen a kliens vászonjához. */
+    .outer { background: #202235 !important; }
+  }
+</style>
+</head>
+<body style="margin:0; padding:0; width:100%; background-color:#12131f; color:#e9e9ed; -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:100%; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+
+<div style="display:none; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden; color:#12131f;">{{ preheader }} &#8203;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;&#847;</div>
+
+<table role="presentation" class="outer" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#12131f" style="background-color:#12131f; border-collapse:collapse;">
+<tr>
+<td align="center" style="padding:20px 10px 44px 10px;">
+
+<table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px; border-collapse:collapse; background-color:#161826;">
+
+  <!-- ══ FEJLÉC ══════════════════════════════════════════════════════ -->
+  <tr>
+  <td bgcolor="#262a60" class="pad" style="background-color:#262a60; padding:26px 28px 24px 28px;">
+    <p style="margin:0 0 14px 0; font-size:11px; line-height:1; letter-spacing:0.16em; text-transform:uppercase; color:#b5abfc;">Budapesti napi lista</p>
+    <p class="date" style="margin:0 0 8px 0; font-size:28px; line-height:1.14; font-weight:500; letter-spacing:-0.02em; color:#f3f5fe;">{{ weekday_label }},<br>{{ date_label }}</p>
+    <p style="margin:0; font-size:14px; line-height:1.5; color:#d2cefd;">{{ new_count }} új program, ebből <span style="color:#f5f4ff;">{{ free_count }} ingyenes</span> &nbsp;·&nbsp; {{ tonight_count }} ma este</p>
+  </td>
+  </tr>
+
+{% if grouped_rows %}
+  <!-- ══ ÖSSZEVONT FESZTIVÁL-SOR ═════════════════════════════════════ -->
+  <tr>
+  <td class="pad" style="padding:22px 28px 0 28px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+    <tr>
+      <td width="18" valign="middle" style="width:18px; padding:0 8px 0 0;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr><td width="18" height="2" bgcolor="#9184d9" style="width:18px; height:2px; font-size:0; line-height:2px; background-color:#9184d9;">&nbsp;</td></tr></table>
+      </td>
+      <td style="font-size:11px; line-height:1; letter-spacing:0.16em; text-transform:uppercase; color:#b2b6ca; font-weight:600;">Fesztivál</td>
+      <td align="right" style="font-size:11px; line-height:1; color:#595d6c;">{{ grouped_rows|length }}</td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+
+{% for row in grouped_rows %}
+  <tr>
+  <td class="pad" style="padding:{{ '14' if loop.first else '18' }}px 28px 0 28px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; background-color:#1e2032;">
+    <tr>
+      <td width="3" bgcolor="#9184d9" style="width:3px; background-color:#9184d9; font-size:0; line-height:0;">&nbsp;</td>
+      <td style="padding:13px 16px 14px 15px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+        <tr>
+          <td style="padding:0 0 3px 0;">
+            <a href="{{ row.url }}" style="font-size:16px; line-height:1.3; font-weight:500; color:#e9e9ed; text-decoration:none;">{{ row.venue_name }}</a><span style="font-size:16px; line-height:1.3; color:#75798c;"> — {{ row.day_word }} {{ row.group_size }} program</span>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-size:12px; line-height:1.5; color:#9397ab; padding:0;">
+            {{ row.time_label }}-tól{% if row.district_label %} &nbsp;·&nbsp; {{ row.district_label }}{% endif %} &nbsp;·&nbsp; {{ row.description }}{% if row.remaining > 0 %} és további {{ row.remaining }} program{% endif %}
+          </td>
+        </tr>
+        </table>
+      </td>
+      <td width="60" align="right" valign="middle" style="width:60px; padding:0 16px 0 0;">
+        <span style="font-size:20px; line-height:1; font-weight:500; color:#9184d9;">{{ row.group_size }}</span><br>
+        <span style="font-size:10px; line-height:1.6; letter-spacing:0.1em; text-transform:uppercase; color:#75798c;">program</span>
+      </td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+{% endfor %}
+{% endif %}
+
+{% for section in category_sections %}
+  <!-- ══ {{ section.label|upper }} ═════════════════════════════════════ -->
+  <tr>
+  <td class="pad" style="padding:{{ section.header_top_padding }}px 28px 0 28px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+    <tr>
+      <td width="18" valign="middle" style="width:18px; padding:0 8px 0 0;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr><td width="18" height="2" bgcolor="#9184d9" style="width:18px; height:2px; font-size:0; line-height:2px; background-color:#9184d9;">&nbsp;</td></tr></table>
+      </td>
+      <td style="font-size:11px; line-height:1; letter-spacing:0.16em; text-transform:uppercase; color:#b2b6ca; font-weight:600;">{{ section.label }}</td>
+      <td align="right" style="font-size:11px; line-height:1; color:#595d6c;">{{ section.count }}</td>
+    </tr>
+    </table>
+  </td>
+  </tr>
+
+{% for event in section.rows %}
+  <tr>
+  <td class="pad" style="padding:{{ '14' if loop.first else '18' }}px 28px 0 28px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+    <tr>
+      <!-- idő + pontszám sáv -->
+      <td class="rail" width="70" valign="top" style="width:70px; padding:0 12px 0 0;">
+        <p style="margin:0 0 1px 0; font-size:11px; line-height:1; letter-spacing:0.1em; text-transform:uppercase; color:#75798c;">{{ event.weekday_label }}</p>
+        <p class="time" style="margin:0 0 {{ '2' if event.night_note else '11' }}px 0; font-size:22px; line-height:1.05; font-weight:500; letter-spacing:-0.01em; color:#e9e9ed;">{{ event.time_label }}</p>
+{% if event.night_note %}
+        <p style="margin:0 0 9px 0; font-size:11px; line-height:1.3; color:#796cbf;">{{ event.night_note }}</p>
+{% endif %}
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+        <tr>
+{% for i in range(7) %}
+          <td width="6" height="4" bgcolor="{{ event.score_color if i < event.bar_lit else '#332e4d' }}" style="width:6px; height:4px; font-size:0; line-height:4px; background-color:{{ event.score_color if i < event.bar_lit else '#332e4d' }};">&nbsp;</td>{% if not loop.last %}<td width="3" style="width:3px; font-size:0; line-height:4px;">&nbsp;</td>{% endif %}
+
+{% endfor %}
+        </tr>
+        </table>
+        <p style="margin:6px 0 0 0; font-size:11px; line-height:1; color:{{ event.score_color }};">{{ event.score_label }}</p>
+      </td>
+      <!-- tartalom -->
+      <td valign="top" style="padding:0;">
+        <p style="margin:0 0 6px 0;">
+          <a href="{{ event.url }}" style="font-size:17px; line-height:1.32; font-weight:500; letter-spacing:-0.01em; color:#e9e9ed; text-decoration:none;">{{ event.title }}</a>
+        </p>
+        <p style="margin:0 0 7px 0; font-size:12px; line-height:1.5; color:#9397ab;">
+          {% for part in event.meta_parts %}{% if part.html %}{{ part.text|safe }}{% else %}{{ part.text }}{% endif %}{% if not loop.last %} &nbsp;·&nbsp; {% endif %}{% endfor %}
+
+        </p>
+{% if event.description %}
+        <p style="margin:0; font-size:13px; line-height:1.6; color:#b2b6ca;">{{ event.description }}</p>
+{% endif %}
+      </td>
+{% if event.image_url %}
+      <!-- bélyegkép -->
+      <td class="thumbcell" width="76" valign="top" align="right" style="width:76px; padding:0 0 0 12px;">
+        <img class="thumb" src="{{ event.image_url }}" width="64" height="64" alt="{{ event.title }}" style="display:block; width:64px; height:64px; border:0; border-radius:6px; background-color:#232532; color:#75798c; font-size:10px; line-height:1.2;">
+      </td>
+{% endif %}
+    </tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr><td height="18" style="height:18px; font-size:0; line-height:18px;">&nbsp;</td></tr>
+<tr><td height="1" bgcolor="#282a3a" style="height:1px; font-size:0; line-height:1px; background-color:#282a3a;">&nbsp;</td></tr></table>
+  </td>
+  </tr>
+{% endfor %}
+{% endfor %}
+
+{% if expiring_rows %}
+  <!-- ══ HAMAROSAN LEJÁR ═════════════════════════════════════════════ -->
+  <tr>
+  <td class="pad" style="padding:30px 28px 0 28px;">
+    <p style="margin:0 0 12px 0; font-size:11px; line-height:1; letter-spacing:0.16em; text-transform:uppercase; color:#75798c;">Hamarosan lejár</p>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; background-color:#1a1c29;">
+{% for row in expiring_rows %}
+    <tr>
+      <td style="padding:13px 16px 14px 16px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+        <tr>
+          <td width="58" valign="top" style="width:58px; padding:0 12px 0 0;">
+            <p style="margin:0 0 1px 0; font-size:10px; line-height:1; letter-spacing:0.1em; text-transform:uppercase; color:#595d6c;">{{ row.weekday_label }}</p>
+            <p style="margin:0; font-size:16px; line-height:1.1; font-weight:500; color:#b2b6ca;">{{ row.time_label }}</p>
+          </td>
+          <td valign="top" style="padding:0;">
+            <p style="margin:0 0 4px 0;">
+              <a href="{{ row.url }}" style="font-size:14px; line-height:1.35; font-weight:500; color:#cfd3e5; text-decoration:none;">{{ row.title }}</a>
+            </p>
+            <p style="margin:0; font-size:12px; line-height:1.5; color:#75798c;">{% for part in row.meta_parts %}{{ part.text }}{% if not loop.last %} &nbsp;·&nbsp; {% endif %}{% endfor %}</p>
+          </td>
+          <td width="34" align="right" valign="top" style="width:34px;">
+            <span style="font-size:12px; line-height:1.3; color:#796cbf;">{{ row.score_label }}</span>
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+{% endfor %}
+    </table>
+  </td>
+  </tr>
+{% endif %}
+
+  <!-- ══ LÁBLÉC ══════════════════════════════════════════════════════ -->
+  <tr>
+  <td class="pad" style="padding:34px 28px 30px 28px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+    <tr><td height="1" bgcolor="#282a3a" style="height:1px; font-size:0; line-height:1px; background-color:#282a3a;">&nbsp;</td></tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; padding-top:16px;">
+    <tr>
+      <td valign="middle" style="padding:16px 0 0 0;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+        <tr>
+          <td width="6" valign="middle" style="width:6px; padding:0 7px 0 0;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr><td width="6" height="6" bgcolor="#9184d9" style="width:6px; height:6px; font-size:0; line-height:6px; border-radius:3px; background-color:#9184d9;">&nbsp;</td></tr></table>
+          </td>
+          <td style="font-size:12px; line-height:1.5; color:#9397ab;">{{ source_health_line }} &nbsp;·&nbsp; futás: {{ run_time_label }}</td>
+        </tr>
+        </table>
+      </td>
+      <td align="right" valign="middle" style="padding:16px 0 0 0;">
+        <!-- gomb táblázatból -->
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate; border-radius:8px; border:1px solid #9184d9;">
+        <tr>
+          <td align="center" style="padding:8px 14px; border-radius:8px;">
+            <a href="{{ archive_url }}" style="font-size:13px; line-height:1.2; font-weight:500; color:#b5abfc; text-decoration:none; display:inline-block;">Archívum &amp; szűrők →</a>
+          </td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+    <p style="margin:18px 0 0 0; font-size:11px; line-height:1.6; color:#595d6c;">A pontszám a saját szabályrendszered szerint számolt — a hét sáv 2 pontonként lép. Holnap reggel 7-kor újra.</p>
+  </td>
+  </tr>
+
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>

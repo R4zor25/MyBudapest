@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "budapest-event-digest"
+version = "0.1.0"
+description = "Daily Budapest event digest: fetch, dedup, score, deliver."
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.27",
+    "selectolax>=0.3.21",
+    "pydantic>=2.7",
+    "Jinja2>=3.1",
+    "rapidfuzz>=3.9",
+    "PyYAML>=6.0",
+    "typer>=0.12",
+    "structlog>=24.1",
+]
+
+[project.optional-dependencies]
+llm = ["google-genai>=1.0"]
+dev = ["pytest>=8.2", "respx>=0.21", "ruff>=0.5"]
+
+[project.scripts]
+digest = "digest.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+# render_email loads these via Path(__file__).parent, which works for an editable install
+# regardless — this is what makes them survive a non-editable `pip install .` too.
+"digest.render" = ["templates/*.j2"]
+
+[tool.ruff]
+line-length = 100
+# The spec documents contain illustrative Python blocks; they are not source files.
+extend-exclude = ["*.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
