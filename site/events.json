@@ -1,0 +1,110 @@
+{
+  "generated_at": "2026-08-20T05:00:30Z",
+  "events": [
+    {
+      "id": "bd333d5921bf4dd2",
+      "title": "hiperkarma",
+      "url": "https://bigcitylife.hu/kobuci-kert/hiperkarma-budapest-2026-08-21",
+      "start": "2026-08-21T19:00:00+02:00",
+      "venue": "Kobuci Kert",
+      "district": null,
+      "categories": [
+        "koncert"
+      ],
+      "price_min": 5900,
+      "is_free": false,
+      "score": 1.0,
+      "group_size": 1
+    },
+    {
+      "id": "387281de19eebbc1",
+      "title": "Kobuci Alter Bugi // péntek",
+      "url": "https://bigcitylife.hu/kobuci-kert/kobuci-alter-bugi-pentek-budapest-2026-08-21",
+      "start": "2026-08-21T22:01:00+02:00",
+      "venue": "Kobuci Kert",
+      "district": null,
+      "categories": [
+        "koncert"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 1.0,
+      "group_size": 1
+    },
+    {
+      "id": "3011b082ce80c148",
+      "title": "Honeybeast",
+      "url": "https://bigcitylife.hu/kobuci-kert/honeybeast-budapest-2026-08-22",
+      "start": "2026-08-22T20:00:00+02:00",
+      "venue": "Kobuci Kert",
+      "district": null,
+      "categories": [
+        "koncert"
+      ],
+      "price_min": 5990,
+      "is_free": false,
+      "score": 1.0,
+      "group_size": 1
+    },
+    {
+      "id": "da30e2b2e9589f9a",
+      "title": "Kobuci Alter Bugi // szombat",
+      "url": "https://bigcitylife.hu/kobuci-kert/kobuci-alter-bugi-szombat-budapest-2026-08-22",
+      "start": "2026-08-22T22:01:00+02:00",
+      "venue": "Kobuci Kert",
+      "district": null,
+      "categories": [
+        "koncert"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 1.0,
+      "group_size": 1
+    },
+    {
+      "id": "864ed63d152a87f2",
+      "title": "Linkin Park Special",
+      "url": "https://bigcitylife.hu/a38-hajo/linkin-park-special-budapest-2026-08-22",
+      "start": "2026-08-22T23:00:00+02:00",
+      "venue": "A38 Hajó",
+      "district": null,
+      "categories": [
+        "koncert"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 1.0,
+      "group_size": 1
+    },
+    {
+      "id": "bbcadf42aa6811cb",
+      "title": "Backstage Budapest: az A38 - hajóséta kulisszatitkokkal",
+      "url": "https://bigcitylife.hu/a38-hajo/backstage-budapest-az-a38-hajoseta-budapest-2026-08-23",
+      "start": "2026-08-23T10:00:00+02:00",
+      "venue": "A38 Hajó",
+      "district": null,
+      "categories": [
+        "koncert"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 1.0,
+      "group_size": 1
+    },
+    {
+      "id": "1147961bdf793298",
+      "title": "Korai Öröm",
+      "url": "https://bigcitylife.hu/kobuci-kert/korai-orom-budapest-2026-08-23",
+      "start": "2026-08-23T20:00:00+02:00",
+      "venue": "Kobuci Kert",
+      "district": null,
+      "categories": [
+        "koncert"
+      ],
+      "price_min": 4500,
+      "is_free": false,
+      "score": 1.0,
+      "group_size": 1
+    }
+  ]
+}

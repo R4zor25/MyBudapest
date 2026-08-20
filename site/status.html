@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Forrás-állapot — Budapesti lista</title>
+<style>
+:root{
+  --bg-deep:#12131f; --surface:#1c1e2b; --text:#e9e9ed;
+  --n300:#cfd3e5; --n500:#9397ab; --n600:#75798c; --accent:#9184d9;
+  --divider:rgba(233,233,237,.16); --ok:#7fd99a; --bad:#e08a8a;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg-deep); color:var(--text);
+  font-family:"Inter",system-ui,-apple-system,'Segoe UI',sans-serif;
+  font-size:15px; line-height:1.55; padding:36px 18px 60px;
+}
+.wrap{max-width:760px; margin:0 auto}
+h1{font-size:22px; font-weight:500; letter-spacing:-.015em; margin:0 0 6px}
+p.sub{color:var(--n500); font-size:13px; margin:0 0 26px}
+table{width:100%; border-collapse:collapse; font-size:13.5px}
+th,td{text-align:left; padding:9px 10px; border-bottom:1px solid var(--divider)}
+th{color:var(--n500); font-weight:500; font-size:11px; letter-spacing:.06em; text-transform:uppercase}
+td.num{font-variant-numeric:tabular-nums}
+.ok{color:var(--ok)}
+.bad{color:var(--bad)}
+.empty{color:var(--n500); font-size:13.5px}
+a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Forrás-állapot</h1>
+  <p class="sub">Utolsó futás: 2026-08-20 07:00</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Forrás</th>
+        <th>Utolsó siker</th>
+        <th>Egymást követő hibák</th>
+        <th>Utolsó darabszám</th>
+        <th>Letiltva eddig</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>bigcitylife</td>
+        <td>2026-08-20</td>
+        <td class="num ok">0</td>
+        <td class="num">8</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
