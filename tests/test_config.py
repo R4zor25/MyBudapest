@@ -21,7 +21,7 @@ scoring:
   free_bonus: 2
   proximity:
     same_district_bonus: 2
-    max_distance_km: 8
+    penalty_cap_km: 8
     distance_penalty_per_km: 0.3
   weekday_weights: { fri: 2, sat: 2 }
 filters:
@@ -59,7 +59,7 @@ def test_profile_sections_are_applied(config_path: Path, sources_dir: Path) -> N
     assert config.scoring.category_weights["tarsasjatek"] == 5
     assert config.scoring.keyword_boosts == {"koreai": 3}
     assert config.scoring.proximity is not None
-    assert config.scoring.proximity.max_distance_km == 8
+    assert config.scoring.proximity.penalty_cap_km == 8
     assert config.filters.categories == ["koncert", "kviz"]
     assert config.filters.max_price_huf == 12000
 

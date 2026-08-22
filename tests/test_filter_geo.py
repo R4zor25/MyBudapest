@@ -118,14 +118,48 @@ def test_max_distance_km_excludes_independently_of_the_scoring_penalty() -> None
 
 
 def test_the_scoring_proximity_bound_does_not_filter() -> None:
-    """The mirror of the test above: setting only `scoring.proximity.max_distance_km`
-    must exclude nothing, because that field bounds a penalty and never removes an event.
-    Merging the two would silently turn a ranking preference into a hard cut."""
+    """The mirror of the test above: setting only `scoring.proximity.penalty_cap_km` must
+    exclude nothing, because that field bounds a penalty and never removes an event. The
+    two used to share the name `max_distance_km`, which is what made the pair a trap."""
     from digest.config import ProximityConfig, ScoringConfig
 
-    config = Config(scoring=ScoringConfig(proximity=ProximityConfig(max_distance_km=8)))
+    config = Config(scoring=ScoringConfig(proximity=ProximityConfig(penalty_cap_km=8)))
 
     assert len(filter_events([make_event(distance_km=42.0)], config, now=NOW)) == 1
+
+
+def test_penalty_cap_km_alone_excludes_nothing() -> None:
+    """The two fields stay independent. They used to share the name `max_distance_km`,
+    and the scoring one did nothing at all -- so someone tuning it saw no effect and had
+    no way to find out why. Setting only the scoring cap must still exclude no event, at
+    any distance."""
+    from digest.config import ProximityConfig, ScoringConfig
+
+    config = Config(scoring=ScoringConfig(proximity=ProximityConfig(penalty_cap_km=8)))
+    events = [
+        make_event(title="Közeli", distance_km=3.0),
+        make_event(title="Távoli", distance_km=99.0),
+    ]
+
+    assert filter_events(events, config, now=NOW) == events
+
+
+def test_the_two_distance_fields_do_not_read_each_other() -> None:
+    """Both set, to different values: the geo one decides inclusion, the scoring one never
+    contributes to that decision."""
+    from digest.config import ProximityConfig, ScoringConfig
+
+    config = Config(
+        scoring=ScoringConfig(proximity=ProximityConfig(penalty_cap_km=8)),
+        filters=FiltersConfig(geo=GeoFilterConfig(max_distance_km=50)),
+    )
+    inside = make_event(title="Bent", distance_km=40.0)
+    outside = make_event(title="Kint", distance_km=60.0)
+
+    survivors = filter_events([inside, outside], config, now=NOW)
+
+    # 40 km is past the penalty cap and inside the exclusion radius -- penalised, kept.
+    assert [e.title for e in survivors] == ["Bent"]
 
 
 def test_an_event_with_no_distance_is_kept() -> None:

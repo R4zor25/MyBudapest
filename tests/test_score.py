@@ -98,6 +98,60 @@ def test_a_distant_event_receives_a_negative_distance_term() -> None:
     assert result.score_breakdown["distance_penalty"] == pytest.approx(-3.0)
 
 
+def _capped(cap: float | None) -> Config:
+    return Config(
+        scoring=ScoringConfig(
+            proximity=ProximityConfig(distance_penalty_per_km=0.3, penalty_cap_km=cap)
+        )
+    )
+
+
+def test_the_penalty_stops_growing_past_the_cap() -> None:
+    """A far event ranks below a near one, but the distance term must not swamp the rest
+    of the formula: uncapped, 40 km at 0.3/km is -12, more than every category weight,
+    keyword boost and bonus in the template put together."""
+    config = _capped(8)
+
+    at_20 = score_one(make_event(distance_km=20), config, now=NOW)
+    at_40 = score_one(make_event(distance_km=40), config, now=NOW)
+
+    assert at_40.score_breakdown["distance_penalty"] == at_20.score_breakdown["distance_penalty"]
+    assert at_40.score_breakdown["distance_penalty"] == pytest.approx(-2.4)
+
+
+def test_an_event_inside_the_cap_is_charged_the_full_distance() -> None:
+    result = score_one(make_event(distance_km=5), _capped(8), now=NOW)
+
+    assert result.score_breakdown["distance_penalty"] == pytest.approx(-1.5)
+
+
+def test_the_breakdown_records_the_capped_penalty_not_the_raw_distance() -> None:
+    """`digest explain` reads this dict, so it has to show the number that was actually
+    charged -- otherwise the breakdown would not sum to the score."""
+    result = score_one(make_event(distance_km=40), _capped(8), now=NOW)
+
+    assert result.score_breakdown["distance_penalty"] == pytest.approx(-2.4)
+    assert result.score == pytest.approx(sum(result.score_breakdown.values()))
+
+
+def test_without_a_cap_the_penalty_is_unbounded() -> None:
+    """The pre-existing behaviour, kept for anyone who leaves the field unset: the cap is
+    opt-in, not a default."""
+    result = score_one(make_event(distance_km=40), _capped(None), now=NOW)
+
+    assert result.score_breakdown["distance_penalty"] == pytest.approx(-12.0)
+
+
+def test_the_cap_bounds_the_penalty_and_never_excludes() -> None:
+    """The whole point of the rename: this field cannot remove an event from the digest.
+    Exclusion is filters.geo.max_distance_km (§7.6), tested in test_filter_geo.py."""
+    from digest.pipeline.filter import filter as filter_events
+
+    event = make_event(distance_km=40)
+
+    assert filter_events([event], _capped(8), now=NOW) == [event]
+
+
 def test_the_breakdown_sums_to_the_score() -> None:
     config = Config(
         scoring=ScoringConfig(

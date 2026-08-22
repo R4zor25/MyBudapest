@@ -390,7 +390,7 @@ scoring:
   cheap_bonus: { under_huf: 4000, points: 1 }
   proximity:
     same_district_bonus: 2
-    max_distance_km: 8
+    penalty_cap_km: 8          # a büntetés felső határa, NEM szűrő
     distance_penalty_per_km: 0.3
   novelty_bonus: 2
   soon_bonus: { within_days: 7, points: 1 }
@@ -403,7 +403,7 @@ filters:
   geo:
     city: "Budapest"          # a normalizált `city` mezőhöz hasonlítva
     allow_missing_city: true  # ismeretlen városú esemény MARAD, nem esik ki
-    max_distance_km: null     # kemény kizárás, NEM a scoring.proximity büntetéshatára
+    max_distance_km: null     # KIZÁRJA az eseményt; a scoring.proximity.penalty_cap_km csak büntetést határol
 ```
 
 **Figyelem a `blocked_keywords`-re.** Ez a lista ugyanazon a `contains_word`-ön megy át,
@@ -1053,8 +1053,9 @@ alól (§5.2), és mindegyik **nyitva bukik**, ha hiányzik a tény, amire szük
 
 `allow_missing_city` alapból **true**: a legtöbb forrás egyáltalán nem ad települést, és a
 kidobásuk csendben veszítene el jó eseményeket. A `filters.geo.max_distance_km` **kemény
-kizárás**, és nem azonos a `scoring.proximity.max_distance_km`-mel, ami csak a
-pontlevonást határolja — a kettőt soha nem vonjuk össze.
+kizárás**, és nem azonos a `scoring.proximity.penalty_cap_km`-mel, ami csak a pontlevonást
+határolja — a kettőt soha nem vonjuk össze. 2026-08-22-ig **azonos nevűek** voltak, és a
+scoringoldali nem csinált semmit; ez a névütközés volt a csapda.
 
 Az `_exclusion_reason` az **első** találó okot adja vissza, tehát egy horizonton kívüli
 *és* vidéki esemény `beyond_horizon`-ként számít. A futásösszegző `dropped_by_geo` mezője
@@ -1077,11 +1078,19 @@ score = category_weight(primary_category)
       + (free_bonus ha is_free)
       + (cheap_bonus.points ha price_min < cheap_bonus.under_huf)
       + (proximity.same_district_bonus ha district == home.district)
-      - (distance_km * proximity.distance_penalty_per_km) ha van distance_km
+      - (min(distance_km, proximity.penalty_cap_km) * proximity.distance_penalty_per_km)
       + (novelty_bonus ha most jelent meg először a ledgerben)
       + (soon_bonus.points ha start - now <= soon_bonus.within_days)
       + weekday_weights[effective_date.weekday()]
 ```
+
+**A távolság-büntetés felső határa.** A levonás `min(distance_km, penalty_cap_km)`-re
+számol, tehát a távoli esemény hátrébb kerül, de nem nyomja el a képlet többi tagját: a
+sablon 0.3/km-jével egy 40 km-es esemény korlát nélkül -12-t kapna, ami több, mint az
+összes kategóriasúly, kulcsszóbónusz és jutalom együtt. A mező deklarálva és dokumentálva
+volt, de a `score.py` **soha nem olvasta** — a viselkedés nem létezett. A `penalty_cap_km`
+**nem** zár ki semmit; az a `filters.geo.max_distance_km` dolga (§7.6), és a kettő
+2026-08-22-ig azonos nevű volt.
 
 Minden tag bekerül a `score_breakdown` dictbe a saját nevén — ez hajtja a `digest explain`
 parancsot (a Pages UI-nak nincs ilyen nézete, lásd §9.0 AUDIT-1 BLOCKER-2).

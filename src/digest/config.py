@@ -109,7 +109,10 @@ class SoonBonus(_Section):
 
 class ProximityConfig(_Section):
     same_district_bonus: float = 0
-    max_distance_km: float | None = None
+    # BOUNDS A PENALTY, never excludes: the distance penalty is charged on
+    # min(distance_km, penalty_cap_km). Named apart from filters.geo.max_distance_km on
+    # purpose -- the two used to share a name and do different things (§7.7).
+    penalty_cap_km: float | None = None
     distance_penalty_per_km: float = 0
 
 
@@ -135,16 +138,17 @@ class GeoFilterConfig(_Section):
     """§7.6's geographic exclusion. Every default is neutral: an absent `filters.geo`
     block, or a block with no `city`, excludes nothing at all.
 
-    `max_distance_km` here is a HARD EXCLUSION and is deliberately NOT
-    `scoring.proximity.max_distance_km`, which bounds a score penalty. Two knobs that
-    read alike but do different things: one decides whether the reader sees the event,
-    the other only how high it ranks. They are never merged."""
+    `max_distance_km` here EXCLUDES THE EVENT. Its counterpart
+    `scoring.proximity.penalty_cap_km` only bounds how large the distance penalty can
+    grow. One decides whether the reader sees the event at all, the other only how high
+    it ranks; they are never merged, and since §7.7 they no longer share a name."""
 
     city: str | None = None
     # True on purpose. Most sources publish no settlement at all, and dropping every
     # such event would silently lose good ones; the source list is Budapest-oriented
     # already, so failing open is the safe direction (requirement 2).
     allow_missing_city: bool = True
+    # EXCLUDES THE EVENT, unlike scoring.proximity.penalty_cap_km which bounds a penalty.
     max_distance_km: float | None = None
 
 

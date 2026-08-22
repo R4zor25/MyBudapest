@@ -119,10 +119,22 @@ def _same_district_bonus(event: Event, config: Config) -> float:
 
 
 def _distance_penalty(event: Event, scoring: ScoringConfig) -> float:
+    """The penalty is charged on `min(distance_km, penalty_cap_km)`, so a distant event is
+    ranked below a near one without the distance term swamping the whole formula: at the
+    template's 0.3/km, an uncapped 40 km event scores -12, which drowns out every category
+    weight, keyword boost and bonus put together and effectively makes distance the only
+    term that matters.
+
+    The cap was declared and documented for exactly this and never read — the field
+    existed, the behaviour did not. Excluding a far event is a different decision and
+    belongs to a different knob: `filters.geo.max_distance_km` (§7.6)."""
     proximity = scoring.proximity
     if proximity is None or event.distance_km is None:
         return 0.0
-    return -(event.distance_km * proximity.distance_penalty_per_km)
+    distance = event.distance_km
+    if proximity.penalty_cap_km is not None:
+        distance = min(distance, proximity.penalty_cap_km)
+    return -(distance * proximity.distance_penalty_per_km)
 
 
 def _soon_bonus(event: Event, scoring: ScoringConfig, now: datetime) -> float:
