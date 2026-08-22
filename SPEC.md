@@ -398,7 +398,7 @@ scoring:
 filters:
   categories: [koncert, klub, szinhaz, kiallitas, film, meetup, tarsasjatek, kviz, gasztro, fesztival, outdoor]
   max_price_huf: 12000
-  blocked_keywords: ["gyerekprogram", "bábszínház"]   # szóeleji illesztés — lásd lent
+  blocked_keywords: ["gyerekprogram*", "bábszínház*"]  # teljes szavas; a "*" kér szóeleji illesztést
   min_score: 3
   geo:
     city: "Budapest"          # a normalizált `city` mezőhöz hasonlítva
@@ -406,15 +406,41 @@ filters:
     max_distance_km: null     # KIZÁRJA az eseményt; a scoring.proximity.penalty_cap_km csak büntetést határol
 ```
 
-**Figyelem a `blocked_keywords`-re.** Ez a lista ugyanazon a `contains_word`-ön megy át,
-mint a kategóriák kulcsszavai, tehát a §7.5 szóeleji illesztése **ide is** vonatkozik — és
-ez az egyetlen hely, ahol a túlilleszés nem félrecímkéz, hanem **eldob** egy eseményt. A
-`gyerekprogram` így már fogja a „gyerekprogramok"-at is (ez a cél), de egy rövidebb
-`gyerek` tiltás kizárná a „Gyerekkori álmom volt ez a koncert" leírású koncertet és a
-„Gyerekzsivaj nélküli felnőtt est"-et is — vagyis pont az ellenkezőjét annak, amit kértél.
-Ha egy tiltószó túl tágan fog, írd `gyerek$` alakban: akkor csak a pontos szóra illeszkedik.
-A `keyword_boosts` ugyanígy szélesedett, de ott a hiba csak pontot mozdít, nem tüntet el
-eseményt.
+**A két illesztési mód és a két jelölő.** Ugyanaz a `contains_word` szolgálja a
+kategóriák kulcsszavait, a `keyword_boosts`-ot és a `blocked_keywords`-öt — a kérdés
+(„szerepel-e ez a kifejezés a szövegben") egy helyen van megválaszolva. Ami hívási
+helyenként **eltér**, az az alapértelmezés, mert nem a kifejezés tulajdonsága, hanem azé,
+hogy mennyibe kerül egy téves találat:
+
+| hívási hely | alapértelmezés | egy téves találat ára |
+|---|---|---|
+| kategória `keywords` (§7.5) | **szóeleji** | félrecímkéz — látszik a digestben, javítható |
+| `scoring.keyword_boosts` (§7.7) | **szóeleji** | pontot mozdít — pozitív boostoknál nem tüntet el semmit |
+| `filters.blocked_keywords` (§7.6) | **teljes szavas** | **eldobja** az eseményt — néma és visszafordíthatatlan |
+
+A `keyword_boosts` sora egy feltételt rejt: **negatív** boost a `min_score` alá tolhat egy
+eseményt, és akkor ott is eldob. A §5.2 példája végig pozitív, tehát a mai configra igaz —
+de ha valaha negatív boost kerül bele, az a bejegyzés ugyanolyan fail-closed lesz, mint egy
+tiltószó, és `$`-t érdemel.
+
+Mindkét mód mindenhol elérhető, csak kérni kell:
+
+- `kulcsszó*` → **szóeleji** illesztés, a hosszkorláttól és az alapértelmezéstől függetlenül.
+- `kulcsszó$` → **teljes szavas** illesztés, ugyanígy.
+- Jelölő nélkül az adott hívási hely alapértelmezése dönt (a §7.5 ötkarakteres alsó
+  határával együtt). A kifejezés **utolsó** karaktere számít jelölőnek, tehát a kettő nem
+  kombinálható.
+
+**Figyelem a `blocked_keywords`-re.** Itt a biztonságos viselkedés az alapértelmezett, és
+a tág az, amit külön ki kell mondani — nem fordítva. A `gyerek` tiltás így **nem** dobja el
+a „Gyerekkori álmom volt ez a koncert" leírású koncertet, sem a „Gyerekzsivaj nélküli
+felnőtt est"-et, ami ráadásul felnőtt program, vagyis pont az ellenkezője annak, amit a
+szabály kért. Ugyanaz az elv, mint a §7.6 földrajzi szűrésénél: **ha a rendszer bizonytalan,
+megtartja az eseményt.** A magyar egybeírja az összetett szavakat, tehát a teljes szavas
+`gyerek` a „Gyerek nap"-ra illeszkedik, a „Gyerekprogram"-ra nem — ha a toldalékos és
+összetett alakok is kellenek, `gyerekprogram*` a helyes írásmód. Ezért van a fenti példában
+mindkét bejegyzésen csillag: a „bábszínház" toldalékolva „bábszínházi", és a csillag nélkül
+a „Bábszínházi előadás" átmenne a tiltáson.
 
 ## 5.3 Merge és validáció
 
@@ -1022,7 +1048,8 @@ Két korlát:
   eleje: a `rave` a „ravasz"-ra, a `piac` a „piackutatás"-ra, a `dj` a „djembe"-re tüzelne.
   Ennek ára is van, és vállaljuk: a `film` így nem fogja a „filmek"-et.
 - **A `$` végződésű kulcsszó kimarad a szóeleji illesztésből** és csak pontos szóra
-  illeszkedik. Ez a menekülőút arra a ritka tőre, ami túlilleszt.
+  illeszkedik. Ez a menekülőút arra a ritka tőre, ami túlilleszt. A párja a `*`, ami
+  szóeleji illesztést kér ott, ahol nem az az alapértelmezés (§5.2).
 
 Amit a szóeleji illesztés **nem** tud: a toldalékot megkülönböztetni az összetételtől. A
 magyar egybeírja az összetett szavakat, így a „koncertje" (kell) és a „koncertterem"
@@ -1030,9 +1057,12 @@ magyar egybeírja az összetett szavakat, így a „koncertje" (kell) és a „k
 és kvizestek fixture-ökön mérve 12 új találat, ebből 11 helyes —, a `$` pedig ott van
 arra az esetre, amikor egy konkrét tő mégis rosszul viselkedik.
 
-Ugyanez a függvény szolgálja a §7.6 `blocked_keywords`-öt és a §7.7 `keyword_boosts`-ot,
-tehát a bővítés **mindhármat** érinti; ez szándékos, a toldalékolás nem a kategorizálás
-sajátja.
+Ugyanez a függvény szolgálja a §7.6 `blocked_keywords`-öt és a §7.7 `keyword_boosts`-ot —
+a toldalékolás nem a kategorizálás sajátja. A **függvény** tehát közös, az
+**alapértelmezése** nem: a `keyword_boosts` a kategóriákkal együtt szóeleji, a
+`blocked_keywords` viszont teljes szavas, mert ott a téves találat nem félrecímkéz, hanem
+eldob (§5.2 táblázata). Egy időben mindhárom szóeleji volt; ez a `blocked_keywords`-nél
+fail-closed viselkedés volt, és 2026-08-22-én visszaállt teljes szavasra.
 
 A legmagasabb pontszámú kategória a `primary_category`; minden `min_category_score` fölötti
 bekerül a `categories` listába. Ha egy sem éri el, `fallback_category` (`egyeb`).

@@ -19,7 +19,8 @@ categories:
   # "koncertek" alakot is, mert a magyar toldalékol. Ezért az alapalakot írd ide, ne a
   # ragozott változatokat. Két kivétel: az 5 karakternél rövidebb kulcsszó teljes szavas
   # marad, és a "$"-ra végződő kulcsszó szándékosan kimarad a szóeleji illesztésből
-  # (pl. `party$`), ha egy tő túlilleszt.
+  # (pl. `party$`), ha egy tő túlilleszt. A "*" ennek a párja: szóeleji illesztést KÉR ott,
+  # ahol nem az az alapértelmezés — a profil `blocked_keywords`-e teljes szavas (§5.2).
   koncert:
     keywords: { koncert: 3, "élő zene": 3, lemezbemutató: 2, zenekar: 2, akusztik: 2 }
     venue_prior: { "A38 Hajó": 2, "Akvárium Klub": 2, "Dürer Kert": 2, "Kobuci Kert": 2 }

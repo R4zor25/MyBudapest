@@ -121,7 +121,25 @@ def _exclusion_reason(
         return _Exclusion("price_too_high")
 
     text = f"{event.title} {event.description or ''}"
-    if any(contains_word(text, keyword) for keyword in config.filters.blocked_keywords):
+    # WHOLE WORDS by default here, unlike every other caller of contains_word. The shared
+    # matcher defaults to prefix matching because Hungarian agglutinates, and for
+    # categorization that is right: a false positive mislabels an event, which shows up in
+    # the digest and can be corrected. This is the one call site where a false positive
+    # DELETES the event instead — silently, with nothing in the output to notice.
+    #
+    # Measured on the widened rule: a "gyerek" block also excluded "Gyerekkori álmom volt
+    # ez a koncert" and "Gyerekzsivaj nélküli felnőtt est" — the second an adults-only
+    # event, the exact opposite of what the block asked for. It is also the same principle
+    # the geographic cut is built on (§7.6): where the system is unsure, it KEEPS the
+    # event. A block that fires too narrowly leaves something visible in the digest; one
+    # that fires too widely leaves nothing at all.
+    #
+    # Prefix matching is still available, just asked for rather than assumed: "gyerek*".
+    # The safe behaviour is the default and the aggressive one is opt-in, not the reverse.
+    if any(
+        contains_word(text, keyword, prefix_by_default=False)
+        for keyword in config.filters.blocked_keywords
+    ):
         return _Exclusion("blocked_keyword")
 
     if event.id in sent_ids:

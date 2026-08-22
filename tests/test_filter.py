@@ -6,8 +6,9 @@ from zoneinfo import ZoneInfo
 
 from structlog.testing import capture_logs
 
-from digest.config import Config, FiltersConfig, ScheduleConfig
+from digest.config import CategoryRules, Config, FiltersConfig, ScheduleConfig
 from digest.models import Event, make_event_id
+from digest.pipeline.categorize import score_category
 from digest.pipeline.filter import filter as filter_events
 
 BUDAPEST = ZoneInfo("Europe/Budapest")
@@ -125,17 +126,82 @@ def test_a_keyword_does_not_match_in_the_middle_of_a_word() -> None:
     assert filter_events([event], config, now=NOW) == [event]
 
 
-def test_blocked_keywords_widened_with_the_shared_matcher() -> None:
-    """blocked_keywords runs through the same contains_word as categorize (§7.6), so
-    prefix matching widened exclusion too -- deliberately: "gyerekprogram" should also
-    block "gyerekprogramok". The cost is the same compound ambiguity, and the same `$`
-    opt-out applies."""
-    config = Config(filters=FiltersConfig(blocked_keywords=["gyerekprogram"]))
+# --------------------------------------------------------------------------------------
+# blocked_keywords: whole words by default, prefix on request (§5.2, §7.6)
+# --------------------------------------------------------------------------------------
+
+
+def test_a_block_does_not_delete_an_event_that_merely_starts_with_the_word() -> None:
+    """The reason this call site does not share categorize's default. Both of these were
+    excluded while blocked_keywords ran on prefix matching, and the second is an
+    adults-only event -- the exact opposite of what a "gyerek" block asks for. A
+    mislabelled event is visible in the digest; a deleted one is not."""
+    config = Config(filters=FiltersConfig(blocked_keywords=["gyerek"]))
+    adults_only = make_event(title="Gyerekzsivaj nélküli felnőtt est")
+    reminiscing = make_event(title="Sub Focus", description="Gyerekkori álmom volt ez a koncert")
+
+    kept = filter_events([adults_only, reminiscing], config, now=NOW)
+
+    assert kept == [adults_only, reminiscing]
+
+
+def test_the_whole_word_boundary_is_the_word_not_its_beginning() -> None:
+    """The pair that pins what "whole word" means here. Hungarian writes compounds closed,
+    so "gyerek" is a whole word in "Gyerek nap" and a prefix in "Gyerekprogram" -- the
+    block fires on the first and not on the second. Anything that also excluded the second
+    would be prefix matching again under another name."""
+    config = Config(filters=FiltersConfig(blocked_keywords=["gyerek"]))
+    stands_alone = make_event(title="Gyerek nap a ligetben")
+    compound = make_event(title="Gyerekprogram a Városligetben")
+
+    assert filter_events([stands_alone, compound], config, now=NOW) == [compound]
+
+
+def test_a_trailing_star_asks_for_prefix_matching_and_gets_it() -> None:
+    # The aggressive behaviour is still reachable, it just has to be requested. A reader
+    # who really does mean "anything starting with gyerek" writes it out.
+    config = Config(filters=FiltersConfig(blocked_keywords=["gyerek*"]))
+    events = [
+        make_event(title="Gyerek nap a ligetben"),
+        make_event(title="Gyerekprogram a Városligetben"),
+        make_event(title="Hétvégi gyerekprogramok a ligetben"),
+    ]
+
+    assert filter_events(events, config, now=NOW) == []
+
+
+def test_a_longer_block_still_needs_the_star_for_its_inflected_forms() -> None:
+    # What the revert costs, stated as a test rather than left to be discovered: the
+    # plural no longer falls out of the singular by itself.
+    inflected = make_event(title="Hétvégi gyerekprogramok a ligetben")
+    bare = Config(filters=FiltersConfig(blocked_keywords=["gyerekprogram"]))
+    starred = Config(filters=FiltersConfig(blocked_keywords=["gyerekprogram*"]))
+
+    assert filter_events([inflected], bare, now=NOW) == [inflected]
+    assert filter_events([inflected], starred, now=NOW) == []
+
+
+def test_a_trailing_dollar_is_redundant_here_but_still_valid() -> None:
+    """`$` asked for the behaviour that is now the default, so every existing profile that
+    carries one keeps working — it must not silently become a literal that matches
+    nothing."""
+    config = Config(filters=FiltersConfig(blocked_keywords=["gyerekprogram$"]))
+    exact = make_event(title="Gyerekprogram a Városligetben")
     inflected = make_event(title="Hétvégi gyerekprogramok a ligetben")
 
-    assert filter_events([inflected], config, now=NOW) == []
-    exact = Config(filters=FiltersConfig(blocked_keywords=["gyerekprogram$"]))
-    assert filter_events([inflected], exact, now=NOW) == [inflected]
+    assert filter_events([exact, inflected], config, now=NOW) == [inflected]
+
+
+def test_a_categorization_keyword_still_matches_a_prefix() -> None:
+    """The other side of the split, guarded here so a change to this call site's default
+    cannot quietly travel to the shared matcher: §7.5 still matches suffixed forms."""
+    rules = CategoryRules(keywords={"társasjáték": 3})
+
+    assert score_category(make_event(title="Társasjátékos est"), rules).total == 3
+    assert score_category(make_event(title="Társasjátékok"), rules).total == 3
+    # And `$` there still opts out, unchanged.
+    exact = CategoryRules(keywords={"társasjáték$": 3})
+    assert score_category(make_event(title="Társasjátékos est"), exact).total == 0
 
 
 def test_an_already_sent_event_is_excluded() -> None:

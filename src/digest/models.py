@@ -187,45 +187,64 @@ def fold_text(s: str) -> str:
 # rerun, not a per-keyword judgement call.
 _MIN_PREFIX_KEYWORD_LENGTH = 5
 
-# A keyword written with a trailing "$" in the config opts out of prefix matching and is
-# matched as a whole word only — the escape hatch for the rare stem that over-matches.
+# The two per-keyword markers, each overriding whichever mode the call site defaults to.
+# "$" asks for whole-word, "*" asks for prefix; only the phrase's LAST character is read as
+# a marker, so combining them ("gyerek*$") is not supported and leaves the other one inside
+# the literal, where it can never match. Whichever direction a call site defaults to, the
+# opposite one has to be requestable, or the default becomes a rule with no escape hatch.
 _EXACT_MATCH_MARKER = "$"
+_PREFIX_MATCH_MARKER = "*"
 
 
-def contains_word(text: str, phrase: str) -> bool:
-    """Accent- and case-insensitive containment of a config keyword.
+def contains_word(text: str, phrase: str, *, prefix_by_default: bool = True) -> bool:
+    """Accent- and case-insensitive containment of a config keyword, in one of two modes.
 
     Hungarian is agglutinative: "társasjáték" appears in real titles as "Társasjátékos",
     "Társasjátékok", "társasjátékot". Whole-word matching missed every one of them, in
     every category — "koncert" missed "koncertje", "mérkőzés" missed "mérkőzése",
-    "előadás" missed "előadásában" — so the keyword must be allowed to carry a suffix.
-    The match therefore anchors at the START of a word and lets word characters follow;
-    it never matches mid-word, so "koncert" still does not fire inside "szimfonikuskoncert".
+    "előadás" missed "előadásában" — so a keyword must be able to carry a suffix. Prefix
+    matching anchors at the START of a word and lets word characters follow; it never
+    matches mid-word, so "koncert" still does not fire inside "szimfonikuskoncert".
 
     What it cannot do is tell an inflection from a compound. Hungarian writes compounds
-    closed, so "koncertje" (wanted) and "koncertterem" (a hall rental, not wanted) have
-    the same shape. Prefix matching accepts both. That is the deliberate trade: the
-    inflections are common and the compounds are rare — measured over the saved Port.hu,
-    Cooltix and kvizestek fixtures, 12 new matches, 11 of them correct — and `$` is the
-    per-keyword escape hatch when a specific stem turns out to be the exception.
+    closed, so "koncertje" (wanted) and "koncertterem" (a hall rental, not wanted) have the
+    same shape, and prefix matching accepts both. Whether that trade is worth making is not
+    a property of the phrase — it is a property of what a false positive COSTS at the call
+    site, which is why the default travels with the caller and not with this function:
 
-    Two guards on that:
-    - A phrase shorter than `_MIN_PREFIX_KEYWORD_LENGTH` keeps the old whole-word rule.
-    - A phrase ending in `$` is whole-word regardless of length (`_EXACT_MATCH_MARKER`).
+    - Categorization and keyword_boosts (§7.5, §7.7) take the default. A false
+      positive there mislabels an event or moves its score — visible in the digest and
+      recoverable. Measured over the saved Port.hu, Cooltix and kvizestek fixtures the
+      widening produced 12 new matches, 11 of them correct.
+    - blocked_keywords (§7.6), the only caller that passes anything, asks for
+      `prefix_by_default=False`. A false positive there
+      DELETES the event, and nothing in the output says so. See the comment at that call
+      site in filter.py.
 
-    Shared by categorize's keyword scoring, filter's blocked_keywords, and score's
-    keyword_boosts (§7.5, §7.6, §7.7) — the same phrase must count as present the same way
-    everywhere, not almost the same way three times. Widening it here widens all three by
-    design: the agglutination problem is not specific to categorization."""
+    It stays one function because "does this phrase occur in this text" must have one
+    answer everywhere; only the default answer to "does a suffix count" differs, and both
+    modes are reachable from either side via the markers.
+
+    Resolution order, in full:
+    1. A trailing `$` is whole-word, regardless of length or default.
+    2. A trailing `*` is prefix, regardless of length or default.
+    3. Otherwise the call site's default, except that a phrase shorter than
+       `_MIN_PREFIX_KEYWORD_LENGTH` stays whole-word — a short stem is too often the
+       beginning of an unrelated word for the suffix gain to be worth it."""
     folded = fold_text(phrase).strip()
-    exact_only = folded.endswith(_EXACT_MATCH_MARKER)
-    if exact_only:
-        folded = folded[: -len(_EXACT_MATCH_MARKER)].strip()
+    marker = folded[-1] if folded[-1:] in (_EXACT_MATCH_MARKER, _PREFIX_MATCH_MARKER) else ""
+    if marker:
+        folded = folded[:-1].strip()
     if not folded:
         return False
 
+    if marker:
+        prefix = marker == _PREFIX_MATCH_MARKER
+    else:
+        prefix = prefix_by_default and len(folded) >= _MIN_PREFIX_KEYWORD_LENGTH
+
     pattern = r"(?<!\w)" + re.escape(folded)
-    if exact_only or len(folded) < _MIN_PREFIX_KEYWORD_LENGTH:
+    if not prefix:
         pattern += r"(?!\w)"
     return re.search(pattern, fold_text(text)) is not None
 
