@@ -1135,7 +1135,9 @@ volt a hiba forrása.
 | `content_filter` | **érdekli-e az olvasót ez az esemény** | magának az ESEMÉNYNEK és az olvasó állandó beállításainak a tulajdonsága | soha, ugyanarra a bemenetre |
 | `exclude_already_sent` | **volt-e már róla levél** | az olvasó ELŐZMÉNYÉNEK a tulajdonsága | futásról futásra, szándékosan |
 
-`content_filter` kizár: horizonton kívül · **földrajz** · nem engedett kategória ·
+`content_filter` kizár: horizonton kívül · **földrajz** · nem engedett kategória (az
+esemény **bármelyik** kategóriája elég az átengedéshez; a szekciót és a pontozást
+továbbra is az elsődleges dönti el) ·
 `price_min > max_price_huf` · `blocked_keywords` egyezés · `overrides.hidden` (§14).
 A `min_score` ugyanide tartozik fogalmilag, de a `score()`-ban fut, mert `Event.score` kell
 hozzá, ami ennél a szakasznál még nincs meg.

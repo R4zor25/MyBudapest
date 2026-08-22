@@ -427,3 +427,16 @@ def test_neither_template_emits_a_standalone_grouped_block() -> None:
     assert "EGY HELYSZÍN, TÖBB PROGRAM\n" not in rendered.text
     assert rendered.html.count("Egy helyszín, több program") == 1
     assert "Egy helyszín, több program · 4 program" in rendered.html
+
+
+def test_an_event_kept_by_a_secondary_category_sections_under_its_primary() -> None:
+    """The other half of the widened allow-list: inclusion looks at every category, but the
+    section is still decided by the primary one — so this lands in Egyéb, last."""
+    config = site_config(newsletter=NewsletterConfig(per_category_limit=3, total_limit=50))
+    secondary = make_event(0, title="Rejtélyes koncert", categories=["egyeb", "koncert"])
+    plain = make_event(1, title="Sima koncert", categories=["koncert"])
+
+    rendered = render_email([secondary, plain], config, published_count=2, now=NOW)
+
+    assert rendered.html.index("Sima koncert") < rendered.html.index("Rejtélyes koncert")
+    assert "Egyéb" in rendered.html

@@ -129,8 +129,16 @@ def _exclusion_reason(
         return geo
 
     if config.filters.categories is not None:
-        primary = event.categories[0] if event.categories else None
-        if primary not in config.filters.categories:
+        # ANY of the event's categories, not just the primary one. The allow-list is a
+        # statement about interests, and an event that carries an allowed interest at all
+        # is of interest — a concert that happens to be classified `egyeb` first is still a
+        # concert. Reading `categories[0]` alone dropped exactly those.
+        #
+        # Only the INCLUSION test widens. The primary category still decides the section
+        # and everything §7.5 and §7.7 do with it, so an event kept by its secondary
+        # category still sections under its primary.
+        allowed = set(config.filters.categories)
+        if not any(category in allowed for category in event.categories):
             return _Exclusion("category_not_allowed")
 
     if (

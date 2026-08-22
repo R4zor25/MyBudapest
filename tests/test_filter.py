@@ -250,3 +250,27 @@ def test_filter_does_not_mutate_its_input() -> None:
     filter_events(events, Config(), now=NOW)
 
     assert events == [event]
+
+
+def test_an_event_is_kept_when_any_of_its_categories_is_allowed() -> None:
+    """The allow-list is about interests, not about which label happened to score highest.
+    A concert that categorize filed under `egyeb` first is still a concert, and reading
+    `categories[0]` alone threw it away."""
+    config = Config(filters=FiltersConfig(categories=["koncert"]))
+    secondary = make_event(title="Rejtélyes koncert", categories=["egyeb", "koncert"])
+    unrelated = make_event(title="Semmi közös", categories=["egyeb", "sport"])
+
+    kept = filter_events([secondary, unrelated], config, now=NOW)
+
+    assert [event.title for event in kept] == ["Rejtélyes koncert"]
+
+
+def test_the_kept_event_keeps_its_primary_category() -> None:
+    # Only the inclusion test widened. Sectioning and scoring still read categories[0].
+    config = Config(filters=FiltersConfig(categories=["koncert"]))
+    event = make_event(categories=["egyeb", "koncert"])
+
+    (kept,) = filter_events([event], config, now=NOW)
+
+    assert kept.categories == ["egyeb", "koncert"]
+    assert kept.categories[0] == "egyeb"
