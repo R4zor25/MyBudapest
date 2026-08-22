@@ -305,6 +305,14 @@ def _check_llm_extra(config: Config) -> None:
     locally."""
     if not config.llm.enabled:
         return
+    require_llm_extra("llm.enabled is true but")
+
+
+def require_llm_extra(because: str = "this needs the Gemini layer, but") -> None:
+    """Raises unless `google-genai` can be imported. Separate from the flag so the
+    comparison command (`digest categorize --compare-llm`) can demand it too — that command
+    exists precisely to decide whether to switch the flag on, so it cannot be gated on it
+    already being on."""
     try:
         installed = importlib.util.find_spec("google.genai") is not None
     except ModuleNotFoundError:
@@ -313,7 +321,7 @@ def _check_llm_extra(config: Config) -> None:
         installed = False
     if not installed:
         raise ConfigError(
-            "llm.enabled is true but the optional `llm` extra is not installed. "
+            f"{because} the optional `llm` extra is not installed. "
             "Run `pip install -e .[llm]` (and add it to .github/workflows/digest.yml), "
             "or set `llm.enabled: false` in config.yaml."
         )

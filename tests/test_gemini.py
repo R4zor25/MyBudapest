@@ -274,3 +274,45 @@ def test_a_partial_batch_response_leaves_missing_events_on_their_rule_based_cate
 
     assert result[0].categories == ["koncert"]
     assert result[1].categories == ["egyeb"]
+
+
+def test_scope_all_asks_about_events_the_production_scope_skips() -> None:
+    """The measurement scope, and why it exists: `--compare-llm` wants to know where the
+    model disagrees with a CONFIDENT rule answer, and those events never reach the fallback
+    category, so production's eligibility rule can never surface them."""
+    config = make_config(batch_size=35, max_calls_per_run=12)
+    confident = make_event(0, categories=["koncert"])
+    short = make_event(1, description=_SHORT_DESCRIPTION)
+    # Both targets must be categories make_config() actually declares, or the parser
+    # rejects them and the test would pass for the wrong reason.
+    client = FakeClient([json.dumps({confident.id: "kviz", short.id: "koncert"})])
+
+    result = GeminiCategorizer(client=client, scope="all").categorize([confident, short], config)
+
+    assert len(client.calls) == 1
+    assert [event.categories for event in result] == [["kviz"], ["koncert"]]
+
+
+def test_scope_all_runs_even_when_the_flag_is_off() -> None:
+    """`--compare-llm` is what you run to DECIDE whether to switch llm.enabled on, so it
+    cannot be gated on the flag already being on."""
+    config = make_config(batch_size=35, max_calls_per_run=12)
+    config = config.model_copy(update={"llm": config.llm.model_copy(update={"enabled": False})})
+    event = make_event(0)
+    client = FakeClient([json.dumps({event.id: "koncert"})])
+
+    result = GeminiCategorizer(client=client, scope="all").categorize([event], config)
+
+    assert len(client.calls) == 1
+    assert result[0].categories == ["koncert"]
+
+
+def test_the_production_scope_is_unchanged_by_the_measurement_option() -> None:
+    config = make_config(batch_size=35, max_calls_per_run=12)
+    confident = make_event(0, categories=["koncert"])
+    client = FakeClient([])
+
+    result = GeminiCategorizer(client=client).categorize([confident], config)
+
+    assert client.calls == []
+    assert result[0].categories == ["koncert"]

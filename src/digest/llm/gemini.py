@@ -3,7 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
-from typing import Protocol
+from typing import Literal, Protocol
 
 import structlog
 
@@ -123,15 +123,31 @@ class GeminiCategorizer:
     "never sent twice, across runs too" half of requirement 4 for free."""
 
     def __init__(
-        self, client: GenerativeClient | None = None, cache: dict[str, str] | None = None
+        self,
+        client: GenerativeClient | None = None,
+        cache: dict[str, str] | None = None,
+        *,
+        scope: Literal["fallback", "all"] = "fallback",
     ) -> None:
         self._client = client
         self.cache: dict[str, str] = cache if cache is not None else {}
+        # "fallback" is production (§7.5): only events the rules gave up on, and only when
+        # there is enough description to be worth a call. "all" exists for ONE caller,
+        # `digest categorize --compare-llm`, whose whole question is where the model
+        # DISAGREES with the rules — including where the rules were confident and wrong,
+        # which by definition never reaches the fallback category. It is a measurement
+        # setting: it sends every event, so it costs proportionally more.
+        self._scope = scope
+
+    def _eligible(self, events: list[Event], config: Config) -> list[Event]:
+        if self._scope == "all":
+            return list(events)
+        return [event for event in events if _is_eligible(event, config)]
 
     def categorize(self, events: list[Event], config: Config) -> list[Event]:
-        if not config.llm.enabled:
+        if not config.llm.enabled and self._scope != "all":
             return events
-        eligible = [event for event in events if _is_eligible(event, config)]
+        eligible = self._eligible(events, config)
         if not eligible:
             return events
 

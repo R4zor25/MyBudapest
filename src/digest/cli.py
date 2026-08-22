@@ -13,7 +13,7 @@ import structlog
 import typer
 from pydantic import ValidationError
 
-from digest.config import Config, load_config
+from digest.config import Config, load_config, require_llm_extra
 from digest.delivery.smtp import SmtpDeliverer
 from digest.errors import ConfigError, DigestError, FetchError, ParseError
 from digest.fetch.api import ApiFetcher
@@ -23,7 +23,7 @@ from digest.llm.gemini import GeminiCategorizer
 from digest.models import Event, RawEvent
 from digest.overrides import load_overrides
 from digest.pipeline.categorize import categorize as categorize_events
-from digest.pipeline.categorize import explain_event
+from digest.pipeline.categorize import explain_event, score_category
 from digest.pipeline.dedup import dedup
 from digest.pipeline.filter import GEO_REASONS, filter_with_reasons
 from digest.pipeline.filter import filter as filter_events
@@ -320,6 +320,95 @@ def _run_pipeline(
     return summary
 
 
+class _CountingClient:
+    """Wraps the real client so the comparison can report calls made without
+    GeminiCategorizer having to keep a counter for one caller's benefit."""
+
+    def __init__(self, inner: Any) -> None:
+        self._inner = inner
+        self.calls = 0
+
+    def generate(self, *, model: str, prompt: str) -> str:
+        self.calls += 1
+        return self._inner.generate(model=model, prompt=prompt)
+
+
+def _compare_with_llm(events: list[Event], config: Config) -> list[str]:
+    """One measured answer to "what would the LLM do", instead of a week of watching
+    production. Dry by construction: it renders nothing, sends nothing, writes no state and
+    never touches the site — it is a read of the corpus and a print.
+
+    It asks about EVERY event, not just the ones the rules gave up on, because the
+    interesting disagreements include the ones where the rules were confident and wrong.
+    That is `scope="all"`, and it exists for this command only."""
+    require_llm_extra("--compare-llm needs the Gemini layer, but")
+    if not os.environ.get("GEMINI_API_KEY"):
+        raise ConfigError(
+            "--compare-llm needs GEMINI_API_KEY in the environment. It is the same key the "
+            "scheduled run uses; export it locally to measure before switching llm.enabled on."
+        )
+
+    from digest.llm.gemini import _RealGeminiClient
+
+    # The layer refuses to run when the flag is off, and this command is exactly what you
+    # run to decide whether to turn it on — so it is forced on for this call only. The
+    # config object is frozen; this copy never leaves the function.
+    measuring = config.model_copy(update={"llm": config.llm.model_copy(update={"enabled": True})})
+    ceiling = measuring.llm.batch_size * measuring.llm.max_calls_per_run
+    left_out = max(0, len(events) - ceiling)
+
+    client = _CountingClient(_RealGeminiClient())
+    started = perf_counter()
+    judged = GeminiCategorizer(client=client, scope="all").categorize(events, measuring)
+    elapsed = perf_counter() - started
+
+    rules_by_id = {event.id: event for event in events}
+    disagreements = [
+        (rules_by_id[event.id], event)
+        for event in judged
+        if event.categories != rules_by_id[event.id].categories
+    ]
+    left_fallback = [
+        (before, after)
+        for before, after in disagreements
+        if before.categories == [config.fallback_category]
+    ]
+
+    lines = [
+        f"corpus                : {len(events)} events",
+        f"asked the model about : {min(len(events), ceiling)}"
+        + (f"  ({left_out} left out by max_calls_per_run)" if left_out else ""),
+        f"agree                 : {len(events) - len(disagreements)}",
+        f"disagree              : {len(disagreements)}",
+        f"left {config.fallback_category:<17}: {len(left_fallback)}",
+        f"api calls             : {client.calls}",
+        f"wall clock            : {elapsed:.1f}s",
+        "",
+    ]
+    if not disagreements:
+        lines.append("no disagreements.")
+        return lines
+
+    lines.append("DISAGREEMENTS")
+    for before, after in disagreements:
+        rule_category = before.categories[0] if before.categories else "—"
+        llm_category = after.categories[0] if after.categories else "—"
+        lines.append(f"  {before.title[:64]}")
+        lines.append(f"    rules: {rule_category:<14} llm: {llm_category}")
+        lines.append(f"    signals: {_rule_signals(before, config) or '(none — fell through)'}")
+    return lines
+
+
+def _rule_signals(event: Event, config: Config) -> str:
+    """What produced the rule answer, so a disagreement can be judged rather than counted."""
+    category = event.categories[0] if event.categories else None
+    rules = config.categories.get(category) if category else None
+    if rules is None:
+        return ""
+    scored = score_category(event, rules)
+    return ", ".join(f"{name}={weight:g}" for name, weight in sorted(scored.signals.items()))
+
+
 def _llm_categorize(events: list[Event], config: Config) -> list[Event]:
     """§7.5's optional second pass, behind `llm.enabled`. Until now nothing called it, so
     the flag was on in config.yaml and changed nothing — the file said one thing and the
@@ -484,6 +573,13 @@ def categorize(
         str | None,
         typer.Option(help="Print the score breakdown for this event id, instead of a table."),
     ] = None,
+    compare_llm: Annotated[
+        bool,
+        typer.Option(
+            "--compare-llm",
+            help="Categorize twice — rules only, then rules plus Gemini — and print the diff.",
+        ),
+    ] = False,
 ) -> None:
     """Categorize events and show where the category scores come from."""
     if fixture is None:
@@ -491,6 +587,9 @@ def categorize(
     config, raw = _load_raw_events(source_id, fixture)
     events = categorize_events(normalize(raw, config), config)
 
+    if compare_llm:
+        typer.echo("\n".join(_compare_with_llm(events, config)))
+        return
     if explain is None:
         typer.echo("\n".join(_render_categories_table(events)))
         return
