@@ -230,7 +230,16 @@ def _run_pipeline(
 
     grouped = group_with_counts(events, config)
     events = grouped.events
-    rendered = render_email(events, config, source_health=state.source_health, now=moment)
+    # `events` is what the SITE publishes in full; the email shows a per-category slice of
+    # it. The button at the top of the email promises the whole set, so it is labelled with
+    # this count and not with the email's own.
+    rendered = render_email(
+        events,
+        config,
+        source_health=state.source_health,
+        published_count=len(events),
+        now=moment,
+    )
 
     # The public site is not the email digest: it gets every post-group event (no
     # per_category_limit/total_limit, see render/web.py), and it is written regardless

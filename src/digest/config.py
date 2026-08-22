@@ -88,6 +88,11 @@ class DeliveryTarget(_Section):
 
 
 class SiteConfig(_Section):
+    # The published site's ABSOLUTE base URL. `base_path` cannot serve here: a link in a
+    # mail client has no page to be relative to, so a path-only href is dead on arrival.
+    # Empty means "no site link" and the email simply omits the button rather than
+    # rendering a broken one.
+    base_url: str = ""
     base_path: str = ""
     archive_keep_days: int = 90
 

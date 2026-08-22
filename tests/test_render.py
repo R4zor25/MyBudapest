@@ -5,7 +5,7 @@ from datetime import datetime
 from typing import Any
 from zoneinfo import ZoneInfo
 
-from digest.config import Config, ExpiringSectionConfig, NewsletterConfig
+from digest.config import Config, ExpiringSectionConfig, NewsletterConfig, SiteConfig
 from digest.models import Event, make_event_id
 from digest.render.email import render_email
 
@@ -219,3 +219,78 @@ def test_a_collapsed_row_renders_once_not_seventeen_times() -> None:
     # Only the top 3 members are named; index 0 is not among them, and unlike most other
     # indices its title ("Event 0") is not a substring of any other member's title either.
     assert "Event 0" not in rendered.html
+
+
+# --------------------------------------------------------------------------------------
+# The web-view button at the top of the email
+# --------------------------------------------------------------------------------------
+
+SITE = "https://example.github.io/digest"
+
+
+def site_config(**overrides: Any) -> Config:
+    site = SiteConfig(base_url=SITE)
+    return Config(site=site, **overrides)
+
+
+def test_the_web_button_sits_above_the_first_category_section() -> None:
+    """Above the sections, below the header line. Its position is the point of it: a link
+    in the footer is a link nobody scrolls to."""
+    events = [make_event(i, title=f"Koncert {i}") for i in range(4)]
+
+    html = render_email(events, site_config(), published_count=114, now=NOW).html
+
+    button_at = html.index(SITE)
+    first_section_at = html.index("KONCERT") if "KONCERT" in html else html.index("Koncert")
+    assert button_at < first_section_at
+    # And below the header, not above it — the date line still opens the mail.
+    assert html.index("Budapesti napi lista") < button_at
+
+
+def test_the_button_is_a_table_not_a_padded_anchor() -> None:
+    """Outlook's Word rendering engine drops padding on an <a>, which turns a padded-anchor
+    button into underlined text. The clickable cell has to be a <td>."""
+    html = render_email([make_event(0)], site_config(), published_count=9, now=NOW).html
+
+    href_at = html.index(f'href="{SITE}"')
+    enclosing = html[html.rindex("<table", 0, href_at) : href_at]
+    assert 'role="presentation"' in enclosing
+    assert "<td" in enclosing
+    assert "padding" in enclosing
+
+
+def test_the_label_counts_the_published_set_not_the_email_contents() -> None:
+    """The button promises the whole site. With per_category_limit at 3 the email holds a
+    fraction of it, and labelling the button with the email's own count would advertise
+    the smaller number and undersell the page."""
+    events = [make_event(i, title=f"Koncert {i}") for i in range(10)]
+    config = site_config(newsletter=NewsletterConfig(per_category_limit=3, total_limit=50))
+
+    rendered = render_email(events, config, published_count=114, now=NOW)
+
+    assert "Mind a 114 program megtekintése" in rendered.html
+    assert len(rendered.sent_events) == 3
+    assert "Mind a 3 program" not in rendered.html
+
+
+def test_the_text_alternative_carries_the_same_link() -> None:
+    rendered = render_email([make_event(0)], site_config(), published_count=114, now=NOW)
+
+    assert SITE in rendered.text
+    assert f"Mind a 114 program: {SITE}" in rendered.text
+
+
+def test_without_a_configured_base_url_the_button_is_omitted_not_broken() -> None:
+    # An empty base_url must not produce href="" or a bare path: a relative href in a mail
+    # client resolves against nothing.
+    html = render_email([make_event(0)], Config(), published_count=114, now=NOW).html
+
+    assert "megtekintése" not in html
+    assert 'href=""' not in html
+
+
+def test_the_footer_archive_link_survives_the_new_button() -> None:
+    html = render_email([make_event(0)], site_config(), published_count=114, now=NOW).html
+
+    assert "Archívum" in html
+    assert html.count(SITE) >= 2

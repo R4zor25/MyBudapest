@@ -128,7 +128,10 @@ def test_public_config_parses(config_path: Path, sources_dir: Path) -> None:
     assert config.categories["koncert"].native_types == ["concert"]
     assert config.categories["koncert"].keywords["élő zene"] == 3
     assert [target.type for target in config.delivery] == ["smtp", "telegram"]
-    assert config.llm.enabled is False
+    # Deliberately not asserted against a literal: `llm.enabled` is an operator switch, and
+    # the two tests above already cover what each position does. What matters here is that
+    # the shipped file parses, whichever way it happens to be set.
+    assert isinstance(config.llm.enabled, bool)
 
 
 def _llm_extra_installed() -> bool:
@@ -138,11 +141,24 @@ def _llm_extra_installed() -> bool:
         return False
 
 
-def _config_with_llm_enabled(config_path: Path, tmp_path: Path) -> Path:
-    text = config_path.read_text(encoding="utf-8")
-    assert "enabled: false" in text, "config.yaml no longer has the llm switch this edits"
+def _config_with_llm(config_path: Path, tmp_path: Path, *, enabled: bool) -> Path:
+    """A copy of the shipped config with the llm switch forced either way.
+
+    Forced, not read: these two tests are about what each SETTING does, and pinning them to
+    whatever value config.yaml currently ships makes them fail every time somebody retunes
+    it — which is exactly what happened twice."""
+    lines = config_path.read_text(encoding="utf-8").splitlines(keepends=True)
+    inside_llm = False
+    for index, line in enumerate(lines):
+        if line.startswith("llm:"):
+            inside_llm = True
+        elif inside_llm and line.strip().startswith("enabled:"):
+            lines[index] = f"  enabled: {str(enabled).lower()}\n"
+            break
+    else:  # pragma: no cover - the llm block is in config.yaml
+        raise AssertionError("config.yaml has no llm.enabled switch any more")
     copy = tmp_path / "config.yaml"
-    copy.write_text(text.replace("enabled: false", "enabled: true", 1), encoding="utf-8")
+    copy.write_text("".join(lines), encoding="utf-8")
     return copy
 
 
@@ -153,7 +169,7 @@ def test_llm_enabled_without_the_extra_fails_at_load_naming_the_install(
     """A flag that is on but cannot work has to say so where it is read. Before this, the
     missing package surfaced as a ModuleNotFoundError from inside a pipeline stage, on
     whichever run first had an event worth asking the model about."""
-    enabled = _config_with_llm_enabled(config_path, tmp_path)
+    enabled = _config_with_llm(config_path, tmp_path, enabled=True)
 
     with pytest.raises(ConfigError) as excinfo:
         load_config(enabled, sources_dir, None)
@@ -163,9 +179,14 @@ def test_llm_enabled_without_the_extra_fails_at_load_naming_the_install(
     assert "llm.enabled" in message
 
 
-def test_llm_disabled_loads_without_the_extra(config_path: Path, sources_dir: Path) -> None:
-    # The shipped state: off, and nothing about the optional package is required to run.
-    config = load_config(config_path, sources_dir, None)
+def test_llm_disabled_loads_whether_or_not_the_extra_is_present(
+    config_path: Path, sources_dir: Path, tmp_path: Path
+) -> None:
+    # Switched off, the optional package is nobody's business — the check must not run at
+    # all, on a machine that has it or one that does not.
+    disabled = _config_with_llm(config_path, tmp_path, enabled=False)
+
+    config = load_config(disabled, sources_dir, None)
 
     assert config.llm.enabled is False
 

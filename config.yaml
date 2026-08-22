@@ -126,5 +126,9 @@ delivery:
     enabled: false
 
 site:
+  # A közzétett oldal abszolút címe. Az emailbeli linkek ebből épülnek — relatív útvonal
+  # egy levelezőben nem oldható fel. Ha a Pages cím más, ezt kell átírni; üresen hagyva a
+  # levél kihagyja a gombot ahelyett, hogy törött linket írna ki.
+  base_url: "https://r4zor25.github.io/MyBudapest"
   base_path: "/budapest-event-digest"
   archive_keep_days: 90

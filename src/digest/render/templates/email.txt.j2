@@ -1,6 +1,10 @@
 BUDAPESTI NAPI LISTA — {{ weekday_label }}, {{ date_label }}
 {% if has_events %}
 {{ new_count }} új program, ebből {{ free_count }} ingyenes — {{ tonight_count }} ma este
+{% if site_url %}
+
+Mind a {{ published_count }} program: {{ site_url }}
+{% endif %}
 {% else %}
 0 új program — ma nincs semmi.
 

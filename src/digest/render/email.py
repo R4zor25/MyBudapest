@@ -108,18 +108,27 @@ def render_email(
     *,
     source_health: dict[str, SourceHealth] | None = None,
     archive_url: str | None = None,
+    published_count: int | None = None,
     now: datetime | None = None,
 ) -> RenderedEmail:
     """Builds the subject, HTML body and plain-text alternative for one run's digest.
 
     `events` is the full post-group event list — this function does its own
     per-category/total limiting (requirement 2) and its own "expiring soon" selection
-    (requirement 3); neither is a pipeline stage today (§ package 9 report)."""
+    (requirement 3); neither is a pipeline stage today (§ package 9 report).
+
+    `published_count` is how many events reach the SITE, which is a different number from
+    how many reach this email and has to be passed in rather than counted here: the email
+    shows a per-category top slice, the site shows everything. The button at the top
+    promises the full set, so it must not be labelled with the email's own item count."""
     tz = ZoneInfo(config.schedule.timezone)
     moment = now.astimezone(tz) if now is not None else datetime.now(tz)
     today = moment.date()
     health = source_health or {}
-    archive = archive_url or config.site.base_path or "#"
+    # An email link has to be absolute; `base_path` is a path and cannot be resolved by a
+    # mail client, so it is only the last resort it always was.
+    site_url = config.site.base_url.rstrip("/")
+    archive = archive_url or site_url or config.site.base_path or "#"
 
     grouped_rows, category_sections = _select_and_limit(events, config)
     displayed = [
@@ -145,6 +154,10 @@ def render_email(
         "source_health_line": source_health_line(health),
         "run_time_label": moment.strftime("%H:%M"),
         "archive_url": archive,
+        # Empty when no base_url is configured — the template omits the button entirely
+        # rather than rendering one that goes nowhere.
+        "site_url": site_url,
+        "published_count": len(events) if published_count is None else published_count,
     }
 
     if displayed:

@@ -43,6 +43,25 @@
   </td>
   </tr>
 
+{% if site_url %}
+  <!-- ══ TELJES LISTA GOMB ═══════════════════════════════════════════ -->
+  <!-- Táblázatból, nem paddinges <a>-ból: az Outlook Word-motorja a linken lévő paddinget
+       eldobja, és a gomb egy aláhúzott szöveggé esik szét. Ugyanaz a minta, mint a lábléc
+       "Archívum & szűrők" gombja, csak teljes szélességben. -->
+  <tr>
+  <td class="pad" style="padding:20px 28px 0 28px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:separate; border-radius:8px; background-color:#9184d9;">
+    <tr>
+      <td align="center" bgcolor="#9184d9" style="padding:13px 18px; border-radius:8px; background-color:#9184d9;">
+        <a href="{{ site_url }}" style="font-size:14px; line-height:1.2; font-weight:600; color:#12131f; text-decoration:none; display:inline-block;">Mind a {{ published_count }} program megtekintése →</a>
+      </td>
+    </tr>
+    </table>
+    <p style="margin:8px 0 0 0; font-size:11px; line-height:1.5; color:#7c8095;">A levélben kategóriánként a legjobbak szerepelnek; az oldalon mind ott van, szűrhetően.</p>
+  </td>
+  </tr>
+{% endif %}
+
 {% if grouped_rows %}
   <!-- ══ ÖSSZEVONT FESZTIVÁL-SOR ═════════════════════════════════════ -->
   <tr>
