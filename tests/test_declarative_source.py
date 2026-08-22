@@ -256,6 +256,9 @@ def test_registry_builds_every_declarative_source_from_the_real_sources_dir(
         # Package 13: another disabled placeholder — funzine's event post type has been
         # dead since 2018. programturizmus is already in this set and is now enabled.
         "funzine",
+        # Package 15: The Events Calendar REST API is a plain field mapping, so tokenklub
+        # needs no plugin. cooltix, tixa and tarsasjatekos from the same package do.
+        "tokenklub",
     }
 
 

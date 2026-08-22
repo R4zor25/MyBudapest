@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="HTML5 Template,Animation Studio, Cartoon" />
+    <meta name="description" content="Animado - Animation & Cartoon Studio Template" />
+    <title>Magyar Társasjátékos Egyesület</title>
+
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+    <!--font-awesome icons link-->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <!--main style file-->
+    <link rel="stylesheet" href="css/light-version/style.css">
+    <link rel="stylesheet" href="css/light-version/responsive.css">
+    <link rel="stylesheet" href="css/mate.css">
+</head>
+
+<body id="light-mode">
+    <!-- Facebook SDK Start-->
+    <div id="fb-root"></div>
+
+    <!-- Your Chat Plugin code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "126854900713219");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v13.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/hu_HU/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!-- Facebook SDk End -->
+
+    <!-- Preloader Part Start -->
+    <div class="preloader">
+        <div class="frame">
+            <div class="center">
+                <div class="dot-1"></div>
+                <div class="dot-2"></div>
+                <div class="dot-3"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Part End -->
+    <!-- HEADER AREA START -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">MA<b>TE</b></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </button>
+            <div class="collapse navbar-collapse menu-main" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto menu-item">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html#banner">Nyitólap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html#about">Célunk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html#events">Események</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html#social">Közösség</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html#onepercent">Adó 1%</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link bor" href="/klubok.html">Klubok</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- HEADER AREA ENDS -->
+    <!-- BANNER AREA START -->
+    <section id="banner">
+        <div class=".particles-js-canvas-el" id="particles-js"></div>
+        <div class="design-layer"></div>
+        <!--div class="backtotop">
+            <a href="#banner"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+        </div-->
+        <div class="container zindex">
+            <div class="row">
+                <div class="col-lg-7 banner-txt">
+                    <h3>Klubjaink</h3>
+                    <p>Egész évben várunk rendezvényeinken és szinte minden hétvégén találhatsz egy klubot, ahol kipróbálhatod a legjobb társasjátékokat.</p>
+                    <p>Ha barátaiddal csak egy jó helyet kerestek, ahol a saját játékaitokkal játszhattok, akkor is szeretettel várunk titeket klubjainkban!</p>
+                </div>
+                <div class="col-lg-5">
+                    <div class="banner-img">
+                        <img src="images/tarsasjatekos-hero.png" alt="banner-img" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- BANNER AREA ENDS -->   <!-- 1% AREA START -->
+    <section id="onepercent">
+        <div class="container">
+            <div class="row header-text text-center">
+                <div class="col-lg-12">
+                    <h3>ADÓ <span>1%</span></h3>
+                </div>
+            </div>
+            <div class="row product-pa">
+                <div class="col-lg-7 mob-mar-bottom">
+                    <div class="product-item">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-7 product-txt">
+                                <span>Szükségünk van a támogatásodra</span>
+                                <h3>Te is segíthetsz!</h3>
+                                <p>Non-profit szervezetként a működésünk nagyban függ mások segítségétől. Ha szeretnéd támogatni a tevékenységünket és hozzájárulni a társasjátékozás népszerűsítéséhez, ajánld fel nekünk adód egy százalékát!</p>
+                            </div>
+                            <div class="col-lg-4 col-md-4 mob-img-hide">
+                                <img src="images/onepercent.jpg" alt="product-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-1"></div>
+                <div class="col-lg-4">
+                    <div class="product-item product-txt">
+                        <span>Adószámunk</span>
+                        <h3>18710003-1-13</h3>
+                        <p class="separate-p tab-hider">Ha így teszel, jövőre is biztosan lesznek klubok, lesz Magyar Társasjátékdíj és sokak számára elérhető marad a társasjátékozás öröme.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 1% AREA ENDS --><!-- EVENTS AREA START-->
+<section id="events">
+
+    <div class="container">
+        <div class="row header-text text-center">
+            <div class="col-lg-12">
+                <h3><span>E</span>SEMÉNYEINK</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mob-mar-bottom">
+                <div class="product-item">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-7 product-txt">
+                            <span>Társasjátékozás bárhol</span>
+                            <h3>Rendezvények</h3>
+                            <p class="separate-p tab-hider">Időről időre társasjátékos találkozókon, nagyobb eseményeken
+                                és rendezvényeken is megjelenünk pár asztallal, hogy betekintést engedjünk mindenkinek a
+                                modern társasjátékozás világába. Facebook oldalunkon és eseménynaptárunkban
+                                tájékozódhatsz a legközelebbi alkalmakról.</p>
+                            <div class="buttonwrapper">
+                                <a class="linkButton" href="#event_organisers">Rendezvényszervezőknek</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4" id="google-calendar">
+                            <iframe
+                                src="https://calendar.google.com/calendar/embed?height=420&wkst=2&bgcolor=%23ffffff&ctz=Europe%2FBudapest&hl=hu&showPrint=0&showTabs=0&showCalendars=0&showTz=0&showTitle=0&showNav=0&showDate=0&mode=AGENDA&src=Y18wa2V0dGhjYnJqOWZ1czBibG05MnR2Z25iNEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%238E24AA"
+                                style="border-width:0" width="310" height="380" frameborder="0" scrolling="no"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="product-item product-txt">
+                    <span>Klubok szinte minden héten</span>
+                    <h3>Játssz velünk!</h3>
+                    <p>Szinte minden héten találhatsz egy klubot, ahol várunk téged, családodat, barátaidat.</p>
+                    <p>Mi magunk is készülünk játékkokkal, de ha csak egy helyre van szükségetek ahol játszhattok, mi
+                        akkor is szívesen látunk!.</p>
+                    <div class="buttonwrapper">
+                        <a class="linkButton" href="/klubok.html">Klubok</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="margin-top: 50px;">
+        <div class="row header-text text-center">
+            <div class="col-lg-12">
+                <h3><span>E</span>SEMÉNYEK az egész országban</h3>
+            </div>
+        </div>
+        <div class="row price-pa">
+            <div class="col-lg-12 col-sm-12">
+                <p class="otherclubs_desc">Az alábbi naptárban az országban található, általunk és mások által
+                    szervezett összes klubot megtalálod.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 mob-mar-bottom">
+                <div class="product-item text-center">
+                    <iframe
+                        src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FBudapest&showPrint=0&showCalendars=0&mode=MONTH&hl=hu&showTz=0&showTabs=0&showTitle=0&src=a2x1Ym9ra2x1YmphX2VzZW1lbnlla0B0YXJzYXNqYXRla29zLmh1&color=%23039be5"
+                        style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- EVENTS AREA END--><!-- CLUBS AREA START -->
+<section id="clubs">
+    <div class="container">
+        <div class="row header-text text-center">
+            <div class="col-lg-12">
+                <h3><span>K</span>LUBJAINK</h3>
+            </div>
+        </div>
+        <div class="row price-pa">
+            <div class="col-lg-12 col-sm-12">
+                <p class="otherclubs_desc">Bár igyekszünk klubjainkat rendszeresen megtartani, időnként előfordulhat,
+                    hogy egy-egy alkalom elmarad, vagy áthelyezésre kerül, ezért indulás előtt azt javasoljuk, hogy
+                    látogasd meg Facebook oldalunkat és ellenőrizd az <a href="/#events">eseménynaptárunkat</a></p>
+            </div>
+        </div>
+        <div class="row price-pa">
+            <div class="col-lg-4 col-sm-12">
+                <div class="price-table mob-mar-bottom">
+                    <h3>Andúril Társasjáték Klub</h3>
+                    <h4><sub>minden </sub>csütörtök<sub>ön</sub></h4>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Nyitás: 18:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Zárás: 23:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> 1133 Budapest, Visegrádi u. 83/c</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Bejárat az épület háta felől</p>
+                    <div class="price-btn text-center">
+                        <a href="https://www.facebook.com/anduriltarsasjatekklub/" target="_blank">Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+                <div class="price-table mob-mar-bottom">
+                    <h3>Andúril Társasjáték Klub</h3>
+                    <h4><sub>havonta egyszer </sub>szombat<sub>on</sub></h4>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Nyitás: 14:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Zárás: 23:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> 1133 Budapest, Visegrádi u. 83/c</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Bejárat az épület háta felől</p>
+                    <div class="price-btn text-center">
+                        <a href="https://www.facebook.com/tarsasjatekos/events" target="_blank">Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+                <div class="price-table mob-mar-bottom">
+                    <h3>Biatorbágyi Társasjáték Klub</h3>
+                    <h4><sub>havonta egyszer </sub>pénteken<sub></sub></h4>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Nyitás: 18:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Zárás: 21:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Juhász Ferenc Művelődési Központ</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> 2051 Biatorbágy, Baross Gábor u. 1.</p>
+                    <div class="price-btn text-center">
+                        <a href="mailto:marcell.rigo.11@gmail.com" target="_blank">marcell.rigo.11@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row price-pa">
+            <div class="col-lg-4 col-sm-12">
+                <div class="price-table mob-mar-bottom">
+                    <h3>Csepeli Társasjáték Klub</h3>
+                    <h4>eseménynaptár<sub> szerint</sub></h4>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Nyitás: 12:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Zárás: 20:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Csepeli Napközis Tábor</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Budapest, Hollandi út 18, 1213</p>
+                    <div class="price-btn text-center">
+                        <a href="https://www.facebook.com/groups/3791165604544665" target="_blank">Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+                <div class="price-table mob-mar-bottom">
+                    <h3>Dunakeszi Társasjáték Klub</h3>
+                    <h4><sub>minden hónap </sub>1.<sub> szombatján</sub></h4>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Nyitás: 13:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Zárás: 18:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Fazekas Mihály Ált. Isk.</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> 2120 Dunakeszi, Radnóti Miklós u. 29.</p>
+                    <div class="price-btn text-center">
+                        <a href="https://dunakeszi-fazekas.hu/" target="_blank">Helyszín</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+                <div class="price-table mob-mar-bottom">
+                    <h3>Hajdúsámsoni Társasjáték Klub</h3>
+                    <h4>eseménynaptár<sub> szerint</sub></h4>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Nyitás: 18:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Zárás: 22:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Club-471 Étterem és Kávézó</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Hajdúsámson, Szabadság tér 4, 4251</p>
+                    <div class="price-btn text-center">
+                        <a href="https://www.facebook.com/tarsasjatekos/events" target="_blank">Facebook</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row price-pa">
+            <div class="col-lg-4 col-sm-12">
+                <div class="price-table mob-mar-bottom">
+                    <h3>Kőbányai Társasjátékos Klub</h3>
+                    <h4><sub>minden hónap </sub>2.<sub> szombatján</sub></h4>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Nyitás: 11:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Zárás: 19:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Kőbányai Kult. Közp. 40-es terem</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> 1105. Budapest, Szent László tér 7-14.</p>
+                    <div class="price-btn text-center">
+                        <a href="https://www.facebook.com/tarsasjatekos/events" target="_blank">Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+                <div class="price-table mob-mar-bottom">
+                    <h3>Martonvásári Társasjáték Klub</h3>
+                    <h4>eseménynaptár<sub> szerint</sub></h4>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Nyitás: 13:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Zárás: 20:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Óvodamúzeum</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Emlékezés tere 1, Martonvásár 2462</p>
+                    <div class="price-btn text-center">
+                        <a href="https://www.facebook.com/tarsasjatekos/events" target="_blank">Facebook</a>
+                    </div>
+                    <div class="price-btn text-center">
+                        <a href="https://www.facebook.com/martontarsasklub" target="_blank">Facebook csoport</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+                <div class="price-table mob-mar-bottom">
+                    <h3>Mogyoródi Társasjáték Klub</h3>
+                    <h4>eseménynaptár<sub> szerint</sub></h4>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i>Nyitás: 13:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i>Zárás: 19:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i>Szent László Emlékhely és Látogatóközpont</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i>Mogyoród, Főtér - Rózsa utca 2-4</p>
+                    <div class="price-btn text-center">
+                        <a href="https://www.facebook.com/tarsasjatekos/events" target="_blank">Facebook</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row price-pa">
+            <div class="col-lg-4 col-sm-12">
+                <div class="price-table mob-mar-bottom">
+                    <h3>MOM Társasjátékos Klub</h3>
+                    <h4><sub>minden hónap </sub>3.<sub> szombatján</sub></h4>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Nyitás: 11:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Zárás: 21:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> XII. kerületi Művelődési Központ</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> 1124 Budapest, Csörsz utca 18.</p>
+                    <div class="price-btn text-center">
+                        <a href="https://www.facebook.com/tarsasjatekos/events" target="_blank">Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+                <div class="price-table mob-mar-bottom">
+                    <h3>Pátyi Társasjáték Klub</h3>
+                    <h4><sub>minden hónap utolsó </sub>vasárnapján<sub></sub></h4>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Nyitás: 14:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Zárás: 20:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Pátyi Művelődési Ház </p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> 2071 Páty, Kossuth Lajos utca 77.</p>
+                    <div class="price-btn text-center">
+                        <a href="https://www.facebook.com/groups/564503991783606" target="_blank">Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+                <div class="price-table mob-mar-bottom">
+                    <h3>SideQuest Bar</h3>
+                    <h4>Időpontok a Facebookon</h4>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i>Nyitás: 16:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i>Zárás: 21:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i>SideQuest Bar</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i>Klauzál u. 26-28, Budapest</p>
+                    <div class="price-btn text-center">
+                        <a href="https://www.facebook.com/tarsasjatekos/events" target="_blank">Facebook</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row price-pa">
+            <div class="col-lg-4 col-sm-12">
+                <div class="price-table mob-mar-bottom">
+                    <h3>Poroszlói Társasjáték Klub</h3>
+                    <h4><sub>Időpontok </sub>Facebookon <sub></sub></h4>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Nyitás: 09:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Zárás: 17:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> <a href="https://termeszetgyogyaszoktatas.hu/"
+                            target="_blank">Helyszín weboldala</a></p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> 3388 Poroszló, Rákóczi út 25.</p>
+                    <div class="price-btn text-center">
+                        <a href="https://www.facebook.com/termeszetgyogyaszoktatas" target="_blank">Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <!--div class="col-lg-4 col-sm-12">
+                <div class="price-table mob-mar-bottom">
+                    <h3>Pátyi Társasjáték Klub</h3>
+                    <h4><sub>minden hónap utolsó </sub>vasárnapján<sub></sub></h4>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Nyitás: 14:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Zárás: 20:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Pátyi Művelődési Ház </p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> 2071 Páty, Kossuth Lajos utca 77.</p>
+                    <div class="price-btn text-center">
+                        <a href="https://www.facebook.com/groups/564503991783606" target="_blank">Facebook</a>
+                    </div>
+                </div>
+            </div-->
+            <!--div class="col-lg-4 col-sm-12">
+                    <div class="price-table mob-mar-bottom">
+                        <h3>Perpective Klub</h3>
+                        <h4>Időpontok a Facebookon</h4>
+                        <p><i class="fa fa-circle" aria-hidden="true"></i>Nyitás: 12:00</p>
+                        <p><i class="fa fa-circle" aria-hidden="true"></i> Zárás: 22:00</p>
+                        <p><i class="fa fa-circle" aria-hidden="true"></i>Perspective Bar</p>
+                        <p><i class="fa fa-circle" aria-hidden="true"></i>Klauzál u. 26-28, Budapest</p>
+                        <div class="price-btn text-center">
+                            <a href="https://www.facebook.com/tarsasjatekos/events" target="_blank">Facebook</a>
+                        </div>
+                    </div>
+                </div-->
+        </div>
+    </div>
+</section>
+<!-- CLUBS AREA ENDS -->
+<!-- OTHER CLUBS AREA START -->
+
+<section id="other_clubs">
+    <div class="container">
+        <div class="row header-text text-center">
+            <div class="col-lg-12">
+                <h3><span>MÁSOK</span> KLUBJAI</h3>
+            </div>
+        </div>
+        <div class="row price-pa">
+            <div class="col-lg-12 col-sm-12">
+                <p class="otherclubs_desc">Ezeket a klubokat nem az egyesület üzemelteti, felkeresésük előtt javasoljuk
+                    a klubvezetővel az emailes vagy telefonos kapcsolatfelvételt.</p>
+            </div>
+        </div>
+        <div class="row price-pa">
+            <div class="col-lg-4 col-sm-12">
+                <div class="price-table mob-mar-bottom">
+                    <h3>Board Game Café Budapest</h3>
+                    <h4>Minden nap<sub> nyitva</sub></h4>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Hétfő-Szombat: 11:00-24:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Vasárnap: 11:00-22:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> 1082 Budapest, Váci út 46.</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> 1250 Ft/fő 3 órás játékdíj minden megkezdett 3 órára</p>
+                    <div class="price-btn text-center">
+                        <a href="https://www.facebook.com/boardgamecafebudapest/events" target="_blank">Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+                <div class="price-table mob-mar-bottom">
+                    <h3>Csákvár Társasjáték Klub</h3>
+                    <h4><sub>havonta két </sub>szombaton<sub></sub></h4>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Nyitás: 16:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Zárás: 22:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Floriana Könyvtár és Közösségi Ház Csákvár </p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Csákvár, Szabadság tér 9/A, 8083</p>
+                    <div class="price-btn text-center">
+                        <a href="https://www.facebook.com/groups/6334348450008036?locale=hu_HU"
+                            target="_blank">Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+                <div class="price-table mob-mar-bottom">
+                    <h3>Szerdai Társasjáték Klub</h3>
+                    <h4><sub></sub>Szerdánként<sub></sub></h4>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Nyitás: 17:30</p>
+                    <!--p><i class="fa fa-circle" aria-hidden="true"></i> Zárás: 17:00</p-->
+                    <!--p><i class="fa fa-circle" aria-hidden="true"></i> <a href="https://termeszetgyogyaszoktatas.hu/"
+                            target="_blank">Helyszín weboldala</a></p-->
+                    <p><i class="fa fa-circle" aria-hidden="true"></i>Veszprém, Aulich Lajos u. 3, 8200</p>
+                    <div class="price-btn text-center">
+                        <a href="https://m.facebook.com/szerdaitarsasjatekklub/" target="_blank">Facebook</a>
+                    </div>
+                    <div class="price-btn text-center">
+                        <a href="mailto:andras926@gmail.com" target="_blank">andras926@gmail.com </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row price-pa">
+            <div class="col-lg-4 col-sm-12">
+                <div class="price-table mob-mar-bottom">
+                    <h3>Társasjáték Vár Egyesület</h3>
+                    <h4><sub>Időpontok a Facebookon</sub></h4>
+                    <!-- <p><i class="fa fa-circle" aria-hidden="true"></i>Nyitás: 12:00</p> -->
+                    <!-- <p><i class="fa fa-circle" aria-hidden="true"></i> Zárás: 22:00</p>  -->
+                    <p><i class="fa fa-circle" aria-hidden="true"></i>Tolna</p>
+                    <!-- <p><i class="fa fa-circle" aria-hidden="true"></i>Klauzál u. 26-28, Budapest</p> -->
+                    <div class="price-btn text-center">
+                        <a href="https://www.facebook.com/groups/611540679685310" target="_blank">Facebook</a>
+                    </div>
+                    <div class="price-btn text-center">
+                        <a href="mailto:tarsasjatekvar@gmail.com" target="_blank">tarsasjatekvar@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+            <!--div class="col-lg-4 col-sm-12">
+                <div class="price-table mob-mar-bottom">
+                    <h3>Szerdai Társasjáték Klub</h3>
+                    <h4><sub></sub>Szerdánként<sub></sub></h4>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Nyitás: 17:30</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Zárás: 17:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> <a href="https://termeszetgyogyaszoktatas.hu/"
+                            target="_blank">Helyszín weboldala</a></p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i>Veszprém, Aulich Lajos u. 3, 8200</p>
+                    <div class="price-btn text-center">
+                        <a href="https://m.facebook.com/szerdaitarsasjatekklub/" target="_blank">Facebook</a>
+                    </div>
+                    <div class="price-btn text-center">
+                        <a href="mailto:andras926@gmail.com" target="_blank">andras926@gmail.com </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+                <div class="price-table mob-mar-bottom">
+                    <h3>Társasjáték Vár Egyesület</h3>
+                    <h4><sub>Időpontok a Facebookon</sub></h4>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i>Nyitás: 12:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i> Zárás: 22:00</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i>Tolna</p>
+                    <p><i class="fa fa-circle" aria-hidden="true"></i>Klauzál u. 26-28, Budapest</p>
+                    <div class="price-btn text-center">
+                        <a href="https://www.facebook.com/groups/611540679685310" target="_blank">Facebook</a>
+                    </div>
+                    <div class="price-btn text-center">
+                        <a href="mailto:tarsasjatekvar@gmail.com" target="_blank">tarsasjatekvar@gmail.com</a>
+                    </div>
+                </div>
+            </div-->
+        </div>
+        <div class="row price-pa">
+            <div class="col-lg-12 col-sm-12">
+                <p class="otherclubs_desc">Szeretnénk klubgyűjteményünket minél teljesebbé tenni, ha te is rendszeresen
+                    tartasz társasjáték klubokat, töltsd ki a <a href="https://forms.gle/dgwNC2araWV3gRW76"
+                        target="_blank">jelentkezési lapot</a> és a te klubodat is listázni fogjuk!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- OTHER CLUBS AREA ENDS -->
+    <section class="subscribe">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 m-auto">
+                    <div class="sub-main">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-7">
+                                <h3>Csatlakozz hozzánk</h3>
+                            </div>
+                            <div class="col-lg-3 col-md-5 subscripe-btn">
+                                <a href="/index.html#recruit">Jelentkezem</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER AREA START -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-11">
+                    <div class="footer-logo">
+                        <a class="f-logo" href="#banner"><b>Magyar Társasjátékos Egyesület</b></a>
+                        <p>2005 óta a családi társasjátékozás népszerűsítéséért, mert játszani jó! </p>
+                        <div>
+                            <ul>
+                                <li><a href="mailto:info@tarsasjatekos.hu">info@tarsasjatekos.hu</a></li>
+                                <li>2316 Tököl, Viola u. 28.</li>
+                                <li>Adószám: 18710003-1-13</li>
+                                <li>Bankszámla szám: 11705998-21272963</li>
+                                <li>Nyilvántartási szám: 13-02-0004449</li>
+                            </ul>
+                        </div>
+                        <div class="footer-social">
+                            <a href="https://www.facebook.com/tarsasjatekos"             target="_blank"><i class="fa fa-facebook"                  aria-hidden="true"></i></a>
+                            <a href="https://www.instagram.com/tarsasjatekos.egyesulet/" target="_blank"><i class="fa fa-instagram"                 aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-1"></div>
+                <div class="col-lg-3 col-sm-4">
+                    <div class="links">
+                        <h3>Dokumentumok</h3>
+                        <ul>
+                            <li><a target="_blank" href="/docs/MATE_Alapszabaly_2016.pdf">Alapszabály</a></li>
+                            <li><a target="_blank" href="/szoszedet.html">Szószedet</a></li>
+                            <li><a target="_blank" href="/escape-of-the-dead-tarsasjatek.html">Escape of the Dead</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-4">
+                    <div class="links">
+                        <h3>Magyar Társasjátékdíj</h3>
+                        <ul>
+                            <li><a target="_blank" href="https://jatekdij.hu">Honlap</a></li>
+                            <li><a target="_blank" href="docs/MTD_szabalyzat_2017.pdf">Szabályzat</a></li>
+                            <li><a target="_blank" href="docs/Magyar_Tarsasjatekdij_Alapito_20100529.pdf">Alapító okirat</a></li>
+                            <li><a target="_blank" href="docs/MTD_melleklet3_20110212.pdf">I. sz. melléklet</a></li>
+                            <li><a target="_blank" href="docs/MTD_melleklet2_20100529.pdf">II. sz. melléklet</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER AREA END -->
+
+    <!-- COPY_RIGHT AREA START -->
+    <section id="footer-btm">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="fop-btm text-center">
+                        <h2>Copyright &copy; 2022. Minden jog fenntartva <a href="https://tarsasjatekos.hu">Magyar Társasjátékos Egyesület</a></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- COPY_RIGHT AREA END -->
+    
+    <!-- JavaScript -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/light-version/circular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/mate.js"></script>
+</body>
+
+</html>

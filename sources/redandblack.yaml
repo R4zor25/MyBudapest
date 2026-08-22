@@ -30,6 +30,34 @@ plugin: null
 # to the list is never populated: the page loads no JavaScript file at all, and no inline
 # script mentions it. It is dead markup, not an XHR-backed widget.
 #
+# SECOND ATTEMPT, 2026-08-22 — the root path, not /programok. Same verdict, more evidence.
+#
+# The brief was right that individual event pages exist outside /programok: 21 of them,
+# at the root (e.g. /tarsas-ismerkedo-est-ahol-a-jatek-talalkozik-a-szerelemmel,
+# /magyar-kvizest-minden-hetfon, /tarsasjatek-est-jatekmesterrel). They are the detail
+# pages of the archived cards, and they are dateless:
+#
+#   a. No <time>, no datetime= attribute and no JSON-LD anywhere on them. The only
+#      temporal strings are a bare clock time ("Kezdés: 18:00") and a weekday word
+#      ("Várunk kedden este"). No day, no month, no year — §6.1 step 5.
+#   b. sitemap.xml holds 21 URLs, every one with lastmod 2023-11-08T13:30:25+00:00, and
+#      it does not list the event pages at all — the root URLs it does carry are game
+#      descriptions (/jaipur, /froccs, /imagine, /szokapocs).
+#   c. /programok is unchanged since batch A: `<div class="row programs programs__active">`
+#      is 50 bytes with 0 cards, and the newest date anywhere on the page is still
+#      2024. 08. 26.
+#   d. robots.txt is empty (fully open), so none of this is an access problem.
+#
+# THE VENUE IS ALIVE, THE WEBSITE IS NOT. Cooltix sells "Just Connect – Ismerkedős társas
+# est" at "Red&Black Társasjátékszalon" on 2026-09-19 (tests/fixtures/cooltix_events.json
+# is the same endpoint; the record is outside the 14-day horizon but machine-readable and
+# dated). So the salon runs public programmes again — it just publishes them through a
+# ticketing platform instead of its own site. That is why config.yaml's tarsasjatek
+# venue_prior did not simply lose its Red & Black entry: the short-hand "Red & Black" was
+# replaced by "Red&Black Társasjátékszalon", the exact string Cooltix emits. The old value
+# could never have matched anything — venue_prior is compared for exact equality after
+# normalize_venue (§7.5), never as a substring.
+#
 # Enabling this with correct selectors would produce a source that parses ~21 records
 # cleanly and contributes exactly 0 events, because normalize.py drops all of them as
 # past — the silent-zero failure mode AUDIT-5 already caught once on port-hu.yaml, and

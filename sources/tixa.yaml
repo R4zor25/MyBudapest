@@ -1,0 +1,34 @@
+id: tixa
+name: Tixa
+enabled: true
+priority: 35
+fetcher: http
+rate_limit_seconds: 2
+plugin: tixa
+
+# §6.1 step 3 — server-rendered JSON-LD, verified 2026-08-22, fixture
+# tests/fixtures/tixa_jatszohazprojekt.html. robots.txt disallows only two 2018 campaign
+# paths, so everything here is permitted.
+#
+# Plugin, not a declarative spec: the event data is inside `<script
+# type="application/ld+json">` blocks, which CSS selectors cannot address per field, and
+# the request needs an `Accept-Language: hu-HU` header (the YAML schema has no header
+# field) or the whole listing comes back in English.
+#
+# WHY THE URL LIST IS SHORT, AND WHAT HAS TO BE SOLVED BEFORE IT GROWS.
+# Tixa's `startDate` is machine-readable but only sometimes true. On the Dürer Kert venue
+# page, 16 of 24 records carried `T00:00:00` while the real time appeared only in
+# `customDate` as Hungarian prose without a weekday ("2026. augusztus 22. 19:00") — a
+# shape §7.1 cannot parse, and the event detail pages repeat the same broken
+# `T00:00:00`, so there is no fallback. The plugin therefore drops midnight records and
+# logs `skipped_placeholder_start`. That is the right call per record, but it means a
+# wide venue list would silently shed two thirds of its events, so the list stays at the
+# board-game organiser this batch was about. Widening it is blocked on §7.1 learning the
+# bare "YYYY. hónap NN. HH:MM" form — not on anything in this file.
+#
+# What it gives today: Játszóház Projekt's "Hétfői társasozás a Treffort Kertben", a
+# Monday board-game night at Treffort Kert & Könyvtár Klub (1088 Budapest, Múzeum krt. 4).
+# One event in a 14-day horizon — low volume by design, the §6.6-B community layer.
+listing:
+  urls:
+    - "https://www.tixa.hu/jatszohazprojekt"

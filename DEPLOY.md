@@ -74,6 +74,7 @@ Settings → Secrets and variables → **Actions** → New repository secret.
 | `SMTP_USER` | a küldő email cím |
 | `SMTP_PASSWORD` | a 16 karakteres app password |
 | `GEMINI_API_KEY` | csak ha az LLM réteg be van kapcsolva |
+| `GCAL_API_KEY` | csak ha a `sources/tarsasjatekos.yaml` be van kapcsolva. Sima Google Cloud API-kulcs engedélyezett Calendar API-val — nyilvános naptárhoz nem kell sem OAuth, sem számlázás. Kulcs nélkül a forrás `ConfigError`-ral áll le, nem csendben nullázódik. |
 
 Ellenőrzés, hogy semmit nem hagytál ki:
 

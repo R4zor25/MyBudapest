@@ -1,0 +1,55 @@
+id: tarsasjatekos
+name: Magyar Társasjátékos Egyesület — klubnaptár
+enabled: false
+priority: 15
+fetcher: api
+rate_limit_seconds: 3
+plugin: tarsasjatekos
+
+# The national board-game club calendar, reached through the Google Calendar API. Its
+# identifier is address-shaped, so it appears percent-encoded in the request URL below
+# and is not repeated in prose anywhere in this file: test_config_privacy.py rejects the
+# at-sign outright under sources/, and it cannot tell a public calendar id from someone's
+# mailbox. That guard is worth more than the convenience of spelling the id out here. This is the richest source found for this category:
+# sampled 2026-08-22 it held 160 events across a year, of which 8 fell inside a 14-day
+# horizon in Budapest, plus 4 more from two weekly clubs once recurrence is expanded.
+#
+# ENABLED: false — ONLY because GCAL_API_KEY does not exist yet. Nothing else is missing:
+# the plugin is written, the calendar is public and confirmed readable, and the API
+# answered the exact request below with a 403 whose message is "Method doesn't allow
+# unregistered callers", i.e. the path and calendar id are right and only the credential
+# is absent. To turn this on:
+#   1. Create an API key in any Google Cloud project with the Calendar API enabled
+#      (no OAuth, no billing — a public calendar needs nothing but a key).
+#   2. Put it in the repo's Actions secrets as GCAL_API_KEY and export it locally.
+#   3. Save a real response to tests/fixtures/tarsasjatekos_calendar.json and flip this
+#      flag. test_source_boardgames.py has the assertions ready and skips until the
+#      fixture exists.
+# Enabling it without the key is loud, not silent: discover() raises ConfigError naming
+# the variable, which cli.py logs as `source_failed`.
+#
+# WHY THE API AND NOT THE .ics. The calendar's public iCal export
+# (calendar.google.com/calendar/ical/.../public/basic.ics) returns the same 160 events and
+# needs no key — but calendar.google.com/robots.txt is `Allow: /$` followed by
+# `Disallow: /`, and Python's own RobotFileParser (the one fetch/http.py uses) reports
+# False for that path. `www.google.com/calendar/ical/...` still resolves, but only as a
+# 302 into the same disallowed host, so it is the same fetch with an extra hop. The
+# Calendar API is the route Google documents for reading a calendar programmatically, and
+# www.googleapis.com serves no robots.txt at all (404 -> allow all under RFC 9309). Same
+# public data, published interface, no rule stepped around.
+#
+# WHY NOT klubok.html. The page the brief pointed at is a club DIRECTORY, not a calendar:
+# each entry states a recurrence rule in prose — "minden csütörtökön", "minden hónap 2.
+# szombatján", "eseménynaptár szerint", "Időpontok a Facebookon" — and carries no date,
+# no <time> element and no JSON-LD. Turning those into occurrences would mean writing a
+# Hungarian prose recurrence parser and inventing the dates it does not publish. The page
+# itself points at the calendar below for exactly that reason, three times.
+#
+# Recurrence is not this plugin's problem: `singleEvents=true` makes the API expand
+# RRULEs server-side, so weekly clubs arrive as individual dated occurrences.
+# The site's own caveat — "időnként előfordulhat, hogy egy-egy alkalom elmarad, vagy
+# áthelyezésre kerül" — is accepted per the brief; cancelled instances that Google knows
+# about are dropped on `status: cancelled`.
+listing:
+  urls:
+    - "https://www.googleapis.com/calendar/v3/calendars/klubokklubja_esemenyek%40tarsasjatekos.hu/events"

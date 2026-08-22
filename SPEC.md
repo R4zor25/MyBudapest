@@ -605,6 +605,7 @@ oszlop, mert a kettő nem ugyanaz (lásd B tábla).
 | Funzine | 3. — SSR, igazolva | **elvetve** | semmit: az esemény poszttípus 2018 óta halott |
 | Fidelio | 3. — nincs listaoldal | **elvetve** | semmit: magazin, nem programkereső |
 | Színházak.hu | — | **elvetve** | semmit: a domain parkolt, a szinhaz.hu blog |
+| Cooltix | 2. — GraphQL, igazolva | **él** | vegyes budapesti merítés, 79 esemény horizonton belül |
 
 **We Love Budapest — nem technikai akadály.** A `welovebudapest.com/robots.txt` név
 szerint tiltja az `anthropic-ai` user agentet az egész oldalra (`Disallow: /`), a GPTBot
@@ -627,10 +628,13 @@ ugyanaz a csapda, amit a We Love Budapest kapcsán a spec már kizár.
 
 | Forrás | Út | Állapot | Mit ad |
 |---|---|---|---|
-| kvizestek.hu | 2. — JSON, igazolva | **él** | budapesti kvízestek, ~91 esemény |
-| redandblack.hu | 3. — SSR, igazolva | **elvetve** | semmit: nincs aktuális program |
+| kvizestek.hu | 2. — JSON, igazolva | **él** | budapesti kvízestek, **26 horizonton belül** (91 parse-olt) |
+| Tixa | 3. — SSR JSON-LD, igazolva | **él** | 1 társasest horizonton belül; a lista szűk, lásd lent |
+| tokenklub.hu | 2. — REST API, igazolva | **él, de üres** | 0 horizonton belül — szezonális klub, nyári szünet |
+| tarsasjatekos.hu | 1. — naptár API | **kulcsra vár** | ~12 társas horizonton belül (becslés, lásd lent), `GCAL_API_KEY` kell |
+| redandblack.hu | 3. — SSR, igazolva | **elvetve** | semmit: a saját oldal halott, a hely nem — lásd lent |
 | esemenyek.kedvesidegen.hu | 2. — JSON, igazolva | **elvetve** | semmit: nincs gépi dátum |
-| Játsz/Ma Társasjáték Kávézó | — | felderítetlen | — |
+| Játsz/Ma Társasjáték Kávézó | — | **lefedve** | a Cooltixon keresztül jön, nem kell külön forrás |
 | Illegál kvízest | — | felderítetlen | — |
 | Meetup | 3. — `__NEXT_DATA__` | felderítetlen | lásd lent |
 
@@ -647,11 +651,73 @@ a kezdési időpont két mezőből áll össze (`eventDate` dél-UTC dátumjelö
 mert a végpont országos: a 132 rekordból 41 Budapesten kívüli, és **egyetlen pipeline
 szakasz sem szűr településre**. Amíg nincs ilyen szakasz, ezt a forrás végzi el.
 
+**tarsasjatekos.hu — a legjobb forrás a kategóriában, de kulcs kell hozzá.** A Magyar
+Társasjátékos Egyesület országos klubnaptára 160 eseményt tartott egy évre előre; ebből 8
+esett budapesti 14 napos horizontba, plusz 4 a két heti klubból, amint a sorozat ki van
+bontva. A `klubok.html` maga **nem** ez: az klubkatalógus, prózában megadott
+ismétlődéssel („minden hónap 2. szombatján", „eseménynaptár szerint"), dátum, `<time>` és
+JSON-LD nélkül — abból csak találgatással lehetne időpontot csinálni. A dátumos alak
+kizárólag a beágyazott Google-naptár. Annak nyilvános `.ics` exportja viszont a
+`calendar.google.com`-on él, aminek a robots.txt-je `Allow: /$` után `Disallow: /`, és a
+Python `RobotFileParser` — amit a `fetch/http.py` használ — `False`-t ad rá; a régi
+`www.google.com/calendar/ical/...` út pedig 302-vel ugyanoda visz. Ezért a forrás a
+Google Calendar API-n keresztül olvas (`www.googleapis.com`, nincs robots.txt, 404 =
+minden engedett), ami ugyanezt a nyilvános naptárat adja, `singleEvents=true`-val
+szerveroldalon kibontott ismétlődéssel. Egyetlen hiányzó darab a `GCAL_API_KEY`; addig
+`enabled: false`, és kulcs nélkül hangosan hasal el, nem csendben (a futásból a
+`cli.py` `source_disabled_in_config` ággal esik ki, tehát nem termel hibát sem).
+
+**A 12-es szám becslés, nem mérés.** Ugyanannak a naptárnak az `.ics` exportjából
+számolt — az az egyetlen alak, amit robots-tiltás nélkül *nem* lehetett letölteni, de
+elemezni igen: 160 esemény, ebből 8 budapesti a 14 napos horizonton, plusz 4 a két heti
+klubból. A `plugins/tarsasjatekos.py` `parse()` függvénye viszont **még nem futott valódi
+Calendar API válaszon**, mert ahhoz kulcs kell. A mezőleképezést a dokumentált API-séma
+alapján írtuk; az első kulcsos futás egyben az első éles próbája is, és akkor kell
+elkészülnie a `tests/fixtures/tarsasjatekos_calendar.json` fixture-nek.
+
+**Cooltix — jegyértékesítő, aggregátor méretben.** GraphQL végpont
+(`api.cooltix.com/graphql`), hitelesítés nélkül válaszol, introspection nyitva, mindkét
+érintett host robots.txt-je 404 (= minden engedett). Az `events(status: LIVE, countryCode:
+HU, orderBy: startDate_ASC)` kurzoros lapozással megy, és a dátum szerinti rendezés miatt
+a horizont a találati halmaz prefixe. Egy csapda van benne: a dátum nélküli tételek
+(utalványok, állandó kiállítások) rendeződnek **előre** — 2026-08-22-én 369 darab —, ezért
+`page_size: 500` és `max: 3`, nem a szokásos százas lapozás. Cserébe ez az egyetlen gépi
+bizonyíték arra, hogy a Red&Black Társasjátékszalon újra tart nyilvános programot.
+
+**Tixa — gépi dátum, ami nem mindig igaz.** A szervezői és helyszíni oldalak
+szerveroldali JSON-LD `ItemList`-et adnak ISO `startDate`-tel, tehát §6.1 3. lépés. A
+`POST /search` végpontot **nem** használjuk: az `startDate`-et magyar prózaként adja
+(„2026. augusztus 24. 17:00"), amit a §7.1 nem olvas. A valódi baj viszont a listában is
+ott van: a Dürer Kert oldalán 24-ből 16 rekord `T00:00:00`-t hordoz, a tényleges kezdés
+pedig csak a `customDate` prózában létezik — és az esemény saját aloldala ugyanezt a
+`T00:00:00`-t ismétli, tehát nincs mire visszaesni. A plugin ezért az éjfélt eldobja és
+logolja (`skipped_placeholder_start`), a `listing.urls` pedig ezért rövid: széles
+helyszínlistával csendben elveszne az események kétharmada. A bővítés feltétele, hogy a
+§7.1 megtanulja a csupasz „ÉÉÉÉ. hónap NN. ÓÓ:PP" alakot.
+
+**tokenklub.hu — jó API, üres naptár.** The Events Calendar (WordPress) REST végpontja
+teljes gépi dátumot ad, a robots.txt csak a `/wp-admin/`-t tiltja. 2026-08-22-én
+`{"events": [], "total": 0}` a válasz: 18 esemény volt 2025-03-28 és 2026-06-06 között,
+azóta nyári szünet. Ez **nem** az AUDIT-5 által elkapott néma nulla: nem félreparse-olunk
+semmit, a forrás maga mondja, hogy nincs mit adnia — a végpont alapból `start_date = ma`.
+Ezért `enabled: true`, napi egy kéréssel, és magától éled fel az őszi szezonban.
+
 **redandblack.hu — nincs aktuális program.** A markup parse-olható és a dátumok gépiek, de
 az „Aktuális programjaink" konténer szerveroldalon üres, és a legfrissebb dátum az egész
 oldalon 2024-08-26. A szalon saját közlése szerint „csak rendezvények esetén" tart nyitva.
 Havi lapozás nincs: minden `?honap=` / `/2026-08` variáns ugyanazt az oldalt adja vissza,
 a `#program-calendar` pedig halott markup — az oldal egyetlen JS fájlt sem tölt be.
+
+**Második nekifutás (2026-08-22), a gyökér úton.** Léteznek esemény-aloldalak a `/programok`
+alatti út helyett a gyökéren (21 darab, pl. `/tarsas-ismerkedo-est-...`), de dátum nincs
+rajtuk semmilyen formában: se `<time>`, se `datetime=`, se JSON-LD, és prózában is csak egy
+óraérték („Kezdés: 18:00") meg egy napnév („kedden este"). A `sitemap.xml` 21 URL-t sorol,
+mindegyik `lastmod`-ja `2023-11-08T13:30:25+00:00`, és az esemény-aloldalakat nem is
+tartalmazza. **A helyszín viszont él:** a Cooltix 2026-09-19-re árul nála eseményt. Ezért a
+`config.yaml` `tarsasjatek.venue_prior` kulcsából a „Red & Black" rövid alak nem egyszerűen
+kikerült, hanem a Cooltix által ténylegesen kiadott „Red&Black Társasjátékszalon" váltotta —
+a régi érték amúgy sem illeszkedhetett soha, mert a `venue_prior` `normalize_venue` utáni
+**pontos egyezés**, nem részszöveg (§7.5).
 
 **kedvesidegen — nincs gépi dátum, sehol.** A WooCommerce Store API nyilvánosan válaszol,
 de a termékséma egyetlen dátummezőt sem tartalmaz. A dátum kizárólag a terméknévben van,

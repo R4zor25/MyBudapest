@@ -1,0 +1,38 @@
+id: cooltix
+name: Cooltix
+enabled: true
+priority: 30
+fetcher: api
+rate_limit_seconds: 2
+plugin: cooltix
+
+# §6.1 step 2 — GraphQL, verified 2026-08-22, fixture tests/fixtures/cooltix_events.json.
+# `cooltix.hu/robots.txt` 404s and so does `api.cooltix.com/robots.txt`, i.e. both are
+# fully open (RFC 9309: 4xx means allow all).
+#
+# Plugin, not a declarative spec, for three reasons the YAML engine cannot express:
+#   1. The request is a POST with a GraphQL document as its body; `listing.urls` +
+#      `params` only builds GETs.
+#   2. Pagination is cursor-based (`pageInfo.endCursor`), not an incrementing page number.
+#   3. The endpoint is nationwide and no pipeline stage filters on settlement, so the
+#      Budapest cut has to happen in the source — same reason kvizestek.hu is a plugin.
+#
+# ON THE PAGE BUDGET: `orderBy: startDate_ASC` sorts undated records first, and Cooltix
+# sells a lot of them — vouchers, gift cards and permanent exhibitions are "events" with
+# `startDate: null`. On 2026-08-22 there were 369 of them, so the first ~370 records of
+# every run are discarded before a single dated event appears. Hence `page_size: 500`
+# rather than the API's more usual 100: three requests cover the undated prefix and about
+# five weeks of real dates, where 100-per-page would need ten. If the undated prefix ever
+# grows past `page_size * max`, this source goes quiet — `pagination_capped` is logged on
+# every run that hits the cap, which is the signal to raise `max`.
+#
+# What it gives: 500 records fetched -> 131 dated -> 83 dated Budapest events on the
+# sampled page. Mostly concerts, parties and experiences; board games are a small share
+# but real (Játsz/Ma Társasjáték Kávézó, Red&Black Társasjátékszalon — the latter is the
+# only machine-readable proof that venue is still active, since its own site is not).
+listing:
+  urls:
+    - "https://api.cooltix.com/graphql"
+  pagination:
+    page_size: 500
+    max: 3

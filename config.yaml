@@ -38,8 +38,33 @@ categories:
   meetup:
     keywords: { meetup: 4, workshop: 2, előadás: 1, "közösségi": 2, networking: 3 }
   tarsasjatek:
-    keywords: { társasjáték: 4, "board game": 4, játékest: 4, "társasozás": 4, "játékklub": 3 }
-    venue_prior: { "Red & Black": 3, "Játsz/Ma": 3 }
+    # contains_word() is word-boundary anchored, so a Hungarian keyword only matches the
+    # exact surface form: "társasjáték" does NOT match "Társasjátékos kaland" or
+    # "Társasjátékok Éjszakája". Rather than loosen the shared matcher (filter and score
+    # depend on its strictness too), the suffixed forms that actually occur in the saved
+    # fixtures are listed explicitly. Adding a form here needs a fixture that contains it.
+    keywords:
+      társasjáték: 4
+      társasjátékos: 4        # "Bunny Kingdom - Társasjátékos kaland" (tarsasjatekos)
+      társasjátékok: 4        # "Társasjátékok Éjszakája a TOKEN Klubban" (tokenklub)
+      játékbemutató: 4        # "Matchy Matchy és Palackposta - Játékbemutató"
+      "board game": 4
+      játékest: 4
+      "társasozás": 4
+      "játékklub": 3
+    # venue_prior is compared with `normalize_venue(a) == normalize_venue(b)` — exact
+    # equality after casefold/accent-strip, not substring. The previous two entries
+    # ("Red & Black", "Játsz/Ma") were short-hand names no source ever emits, so neither
+    # could ever fire. These are the exact strings the saved fixtures contain.
+    venue_prior:
+      "Red&Black Társasjátékszalon": 3    # cooltix; the venue is alive, its own site is not
+      "Játsz/Ma Társasjáték Kávézó": 3    # cooltix
+      "Board Game Café": 3                # tarsasjatekos — carries untitled game nights
+                                          # ("Visszapillantó 2010: Dixit") no keyword can catch
+    # The tarsasjatekos source is the Hungarian Board Gamers Association's own club
+    # calendar: every record in it is a board-game club session, so the source asserts the
+    # topic instead of leaving it to be guessed from a game title.
+    native_types: ["boardgame"]
   kviz:
     keywords: { kvíz: 4, quiz: 4, vetélkedő: 3, "kvízest": 4, pubquiz: 4 }
   gasztro:

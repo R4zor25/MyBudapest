@@ -61,7 +61,14 @@ def test_native_type_concert_wins(config: Config) -> None:
 
 
 def test_keyword_and_venue_prior_both_contribute(config: Config) -> None:
-    event = make_event(title="Társasjáték est a Red & Blackben", venue_name="Red & Black")
+    # The venue name has to be the exact string a source emits: venue_prior is compared
+    # with normalize_venue(a) == normalize_venue(b), never as a substring. This used to say
+    # "Red & Black", a short-hand no source publishes, so the assertion below passed against
+    # a config value that could never fire on real data (package 15).
+    event = make_event(
+        title="Társasjáték est a Red & Blackben",
+        venue_name="Red&Black Társasjátékszalon",
+    )
 
     scores = explain_event(event, config)
     tarsasjatek = scores["tarsasjatek"]

@@ -1,0 +1,49 @@
+id: tokenklub
+name: TOKEN Társasjáték Klub
+enabled: true
+priority: 20
+fetcher: api
+rate_limit_seconds: 3
+plugin: null
+
+# The Events Calendar (WordPress) REST API — §6.1 step 2, reached without DevTools because
+# the calendar page renders `tribe-events` markup, and that plugin always exposes
+# `/wp-json/tribe/events/v1/events`. robots.txt allows everything but `/wp-admin/`.
+#
+# The endpoint defaults to `start_date = today`, so a bare call is already "upcoming only"
+# and no date filtering is needed here. It answers honestly when there is nothing on:
+# checked 2026-08-22 it returns `{"events": [], "total": 0}` (fixture
+# tests/fixtures/tokenklub_upcoming.json). The club is seasonal — 18 events between
+# 2025-03-28 and 2026-06-06, then a summer break — so this ships enabled and starts
+# producing by itself when the autumn season opens. It is NOT the silent-zero failure mode
+# AUDIT-5 caught on port-hu: nothing is being misparsed into nothing, the source itself
+# says there is nothing yet. The field mapping below is exercised against a real saved
+# response from the same endpoint over a past window (tokenklub_events.json, 18 records).
+#
+# No pagination: `per_page=50` is above any plausible volume for a club that has published
+# 18 events in 18 months, and the Tribe API 404s on a page past the last one — which would
+# turn "the club had a good month" into a whole-source FetchError.
+#
+# `description` is deliberately not mapped. The API returns it as raw HTML (`<div>`,
+# `<br class="html-br" />`, embedded Facebook anchors) and §7.1 only unescapes and
+# truncates — it does not strip tags — so mapping it would put markup in the email body.
+# Title, venue and time are the whole of what a club night needs.
+listing:
+  urls:
+    - "https://tokenklub.hu/wp-json/tribe/events/v1/events?per_page=50"
+  json_path: "events[*]"
+
+fields:
+  title:       { path: "title" }
+  url:         { path: "url" }
+  start_raw:   { path: "start_date" }               # "2026-06-06 15:00:00" — fromisoformat reads it
+  end_raw:     { path: "end_date", optional: true }
+  venue_name:  { path: "venue.venue", optional: true }
+  address_raw: { path: "venue.address", optional: true }
+  postal_code: { path: "venue.zip", optional: true }
+  # `image` is the boolean `false` when unset, so the dotted walk stops at a non-dict and
+  # yields None — no guard needed here.
+  image_url:   { path: "image.url", optional: true }
+
+transforms:
+  title: [html_unescape, strip]
