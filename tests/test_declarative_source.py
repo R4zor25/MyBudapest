@@ -253,6 +253,9 @@ def test_registry_builds_every_declarative_source_from_the_real_sources_dir(
         # because they carry no `plugin:` key; kvizestek does, so it is not in this set.
         "redandblack",
         "kedvesidegen",
+        # Package 13: another disabled placeholder — funzine's event post type has been
+        # dead since 2018. programturizmus is already in this set and is now enabled.
+        "funzine",
     }
 
 

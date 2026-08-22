@@ -592,17 +592,35 @@ csak `"concert"` szerepelt. Az M0 egyik feladata ezt feltárni (`digest fetch po
 
 ## 6.6 Forráslista
 
-**A. Gerinc**
+**A. Gerinc** — az „Út" a §6.1 lépése, ameddig a forrás eljutott; az „Állapot" külön
+oszlop, mert a kettő nem ugyanaz (lásd B tábla).
 
-| Forrás | Út | Mit ad |
-|---|---|---|
-| Port.hu | 2. — JSON, igazolva | minden, ár kivételével |
-| Jegy.hu | 2. — JSON | **árat** — ez tölti a `free_bonus`/`cheap_bonus` szabályt |
-| We Love Budapest | 3. — SSR | erős ingyenes-program lefedettség |
-| Fidelio | 3. — programkereső | klasszikus, színház, kultúra |
-| bigcitylife.hu | 3. — SSR | koncert, klub, fesztivál |
-| Programturizmus | 3. — SSR | széles merítés |
-| Színházak.hu | 3. — SSR | színházi repertoár |
+| Forrás | Út | Állapot | Mit ad |
+|---|---|---|---|
+| Port.hu | 2. — JSON, igazolva | **függőben** | minden, ár kivételével — a listázó URL nyitott (§17.1) |
+| Jegy.hu | 2. — JSON | felderítetlen | **árat** — ez tölti a `free_bonus`/`cheap_bonus` szabályt |
+| bigcitylife.hu | 3. — SSR, igazolva | **él** | koncert, klub, fesztivál |
+| Programturizmus | 3. — SSR, igazolva | **él** | budapesti merítés, de főleg gyűjtőoldalak |
+| We Love Budapest | — | **elvetve** | semmit: a robots.txt névre tiltja az `anthropic-ai`-t |
+| Funzine | 3. — SSR, igazolva | **elvetve** | semmit: az esemény poszttípus 2018 óta halott |
+| Fidelio | 3. — nincs listaoldal | **elvetve** | semmit: magazin, nem programkereső |
+| Színházak.hu | — | **elvetve** | semmit: a domain parkolt, a szinhaz.hu blog |
+
+**We Love Budapest — nem technikai akadály.** A `welovebudapest.com/robots.txt` név
+szerint tiltja az `anthropic-ai` user agentet az egész oldalra (`Disallow: /`), a GPTBot
+és a CCBot mellett. A `/programok/` a `User-agent: *` alatt nem tiltott, tehát egy
+másképp nevezett kliens letölthetné — de az oldal egyértelműen megmondta, hogy egy
+Anthropic-modellt nem szeretne ott látni, és ezt a fixture-t pontosan egy az. Más néven
+bekopogni azért, hogy megkerüljünk egy ránk szabott szabályt, nem opció: nincs fixture,
+nincsenek szelektorok. Újraellenőrizve 2026-08-22, a szabály változatlan.
+
+**Funzine — élő archívum, halott tartalom.** A WordPress `event` poszttípus minden
+technikai feltételt teljesít (saját archívum lapozással, tiszta SSR, nyitott robots.txt),
+csak épp 2018 decembere óta nem került bele semmi: az `event-sitemap.xml` 356 URL-jének
+`lastmod` értékei 2017-01-05 és 2018-12-18 közé esnek, a „Következő események" fejlécű
+archívum legfrissebb tétele 2018. dec. 26. Ami ma frissül, az szerkesztőségi listacikk
+(`/2026/08/19/goodapest/35-fergeteges-program...`), nem eseményrekord — annak parse-olása
+ugyanaz a csapda, amit a We Love Budapest kapcsán a spec már kizár.
 
 **B. Közösségi réteg** — kis oldalak, heti pár eseménnyel. Épp az alacsony volumenük az
 érték: ellensúlyozzák a fesztivál-elárasztást.

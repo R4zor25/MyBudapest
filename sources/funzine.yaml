@@ -1,0 +1,42 @@
+id: funzine
+name: Funzine
+enabled: false
+priority: 40
+fetcher: http
+rate_limit_seconds: 3
+plugin: null
+
+# PLACEHOLDER — deliberately empty, do not guess selectors here.
+#
+# The batch brief described Funzine as "English-language Budapest listings, editorial
+# selection". Both halves of that are out of date (checked 2026-08-22, fixture
+# tests/fixtures/funzine_events_archive.html).
+#
+# ACCESS IS FINE. robots.txt disallows only /wp-admin/, and the site is WordPress with a
+# real `event` custom post type — `/esemeny/` is a proper archive with `/esemeny/page/N/`
+# pagination, per-event detail pages and clean SSR markup. Every §6.1 step-3 precondition
+# holds. The problem is that the post type is abandoned:
+#
+#   1. `event-sitemap.xml` holds 356 event URLs whose `lastmod` values span
+#      2017-01-05 to 2018-12-18. Nothing newer exists.
+#   2. The `/esemeny/` archive is headed "Következő események" (upcoming events) and every
+#      entry under it is dated 2018 — the newest is 2018 Dec. 26. It has been advertising
+#      the same eight-year-old parties ever since.
+#   3. The `event` post type is not exposed through the REST API (`/wp-json/wp/v2/types`
+#      lists post, page, attachment, wprm_recipe, envira and nothing event-shaped), so
+#      there is no step-1/step-2 route to fresher data either.
+#
+# WHAT THE SITE PUBLISHES NOW is a magazine: `/YYYY/MM/DD/<rovat>/<slug>/` articles, and
+# they are listicles, not events — "25 fergeteges hétvégi program Budapesten és környékén
+# 2026. augusztus 12-16.", "Íme a legjobb augusztus 20-ai programok Budapesten 2026-ban".
+# Parsing those is the same editorial-article trap the brief already rules out for We Love
+# Budapest, and it applies here for the same reason: one article is not one event, and the
+# dates live in prose inside the body.
+#
+# ON THE LANGUAGE: the site is Hungarian-first (`<html lang="hu-HU">`, Hungarian nav and
+# slugs). There is an `/en/` mirror, but it carries the same editorial articles, plus five
+# `/en/esemeny/` entries from the same dead 2018 post type. So the anticipated
+# "English titles will not fuzzy-match Port.hu's Hungarian ones" problem never arises —
+# there are no Funzine event titles to match in either language. See the batch report.
+listing:
+  urls: []

@@ -8,8 +8,13 @@ plugin: null
 
 # PLACEHOLDER — deliberately empty, do not guess selectors here.
 #
+# RE-CHECKED 2026-08-22 for the aggregator batch, which asked for this source again: the
+# rule is unchanged and the decision below stands. The only request made was for
+# robots.txt itself — which is the mechanism for asking permission, not a way around the
+# answer. No listing page was fetched and no fixture exists for this source, deliberately.
+#
 # welovebudapest.com/robots.txt explicitly disallows the "anthropic-ai" user agent
-# site-wide (checked 2026-08-16):
+# site-wide (first checked 2026-08-16):
 #
 #   User-agent: anthropic-ai
 #   Disallow: /
