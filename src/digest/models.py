@@ -40,6 +40,12 @@ class RawEvent(BaseModel):
     end_raw: str | None = None
     venue_name: str | None = None
     address_raw: str | None = None
+    # The settlement as the source states it. Optional and unset by every source today:
+    # the geographic filter stage (§7.6) reads it, and sources map it as they are revisited
+    # — cooltix (`venue.address.city`), kvizestek (`venueCity`) and tokenklub
+    # (`venue.city`) all publish one. Until then normalize derives what it can from the
+    # postal code (§7.1).
+    city: str | None = None
     postal_code: str | None = None
     district_raw: int | str | None = None
     lat: float | None = None
@@ -62,6 +68,10 @@ class Event(BaseModel):
     effective_date: date
     is_series: bool = False
     venue_name: str | None
+    # Defaulted, unlike `district`, so that the many Event(...) call sites that predate
+    # the geographic filter keep working: an absent city means "unknown", which §7.6
+    # treats as keep-by-default, not as a missing required value.
+    city: str | None = None
     district: str | None
     lat: float | None
     lon: float | None

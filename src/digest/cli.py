@@ -24,6 +24,7 @@ from digest.overrides import load_overrides
 from digest.pipeline.categorize import categorize as categorize_events
 from digest.pipeline.categorize import explain_event
 from digest.pipeline.dedup import dedup
+from digest.pipeline.filter import GEO_REASONS, filter_with_reasons
 from digest.pipeline.filter import filter as filter_events
 from digest.pipeline.group import group
 from digest.pipeline.normalize import normalize
@@ -73,6 +74,10 @@ class RunSummary:
     source_counts: dict[str, int]
     merged: int
     dropped_by_filter: int
+    # A subset of dropped_by_filter, not an addition to it: the geographic cut is one of
+    # filter()'s reasons (§7.6), reported separately because it is the one rule that used
+    # to live inside individual sources.
+    dropped_by_geo: int
     dropped_by_min_score: int
     sent: int
     drifted: list[str]
@@ -199,8 +204,12 @@ def _run_pipeline(
     pinned_ids = frozenset(overrides.pinned)
 
     before_filter = len(events)
-    events = filter_events(events, config, sent_ids=sent_ids, hidden_ids=hidden_ids, now=moment)
+    filtered = filter_with_reasons(
+        events, config, sent_ids=sent_ids, hidden_ids=hidden_ids, now=moment
+    )
+    events = filtered.events
     dropped_by_filter = before_filter - len(events)
+    dropped_by_geo = sum(filtered.excluded[reason] for reason in GEO_REASONS)
 
     before_score = len(events)
     events = score(events, config, sent_ids=sent_ids, pinned_ids=pinned_ids, now=moment)
@@ -248,6 +257,7 @@ def _run_pipeline(
         source_counts=source_counts,
         merged=merged,
         dropped_by_filter=dropped_by_filter,
+        dropped_by_geo=dropped_by_geo,
         dropped_by_min_score=dropped_by_min_score,
         sent=len(rendered.sent_events),
         drifted=drifted,
@@ -258,6 +268,7 @@ def _run_pipeline(
         sources=summary.source_counts,
         merged=summary.merged,
         dropped_by_filter=summary.dropped_by_filter,
+        dropped_by_geo=summary.dropped_by_geo,
         dropped_by_min_score=summary.dropped_by_min_score,
         sent=summary.sent,
         drifted=summary.drifted,

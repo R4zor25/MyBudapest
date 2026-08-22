@@ -131,11 +131,29 @@ class ScoringConfig(_Section):
         return value
 
 
+class GeoFilterConfig(_Section):
+    """§7.6's geographic exclusion. Every default is neutral: an absent `filters.geo`
+    block, or a block with no `city`, excludes nothing at all.
+
+    `max_distance_km` here is a HARD EXCLUSION and is deliberately NOT
+    `scoring.proximity.max_distance_km`, which bounds a score penalty. Two knobs that
+    read alike but do different things: one decides whether the reader sees the event,
+    the other only how high it ranks. They are never merged."""
+
+    city: str | None = None
+    # True on purpose. Most sources publish no settlement at all, and dropping every
+    # such event would silently lose good ones; the source list is Budapest-oriented
+    # already, so failing open is the safe direction (requirement 2).
+    allow_missing_city: bool = True
+    max_distance_km: float | None = None
+
+
 class FiltersConfig(_Section):
     categories: list[str] | None = None
     max_price_huf: int | None = None
     blocked_keywords: list[str] = []
     min_score: float = 0
+    geo: GeoFilterConfig = GeoFilterConfig()
 
 
 class Config(_Section):

@@ -144,6 +144,11 @@ def _merge(first: Event, second: Event, config: Config) -> Event:
         update["image_url"] = other.image_url
     if base.district is None and other.district is not None:
         update["district"] = other.district
+    # Same fill-if-missing rule as district, and load-bearing in a way district never was:
+    # §7.6 can EXCLUDE on city, so letting a city-less base overwrite a source that does
+    # know the settlement would drop an event both sources agree is in town.
+    if base.city is None and other.city is not None:
+        update["city"] = other.city
     return base.model_copy(update=update)
 
 

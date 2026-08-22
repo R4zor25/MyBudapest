@@ -233,6 +233,37 @@ def test_price_and_coordinates_come_from_whoever_has_them() -> None:
     assert merged.categories == ["koncert"]
 
 
+def test_a_known_city_survives_a_merge_with_a_city_less_base() -> None:
+    """§7.6 can exclude on city, so this is not the cosmetic fill-in that district is: if
+    the higher-priority record has no address data and overwrites a source that does know
+    the settlement, a Budapest event both sources agree on gets dropped as unknown."""
+    base = make_event(source_ids=["port-hu"], city=None)
+    knows_the_city = make_event(
+        title="Sub Focus | A38 Hajó Nagyterem",
+        urls=["https://cooltix.hu/event/x"],
+        source_ids=["cooltix"],
+        city="Budapest",
+    )
+
+    (merged,) = dedup([base, knows_the_city], CONFIG)
+
+    assert merged.city == "Budapest"
+
+
+def test_a_stated_city_is_not_overwritten_by_a_lower_priority_one() -> None:
+    base = make_event(source_ids=["port-hu"], city="Budapest")
+    other = make_event(
+        title="Sub Focus | A38 Hajó Nagyterem",
+        urls=["https://cooltix.hu/event/x"],
+        source_ids=["cooltix"],
+        city="Győr",
+    )
+
+    (merged,) = dedup([base, other], CONFIG)
+
+    assert merged.city == "Budapest"
+
+
 def test_a_free_flag_travels_with_its_price() -> None:
     base = make_event(title="Sub Focus lemezbemutató")
     free = make_event(

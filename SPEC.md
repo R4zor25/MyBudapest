@@ -400,6 +400,10 @@ filters:
   max_price_huf: 12000
   blocked_keywords: ["gyerekprogram", "bábszínház"]
   min_score: 3
+  geo:
+    city: "Budapest"          # a normalizált `city` mezőhöz hasonlítva
+    allow_missing_city: true  # ismeretlen városú esemény MARAD, nem esik ki
+    max_distance_km: null     # kemény kizárás, NEM a scoring.proximity büntetéshatára
 ```
 
 ## 5.3 Merge és validáció
@@ -751,6 +755,15 @@ Sorrend kötött.
 - Dátum parseolás: `eventStart`-szerű ISO, magyar display formátumok (`2026. 08. 14. 19:00`),
   ISO 8601 `datetime` attribútum. Ismeretlen formátum → rekord eldobva + WARNING.
 - Minden `datetime` `Europe/Budapest`-re tz-aware-ré alakítva.
+- `city`: a §7.6 földrajzi szűrésének bemenete, három lépcsőben. (1) amit a forrás mond
+  (`RawEvent.city`); (2) az irányítószám — `1XYZ` = Budapest, más négyjegyű kód
+  bizonyítja, hogy nem Budapest, de a település nevét **nem találjuk ki**, ott `None`
+  marad; (3) csak ha egyáltalán nincs olvasható irányítószám: a „Budapest" szó a címben.
+  A sorrend szándékos — így a „9026 Győr, Budapest út 5." nem lesz budapesti cím.
+  A forrás által mondott város egy helyen normalizálódik: a „Budapest XI." és a
+  „Budapest, XI. kerület" alakok „Budapest"-re rövidülnek, mert a §7.6 pontos egyezést
+  néz, és különben egy budapesti esemény esne ki. Minden más településnél a hasonlítás
+  szó szerinti.
 - `description`: `html.unescape()`, whitespace normalizálás, 400 karakteren csonkolva.
 - Ár: `price_raw`-ból regexszel (`"3 500 Ft"`, `"ingyenes"`, `"2000-4500 Ft"`).
   `ingyenes|free|díjtalan` → `is_free = True, price_min = 0`.
@@ -846,8 +859,38 @@ hanem követelmény: az LLM soha nem lehet a pipeline kritikus útján.**
 
 ## 7.6 `filter(events, config) -> list[Event]`
 
-Kizár: horizonton kívül · nem engedett kategória · `price_min > max_price_huf` ·
-`blocked_keywords` egyezés · a ledger szerint már kiküldött (§8.2) · `min_score` alatt.
+Kizár: horizonton kívül · **földrajz** · nem engedett kategória ·
+`price_min > max_price_huf` · `blocked_keywords` egyezés · a ledger szerint már kiküldött
+(§8.2) · `min_score` alatt.
+
+**Földrajzi kizárás.** Több forrás országos — a kvizestek végpontja 132 rekordból 41-et ad
+Budapesten kívül, és a Programturizmus meg a jegyértékesítők ugyanilyenek. Enélkül a
+szabály forrásonként íródna újra, egymástól eltérően. Három ok, mindegyik `filters.geo`
+alól (§5.2), és mindegyik **nyitva bukik**, ha hiányzik a tény, amire szüksége van:
+
+| ok | mikor | mit logol |
+|---|---|---|
+| `geo_city_mismatch` | van `city`, és nem a beállított település | `city`, `expected` |
+| `geo_city_missing` | nincs `city`, és `allow_missing_city: false` | `city`, `expected` |
+| `geo_too_far` | `distance_km > filters.geo.max_distance_km` | `distance_km`, `max_distance_km` |
+
+`allow_missing_city` alapból **true**: a legtöbb forrás egyáltalán nem ad települést, és a
+kidobásuk csendben veszítene el jó eseményeket. A `filters.geo.max_distance_km` **kemény
+kizárás**, és nem azonos a `scoring.proximity.max_distance_km`-mel, ami csak a
+pontlevonást határolja — a kettőt soha nem vonjuk össze.
+
+Az `_exclusion_reason` az **első** találó okot adja vissza, tehát egy horizonton kívüli
+*és* vidéki esemény `beyond_horizon`-ként számít. A futásösszegző `dropped_by_geo` mezője
+ezért „földrajz miatt kizárva", nem „hány esemény esett Budapesten kívülre".
+
+**A `city` túléli a dedupot.** A §7.2 merge a kisebb `priority`-jű rekordot veszi
+bázisnak, és a `city`-re ugyanaz a „töltsd ki, ha hiányzik" szabály vonatkozik, mint a
+`district`-re — csak itt nem kozmetika: ha egy cím nélküli bázis felülírná azt a forrást,
+amelyik ismeri a települést, egy budapesti esemény esne ki ismeretlenként.
+
+**A forrásszintű szűrés marad.** Ahol egy forrás tud településre szűrni (kvizestek,
+cooltix), ott szűrjön: ne töltsük le, amit úgyis eldobunk. Ez udvariassági kérdés — a
+mérvadó szabály ez a szakasz, nem a forrás.
 
 ## 7.7 `score(events, config) -> list[Event]`
 

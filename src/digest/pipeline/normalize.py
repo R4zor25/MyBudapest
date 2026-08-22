@@ -9,7 +9,14 @@ from zoneinfo import ZoneInfo
 import structlog
 
 from digest.config import Config
-from digest.models import Event, RawEvent, district_from_zip, make_event_id, roman_district
+from digest.models import (
+    Event,
+    RawEvent,
+    district_from_zip,
+    fold_text,
+    make_event_id,
+    roman_district,
+)
 
 log = structlog.get_logger()
 
@@ -147,6 +154,59 @@ def _district(raw: RawEvent) -> str | None:
     return district_from_zip(raw.postal_code)
 
 
+_BUDAPEST = "Budapest"
+_ZIP_IN_TEXT_RE = re.compile(r"\b(\d{4})\b")
+_BUDAPEST_RE = re.compile(r"(?<!\w)budapest(?!\w)")
+
+
+def _city(raw: RawEvent) -> str | None:
+    """The settlement, for §7.6's geographic cut. Three sources of truth, in descending
+    order of trust — and `None` wherever none of them applies, because "unknown" is a real
+    answer here: §7.6 keeps unknown-city events by default rather than guessing.
+
+    1. What the source says. No source populates `RawEvent.city` yet, so this branch is
+       inert today; it is first because a stated city must never be overruled by an
+       address string.
+    2. The postal code, from the field or from the address text. `1XYZ` is Budapest
+       (§7.1). A four-digit code that is NOT Budapest's proves the event is elsewhere, but
+       naming that settlement would need a gazetteer this project does not carry — so it
+       returns None, not a guess.
+    3. Only when there is no readable postal code at all: the word "Budapest" in the
+       address. Kept behind the postal-code check on purpose, so "9026 Győr, Budapest út
+       5." cannot be read as a Budapest address. This branch assumes the first four-digit
+       run in the address is its postal code, which is true of every address the current
+       sources publish but is not robust in general — a house number of "2024" would read
+       as a postal code and leave the city unknown. Unknown fails open (§7.6), so the cost
+       is a missed match, never a wrong exclusion.
+    """
+    if raw.city and raw.city.strip():
+        return _canonical_city(raw.city.strip())
+
+    zip_code = raw.postal_code or _first_zip(raw.address_raw)
+    if zip_code:
+        return _BUDAPEST if district_from_zip(zip_code) is not None else None
+
+    if raw.address_raw and _BUDAPEST_RE.search(fold_text(raw.address_raw)):
+        return _BUDAPEST
+    return None
+
+
+def _canonical_city(city: str) -> str:
+    """A stated city is authoritative and is otherwise passed through untouched — but §7.6
+    compares it for exact equality, so "Budapest XI.", "Budapest, XI. kerület" and
+    "Budapest 1117" would each read as a different settlement and get the event excluded.
+    The district is a separate field; the settlement is Budapest. Word-anchored, so a name
+    merely starting with those letters is not swallowed."""
+    if _BUDAPEST_RE.match(fold_text(city)):
+        return _BUDAPEST
+    return city
+
+
+def _first_zip(text: str | None) -> str | None:
+    match = _ZIP_IN_TEXT_RE.search(text or "")
+    return match[1] if match else None
+
+
 def _distance_km(raw: RawEvent, config: Config) -> float | None:
     home = config.home
     if home is None or raw.lat is None or raw.lon is None:
@@ -222,6 +282,7 @@ def _normalize_one(
         end=end,
         effective_date=(start - timedelta(hours=config.night_shift.before_hour)).date(),
         venue_name=venue_name,
+        city=_city(raw),
         district=_district(raw),
         lat=raw.lat,
         lon=raw.lon,
