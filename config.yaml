@@ -108,7 +108,10 @@ newsletter:
     within_days: 3
 
 llm:
-  enabled: true          # M7-ben kapcsoljuk be
+  # Bekapcsolva a categorize után lefut a Gemini réteg (cli._llm_categorize). Két dolog
+  # kell hozzá, különben a config betöltése ConfigErrorral elszáll: `pip install -e .[llm]`
+  # lokálisan ÉS a .github/workflows/digest.yml-ben, plusz a GEMINI_API_KEY secret.
+  enabled: false
   provider: gemini
   model: gemini-2.5-flash-lite
   batch_size: 35

@@ -19,6 +19,7 @@ from digest.errors import ConfigError, DigestError, FetchError, ParseError
 from digest.fetch.api import ApiFetcher
 from digest.fetch.base import FetchResult, FetchTask
 from digest.fetch.http import HttpFetcher
+from digest.llm.gemini import GeminiCategorizer
 from digest.models import Event, RawEvent
 from digest.overrides import load_overrides
 from digest.pipeline.categorize import categorize as categorize_events
@@ -203,6 +204,7 @@ def _run_pipeline(
     after_dedup = len(events)
     events = recurrence(events, config)
     events = categorize_events(events, config)
+    events = _llm_categorize(events, config)
 
     # Exactly what filter.py's own docstring anticipates: resolve was_sent()'s fuzzy
     # branch once per candidate event, then hand filter()/score() the resulting id set —
@@ -291,6 +293,26 @@ def _run_pipeline(
         seconds=round(summary.seconds, 2),
     )
     return summary
+
+
+def _llm_categorize(events: list[Event], config: Config) -> list[Event]:
+    """§7.5's optional second pass, behind `llm.enabled`. Until now nothing called it, so
+    the flag was on in config.yaml and changed nothing — the file said one thing and the
+    system did another.
+
+    It is wired HERE and not inside `pipeline/categorize.py` because it makes a network
+    call, and CLAUDE.md fixes the pipeline stages as pure functions: fetch and delivery are
+    the only I/O. This is the composition layer, which is where that call belongs.
+
+    Only the real run. `--dry`, `digest categorize` and `digest explain` stay rule-only:
+    they exist to inspect the rules against a saved fixture, and a debug command that
+    spends API quota and returns something different each time is not that.
+
+    The cache is per-run — identical text is not sent twice within one run. Persisting it
+    across runs (state.json is the natural home) is not wired; see GeminiCategorizer."""
+    if not config.llm.enabled:
+        return events
+    return GeminiCategorizer().categorize(events, config)
 
 
 def _deliver(rendered: RenderedEmail, config: Config) -> bool:

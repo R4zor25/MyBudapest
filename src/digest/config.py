@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import importlib.util
 from pathlib import Path
 from typing import Any, Literal
 
@@ -270,4 +271,31 @@ def load_config(
     # handled at the CLI boundary (cli._run_real), the only path whose output actually
     # reaches a public Actions log, rather than here where it would also mean library
     # callers/tests can no longer match on the specific pydantic exception type.
-    return Config.model_validate(_with_neutral_category_weights(merged))
+    config = Config.model_validate(_with_neutral_category_weights(merged))
+    _check_llm_extra(config)
+    return config
+
+
+def _check_llm_extra(config: Config) -> None:
+    """`llm.enabled: true` without `google-genai` installed used to surface as a
+    ModuleNotFoundError from inside a pipeline stage, on whichever run first had an event
+    worth asking about — a config mistake reported as a runtime crash, hours later and in
+    the wrong place. It fails here instead, where the flag is read.
+
+    Note where the extra is NOT installed: `.github/workflows/digest.yml` runs
+    `pip install -e .`, so switching this on means adding `.[llm]` there too, not only
+    locally."""
+    if not config.llm.enabled:
+        return
+    try:
+        installed = importlib.util.find_spec("google.genai") is not None
+    except ModuleNotFoundError:
+        # find_spec imports the PARENT package to search it, so a missing `google` raises
+        # here rather than answering None — the very error this check exists to replace.
+        installed = False
+    if not installed:
+        raise ConfigError(
+            "llm.enabled is true but the optional `llm` extra is not installed. "
+            "Run `pip install -e .[llm]` (and add it to .github/workflows/digest.yml), "
+            "or set `llm.enabled: false` in config.yaml."
+        )

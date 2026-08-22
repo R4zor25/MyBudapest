@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import importlib.util
 from pathlib import Path
 
 import pytest
@@ -127,7 +128,46 @@ def test_public_config_parses(config_path: Path, sources_dir: Path) -> None:
     assert config.categories["koncert"].native_types == ["concert"]
     assert config.categories["koncert"].keywords["élő zene"] == 3
     assert [target.type for target in config.delivery] == ["smtp", "telegram"]
-    assert config.llm.enabled is True
+    assert config.llm.enabled is False
+
+
+def _llm_extra_installed() -> bool:
+    try:
+        return importlib.util.find_spec("google.genai") is not None
+    except ModuleNotFoundError:
+        return False
+
+
+def _config_with_llm_enabled(config_path: Path, tmp_path: Path) -> Path:
+    text = config_path.read_text(encoding="utf-8")
+    assert "enabled: false" in text, "config.yaml no longer has the llm switch this edits"
+    copy = tmp_path / "config.yaml"
+    copy.write_text(text.replace("enabled: false", "enabled: true", 1), encoding="utf-8")
+    return copy
+
+
+@pytest.mark.skipif(_llm_extra_installed(), reason="the `llm` extra is installed here")
+def test_llm_enabled_without_the_extra_fails_at_load_naming_the_install(
+    config_path: Path, sources_dir: Path, tmp_path: Path
+) -> None:
+    """A flag that is on but cannot work has to say so where it is read. Before this, the
+    missing package surfaced as a ModuleNotFoundError from inside a pipeline stage, on
+    whichever run first had an event worth asking the model about."""
+    enabled = _config_with_llm_enabled(config_path, tmp_path)
+
+    with pytest.raises(ConfigError) as excinfo:
+        load_config(enabled, sources_dir, None)
+
+    message = str(excinfo.value)
+    assert "pip install -e .[llm]" in message
+    assert "llm.enabled" in message
+
+
+def test_llm_disabled_loads_without_the_extra(config_path: Path, sources_dir: Path) -> None:
+    # The shipped state: off, and nothing about the optional package is required to run.
+    config = load_config(config_path, sources_dir, None)
+
+    assert config.llm.enabled is False
 
 
 def test_sources_are_keyed_by_filename(config_path: Path, tmp_path: Path) -> None:
