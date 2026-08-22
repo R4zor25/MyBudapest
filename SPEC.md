@@ -1420,7 +1420,7 @@ jobs:
           python-version: "3.12"
           cache: pip
 
-      - run: pip install -e .
+      - run: pip install -e '.[llm]'
 
       - name: Run digest
         env:

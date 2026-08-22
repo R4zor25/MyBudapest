@@ -28,7 +28,11 @@ jobs:
           python-version: "3.12"
           cache: pip
 
-      - run: pip install -e .
+      # `.[llm]` and not `.`: config.yaml's llm.enabled is read at config load, and
+      # with the flag on a base install fails there with ConfigError before a single
+      # source is fetched. Installing the extra is the prerequisite; the flag is the
+      # switch (SPEC 5.1).
+      - run: pip install -e '.[llm]'
 
       - name: Run digest
         env:
