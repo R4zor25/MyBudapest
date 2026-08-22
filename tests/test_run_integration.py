@@ -691,3 +691,34 @@ def test_the_summary_counts_content_drops_and_ledger_suppressions_apart(tmp_path
 
     assert second.dropped_by_content == 1, "content drops are the same every run"
     assert second.suppressed_by_ledger == 1, "and the ledger number is the one that grew"
+
+
+@respx.mock
+def test_a_dated_event_with_no_clock_reaches_both_outputs(tmp_path: Path) -> None:
+    """ "Undated" has meant two different things in this codebase, and only one of them is a
+    reason to drop anything. An event with a DATE and no CLOCK is a fully supported record
+    since `start_time_known` (§7.1) — several sources publish exactly that shape — and no
+    content filter may exclude it. What cooltix drops is the other case, a record with no
+    start at all, and it drops it at the parser, not here."""
+    respx.get("https://example.com/good").mock(return_value=httpx.Response(200, json={}))
+    clockless = make_raw("good", "1", title="Dátum óra nélkül", start="2026-08-20")
+    timed = make_raw("good", "2", title="Órával", start="2026-08-20T20:00:00+02:00")
+    site_dir = tmp_path / "site"
+
+    summary = _run_pipeline(
+        make_config(),
+        [FakeSource("good", url="https://example.com/good", events=[clockless, timed])],
+        State(),
+        tmp_path / "state.json",
+        site_dir,
+        tmp_path / "overrides.yaml",
+        now=NOW,
+    )
+
+    published = json.loads((site_dir / "events.json").read_text(encoding="utf-8"))["events"]
+    by_title = {record["title"]: record for record in published}
+    assert set(by_title) == {"Dátum óra nélkül", "Órával"}
+    assert by_title["Dátum óra nélkül"]["start_time_known"] is False
+    assert by_title["Órával"]["start_time_known"] is True
+    assert summary.dropped_by_content == 0
+    assert summary.sent == 2, "and it is in the email too, not only on the site"

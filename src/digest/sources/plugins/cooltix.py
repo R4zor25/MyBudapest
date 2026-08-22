@@ -124,12 +124,19 @@ class CooltixSource:
             self._skip(key, "missing name")
             return None
 
-        # Vouchers, gift cards and permanent exhibitions are sold as events but have no
-        # start: they are not "what's on in the next 14 days" and `orderBy: startDate_ASC`
-        # sorts every one of them to the front, so they are the bulk of page 1.
+        # NO DATE AT ALL — not "no clock". Vouchers, gift cards and permanent exhibitions
+        # are sold as events but have no start whatsoever: they are not "what's on in the
+        # next 14 days", and `orderBy: startDate_ASC` sorts every one of them to the front,
+        # so they are the bulk of page 1 (369 of 500 nodes in the saved response).
+        #
+        # A record with a date but no clock is NOT this case and must never be dropped:
+        # §7.1 reads a bare date as `start_time_known: False` and the whole pipeline
+        # handles it. Cooltix happens to publish a full timestamp whenever it publishes a
+        # start at all (131 of 131), so that shape never reaches here — the name
+        # `skipped_undated` invited the confusion, which is why it is now spelled out.
         start_raw = node.get("startDate")
         if not start_raw:
-            log.info("skipped_undated", source_id=self.id, key=key, title=title[:60])
+            log.info("skipped_no_start_date", source_id=self.id, key=key, title=title[:60])
             return None
 
         if node.get("isOnline"):
