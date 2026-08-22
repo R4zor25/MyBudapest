@@ -14,6 +14,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 from digest.config import Config
 from digest.models import Event
 from digest.render.common import source_health_line
+from digest.render.labels import category_label
 from digest.state import SourceHealth
 
 log = structlog.get_logger()
@@ -59,7 +60,7 @@ def render_web(
     health = source_health or {}
     health_line = source_health_line(health)
 
-    events_json = _build_events_json(events, moment)
+    events_json = _build_events_json(events, config, moment)
 
     index_html = _html_env.get_template("index.html.j2").render(
         source_health_line=health_line, embedded_data=None
@@ -178,13 +179,30 @@ def _event_to_json(event: Event) -> dict[str, Any]:
     }
 
 
-def _build_events_json(events: list[Event], moment: datetime) -> str:
+def _build_events_json(events: list[Event], config: Config, moment: datetime) -> str:
     ordered = sorted(events, key=lambda event: (-event.score, event.start))
     payload = {
         "generated_at": moment.astimezone(_UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        # The taxonomy travels WITH the data, so the page holds no second copy of it. Both
+        # of these used to be hand-written into index.html.j2, and both had drifted:
+        # `sport`, `csaladi` and `egyeb` were in config.yaml and in the Python label table
+        # but not in the page's, so those events had no filter chip and rendered their raw
+        # slug. Adding a category to config.yaml now needs no UI edit at all.
+        "category_order": _category_order(config),
+        "category_labels": {slug: category_label(slug) for slug in _category_order(config)},
         "events": [_event_to_json(event) for event in ordered],
     }
     return json.dumps(payload, ensure_ascii=False, indent=2)
+
+
+def _category_order(config: Config) -> list[str]:
+    """config.yaml's own order, with the fallback bucket forced last — the same rule the
+    email's sections follow (§7.5). `category_label` logs a warning for any slug it does
+    not know, so a category added to the config without a display name is loud rather than
+    a lowercase slug in the UI."""
+    fallback = config.fallback_category
+    ordered = [slug for slug in config.categories if slug != fallback]
+    return [*ordered, fallback]
 
 
 def _escape_for_inline_script(json_text: str) -> str:

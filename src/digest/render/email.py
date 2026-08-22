@@ -12,6 +12,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 from digest.config import Config
 from digest.models import Event
 from digest.render.common import source_health_line
+from digest.render.labels import category_label
 from digest.state import SourceHealth
 
 log = structlog.get_logger()
@@ -48,22 +49,6 @@ _MONTH_NAMES = (
 # Hungarian display labels for the category slugs in SPEC 5.1's config.yaml. A category
 # present in the data but missing from config.categories (chiefly "egyeb", the fallback —
 # it is deliberately not a configurable category, see config.py) falls back to its slug.
-_CATEGORY_LABELS = {
-    "koncert": "Koncert",
-    "klub": "Klub",
-    "szinhaz": "Színház",
-    "kiallitas": "Kiállítás",
-    "film": "Film",
-    "meetup": "Meetup",
-    "tarsasjatek": "Társasjáték",
-    "kviz": "Kvíz",
-    "gasztro": "Gasztro",
-    "fesztival": "Fesztivál",
-    "outdoor": "Outdoor",
-    "sport": "Sport",
-    "csaladi": "Családi",
-    "egyeb": "Egyéb",
-}
 
 # The rail's seven segments step every 2 score points — the footer says so verbatim
 # ("a hét sáv 2 pontonként lép"), and it matches every worked example in the design.
@@ -313,7 +298,7 @@ def _group_label(event: Event, today: date) -> str:
 
 def _build_expiring_row(event: Event, config: Config, today: date) -> dict[str, object]:
     category = event.categories[0] if event.categories else config.fallback_category
-    category_label = _CATEGORY_LABELS.get(category, category)
+    label = category_label(category)
     venue_district = event.venue_name
     if event.venue_name and event.district:
         venue_district = f"{event.venue_name}, {event.district}"
@@ -323,7 +308,7 @@ def _build_expiring_row(event: Event, config: Config, today: date) -> dict[str, 
     days_until = (event.effective_date - today).days
     relative = "ma" if days_until == 0 else f"{days_until} nap múlva"
 
-    parts: list[dict[str, object]] = [{"html": False, "text": category_label}]
+    parts: list[dict[str, object]] = [{"html": False, "text": label}]
     if venue_district:
         parts.append({"html": False, "text": venue_district})
     if price is not None:
@@ -388,7 +373,7 @@ def _select_and_limit(events: list[Event], config: Config) -> list[dict[str, obj
         order.append(fallback)
     sections = [
         {
-            "label": _CATEGORY_LABELS.get(category, category),
+            "label": category_label(category),
             "events": [event for event in capped[category] if event.id not in dropped],
         }
         for category in order

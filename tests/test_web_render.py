@@ -8,8 +8,9 @@ from typing import Any
 from zoneinfo import ZoneInfo
 
 import pytest
+from structlog.testing import capture_logs
 
-from digest.config import Config
+from digest.config import CategoryRules, Config
 from digest.models import Event, make_event_id
 from digest.render.web import (
     WEB_PROFILE_FIELDS,
@@ -81,7 +82,9 @@ def test_events_json_has_exactly_the_web_profile_fields_no_description_no_image(
     output = render_web(events, Config(), now=NOW)
     payload = json.loads(output.events_json)
 
-    assert set(payload.keys()) == {"generated_at", "events"}
+    # The taxonomy travels with the data so the page holds no second copy of it — see
+    # render/labels.py and the note in _build_events_json.
+    assert set(payload.keys()) == {"generated_at", "events", "category_order", "category_labels"}
     assert len(payload["events"]) == 2
     for record in payload["events"]:
         # The builder produces exactly what the constant declares — neither may drift from
@@ -295,19 +298,70 @@ def test_write_site_purges_old_archive_entries_before_the_commit_step(tmp_path: 
     assert (archive_dir / "2026-08-16.html").exists()
 
 
+# --------------------------------------------------------------------------------------
+# Every row carries its date; the taxonomy comes from the payload
+# --------------------------------------------------------------------------------------
+
+
 def test_the_page_labels_a_row_with_its_calendar_date_not_only_a_weekday() -> None:
     """The score-sorted view has no day separators, so without this a row carried no date
     at all — and over a 20-day horizon three Wednesdays look identical."""
     html = render_web([make_event(0)], Config(), now=NOW).index_html
 
     assert "whenLabel" in html
-    # Built from effective_date, which prep() already resolved — the browser must not
-    # re-derive the night shift (CLAUDE.md 12).
+    # The label is built from effective_date, which prep() already resolved — the browser
+    # must not re-derive the night shift (CLAUDE.md 12).
     assert "dayLong(e.evening)" in html
+    assert "e.time ?" in html or "e.time?" in html
 
 
 def test_the_row_date_appears_in_the_meta_line_of_every_card() -> None:
-    # One place, used by the single card renderer, so it cannot be view-dependent.
     html = render_web([make_event(0)], Config(), now=NOW).index_html
 
+    # One place, used by the single card renderer, so it cannot be view-dependent.
     assert html.count('bits.push(\'<span class="when">') == 1
+
+
+def test_the_payload_carries_the_taxonomy_so_the_page_holds_no_copy() -> None:
+    config = Config(
+        categories={"koncert": CategoryRules(), "sport": CategoryRules()},
+        fallback_category="egyeb",
+    )
+
+    output = render_web([make_event(0)], config, now=NOW)
+    payload = json.loads(output.events_json)
+
+    assert payload["category_order"] == ["koncert", "sport", "egyeb"]
+    assert payload["category_labels"]["sport"] == "Sport"
+    assert payload["category_labels"]["egyeb"] == "Egyéb"
+    # And the page reads them rather than declaring its own.
+    assert "const CAT = DATA.category_labels" in output.index_html
+    assert "const CAT_ORDER = DATA.category_order" in output.index_html
+
+
+def test_a_category_no_hardcoded_list_knows_still_gets_a_filter_option() -> None:
+    """The failure this closes: chips were `CAT_ORDER.filter(...)`, so a category missing
+    from that hand-written array had no chip however many events carried it."""
+    config = Config(categories={"koncert": CategoryRules()}, fallback_category="egyeb")
+    exotic = make_event(0, categories=["improvizacio"])
+
+    output = render_web([exotic], config, now=NOW)
+    payload = json.loads(output.events_json)
+
+    assert "improvizacio" not in payload["category_order"], "not in the taxonomy at all"
+    assert payload["events"][0]["categories"] == ["improvizacio"]
+    # The chip list is built from what the payload actually contains, with anything the
+    # order does not mention appended — so this still produces a working option.
+    assert "catsInPayload.filter(c => !CAT_ORDER.includes(c))" in output.index_html
+
+
+def test_an_unknown_category_label_fails_loudly_instead_of_showing_a_slug(
+    caplog: pytest.LogCaptureFixture,
+) -> None:
+    from digest.render.labels import category_label
+
+    with capture_logs() as logs:
+        assert category_label("improvizacio") == "improvizacio"
+
+    (entry,) = [line for line in logs if line["event"] == "category_label_missing"]
+    assert entry["category"] == "improvizacio"

@@ -341,12 +341,20 @@ const DATA = await (await fetch('./events.json')).json();
 {% endif %}
 
 /* ── szótárak ────────────────────────────────────────────────────────── */
-const CAT = {koncert:"Koncert", klub:"Klub", szinhaz:"Színház", kiallitas:"Kiállítás", film:"Film",
-  meetup:"Meetup", tarsasjatek:"Társasjáték", kviz:"Kvíz", gasztro:"Gasztro", fesztival:"Fesztivál", outdoor:"Outdoor",
-  sport:"Sport", csaladi:"Családi", egyeb:"Egyéb"};
-// A szűrőcsipek sorrendje. Az "egyeb" szándékosan az utolsó: az a halom, amit egyetlen
-// szabály sem ismert fel, nem ajánlás — és ha nő, az a kategória-szabályok visszajelzése.
-const CAT_ORDER = ["koncert","klub","szinhaz","kiallitas","film","meetup","tarsasjatek","kviz","gasztro","fesztival","outdoor","sport","csaladi","egyeb"];
+// A taxonómia a PAYLOADBÓL jön, nincs itt második másolata (CLAUDE.md 12.). Korábban itt
+// állt kézzel a címkelista és a sorrend is, és mindkettő elcsúszott a config.yaml-tól:
+// a `sport`, `csaladi` és `egyeb` hiányzott innen, így azoknak az eseményeknek nem volt
+// szűrőcsipjük, a címkéjük pedig a nyers, kisbetűs slug volt. Új kategóriához ma nem kell
+// hozzányúlni ehhez a fájlhoz.
+const CAT = DATA.category_labels || {};
+const CAT_ORDER = DATA.category_order || [];
+// Ismeretlen kulcs nem csendben esik vissza a slugra — az tette észrevehetetlenné a
+// szétcsúszást. A címke a render/labels.py-ban él; ha ott nincs, ez látszik és naplózódik.
+function catLabel(c){
+  if (CAT[c]) return CAT[c];
+  console.error("hiányzó kategórianév:", c, "— add hozzá: src/digest/render/labels.py");
+  return c + " ⚠";
+}
 const TZ = "Europe/Budapest", MAX_SCORE = 14, TICKS = 7;
 const fold = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/ø/g,"o").replace(/đ/g,"d");
 
@@ -409,7 +417,7 @@ function prep(e){
     l:l, isNight:isNight, evening:evening, timeKnown:timeKnown,
     ts:new Date(e.start).getTime(),
     time:timeKnown ? String(l.h).padStart(2,"0")+":"+String(l.mi).padStart(2,"0") : "",
-    hay:fold([e.title, e.venue||"", (e.categories||[]).map(c=>CAT[c]||c).join(" ")].join(" "))
+    hay:fold([e.title, e.venue||"", (e.categories||[]).map(c=>CAT[c]||c).join(" ")  /* kereséshez a nyers slug is jó */].join(" "))
   });
 }
 const EVENTS = DATA.events.map(prep);
@@ -449,7 +457,7 @@ function railHTML(e){
 function metaHTML(e){
   const bits = [];
   bits.push('<span class="when">'+esc(whenLabel(e))+"</span>");
-  bits.push('<span class="cat">'+e.categories.map(c=>esc(CAT[c]||c)).join(" / ")+"</span>");
+  bits.push('<span class="cat">'+e.categories.map(c=>esc(catLabel(c))).join(" / ")+"</span>");
   if (e.venue) bits.push("<span>"+esc(e.venue)+"</span>");
   if (e.district) bits.push("<span>"+esc(e.district)+" kerület</span>");
   bits.push(priceHTML(e));
@@ -595,10 +603,21 @@ function emptyEl(){
 }
 
 /* ── vezérlők ────────────────────────────────────────────────────────── */
-const catsPresent = CAT_ORDER.filter(c => EVENTS.some(e => e.categories.includes(c)));
+// A csipek a payloadban TÉNYLEGESEN jelen lévő kategóriákból állnak, a taxonómia
+// sorrendjében; ami nincs a sorrendben, az a végére kerül ábécében — így egy új kategória
+// azonnal szűrhető, UI-módosítás nélkül.
+//
+// A nulla eseményes kategória REJTVE marad, nem letiltott nullás csipként jelenik meg: a
+// payload egyetlen nap merítése, tizennégy kategóriából jellemzően nyolc-kilenc van benne,
+// és a hiányzókat kirakni hat halott gombot jelentene a szűrősávban. Tudatos döntés.
+const catsInPayload = [...new Set(EVENTS.flatMap(e => e.categories || []))];
+const catsPresent = [
+  ...CAT_ORDER.filter(c => catsInPayload.includes(c)),
+  ...catsInPayload.filter(c => !CAT_ORDER.includes(c)).sort(),
+];
 const distsPresent = [...new Set(EVENTS.map(e => e.district).filter(Boolean))];
 document.getElementById("catChips").innerHTML = catsPresent.map(c =>
-  '<button class="chip" type="button" data-cat="'+c+'" aria-pressed="false">'+esc(CAT[c])
+  '<button class="chip" type="button" data-cat="'+c+'" aria-pressed="false">'+esc(catLabel(c))
   + '<span class="n">'+EVENTS.filter(e=>e.categories.includes(c)).length+"</span></button>").join("");
 document.getElementById("distChips").innerHTML = distsPresent.map(d =>
   '<button class="chip" type="button" data-dist="'+esc(d)+'" aria-pressed="false">'+esc(d)+"</button>").join("");
