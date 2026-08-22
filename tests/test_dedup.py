@@ -13,7 +13,16 @@ from structlog.testing import capture_logs
 from digest.config import Config
 from digest.fetch.base import FetchResult, FetchTask
 from digest.models import Event, make_event_id, normalize_title
-from digest.pipeline.dedup import dedup, fuzzy_title, normalize_url
+from digest.pipeline.dedup import (
+    _BASE_ALWAYS_WINS,
+    _COUPLED_FIELD_GROUPS,
+    _LONGEST_WINS_FIELDS,
+    _UNION_FIELDS,
+    FILL_IF_MISSING_FIELDS,
+    dedup,
+    fuzzy_title,
+    normalize_url,
+)
 from digest.pipeline.normalize import normalize
 from digest.sources.plugins.port_hu import PortHuSource
 
@@ -454,3 +463,140 @@ def test_three_sources_collapse_into_one_event() -> None:
 
     assert merged.source_ids == ["port-hu", "jegy-hu", "welove"]
     assert len(merged.urls) == 3
+
+
+# --------------------------------------------------------------------------------------
+# The merge invariant: a merge never reduces information (§7.2)
+# --------------------------------------------------------------------------------------
+
+
+def _sample_value(field_name: str, annotation: Any) -> Any:
+    """A distinctive, type-correct value for any nullable scalar on Event, so the property
+    test below can populate a field it has never heard of."""
+    text = str(annotation)
+    if "datetime" in text and "date" not in text.replace("datetime", ""):
+        return START + timedelta(hours=3)
+    if "date" in text and "datetime" not in text:
+        return START.date()
+    if "float" in text:
+        return 47.5
+    if "int" in text:
+        return 4200
+    if "bool" in text:
+        return True
+    if "str" in text:
+        return f"other-{field_name}"
+    raise AssertionError(
+        f"test needs a sample value for {field_name}: {annotation}. A new nullable field "
+        "was added to Event -- extend this factory so the invariant stays covered."
+    )
+
+
+def _nullable_scalar_fields() -> list[str]:
+    return [name for name, field in Event.model_fields.items() if "None" in str(field.annotation)]
+
+
+def _pair_for_invariant() -> tuple[Event, Event]:
+    """A base that knows nothing and an other that knows everything, matched on title,
+    venue and start so they actually merge."""
+    empty = dict.fromkeys(_nullable_scalar_fields())
+    base = make_event(source_ids=["port-hu"], **empty)
+    filled = {name: _sample_value(name, Event.model_fields[name].annotation) for name in empty}
+    # venue_name has to survive the venue gate, and the merge base is chosen by priority.
+    filled["venue_name"] = "A38 Hajó"
+    other = make_event(source_ids=["jegy-hu"], urls=["https://jegy.hu/sub-focus"], **filled)
+    return base, other
+
+
+def test_every_nullable_field_is_filled_from_the_other_record() -> None:
+    """THE POINT OF THIS PACKAGE. Iterates Event's own field list rather than naming
+    fields, so a field added later is covered without anyone remembering to add a rule --
+    and this test fails if the merge does not handle it.
+
+    `city` was the first field where getting this wrong DROPPED events rather than dulling
+    a score (§7.6 can exclude on it), which is why the bug surfaced there; the next
+    inclusion-gating field would have reproduced it."""
+    base, other = _pair_for_invariant()
+
+    (merged,) = dedup([base, other], CONFIG)
+
+    for name in _nullable_scalar_fields():
+        if name in _BASE_ALWAYS_WINS:
+            continue
+        assert getattr(merged, name) == getattr(other, name), (
+            f"{name} was None on the base and set on the other record, so the merge "
+            "reduced information -- see FILL_IF_MISSING_FIELDS in dedup.py"
+        )
+
+
+def test_the_field_classification_stays_exhaustive() -> None:
+    """Every Event field is in exactly one bucket. A new field lands in
+    FILL_IF_MISSING_FIELDS by construction; this pins that nothing falls through a gap."""
+    classified = (
+        set(FILL_IF_MISSING_FIELDS)
+        | set(_UNION_FIELDS)
+        | set(_LONGEST_WINS_FIELDS)
+        | {f for group in _COUPLED_FIELD_GROUPS for f in group}
+        | set(_BASE_ALWAYS_WINS)
+    )
+
+    assert classified == set(Event.model_fields)
+
+
+@pytest.mark.parametrize(
+    "field",
+    ["city", "district", "venue_name", "image_url", "end"],
+)
+def test_a_named_scalar_survives_from_the_other_record(field: str) -> None:
+    value = _sample_value(field, Event.model_fields[field].annotation)
+    base = make_event(source_ids=["port-hu"], **{field: None})
+    other = make_event(source_ids=["jegy-hu"], urls=["https://jegy.hu/sub-focus"], **{field: value})
+
+    (merged,) = dedup([base, other], CONFIG)
+
+    assert getattr(merged, field) == value
+
+
+@pytest.mark.parametrize(
+    ("lead", "group"),
+    [("price_min", ("price_min", "price_max", "is_free")), ("lat", ("lat", "lon", "distance_km"))],
+)
+def test_coupled_fields_travel_together(lead: str, group: tuple[str, ...]) -> None:
+    """Filling these per field would let a half-filled group through: is_free from one
+    record beside a price_max from another, or a distance_km computed from different
+    coordinates than the lat/lon next to it."""
+    values = {
+        "price_min": 4500,
+        "price_max": 6000,
+        "is_free": False,
+        "lat": 47.4,
+        "lon": 19.0,
+        "distance_km": 1.2,
+    }
+    # is_free is non-nullable, so "the base knows no price" is price_min/price_max None
+    # with is_free at its default False -- exactly the shape normalize produces.
+    nullable = [f for f in group if "None" in str(Event.model_fields[f].annotation)]
+    base = make_event(source_ids=["port-hu"], **dict.fromkeys(nullable))
+    other = make_event(
+        source_ids=["jegy-hu"],
+        urls=["https://jegy.hu/sub-focus"],
+        **{f: values[f] for f in group},
+    )
+
+    (merged,) = dedup([base, other], CONFIG)
+
+    for f in group:
+        assert getattr(merged, f) == values[f]
+
+
+@pytest.mark.parametrize("field", ["city", "district", "venue_name", "image_url", "price_min"])
+def test_a_value_on_the_base_is_never_overwritten(field: str) -> None:
+    """The invariant fills gaps; it does not let the weaker source win a field the base
+    already answered."""
+    keep = _sample_value(field, Event.model_fields[field].annotation)
+    base = make_event(source_ids=["port-hu"], **{field: keep})
+    other = make_event(source_ids=["jegy-hu"], urls=["https://jegy.hu/sub-focus"], **{field: None})
+
+    (merged,) = dedup([base, other], CONFIG)
+
+    assert getattr(merged, field) == keep

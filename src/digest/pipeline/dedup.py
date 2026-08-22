@@ -140,42 +140,88 @@ def _log_merge(a: Event, b: Event, reason: str, score: float) -> None:
     )
 
 
+# THE MERGE INVARIANT (§7.2): a merge must never reduce information. If the base holds
+# None and the other record holds a value, the value wins. That is the DEFAULT for every
+# scalar field on Event, computed from the model below rather than written out field by
+# field — so a field added later is covered without anyone remembering to add a rule.
+#
+# It used to be the opposite: each field that needed filling got its own `if base.x is
+# None` line, and a field with no line silently kept the base's None. That was harmless
+# while every field was cosmetic or scoring-only, and stopped being harmless the moment
+# `city` arrived, because §7.6 can EXCLUDE on city — a city-less base (port-hu) would
+# overwrite a source that knew the settlement (cooltix) and drop an event both agreed on.
+
+# Collections union rather than fill: two sources describing one event each contribute.
+_UNION_FIELDS = ("source_ids", "urls", "categories", "native_categories")
+
+# The longer description wins even when the base already has one — the invariant does not
+# weaken this, it is a stronger rule of the same kind.
+_LONGEST_WINS_FIELDS = ("description",)
+
+# Filled as a unit, keyed on the first field. Per-field filling would let a half-filled
+# group through: `is_free=True` from a free base standing next to a `price_max` scraped
+# from the other record, or a `distance_km` that was computed from different coordinates
+# than the `lat`/`lon` beside it.
+_COUPLED_FIELD_GROUPS = (
+    ("price_min", "price_max", "is_free"),
+    ("lat", "lon", "distance_km"),
+)
+
+# The deliberate exceptions, and why each one is not fill-if-missing.
+_BASE_ALWAYS_WINS = {
+    # Identity. §4.1 derives it from title/date/venue and the ledger keys on it; taking
+    # the other record's id would make the merged event a different event.
+    "id": "identity, not information",
+    "title": "the display string, and the id is derived from it",
+    # start and effective_date are the base's reading of when this happens. Swapping
+    # either alone contradicts the other, and effective_date is derived from start in §7.1.
+    "start": "paired with effective_date and start_time_known",
+    "effective_date": "derived from start (§7.1), never merged independently",
+    # A base that does not know its clock must not be handed a True from a record whose
+    # `start` it is not taking: that would claim a real time for a midnight placeholder.
+    # Promoting it means promoting start and effective_date together — see the note in
+    # _merge's caller about when that becomes reachable.
+    "start_time_known": "only meaningful together with start",
+    # Written by §7.4, which runs after this stage; always None here.
+    "group_key": "owned by the group stage",
+    "group_size": "owned by the group stage",
+    # Written by §7.7, which also runs later.
+    "score": "owned by the score stage",
+    "score_breakdown": "owned by the score stage",
+}
+
+_SPECIAL_FIELDS = (
+    set(_UNION_FIELDS)
+    | set(_LONGEST_WINS_FIELDS)
+    | {field for group in _COUPLED_FIELD_GROUPS for field in group}
+    | set(_BASE_ALWAYS_WINS)
+)
+# Everything else, by default. Derived from the model so that adding a field to Event puts
+# it here automatically; tests/test_dedup.py asserts this set stays exhaustive.
+FILL_IF_MISSING_FIELDS = tuple(name for name in Event.model_fields if name not in _SPECIAL_FIELDS)
+
+
 def _merge(first: Event, second: Event, config: Config) -> Event:
     base, other = _order_by_priority(first, second, config)
     update: dict[str, object] = {
-        "source_ids": _union(base.source_ids, other.source_ids),
-        "urls": _union(base.urls, other.urls),
-        "categories": _union(base.categories, other.categories),
-        "native_categories": _union(base.native_categories, other.native_categories),
+        field: _union(getattr(base, field), getattr(other, field)) for field in _UNION_FIELDS
     }
-    if len(other.description or "") > len(base.description or ""):
-        update["description"] = other.description
-    if base.price_min is None and other.price_min is not None:
-        update["price_min"] = other.price_min
-        update["price_max"] = other.price_max
-        update["is_free"] = other.is_free
-    if base.lat is None and other.lat is not None:
-        # Coordinates travel with the distance derived from them, or the two disagree.
-        update["lat"] = other.lat
-        update["lon"] = other.lon
-        update["distance_km"] = other.distance_km
-    if base.image_url is None and other.image_url is not None:
-        update["image_url"] = other.image_url
-    if base.district is None and other.district is not None:
-        update["district"] = other.district
-    # Same fill-if-missing rule as district, and load-bearing in a way district never was:
-    # §7.6 can EXCLUDE on city, so letting a city-less base overwrite a source that does
-    # know the settlement would drop an event both sources agree is in town.
-    if base.city is None and other.city is not None:
-        update["city"] = other.city
-    # NO start/start_time_known rule here on purpose. The pairing this enables — a
-    # date-only record merging with a timed one — always has the timed record as base
-    # today, because programturizmus is the only date-only source and its priority (40) is
-    # the weakest of all of them, while every timed source sits at 35 or below. So the
-    # base already holds the better value and there is nothing to promote. If a date-only
-    # source ever gets a strong priority, this is where it has to be handled, and `start`,
-    # `start_time_known` and `effective_date` must move together — the last is derived
-    # from the first two in §7.1 and would otherwise contradict them.
+
+    for field in _LONGEST_WINS_FIELDS:
+        mine, theirs = getattr(base, field), getattr(other, field)
+        if len(theirs or "") > len(mine or ""):
+            update[field] = theirs
+
+    for group in _COUPLED_FIELD_GROUPS:
+        lead = group[0]
+        if getattr(base, lead) is None and getattr(other, lead) is not None:
+            update.update({field: getattr(other, field) for field in group})
+
+    for field in FILL_IF_MISSING_FIELDS:
+        theirs = getattr(other, field)
+        if getattr(base, field) is None and theirs is not None:
+            update[field] = theirs
+
     return base.model_copy(update=update)
 
 

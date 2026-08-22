@@ -867,9 +867,36 @@ bármelyiké nem (`start_time_known`, §7.1). Óra nélküli forrás 00:00-ra es
 perces szabály alatt csak 00:00–01:30 között indulókkal volt egyáltalán összevethető — ez
 állandó, néma vakfolt volt, nem hangolási kérdés. A cím- és helyszínkapu változatlan.
 
-**Merge szabály:** a kisebb `priority` értékű forrás rekordja a bázis. Mezőnként:
-a hosszabb `description` nyer; a nem-`None` ár nyer; a `lat/lon` az elsőtől, akinek van;
-`urls` és `source_ids` unióz; `categories` unióz.
+**Merge szabály:** a kisebb `priority` értékű forrás rekordja a bázis.
+
+**Az invariáns: a merge soha nem csökkent információt.** Ha a bázis mezője `None` és a
+másik rekordé nem, a **másiké nyer** — ez az alapértelmezés **minden** skalár mezőre, és
+egyszer van megírva, nem mezőnként. A mezőlista magából az `Event` modellből származik
+(`FILL_IF_MISSING_FIELDS`), tehát egy később hozzáadott mező **automatikusan** benne van.
+
+Korábban ez fordítva működött: minden kitöltendő mező kapott egy saját `if base.x is None`
+sort, és amelyik nem kapott, az csendben megtartotta a bázis `None`-ját. Ez ártalmatlan
+volt, amíg minden mező kozmetikai vagy pontozási célú — és megszűnt annak lenni a `city`
+érkezésekor, mert a §7.6 **kizárhat** város alapján: egy város nélküli bázis (port-hu)
+felülírta volna azt a forrást, amelyik ismerte a települést (cooltix), és `allow_missing_city:
+false` mellett kiesett volna egy esemény, amiről mindkét forrás tudta, hogy budapesti.
+
+Négy kivétel, mindegyik egy helyen felsorolva:
+
+| csoport | mezők | szabály |
+|---|---|---|
+| unió | `source_ids`, `urls`, `categories`, `native_categories` | mindkettő hozzátesz |
+| leghosszabb nyer | `description` | akkor is, ha a bázisnak van |
+| **csatolt** | `price_min`+`price_max`+`is_free`; `lat`+`lon`+`distance_km` | egységként töltődik |
+| a bázis nyer | `id`, `title`, `start`, `effective_date`, `start_time_known`, `group_key`, `group_size`, `score`, `score_breakdown` | identitás, vagy egy későbbi szakasz tulajdona |
+
+A **csatolt** csoportok azért nem mezőnként töltődnek, mert félig kitöltött állapot
+keletkezne: egy `is_free: true` a bázisról, mellette a másik rekord `price_max`-ja, vagy
+egy `distance_km`, amit más koordinátákból számoltak, mint a mellette álló `lat/lon`.
+
+A `start_time_known` azért a bázisé, mert csak a `start`-tal együtt értelmes: `True`-t
+átvenni egy olyan rekordtól, aminek a `start`-ját nem vesszük át, azt jelentené, hogy
+valódi órát állítunk egy éjféli helyőrzőre (§7.1).
 
 Minden merge döntés a futásnaplóba kerül (`source_a`, `source_b`, `score`, `reason`).
 A 80-88 közötti fuzzy sáv **nem** merge-el, de `ambiguous_dedup` jelöléssel naplózódik —
