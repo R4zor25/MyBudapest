@@ -100,8 +100,16 @@ night_shift:
   before_hour: 5          # 00:00-04:59 az előző naphoz tartozik
 
 newsletter:
-  per_category_limit: 10
+  # Kategóriánként a legjobb 3 megy a levélbe; a teljes lista az oldalon van, és a levél
+  # tetején lévő gomb oda visz.
+  per_category_limit: 3
   total_limit: 50
+  # Mit jelent, hogy "a felhasználó látta" (§8.2). `web`: minden, ami kikerül az OLDALRA,
+  # ki van pipálva — a levél csak a válogatás, a lap a teljes nézet, tehát amit csak a lap
+  # hozott, azt is látta. `email`: csak amit a levél megmutatott, a többi holnap újra sorra
+  # kerül. Ma `web` aktív. Az `email` addig volt helyes, amíg a levél VOLT a digest; azóta
+  # a holnapi levél a tegnapi maradékot szolgálná fel a mai legjobbak helyett.
+  ledger_records: web
   send_when_empty: true   # heartbeat — az email hiánya a riasztás
   expiring_section:
     enabled: true

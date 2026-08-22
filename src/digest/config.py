@@ -69,6 +69,19 @@ class NewsletterConfig(_Section):
     total_limit: int = 25
     send_when_empty: bool = True
     expiring_section: ExpiringSectionConfig = ExpiringSectionConfig()
+    # WHAT COUNTS AS "the reader has seen this" (§8.2). Two behaviours, one switch:
+    #
+    #   "web"   — everything published to the site is recorded. The email is a top slice
+    #             and the site is the full view, so an event that only made the site has
+    #             still been shown. Surplus does NOT come back tomorrow.
+    #   "email" — only what got a card in the email is recorded. Surplus queues and is
+    #             re-offered on later runs.
+    #
+    # "email" was right while the email WAS the digest. It stopped being right when the
+    # site started publishing everything: tomorrow's mail would spend its slots on
+    # yesterday's leftovers instead of today's best, and the reader would have already
+    # seen them on the page.
+    ledger_records: Literal["web", "email"] = "web"
 
 
 class LLMConfig(_Section):

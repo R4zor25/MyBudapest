@@ -294,3 +294,19 @@ def test_the_footer_archive_link_survives_the_new_button() -> None:
 
     assert "Archívum" in html
     assert html.count(SITE) >= 2
+
+
+def test_exactly_three_per_category_when_more_qualify() -> None:
+    """`per_category_limit` cuts per category, not overall — and the cut is by score, so
+    the three that survive are the top three."""
+    config = site_config(newsletter=NewsletterConfig(per_category_limit=3, total_limit=50))
+    concerts = [make_event(i, title=f"Koncert {i}", score=float(i)) for i in range(6)]
+    quizzes = [
+        make_event(10 + i, title=f"Kvíz {i}", categories=["kviz"], score=float(i)) for i in range(5)
+    ]
+
+    rendered = render_email(concerts + quizzes, config, published_count=11, now=NOW)
+
+    kept = {event.title for event in rendered.sent_events}
+    assert kept == {"Koncert 5", "Koncert 4", "Koncert 3", "Kvíz 4", "Kvíz 3", "Kvíz 2"}
+    assert len(rendered.sent_events) == 6

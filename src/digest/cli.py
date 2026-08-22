@@ -259,7 +259,23 @@ def _run_pipeline(
     # nothing was delivered, skip the ledger write instead so was_sent() stays False and
     # the same events are legitimately re-offered on the next run.
     if delivered:
-        state = record_sent(state, rendered.sent_events, sent_on=today)
+        # `newsletter.ledger_records` decides what "shown" means (§8.2). Under "web" the
+        # whole published set is recorded, because the site showed it — the email is only
+        # the top slice. Under "email" the surplus stays unrecorded and queues for a later
+        # run, which is the older behaviour from when the email was the only output.
+        #
+        # The gate above is unchanged either way: nothing is recorded when nothing was
+        # delivered (AUDIT-2 BLOCKER). The site is written before this point regardless,
+        # but a run that could not mail is a run the reader never heard about, and marking
+        # its events seen would silence them permanently.
+        seen = events if config.newsletter.ledger_records == "web" else rendered.sent_events
+        state = record_sent(state, seen, sent_on=today)
+        log.info(
+            "ledger_recorded",
+            scope=config.newsletter.ledger_records,
+            recorded=len(seen),
+            in_email=len(rendered.sent_events),
+        )
     elif rendered.sent_events:
         log.error("delivery_no_op_ledger_not_updated", event_count=len(rendered.sent_events))
     elapsed = perf_counter() - started

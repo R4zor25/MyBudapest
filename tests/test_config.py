@@ -42,7 +42,7 @@ def test_profile_merges_a_nested_dict(config_path: Path, sources_dir: Path) -> N
     config = load_config(config_path, sources_dir, "newsletter:\n  total_limit: 10")
     assert config.newsletter.total_limit == 10
     # Untouched siblings survive the merge instead of being replaced with defaults.
-    assert config.newsletter.per_category_limit == 10
+    assert config.newsletter.per_category_limit == 3
     assert config.newsletter.expiring_section.within_days == 3
 
 

@@ -434,3 +434,106 @@ def test_a_broken_profile_yaml_syntax_error_does_not_leak_a_source_snippet_to_lo
     invalid_entries = [entry for entry in logs if entry["event"] == "config_invalid"]
     assert len(invalid_entries) == 1
     assert "realsecretkeyword" not in repr(invalid_entries[0])
+
+
+# --------------------------------------------------------------------------------------
+# What the ledger records: the site's full set, or the email's slice (§8.2)
+# --------------------------------------------------------------------------------------
+
+
+def _ledger_config(scope: str, per_category_limit: int = 1) -> Config:
+    config = make_config()
+    return config.model_copy(
+        update={
+            "newsletter": config.newsletter.model_copy(
+                update={"ledger_records": scope, "per_category_limit": per_category_limit}
+            )
+        }
+    )
+
+
+def _two_events() -> list[RawEvent]:
+    # Same category, so per_category_limit=1 puts one in the email and leaves the other to
+    # the site alone. Distinct scores so which one is which is deterministic.
+    return [
+        make_raw("good", "1", title="Villon-est", start="2026-08-20T20:00:00+02:00"),
+        make_raw("good", "2", title="HØT SPØT", start="2026-08-21T20:00:00+02:00"),
+    ]
+
+
+@respx.mock
+def test_web_scope_records_an_event_the_email_never_showed(tmp_path: Path) -> None:
+    """The site published it, so the reader has had their chance to see it. Recording only
+    the email's slice would spend tomorrow's three slots on today's leftovers — which the
+    page already showed — instead of tomorrow's best."""
+    respx.get("https://example.com/good").mock(return_value=httpx.Response(200, json={}))
+    source = FakeSource("good", url="https://example.com/good", events=_two_events())
+    state_path = tmp_path / "state.json"
+
+    summary = _run_pipeline(
+        _ledger_config("web"),
+        [source],
+        State(),
+        state_path,
+        tmp_path / "site",
+        tmp_path / "overrides.yaml",
+        now=NOW,
+    )
+
+    assert summary.sent == 1, "the email carries one of the two"
+    assert len(load_state(state_path).sent) == 2, "the ledger records both"
+
+
+@respx.mock
+def test_web_scope_means_the_surplus_does_not_come_back_tomorrow(tmp_path: Path) -> None:
+    respx.get("https://example.com/good").mock(return_value=httpx.Response(200, json={}))
+    state_path = tmp_path / "state.json"
+    config = _ledger_config("web")
+    for _ in range(2):
+        source = FakeSource("good", url="https://example.com/good", events=_two_events())
+        summary = _run_pipeline(
+            config,
+            [source],
+            load_state(state_path) if state_path.exists() else State(),
+            state_path,
+            tmp_path / "site",
+            tmp_path / "overrides.yaml",
+            now=NOW,
+        )
+
+    assert summary.sent == 0, "both were recorded on the first run, so nothing is left"
+
+
+@respx.mock
+def test_email_scope_keeps_the_old_queueing_behaviour(tmp_path: Path) -> None:
+    """The switch is reversible in one config line, and this is the other position: only
+    what the email showed is recorded, so the surplus is re-offered on the next run."""
+    respx.get("https://example.com/good").mock(return_value=httpx.Response(200, json={}))
+    state_path = tmp_path / "state.json"
+    config = _ledger_config("email")
+    source = FakeSource("good", url="https://example.com/good", events=_two_events())
+
+    first = _run_pipeline(
+        config,
+        [source],
+        State(),
+        state_path,
+        tmp_path / "site",
+        tmp_path / "overrides.yaml",
+        now=NOW,
+    )
+    assert first.sent == 1
+    assert len(load_state(state_path).sent) == 1
+
+    source = FakeSource("good", url="https://example.com/good", events=_two_events())
+    second = _run_pipeline(
+        config,
+        [source],
+        load_state(state_path),
+        state_path,
+        tmp_path / "site",
+        tmp_path / "overrides.yaml",
+        now=NOW,
+    )
+
+    assert second.sent == 1, "yesterday's leftover is served today"
