@@ -162,7 +162,6 @@ class TarsasjatekosSource:
             venue_name=_venue_name(location),
             address_raw=location or None,
             postal_code=postal_code,
-            district_raw=district_from_zip(postal_code),
             price_raw=None,
             image_url=None,
             native_category=_NATIVE_CATEGORY,

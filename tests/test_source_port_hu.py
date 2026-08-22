@@ -12,9 +12,9 @@ from structlog.testing import capture_logs
 from digest.config import Config, load_config
 from digest.errors import ConfigError, ParseError
 from digest.fetch.base import FetchResult, FetchTask
-from digest.models import RawEvent
+from digest.models import RawEvent, district_from_zip
 from digest.sources.declarative import DeclarativeSource
-from digest.sources.plugins.port_hu import PortHuSource, district_from_zip, resolve_end
+from digest.sources.plugins.port_hu import PortHuSource, resolve_end
 from digest.sources.registry import load_sources
 
 
@@ -98,13 +98,30 @@ def test_district_field_is_used_directly_when_it_is_an_integer(
 def test_district_falls_back_to_the_postal_code(
     events: list[RawEvent], payload: dict[str, Any]
 ) -> None:
+    """The fallback moved into §7.1's normalize_district, so the source now hands over what
+    it was given (None here) and the pipeline derives the district from postal_code. Same
+    result, one implementation instead of one per source."""
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+
+    from digest.config import Config
+    from digest.pipeline.normalize import normalize
+
+    now = datetime(2026, 8, 14, 9, tzinfo=ZoneInfo("Europe/Budapest"))
+    normalized = {e.id: e for e in normalize(events, Config(), now=now)}
     by_key = {event.source_event_key: event for event in events}
+
     checked = 0
     for key, record in payload.items():
         address = record.get("address") or {}
         if isinstance(address.get("district"), int) or address.get("zip") != 1033:
             continue
-        assert by_key[key].district_raw == "III."
+        raw = by_key[key]
+        assert raw.district_raw is None
+        assert raw.postal_code == "1033"
+        event = next((e for e in normalized.values() if e.title == raw.title), None)
+        if event is not None:
+            assert event.district == "III."
         checked += 1
     assert checked, "the fixture must contain a 1033 record without a district"
 

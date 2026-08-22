@@ -8,7 +8,7 @@ import structlog
 from digest.config import Config
 from digest.errors import ParseError
 from digest.fetch.base import FetchResult, FetchTask
-from digest.models import RawEvent, district_from_zip
+from digest.models import RawEvent
 
 log = structlog.get_logger()
 
@@ -157,7 +157,6 @@ class CooltixSource:
             venue_name=str(venue.get("name") or "").strip() or None,
             address_raw=str(address.get("formatted") or "").strip() or None,
             postal_code=postal_code,
-            district_raw=district_from_zip(postal_code),
             # Real per-venue coordinates, which is what §7.7's `home`/`distance_km`
             # proximity bonus needs and most sources never publish.
             lat=_coordinate(coordinates, "latitude"),

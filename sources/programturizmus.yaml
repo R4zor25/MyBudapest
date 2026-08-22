@@ -55,15 +55,18 @@ fields:
     selector: '[class*="ContentItemCard_descriptionWrapper"] > div > p[class*="Text_menu-button"]'
     attr: text
     optional: true
-  # NO district_raw, deliberately. The card does carry one — the location strip links to
-  # `/kerulet-13-kerulet-budapest.html` with the text "13. kerület" — but normalize.py only
-  # converts a district to the project's Roman form (`IX.`) when it arrives as an int
-  # (`roman_district`); a string is passed through verbatim. This source would therefore
-  # produce `district: "9. kerület - Ferencváros"` where Port.hu produces `"IX."`, and §7.7
-  # compares `district == home.district` by equality — so the proximity bonus would silently
-  # never fire for these events, and the UI would show two spellings side by side. The §6.3
-  # transform vocabulary cannot turn "9. kerület" into "IX.". Leaving the field unmapped
-  # loses the district; mapping it as text loses it too, but invisibly. See the batch report.
+  # The location strip's last link is the district ("13. kerület", sometimes
+  # "9. kerület - Ferencváros"). This was left unmapped until §7.1 grew `normalize_district`:
+  # before that, normalize passed a string through verbatim, so this source would have
+  # produced `district: "9. kerület - Ferencváros"` where Port.hu produces `"IX."`, and §7.7
+  # compares `district == home.district` by equality — the proximity bonus would have
+  # silently never fired. The normalizer now converts every shape, so the field is mapped
+  # here and the conversion lives in one place rather than in the §6.3 transform vocabulary,
+  # which could not express it anyway.
+  district_raw:
+    selector: '[class*="ContentItemCard_locationContainer"] a[href*="/kerulet-"]'
+    attr: text
+    optional: true
   image_url: { selector: 'img[class*="ContentItemCard_image"]', attr: src, optional: true }
   description:
     selector: 'p[class*="ContentItemCard_descriptionText"]'

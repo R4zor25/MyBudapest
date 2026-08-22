@@ -168,12 +168,67 @@ def haversine_km(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     return 2 * _EARTH_RADIUS_KM * asin(sqrt(a))
 
 
+# Every Budapest district in the project's canonical spelling, reversed. Built from
+# `roman_district` rather than written out, so the two can never disagree; that function
+# returns None past the last real district, which is what ends the comprehension.
+_ROMAN_TO_NUMBER: dict[str, int] = {
+    roman.rstrip("."): number for number in range(1, 40) if (roman := roman_district(number) or "")
+}
+_ROMAN_DISTRICT_RE = re.compile(r"^([IVX]+)\.?(?:\s*ker(?:ület)?\.?)?$", re.IGNORECASE)
+_LEADING_NUMBER_RE = re.compile(r"^(\d{1,2})\b")
+_POSTAL_CODE_RE = re.compile(r"^\d{4}$")
+
+
+def normalize_district(value: str | int | None) -> str | None:
+    """Any shape a source publishes a Budapest district in -> the canonical Roman form.
+
+        11                        -> "XI."
+        "XI." / "XI" / "xi ker."  -> "XI."
+        "IX. kerület"             -> "IX."
+        "9. kerület - Ferencváros" -> "IX."
+        "1113"                    -> "XI."
+
+    §7.7 compares `district == home.district` by equality, so a source that spells it any
+    other way silently never earns the proximity bonus — the failure is invisible, which
+    is why this is one function every source goes through rather than a per-source mapping.
+
+    Anything unrecognised is None, never a guess: a wrong district is worse than a missing
+    one, because it scores."""
+    if value is None:
+        return None
+    if isinstance(value, int):
+        return roman_district(value)
+
+    text = _WHITESPACE_RE.sub(" ", str(value)).strip()
+    if not text:
+        return None
+
+    # A four-digit run is a postal code and is read as one, terminally. Falling through to
+    # the leading-number branch would turn Szigethalom's 2315 into district XXIII.
+    if _POSTAL_CODE_RE.match(text):
+        return _log_unknown(text) if district_from_zip(text) is None else district_from_zip(text)
+
+    roman = _ROMAN_DISTRICT_RE.match(text)
+    if roman is not None:
+        number = _ROMAN_TO_NUMBER.get(roman[1].upper())
+        return roman_district(number) if number is not None else _log_unknown(text)
+
+    # "13. kerület", "9. kerület - Ferencváros", "5" — the district is the leading number.
+    leading = _LEADING_NUMBER_RE.match(text)
+    if leading is not None:
+        return roman_district(int(leading[1])) or _log_unknown(text)
+
+    return _log_unknown(text)
+
+
+def _log_unknown(text: str) -> None:
+    log.debug("district_unrecognised", value=text)
+
+
 def _district(raw: RawEvent) -> str | None:
-    if isinstance(raw.district_raw, int):
-        return roman_district(raw.district_raw)
-    if isinstance(raw.district_raw, str) and raw.district_raw.strip():
-        return raw.district_raw.strip()
-    return district_from_zip(raw.postal_code)
+    """The source's own district field first, then the postal code — both through the same
+    normalizer, so a source needs to supply either one and never its own conversion."""
+    return normalize_district(raw.district_raw) or normalize_district(raw.postal_code)
 
 
 _BUDAPEST = "Budapest"

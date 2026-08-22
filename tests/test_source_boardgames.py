@@ -101,7 +101,9 @@ def test_cooltix_maps_the_board_game_record(cooltix_events) -> None:
     assert event.venue_name == "Játsz/Ma Társasjáték Kávézó"
     assert event.start_raw == "2026-08-28T16:30:00.000Z"
     assert event.postal_code == "1053"
-    assert event.district_raw == "V."
+    # The district itself is derived by §7.1 from this postal code -- the source no
+    # longer converts it (see normalize_district).
+    assert event.district_raw is None
     assert event.lat == pytest.approx(47.4932103)
     assert event.lon == pytest.approx(19.0593045)
     # `summary`, not `description`: the latter is HTML and §7.1 does not strip tags.
@@ -184,7 +186,7 @@ def test_tixa_maps_the_board_game_record(tixa_events) -> None:
     assert event.start_raw == "2026-08-24T16:50:00+02:00"
     assert event.venue_name == "Treffort Kert & Könyvtár Klub"
     assert event.postal_code == "1088"
-    assert event.district_raw == "VIII."
+    assert event.district_raw is None
 
 
 def test_tixa_drops_midnight_placeholder_starts(config) -> None:

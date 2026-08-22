@@ -796,6 +796,14 @@ Sorrend kötött.
 - Dátum parseolás: `eventStart`-szerű ISO, magyar display formátumok (`2026. 08. 14. 19:00`),
   ISO 8601 `datetime` attribútum. Ismeretlen formátum → rekord eldobva + WARNING.
 - Minden `datetime` `Europe/Budapest`-re tz-aware-ré alakítva.
+- `district`: a `normalize_district` egyetlen függvényén megy át, bármilyen alakban jön.
+  Elfogad egészet (`11`), római alakot (`XI.`, `XI`), magyar szöveget
+  (`9. kerület - Ferencváros`, `IX. kerület`) és budapesti irányítószámot (`1113`) —
+  mindegyikből `XI.` lesz. A forrás azt adja át, amit publikál; **nem** a forrás dolga
+  átváltani. Ami nem ismerhető fel, az `None` és egy `district_unrecognised` debug sor,
+  soha nem tipp: a §7.7 egyenlőséggel hasonlít, tehát a rossz kerület pontot ad, a hiányzó
+  csak nem ad. A négyjegyű bemenet **mindig** irányítószám, és ott meg is áll — különben
+  Szigethalom 2315-e XXIII. kerület lenne.
 - `start_time_known`: a §7.7 hajnali eltolás és a §7.2 indulási kapu bemenete. Az az egy
   bit, hogy a forrás közölt-e órát — a parser állítja be aszerint, melyik formátumra
   illeszkedett (`2026.09.19.` → False, `2026-08-16 01:00:00` → True), mert utólag a

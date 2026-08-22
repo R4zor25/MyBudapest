@@ -16,7 +16,7 @@ from structlog.testing import capture_logs
 
 from digest.config import Config, load_config
 from digest.fetch.base import FetchResult, FetchTask
-from digest.models import Event, RawEvent
+from digest.models import Event, RawEvent, roman_district
 from digest.pipeline.dedup import _MAX_START_GAP, _starts_match, _venues_match, dedup, fuzzy_title
 from digest.pipeline.normalize import normalize
 from digest.sources.declarative import DeclarativeSource
@@ -206,18 +206,25 @@ def test_relative_hrefs_resolve_against_the_listing_page(
     assert all(e.url == e.source_event_key for e in events)
 
 
-def test_no_district_is_claimed_rather_than_one_in_the_wrong_format(
+def test_the_district_text_is_normalized_to_the_canonical_roman_form(
     programturizmus: DeclarativeSource, repo_root: Path, config: Config
 ) -> None:
-    # The cards do carry a district ("13. kerület"), but normalize only produces the
-    # project's Roman form from an int. Mapping the text would give
-    # `district="9. kerület - Ferencváros"` against Port.hu's `"IX."`, and §7.7 compares by
-    # equality — the proximity bonus would silently never fire. Reported, not worked around.
+    """WAS left unmapped: the cards carry "13. kerület" / "9. kerület - Ferencváros", and
+    normalize passed a string through verbatim, so mapping the field would have produced
+    `district="9. kerület - Ferencváros"` against Port.hu's `"IX."` — and §7.7 compares by
+    equality, so the proximity bonus would silently never have fired.
+
+    §7.1's `normalize_district` now converts every published shape, so the field is mapped
+    and the district arrives in the same spelling as every other source's."""
     raw = parse_programturizmus(programturizmus, repo_root)
 
-    assert all(e.district_raw is None for e in raw)
+    assert any(e.district_raw for e in raw), "the cards do carry a district"
     events = normalize(raw, config, now=datetime(2026, 8, 16, 9, 0, tzinfo=BUDAPEST))
-    assert all(e.district is None for e in events)
+    districts = {e.district for e in events if e.district is not None}
+
+    assert districts, "at least one card should yield a district"
+    assert districts <= {roman_district(n) for n in range(1, 24)}
+    assert "IX." in districts
 
 
 def test_the_records_are_mostly_umbrella_programme_pages_not_single_events(

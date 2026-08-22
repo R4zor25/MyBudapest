@@ -173,7 +173,6 @@ class KvizestekSource:
             venue_name=str(record.get("venueName") or "").strip() or None,
             address_raw=address,
             postal_code=postal_code,
-            district_raw=district_from_zip(postal_code),
             price_raw=_price_raw(record),
             # `imageUrl` is set on 2 of 132 records and `venueImageUrl` is a venue photo,
             # not an event image — a generic bar interior on every card is worse than none.

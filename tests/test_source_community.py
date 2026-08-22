@@ -134,7 +134,7 @@ def test_a_budapest_event_with_a_blank_city_is_recovered_from_its_address(
 
     assert len(events) == 2
     assert {event.title for event in events} == {"Szabadtéri kvíz a Margit-szigeten"}
-    assert {event.district_raw for event in events} == {"XIII."}
+    assert {event.postal_code for event in events} == {"1138"}
 
 
 def test_a_stated_non_budapest_city_is_never_re_read_out_of_its_address(
@@ -219,7 +219,7 @@ def test_field_mapping_on_a_real_record(
     assert event.venue_name == "Comics Bar"
     assert event.address_raw == "1077 Budapest, Wesselényi utca 19."
     assert event.postal_code == "1077"
-    assert event.district_raw == "VII."
+    assert event.district_raw is None
     # "[Excel import – 2026-07-15]" is an internal provenance note, not a description.
     assert event.description is None
     # entryFee is null here, and an unpriced record must not read as free (§7.7).

@@ -11,7 +11,7 @@ import structlog
 from digest.config import Config
 from digest.errors import ParseError
 from digest.fetch.base import FetchResult, FetchTask
-from digest.models import RawEvent, district_from_zip
+from digest.models import RawEvent
 
 log = structlog.get_logger()
 
@@ -128,7 +128,9 @@ class PortHuSource:
             venue_name=record.get("place") or None,
             address_raw=address.get("fullAddress") or None,
             postal_code=str(zip_code) if zip_code else None,
-            district_raw=district if isinstance(district, int) else district_from_zip(zip_code),
+            # Handed over as published: §7.1's normalize_district reads the int, and
+            # falls back to postal_code when the record carries no district at all.
+            district_raw=district,
             lat=lat,
             lon=lon,
             # The `ticket` array is empty on every record: Port.hu carries no price (§6.5).

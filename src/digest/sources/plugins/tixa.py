@@ -10,7 +10,7 @@ from selectolax.parser import HTMLParser
 
 from digest.config import Config
 from digest.fetch.base import FetchResult, FetchTask
-from digest.models import RawEvent, district_from_zip
+from digest.models import RawEvent
 
 log = structlog.get_logger()
 
@@ -115,7 +115,6 @@ class TixaSource:
             venue_name=str(location.get("name") or "").strip() or None,
             address_raw=address,
             postal_code=postal_code,
-            district_raw=district_from_zip(postal_code),
             price_raw=None,
             image_url=image_url,
             native_category=None,
