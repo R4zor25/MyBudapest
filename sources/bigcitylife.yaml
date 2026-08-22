@@ -27,7 +27,7 @@ plugin: null
 # position is correct and its real value is the `urls` union, not the merge.
 #
 # REPERTOIRE SHAPE (culture batch, requirement 2): individual dates, no ranges. On the
-# saved fixture all 8 parsed records are distinct (title, venue) pairs, none repeats on
+# saved fixture all 9 parsed records are distinct (title, venue) pairs, none repeats on
 # another date, and none carries an end date on a different day. A weekend-picks list
 # cannot show the twenty-performances-of-one-production pattern, so this source neither
 # demonstrates nor rules out that risk.

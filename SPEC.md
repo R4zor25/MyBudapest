@@ -609,17 +609,24 @@ csak `"concert"` szerepelt. Az M0 egyik feladata ezt feltárni (`digest fetch po
 **A. Gerinc** — az „Út" a §6.1 lépése, ameddig a forrás eljutott; az „Állapot" külön
 oszlop, mert a kettő nem ugyanaz (lásd B tábla).
 
-| Forrás | Út | Állapot | Mit ad |
-|---|---|---|---|
-| Port.hu | 2. — JSON, igazolva | **függőben** | minden, ár kivételével — a listázó URL nyitott (§17.1) |
-| Jegy.hu | 2. — JSON | felderítetlen | **árat** — ez tölti a `free_bonus`/`cheap_bonus` szabályt |
-| bigcitylife.hu | 3. — SSR, igazolva | **él** | koncert, klub, fesztivál |
-| Programturizmus | 3. — SSR, igazolva | **él** | budapesti merítés, de főleg gyűjtőoldalak |
-| We Love Budapest | — | **elvetve** | semmit: a robots.txt névre tiltja az `anthropic-ai`-t |
-| Funzine | 3. — SSR, igazolva | **elvetve** | semmit: az esemény poszttípus 2018 óta halott |
-| Fidelio | 3. — SSR kereső, igazolva | **elvetve** | semmit: a kereső működik, az adatbázis üres — „0 találat" |
-| Színházak.hu | — | **elvetve** | semmit: a domain parkolt, a szinhaz.hu 2020 óta halott blog |
-| Cooltix | 2. — GraphQL, igazolva | **él** | vegyes budapesti merítés, 79 esemény horizonton belül |
+**A „Horizonton belül" oszlop a §7.1 után megmaradó eseményszám**, nem a parse-olt
+rekordoké. Ez a kettő nagyságrendileg eltér — a kvizestek 91 budapesti rekordot ad, de
+26 esik a 14 napos horizontba —, és a digest szempontjából csak az utóbbi létezik. A
+parse-olt szám zárójelben marad ott, ahol a különbség maga a lényeg. Minden érték a
+`tests/fixtures/` alatti mentett válaszból mérve, a fixture mentési napjához viszonyítva;
+`—` = nincs mért adat (felderítetlen vagy elvetett forrás).
+
+| Forrás | Út | Állapot | Horizonton belül | Mit ad |
+|---|---|---|---|---|
+| Port.hu | 2. — JSON, igazolva | **függőben** | 20 (20 parse-olt) | minden, ár kivételével — a listázó URL nyitott (§17.1) |
+| Jegy.hu | 2. — JSON | felderítetlen | — | **árat** — ez tölti a `free_bonus`/`cheap_bonus` szabályt |
+| bigcitylife.hu | 3. — SSR, igazolva | **él** | 2 (9 parse-olt) | koncert, klub, fesztivál — kurált hétvégi válogatás |
+| Programturizmus | 3. — SSR, igazolva | **él** | — | budapesti merítés, de főleg gyűjtőoldalak |
+| We Love Budapest | — | **elvetve** | — | semmit: a robots.txt névre tiltja az `anthropic-ai`-t |
+| Funzine | 3. — SSR, igazolva | **elvetve** | — | semmit: az esemény poszttípus 2018 óta halott |
+| Fidelio | 3. — SSR kereső, igazolva | **elvetve** | 0 | semmit: a kereső működik, az adatbázis üres — „0 találat" |
+| Színházak.hu | — | **elvetve** | — | semmit: a domain parkolt, a szinhaz.hu 2020 óta halott blog |
+| Cooltix | 2. — GraphQL, igazolva | **él** | 79 (83 budapesti / 500 lekért) | vegyes budapesti merítés |
 
 **We Love Budapest — nem technikai akadály.** A `welovebudapest.com/robots.txt` név
 szerint tiltja az `anthropic-ai` user agentet az egész oldalra (`Disallow: /`), a GPTBot
@@ -664,17 +671,17 @@ ugyanaz a csapda, amit a We Love Budapest kapcsán a spec már kizár.
 **B. Közösségi réteg** — kis oldalak, heti pár eseménnyel. Épp az alacsony volumenük az
 érték: ellensúlyozzák a fesztivál-elárasztást.
 
-| Forrás | Út | Állapot | Mit ad |
-|---|---|---|---|
-| kvizestek.hu | 2. — JSON, igazolva | **él** | budapesti kvízestek, **26 horizonton belül** (91 parse-olt) |
-| Tixa | 3. — SSR JSON-LD, igazolva | **él** | 1 társasest horizonton belül; a lista szűk, lásd lent |
-| tokenklub.hu | 2. — REST API, igazolva | **él, de üres** | 0 horizonton belül — szezonális klub, nyári szünet |
-| tarsasjatekos.hu | 1. — naptár API | **kulcsra vár** | ~12 társas horizonton belül (becslés, lásd lent), `GCAL_API_KEY` kell |
-| redandblack.hu | 3. — SSR, igazolva | **elvetve** | semmit: a saját oldal halott, a hely nem — lásd lent |
-| esemenyek.kedvesidegen.hu | 2. — JSON, igazolva | **elvetve** | semmit: nincs gépi dátum |
-| Játsz/Ma Társasjáték Kávézó | — | **lefedve** | a Cooltixon keresztül jön, nem kell külön forrás |
-| Illegál kvízest | — | felderítetlen | — |
-| Meetup | 3. — `__NEXT_DATA__` | felderítetlen | lásd lent |
+| Forrás | Út | Állapot | Horizonton belül | Mit ad |
+|---|---|---|---|---|
+| kvizestek.hu | 2. — JSON, igazolva | **él** | **26** (91 parse-olt) | budapesti kvízestek |
+| Tixa | 3. — SSR JSON-LD, igazolva | **él** | 1 | egy társasest; a lista szándékosan szűk, lásd lent |
+| tokenklub.hu | 2. — REST API, igazolva | **él, de üres** | 0 | szezonális klub, nyári szünet — magától éled fel |
+| tarsasjatekos.hu | 1. — naptár API | **kulcsra vár** | ~12 (becslés) | társasklubok; `GCAL_API_KEY` kell, lásd lent |
+| redandblack.hu | 3. — SSR, igazolva | **elvetve** | — | semmit: a saját oldal halott, a hely nem — lásd lent |
+| esemenyek.kedvesidegen.hu | 2. — JSON, igazolva | **elvetve** | — | semmit: nincs gépi dátum |
+| Játsz/Ma Társasjáték Kávézó | — | **lefedve** | — | a Cooltixon keresztül jön, nem kell külön forrás |
+| Illegál kvízest | — | felderítetlen | — | — |
+| Meetup | 3. — `__NEXT_DATA__` | felderítetlen | — | lásd lent |
 
 Az „Út" a §6.1 döntési sorrend lépése, ameddig a forrás eljutott — az „Állapot" külön
 oszlop, mert a kettő nem ugyanaz: mindhárom felderített forrás elért egy működő lépésig,

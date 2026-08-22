@@ -234,32 +234,58 @@ def test_an_enabled_source_without_title_or_url_fields_fails_fast() -> None:
         DeclarativeSource({"id": "broken", "fields": {}}, Config())
 
 
-def test_registry_builds_every_declarative_source_from_the_real_sources_dir(
-    config_path: Path, sources_dir: Path
-) -> None:
+def test_every_source_yaml_builds_a_usable_source(config_path: Path, sources_dir: Path) -> None:
+    """A property over the directory, not a fixed list. The previous version asserted set
+    equality against the ids it expected, so every new source needed this test edited —
+    friction whose usual end state is that the test gets deleted rather than updated. What
+    actually matters is that nothing in sources/ silently fails to load: a spec that
+    raises, or that the registry skips, would otherwise show up only as a source that
+    quietly contributes nothing."""
     config = load_config(config_path, sources_dir, None)
 
     sources = load_sources(config)
 
-    declarative_ids = {s.id for s in sources if isinstance(s, DeclarativeSource)}
-    assert declarative_ids == {
-        "bigcitylife",
-        "welovebudapest",
-        "fidelio",
-        "programturizmus",
-        "szinhazak",
-        # Both disabled placeholders (package 12): redandblack has no current events and
-        # kedvesidegen publishes no machine-readable date. They are DeclarativeSources
-        # because they carry no `plugin:` key; kvizestek does, so it is not in this set.
-        "redandblack",
-        "kedvesidegen",
-        # Package 13: another disabled placeholder — funzine's event post type has been
-        # dead since 2018. programturizmus is already in this set and is now enabled.
-        "funzine",
-        # Package 15: The Events Calendar REST API is a plain field mapping, so tokenklub
-        # needs no plugin. cooltix, tixa and tarsasjatekos from the same package do.
-        "tokenklub",
+    yaml_stems = {path.stem for path in sources_dir.glob("*.yaml")}
+    assert yaml_stems, "sources/ should not be empty"
+    assert len(sources) == len(yaml_stems), (
+        f"{len(yaml_stems)} YAML files produced {len(sources)} sources -- one did not load"
+    )
+
+    ids = [source.id for source in sources]
+    assert len(set(ids)) == len(ids), f"duplicate source ids: {sorted(ids)}"
+
+    # The id is the filename stem (SPEC 6.3: "kötelező, egyedi, = fájlnév"). Registry
+    # lookups, `digest fetch <id>`, state.json's health keys and the `plugin:` module name
+    # all assume the two agree.
+    assert set(ids) == yaml_stems
+
+    for source in sources:
+        assert callable(source.discover), f"{source.id} has no discover()"
+        assert callable(source.parse), f"{source.id} has no parse()"
+
+
+def test_every_source_declares_a_fetcher_the_runtime_can_build(
+    config_path: Path, sources_dir: Path
+) -> None:
+    """Checked against cli's own registry rather than a literal, so the two cannot drift.
+    A `fetcher:` the runtime has no class for raises FetchError at the first request
+    (cli._fetch_source), i.e. one dead source per run, discovered in production.
+
+    SPEC 6.3 lists `playwright` as a schema value with no implementation -- that is exactly
+    the kind of spec this catches before it ships enabled."""
+    from digest.cli import _FETCHERS
+
+    config = load_config(config_path, sources_dir, None)
+
+    unbuildable = {
+        source.id: source.fetcher
+        for source in load_sources(config)
+        if source.fetcher not in _FETCHERS
     }
+
+    assert not unbuildable, (
+        f"{unbuildable} name fetchers the runtime cannot build; known: {sorted(_FETCHERS)}"
+    )
 
 
 def test_bigcitylife_parses_a_plausible_event_count_from_the_real_fixture(
