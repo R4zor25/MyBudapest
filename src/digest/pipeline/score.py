@@ -138,7 +138,18 @@ def _distance_penalty(event: Event, scoring: ScoringConfig) -> float:
 
 
 def _soon_bonus(event: Event, scoring: ScoringConfig, now: datetime) -> float:
+    """Bounded at BOTH ends. Only the upper bound used to be checked, and `start - now` is
+    negative for anything already begun — so a rule named "soon" paid out most reliably to
+    the events that started longest ago. A multi-day pass that opened in April survives the
+    §7.1 past cut for a good reason (it is still running) and then collected the full bonus
+    130 days in, ahead of the events actually happening tonight.
+
+    The window is inclusive at both ends: an event starting exactly `within_days` out still
+    counts as soon, and one starting this instant is not "already past"."""
     soon = scoring.soon_bonus
-    if soon is None or (event.start - now) > timedelta(days=soon.within_days):
+    if soon is None:
+        return 0.0
+    until_start = event.start - now
+    if until_start < timedelta(0) or until_start > timedelta(days=soon.within_days):
         return 0.0
     return soon.points

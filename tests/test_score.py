@@ -272,6 +272,32 @@ def test_soon_bonus_applies_within_the_configured_window() -> None:
     assert later_result.score_breakdown["soon_bonus"] == 0
 
 
+@pytest.mark.parametrize(
+    ("offset", "expected"),
+    [
+        # The defect: `start - now` is negative for anything already begun, and only the
+        # upper bound was checked, so "soon" paid out best to the events that started
+        # longest ago. A multi-day pass that opened in April is kept by §7.1 because it is
+        # still running, and it was collecting the full bonus 130 days in.
+        (timedelta(days=-130), 0),
+        (timedelta(hours=-1), 0),
+        # Both ends of the window are inclusive: starting this instant is not "past", and
+        # starting exactly `within_days` out is still soon.
+        (timedelta(0), 1),
+        (timedelta(days=1), 1),
+        (timedelta(days=7), 1),
+        (timedelta(days=8), 0),
+    ],
+    ids=["130-days-ago", "an-hour-ago", "now", "tomorrow", "exactly-the-window", "one-past"],
+)
+def test_soon_bonus_is_bounded_at_both_ends(offset: timedelta, expected: float) -> None:
+    config = Config(scoring=ScoringConfig(soon_bonus=SoonBonus(within_days=7, points=1)))
+
+    (result,) = score([make_event(start=NOW + offset)], config, now=NOW)
+
+    assert result.score_breakdown["soon_bonus"] == expected
+
+
 def test_novelty_bonus_is_zero_for_an_id_already_in_the_ledger() -> None:
     config = Config(scoring=ScoringConfig(novelty_bonus=2))
     event = make_event()
