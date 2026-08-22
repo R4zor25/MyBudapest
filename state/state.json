@@ -1,12 +1,398 @@
 {
   "version": 1,
-  "last_run": "2026-08-22T06:56:42.971735+02:00",
-  "sent": [],
+  "last_run": "2026-08-22T22:36:47.843331+02:00",
+  "sent": [
+    {
+      "id": "79007d17793f8695",
+      "t": "telex 6. szuletesnap",
+      "d": "2026-08-29",
+      "s": "2026-08-22",
+      "u": "2026-08-30"
+    },
+    {
+      "id": "864ed63d152a87f2",
+      "t": "linkin park special",
+      "d": "2026-08-22",
+      "s": "2026-08-22",
+      "u": "2026-08-23"
+    },
+    {
+      "id": "5f235c960eada6bc",
+      "t": "faking fasza! party // a38 tetoterasz",
+      "d": "2026-08-28",
+      "s": "2026-08-22",
+      "u": "2026-08-29"
+    },
+    {
+      "id": "0077c461582c0475",
+      "t": "oliver wolf durer kert",
+      "d": "2026-08-22",
+      "s": "2026-08-22",
+      "u": "2026-08-22"
+    },
+    {
+      "id": "86afd1be3b0c6b26",
+      "t": "messer & wheelbite | kis szoba x durer kert",
+      "d": "2026-08-23",
+      "s": "2026-08-22",
+      "u": "2026-08-23"
+    },
+    {
+      "id": "2a6a8c00455909df",
+      "t": "høt spøt 2026 - aug 26",
+      "d": "2026-08-26",
+      "s": "2026-08-22",
+      "u": "2026-08-26"
+    },
+    {
+      "id": "cf840356cc757f3b",
+      "t": "welcome back to 2010's & goodbye summer party 08.29. a38 hajo terasz",
+      "d": "2026-08-29",
+      "s": "2026-08-22",
+      "u": "2026-08-30"
+    },
+    {
+      "id": "c37bc34bedb6356e",
+      "t": "baile da map - boat party at a38",
+      "d": "2026-09-04",
+      "s": "2026-08-22",
+      "u": "2026-09-05"
+    },
+    {
+      "id": "d54c9d130d3b2c8d",
+      "t": "zsomac all day long | a38 orrterasz | szeptember 5",
+      "d": "2026-09-05",
+      "s": "2026-08-22",
+      "u": "2026-09-05"
+    },
+    {
+      "id": "68df412699c771e9",
+      "t": "pal csaba vacsoraest i augusztus 25. kedd i le bistro kopaszi-gat i budapest",
+      "d": "2026-08-25",
+      "s": "2026-08-22",
+      "u": "2026-08-25"
+    },
+    {
+      "id": "e933a50f6f2c3404",
+      "t": "get funky party szeptember",
+      "d": "2026-09-04",
+      "s": "2026-08-22",
+      "u": "2026-09-05"
+    },
+    {
+      "id": "a9f099f7fd8f2e36",
+      "t": "liquid night: summer closing with t78",
+      "d": "2026-09-04",
+      "s": "2026-08-22",
+      "u": "2026-09-05"
+    },
+    {
+      "id": "fcb6423a3b5f25d0",
+      "t": "land & sea: rooftop grooves w/ pure lust & azaz",
+      "d": "2026-08-29",
+      "s": "2026-08-22",
+      "u": "2026-08-29"
+    },
+    {
+      "id": "85591aa951a8c87d",
+      "t": "rollin' • romkert • the hungarian topsh*t party • 08/28",
+      "d": "2026-08-28",
+      "s": "2026-08-22",
+      "u": "2026-08-29"
+    },
+    {
+      "id": "74cfe02b5dffc603",
+      "t": "kakao 015 w/ solange, flirty flo, rexalith, dora",
+      "d": "2026-08-28",
+      "s": "2026-08-22",
+      "u": "2026-08-29"
+    },
+    {
+      "id": "4bb259f92fbc7637",
+      "t": "otkert saturday 08.22. timeless hits // mama africa",
+      "d": "2026-08-22",
+      "s": "2026-08-22",
+      "u": "2026-08-23"
+    },
+    {
+      "id": "9de14a7ae5848633",
+      "t": "mamma mia boat party • the midnight voyage • 08.28. here we cruise again!",
+      "d": "2026-08-28",
+      "s": "2026-08-22",
+      "u": "2026-08-29"
+    },
+    {
+      "id": "c7171de48070884f",
+      "t": "calia's 2nd birthday - fashion show and after party",
+      "d": "2026-08-28",
+      "s": "2026-08-22",
+      "u": "2026-08-28"
+    },
+    {
+      "id": "d749672c8fd44117",
+      "t": "be massive horizon day & night party - varosligeti csonakazoto - nyarzaro",
+      "d": "2026-08-29",
+      "s": "2026-08-22",
+      "u": "2026-08-30"
+    },
+    {
+      "id": "3a4b7dcb204762ca",
+      "t": "bed beach classic - white party • romkert • 09.05.",
+      "d": "2026-09-05",
+      "s": "2026-08-22",
+      "u": "2026-09-06"
+    },
+    {
+      "id": "a36399acfc3dae85",
+      "t": "kisusti palinkafozo bemutatofozes a tulipan leparloval",
+      "d": "2026-09-11",
+      "s": "2026-08-22",
+      "u": "2026-09-11"
+    },
+    {
+      "id": "0d38ab30edc00471",
+      "t": "smuz teraszszinhaz - zsazsa est",
+      "d": "2026-08-26",
+      "s": "2026-08-22",
+      "u": "2026-08-26"
+    },
+    {
+      "id": "a97c39432e6805a4",
+      "t": "mamma mia! video disco es mozi a duna-parton 08.27. - nyarzaro",
+      "d": "2026-08-27",
+      "s": "2026-08-22",
+      "u": "2026-08-27"
+    },
+    {
+      "id": "211779917a396ccb",
+      "t": "studio 103 | ekszerkeszito workshop | 08.29.",
+      "d": "2026-08-29",
+      "s": "2026-08-22",
+      "u": "2026-08-29"
+    },
+    {
+      "id": "953b067f92a886ac",
+      "t": "studio 103 | keramia workshop | 08.29.",
+      "d": "2026-08-29",
+      "s": "2026-08-22",
+      "u": "2026-08-29"
+    },
+    {
+      "id": "36b7af356279f771",
+      "t": "studio 103 | himzo workshop | 08.26.",
+      "d": "2026-08-26",
+      "s": "2026-08-22",
+      "u": "2026-08-26"
+    },
+    {
+      "id": "d89a6dc7f1d47fe4",
+      "t": "studio 103 | novenynevelo workshop | 08.27.",
+      "d": "2026-08-27",
+      "s": "2026-08-22",
+      "u": "2026-08-27"
+    },
+    {
+      "id": "81f4dacc42f3bd85",
+      "t": "studio 103 | keramia workshop | 09.05.",
+      "d": "2026-09-05",
+      "s": "2026-08-22",
+      "u": "2026-09-05"
+    },
+    {
+      "id": "fb3be2d0b9858c18",
+      "t": "studio 103 | linometszes workshop | 09.11.",
+      "d": "2026-09-11",
+      "s": "2026-08-22",
+      "u": "2026-09-11"
+    },
+    {
+      "id": "a6b9371ede606d8b",
+      "t": "studio 103 | keramia workshop | 08.24.",
+      "d": "2026-08-24",
+      "s": "2026-08-22",
+      "u": "2026-08-24"
+    },
+    {
+      "id": "60fad2a5c75583ac",
+      "t": "studio 103 | himzo workshop | 09.10.",
+      "d": "2026-09-10",
+      "s": "2026-08-22",
+      "u": "2026-09-10"
+    },
+    {
+      "id": "1b8eea3588ef795c",
+      "t": "sketch & paint: flower arrangements",
+      "d": "2026-08-28",
+      "s": "2026-08-22",
+      "u": "2026-08-28"
+    },
+    {
+      "id": "0df4ac271dd93993",
+      "t": "studio 103 | keramia workshop | 08.31.",
+      "d": "2026-08-31",
+      "s": "2026-08-22",
+      "u": "2026-08-31"
+    },
+    {
+      "id": "2dcbcae6de337d9c",
+      "t": "jatsszunk haver - a jatsz/maban",
+      "d": "2026-08-28",
+      "s": "2026-08-22",
+      "u": "2026-08-28"
+    },
+    {
+      "id": "3f8a1c56718f7882",
+      "t": "bunny kingdom - tarsasjatekos kaland",
+      "d": "2026-08-23",
+      "s": "2026-08-22",
+      "u": "2026-08-23"
+    },
+    {
+      "id": "94dcb2a167c6ea9a",
+      "t": "hetfoi tarsasozas a treffort kertben // jatszohaz projekt",
+      "d": "2026-08-24",
+      "s": "2026-08-22",
+      "u": "2026-08-24"
+    },
+    {
+      "id": "c5ddd7c619f31d55",
+      "t": "havervagy pszichologiai jatekest",
+      "d": "2026-08-31",
+      "s": "2026-08-22",
+      "u": "2026-08-31"
+    },
+    {
+      "id": "265a7c167832a6a1",
+      "t": "altalanos kviz",
+      "d": "2026-09-04",
+      "s": "2026-08-22",
+      "u": "2026-09-04"
+    },
+    {
+      "id": "5d712daef6715b3f",
+      "t": "altalanos kviz",
+      "d": "2026-08-24",
+      "s": "2026-08-22",
+      "u": "2026-08-24"
+    },
+    {
+      "id": "0a284002227a4011",
+      "t": "altalanos kviz",
+      "d": "2026-08-25",
+      "s": "2026-08-22",
+      "u": "2026-08-25"
+    },
+    {
+      "id": "ea2cfdc70177f34a",
+      "t": "altalanos kviz",
+      "d": "2026-08-28",
+      "s": "2026-08-22",
+      "u": "2026-08-28"
+    },
+    {
+      "id": "bff0b61cb96128c3",
+      "t": "altalanos kviz",
+      "d": "2026-08-29",
+      "s": "2026-08-22",
+      "u": "2026-08-29"
+    },
+    {
+      "id": "a206484b2ca53751",
+      "t": "altalanos kviz",
+      "d": "2026-09-03",
+      "s": "2026-08-22",
+      "u": "2026-09-03"
+    },
+    {
+      "id": "6e9f095ea7721c25",
+      "t": "szabadteri kviz a margit-szigeten",
+      "d": "2026-09-05",
+      "s": "2026-08-22",
+      "u": "2026-09-05"
+    },
+    {
+      "id": "c8cddb1ccd9127f1",
+      "t": "mamma mia! kviz",
+      "d": "2026-08-26",
+      "s": "2026-08-22",
+      "u": "2026-08-26"
+    },
+    {
+      "id": "e4b599eb6db6f002",
+      "t": "sorozatok kviz",
+      "d": "2026-08-26",
+      "s": "2026-08-22",
+      "u": "2026-08-26"
+    },
+    {
+      "id": "2500b09e3da92e61",
+      "t": "agymenok kviz",
+      "d": "2026-08-27",
+      "s": "2026-08-22",
+      "u": "2026-08-27"
+    },
+    {
+      "id": "a418dfd23c85084b",
+      "t": "gyilkos vacsora nyomozos jatek",
+      "d": "2026-09-02",
+      "s": "2026-08-22",
+      "u": "2026-09-02"
+    },
+    {
+      "id": "434401add3b85b25",
+      "t": "international welcome festival - party in wonderland issa ✘ 5 sept ✘ akvarium",
+      "d": "2026-09-05",
+      "s": "2026-08-22",
+      "u": "2026-09-06"
+    },
+    {
+      "id": "9aa08168e315c337",
+      "t": "interaktiv varosi seta a falk miksa utcaban",
+      "d": "2026-08-28",
+      "s": "2026-08-22",
+      "u": "2026-08-28"
+    }
+  ],
   "source_health": {
     "bigcitylife": {
       "consecutive_failures": 0,
       "last_ok": "2026-08-22",
       "last_count": 8,
+      "etag": null,
+      "disabled_until": null
+    },
+    "cooltix": {
+      "consecutive_failures": 0,
+      "last_ok": "2026-08-22",
+      "last_count": 544,
+      "etag": null,
+      "disabled_until": null
+    },
+    "kvizestek": {
+      "consecutive_failures": 0,
+      "last_ok": "2026-08-22",
+      "last_count": 91,
+      "etag": null,
+      "disabled_until": null
+    },
+    "tarsasjatekos": {
+      "consecutive_failures": 0,
+      "last_ok": "2026-08-22",
+      "last_count": 14,
+      "etag": null,
+      "disabled_until": null
+    },
+    "tixa": {
+      "consecutive_failures": 0,
+      "last_ok": "2026-08-22",
+      "last_count": 26,
+      "etag": null,
+      "disabled_until": null
+    },
+    "tokenklub": {
+      "consecutive_failures": 0,
+      "last_ok": "2026-08-22",
+      "last_count": 0,
       "etag": null,
       "disabled_until": null
     }
@@ -32,6 +418,13 @@
       "after_dedup": 5,
       "sent": 5,
       "seconds": 1.8112044200000028
+    },
+    {
+      "date": "2026-08-22",
+      "raw": 683,
+      "after_dedup": 298,
+      "sent": 50,
+      "seconds": 21.03991954
     }
   ]
 }
