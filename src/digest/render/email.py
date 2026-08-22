@@ -389,8 +389,15 @@ def _select_and_limit(
         log.info("newsletter_total_limit_trimmed", dropped=len(dropped))
 
     kept_grouped = [event for event in grouped if event.id not in dropped]
-    order = [c for c in config.categories if c in capped]
-    order += sorted(c for c in capped if c not in order)
+    # The fallback bucket goes LAST, whatever it scores. It is not a recommendation — it
+    # is the pile of events no rule recognised — so it must never lead the mail, and it is
+    # also the feedback channel for the category rules: a section that keeps growing means
+    # the keyword config needs work, and burying it inside the order would hide that.
+    fallback = config.fallback_category
+    order = [c for c in config.categories if c in capped and c != fallback]
+    order += sorted(c for c in capped if c not in order and c != fallback)
+    if fallback in capped:
+        order.append(fallback)
     sections = [
         {
             "label": _CATEGORY_LABELS.get(category, category),

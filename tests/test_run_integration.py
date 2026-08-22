@@ -722,3 +722,33 @@ def test_a_dated_event_with_no_clock_reaches_both_outputs(tmp_path: Path) -> Non
     assert by_title["Órával"]["start_time_known"] is True
     assert summary.dropped_by_content == 0
     assert summary.sent == 2, "and it is in the email too, not only on the site"
+
+
+@respx.mock
+def test_a_fallback_category_event_reaches_both_outputs(tmp_path: Path) -> None:
+    """With the fallback name present in `filters.categories`, an event no rule recognised
+    is published and mailed rather than silently discarded. Without it the content filter
+    removes every one of them as `category_not_allowed` — which is a PROFILE omission, not
+    a pipeline defect, and is what was happening on the shipped profile."""
+    respx.get("https://example.com/good").mock(return_value=httpx.Response(200, json={}))
+    config = make_config()
+    allowed = [*config.categories, config.fallback_category]
+    config = config.model_copy(
+        update={"filters": config.filters.model_copy(update={"categories": allowed})}
+    )
+    site_dir = tmp_path / "site"
+
+    summary = _run_pipeline(
+        config,
+        [FakeSource("good", url="https://example.com/good", events=[make_raw("good", "1")])],
+        State(),
+        tmp_path / "state.json",
+        site_dir,
+        tmp_path / "overrides.yaml",
+        now=NOW,
+    )
+
+    published = json.loads((site_dir / "events.json").read_text(encoding="utf-8"))["events"]
+    assert [record["categories"] for record in published] == [[config.fallback_category]]
+    assert summary.dropped_by_content == 0
+    assert summary.sent == 1

@@ -360,7 +360,12 @@ scoring:
   soon_bonus: { within_days: 7, points: 1 }
   weekday_weights: { mon: 0, tue: 0, wed: 1, thu: 1, fri: 2, sat: 2, sun: 1 }
 filters:
-  categories: [koncert, klub, szinhaz, kiallitas, film, meetup, tarsasjatek, kviz, gasztro, fesztival, outdoor]
+  # A `fallback_category` (alap: `egyeb`) NÉLKÜLE kiesik: a §7.6 `category_not_allowed`
+  # kizárja, és a besorolatlan halom nem jut el az olvasóhoz. A mentett merítésen ez 34
+  # esemény volt. Az `egyeb` szekció mindig UTOLSÓ a levélben, bármit is pontoz — nem
+  # ajánlás, hanem a kategória-szabályok visszajelzése: ha nő, a kulcsszavakon kell
+  # dolgozni.
+  categories: [koncert, klub, szinhaz, kiallitas, film, meetup, tarsasjatek, kviz, gasztro, fesztival, outdoor, sport, csaladi, egyeb]
   max_price_huf: 12000
   blocked_keywords: ["gyerekprogram*", "bábszínház*"]  # teljes szavas; a "*" kér szóeleji illesztést
   min_score: 3

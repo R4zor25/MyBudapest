@@ -341,8 +341,11 @@ const DATA = await (await fetch('./events.json')).json();
 
 /* ── szótárak ────────────────────────────────────────────────────────── */
 const CAT = {koncert:"Koncert", klub:"Klub", szinhaz:"Színház", kiallitas:"Kiállítás", film:"Film",
-  meetup:"Meetup", tarsasjatek:"Társasjáték", kviz:"Kvíz", gasztro:"Gasztro", fesztival:"Fesztivál", outdoor:"Outdoor"};
-const CAT_ORDER = ["koncert","klub","szinhaz","kiallitas","film","meetup","tarsasjatek","kviz","gasztro","fesztival","outdoor"];
+  meetup:"Meetup", tarsasjatek:"Társasjáték", kviz:"Kvíz", gasztro:"Gasztro", fesztival:"Fesztivál", outdoor:"Outdoor",
+  sport:"Sport", csaladi:"Családi", egyeb:"Egyéb"};
+// A szűrőcsipek sorrendje. Az "egyeb" szándékosan az utolsó: az a halom, amit egyetlen
+// szabály sem ismert fel, nem ajánlás — és ha nő, az a kategória-szabályok visszajelzése.
+const CAT_ORDER = ["koncert","klub","szinhaz","kiallitas","film","meetup","tarsasjatek","kviz","gasztro","fesztival","outdoor","sport","csaladi","egyeb"];
 const TZ = "Europe/Budapest", MAX_SCORE = 14, TICKS = 7;
 const fold = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/ø/g,"o").replace(/đ/g,"d");
 

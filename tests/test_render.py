@@ -333,3 +333,23 @@ def test_a_collapsed_row_is_not_labelled_a_festival() -> None:
     assert "Bem Mozi — 4 program" in rendered.html
     assert "Fesztivál" not in rendered.html
     assert "FESZTIVÁL" not in rendered.text
+
+
+def test_the_uncategorised_section_renders_last_whatever_it_scores() -> None:
+    """The fallback bucket is "nothing matched", not a recommendation, so it never leads —
+    even when its best event outscores every other section's. It is also the feedback
+    channel for the category rules, which is why it is shown at all rather than dropped."""
+    config = site_config(newsletter=NewsletterConfig(per_category_limit=3, total_limit=50))
+    uncategorised = [
+        make_event(i, title=f"Ismeretlen {i}", categories=["egyeb"], score=99.0) for i in range(2)
+    ]
+    concerts = [make_event(10 + i, title=f"Koncert {i}", score=1.0) for i in range(2)]
+
+    rendered = render_email(uncategorised + concerts, config, published_count=4, now=NOW)
+
+    assert "Egyéb" in rendered.html
+    assert rendered.html.index("Koncert") < rendered.html.index("Egyéb")
+    assert rendered.text.index("KONCERT") < rendered.text.index("EGYÉB")
+    # And it is in the mail at all — this is the half that needs filters.categories to
+    # include the fallback name; see the profile note in the report.
+    assert {event.title for event in rendered.sent_events} >= {"Ismeretlen 0", "Ismeretlen 1"}
