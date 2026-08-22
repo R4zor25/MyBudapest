@@ -11,20 +11,12 @@ Mind a {{ published_count }} program: {{ site_url }}
 A gyűjtés lefutott, a szűrő átment mindenen, csak nem akadt semmi, ami elég jó lett volna
 ahhoz, hogy felírjam ide. Ez nem hiba: ez az életjel. Ha az email megjött, a rendszer él.
 {% endif %}
-{% if grouped_rows %}
-
-EGY HELYSZÍN, TÖBB PROGRAM
-{% for row in grouped_rows %}
-* {{ row.venue_name }} — {{ row.day_word }} {{ row.group_size }} program{% if row.time_label or row.district_label %} ({% if row.time_label %}{{ row.time_label }}-tól{% endif %}{% if row.time_label and row.district_label %}, {% endif %}{% if row.district_label %}{{ row.district_label }}{% endif %}){% endif %}
-  {{ row.description }}{% if row.remaining > 0 %} és további {{ row.remaining }} program{% endif %}
-  {{ row.url }}
-{% endfor %}
-{% endif %}
 {% for section in category_sections %}
 
 {{ section.label|upper }} ({{ section.count }})
 {% for event in section.rows %}
-* {{ event.title }}
+* {% if event.group_label %}[{{ event.group_label }}]
+  {% endif %}{{ event.title }}
   {{ event.weekday_label }} {{ event.time_label }}{% if event.night_note %} ({{ event.night_note }}){% endif %} — {{ event.meta_text }} — {{ event.score_label }} pont
 {% if event.description %}
   {{ event.description }}

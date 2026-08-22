@@ -65,10 +65,11 @@ def test_a_time_unknown_event_renders_without_a_clock() -> None:
     assert "-tól" not in rendered.text.replace("19:00-tól", "")
 
 
-def test_a_collapsed_group_of_time_unknown_events_drops_the_suffix_clause() -> None:
-    """The group row renders "19:00-tól" ("from 19:00"). With no time that suffix would be
-    left dangling with nothing in front of it -- worse than the 00:00 this replaces -- so
-    the whole clause drops out instead."""
+def test_a_collapsed_group_of_time_unknown_events_shows_no_clock() -> None:
+    """WAS about the standalone block's "19:00-tól" suffix, which had to drop out whole
+    when there was no time. That block is gone — a collapsed row is an ordinary row inside
+    its category section now — but the property it protected still holds: a group whose
+    members published no clock must not print one, nor a dangling "-tól"."""
     from digest.pipeline.group import group
 
     events = [
@@ -85,15 +86,18 @@ def test_a_collapsed_group_of_time_unknown_events_drops_the_suffix_clause() -> N
 
     rendered = render_email(group(events, Config()), Config(), now=NOW)
 
-    assert "5 program" in rendered.text
+    assert "Szentendre — 5 program" in rendered.text
     assert "-tól" not in rendered.text
     assert "-tól" not in rendered.html
     assert "00:00" not in rendered.html
-    # The district still renders, so the parenthetical is trimmed rather than emptied.
-    assert "(XI. kerület)" in rendered.text
+    assert "19:00" not in rendered.text
+    # The row still says what it is, in place, without the block that used to say it.
+    assert "Egy helyszín, több program · 5 program" in rendered.text
+    # The district still renders — the clock is what drops, not the whole meta line.
+    assert "XI. kerület" in rendered.text
 
 
-def test_a_collapsed_group_with_times_keeps_its_suffix_clause() -> None:
+def test_a_collapsed_group_with_times_shows_its_clock() -> None:
     from digest.pipeline.group import group
 
     events = [
@@ -109,7 +113,8 @@ def test_a_collapsed_group_with_times_keeps_its_suffix_clause() -> None:
 
     rendered = render_email(group(events, Config()), Config(), now=NOW)
 
-    assert "(19:00-tól, XI. kerület)" in rendered.text
+    assert "19:00" in rendered.text
+    assert "XI. kerület" in rendered.text
 
 
 def test_a_timed_event_still_renders_its_clock() -> None:
@@ -353,3 +358,72 @@ def test_the_uncategorised_section_renders_last_whatever_it_scores() -> None:
     # And it is in the mail at all — this is the half that needs filters.categories to
     # include the fallback name; see the profile note in the report.
     assert {event.title for event in rendered.sent_events} >= {"Ismeretlen 0", "Ismeretlen 1"}
+
+
+# --------------------------------------------------------------------------------------
+# A collapsed row is ranked inside its section, not printed above every one of them
+# --------------------------------------------------------------------------------------
+
+
+def _film_group(score: float) -> list[Event]:
+    films = [
+        make_event(i, title=f"Vetítés {i}", categories=["film"], venue_name="Bem Mozi", score=score)
+        for i in range(4)
+    ]
+    return group(films, Config())
+
+
+def test_a_low_scoring_collapsed_row_renders_after_the_section_items() -> None:
+    """The defect, stated as a test: a 3.476-point §7.4 row led an email whose best item
+    scored 11.0, because the template printed grouped rows above every category section
+    regardless of score."""
+    config = site_config(newsletter=NewsletterConfig(per_category_limit=3, total_limit=50))
+    strong = [
+        make_event(10 + i, title=f"Erős film {i}", categories=["film"], score=9.0 - i)
+        for i in range(2)
+    ]
+
+    html = render_email(_film_group(3.4) + strong, config, published_count=6, now=NOW).html
+
+    assert html.index("Erős film 0") < html.index("Bem Mozi — 4 program")
+
+
+def test_a_high_scoring_collapsed_row_renders_first() -> None:
+    config = site_config(newsletter=NewsletterConfig(per_category_limit=3, total_limit=50))
+    weak = [
+        make_event(10 + i, title=f"Gyenge film {i}", categories=["film"], score=1.0)
+        for i in range(2)
+    ]
+
+    html = render_email(_film_group(9.9) + weak, config, published_count=6, now=NOW).html
+
+    assert html.index("Bem Mozi — 4 program") < html.index("Gyenge film 0")
+
+
+def test_a_collapsed_row_counts_as_one_item_against_the_category_limit() -> None:
+    """One, not zero and not four. Zero was the old behaviour and let a section carry
+    per_category_limit + however many groups existed; four would make one row consume the
+    whole section, which defeats the compression the row exists for."""
+    config = site_config(newsletter=NewsletterConfig(per_category_limit=3, total_limit=50))
+    singles = [
+        make_event(10 + i, title=f"Film {i}", categories=["film"], score=5.0 + i) for i in range(5)
+    ]
+
+    # Scored into the top three on purpose: the question is whether it OCCUPIES a slot,
+    # which only shows when it qualifies. Before the fix the section held four.
+    rendered = render_email(_film_group(9.5) + singles, config, published_count=9, now=NOW)
+
+    titles = [event.title for event in rendered.sent_events]
+    assert len(titles) == 3
+    assert "Bem Mozi — 4 program" in titles
+
+
+def test_neither_template_emits_a_standalone_grouped_block() -> None:
+    config = site_config(newsletter=NewsletterConfig(per_category_limit=3, total_limit=50))
+
+    rendered = render_email(_film_group(4.0), config, published_count=4, now=NOW)
+
+    # The block had its own heading in both templates; the label now travels with the row.
+    assert "EGY HELYSZÍN, TÖBB PROGRAM\n" not in rendered.text
+    assert rendered.html.count("Egy helyszín, több program") == 1
+    assert "Egy helyszín, több program · 4 program" in rendered.html

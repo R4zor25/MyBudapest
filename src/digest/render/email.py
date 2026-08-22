@@ -130,11 +130,8 @@ def render_email(
     site_url = config.site.base_url.rstrip("/")
     archive = archive_url or site_url or config.site.base_path or "#"
 
-    grouped_rows, category_sections = _select_and_limit(events, config)
-    displayed = [
-        *grouped_rows,
-        *(event for section in category_sections for event in section["events"]),
-    ]
+    category_sections = _select_and_limit(events, config)
+    displayed = [event for section in category_sections for event in section["events"]]
     expiring = _expiring_candidates(events, config, today)
 
     new_count = len(displayed)
@@ -148,8 +145,7 @@ def render_email(
         "free_count": free_count,
         "tonight_count": tonight_count,
         "preheader": _preheader(displayed, new_count, free_count),
-        "grouped_rows": [_build_grouped_row(event, today) for event in grouped_rows],
-        "category_sections": _section_contexts(category_sections, has_festival=bool(grouped_rows)),
+        "category_sections": _section_contexts(category_sections, today),
         "expiring_rows": [_build_expiring_row(event, config, today) for event in expiring],
         "source_health_line": source_health_line(health),
         "run_time_label": moment.strftime("%H:%M"),
@@ -264,9 +260,13 @@ def _night_note(event: Event) -> str | None:
     return f"éjjel, {_WEEKDAY_DATIVE[event.start.date().weekday()]}"
 
 
-def _build_event_row(event: Event) -> dict[str, object]:
+def _build_event_row(event: Event, today: date) -> dict[str, object]:
     lit, color = _score_bar(event.score)
     return {
+        # Set only on a §7.4 collapsed row, so its nature stays obvious now that it sits
+        # among ordinary events rather than in a block of its own. None for everything
+        # else, and the template prints nothing.
+        "group_label": _group_label(event, today) if event.group_size > 1 else None,
         "url": event.urls[0] if event.urls else None,
         "title": event.title,
         "weekday_label": _WEEKDAY_NAMES[event.effective_date.weekday()],
@@ -283,44 +283,32 @@ def _build_event_row(event: Event) -> dict[str, object]:
 
 
 def _section_contexts(
-    sections: list[dict[str, object]], *, has_festival: bool
+    sections: list[dict[str, object]], today: date
 ) -> list[dict[str, object]]:
     """Each category header's top padding depends on what precedes it in the design: 22px
-    when nothing does (straight after the header block), 30px right after the festival
-    block's own boxed row, 26px after a plain event row — see the package 9 report."""
+    for the first one, straight after the header block, and 26px after a plain event row —
+    see the package 9 report. The 30px case went with the standalone grouped block."""
     result = []
     for index, section in enumerate(sections):
-        if index == 0:
-            padding = 30 if has_festival else 22
-        else:
-            padding = 26
         events = section["events"]
         result.append(
             {
                 "label": section["label"],
                 "count": len(events),
-                "header_top_padding": padding,
-                "rows": [_build_event_row(event) for event in events],
+                "header_top_padding": 22 if index == 0 else 26,
+                "rows": [_build_event_row(event, today) for event in events],
             }
         )
     return result
 
 
-def _build_grouped_row(event: Event, today: date) -> dict[str, object]:
-    named = event.description.split(", ") if event.description else []
-    remaining = max(0, event.group_size - len(named))
+def _group_label(event: Event, today: date) -> str:
+    """The wording the standalone block used to carry, kept as the row's own label. It says
+    what the row IS without asserting a category: §7.4 collapses any venue+day+category
+    cluster of four, so "Fesztivál" was wrong for the cinema it actually caught."""
     days_until = (event.effective_date - today).days
-    day_word = "ma" if days_until == 0 else f"{days_until} nap múlva"
-    return {
-        "url": event.urls[0] if event.urls else None,
-        "venue_name": event.venue_name,
-        "day_word": day_word,
-        "time_label": _time_label(event),
-        "district_label": f"{event.district} kerület" if event.district else None,
-        "description": event.description,
-        "remaining": remaining,
-        "group_size": event.group_size,
-    }
+    when = "ma" if days_until == 0 else f"{days_until} nap múlva"
+    return f"Egy helyszín, több program · {event.group_size} program {when}"
 
 
 def _build_expiring_row(event: Event, config: Config, today: date) -> dict[str, object]:
@@ -361,17 +349,18 @@ def _price_plain(event: Event) -> str:
     return "ár nincs megadva"
 
 
-def _select_and_limit(
-    events: list[Event], config: Config
-) -> tuple[list[Event], list[dict[str, object]]]:
+def _select_and_limit(events: list[Event], config: Config) -> list[dict[str, object]]:
     """Per-category and total limiting (requirement 2). No pipeline `limit` stage exists yet
     (package 10 wires `... group -> limit -> render -> ...`) so this function, not a
     pipeline module, owns it for now — see the package 9 report."""
-    grouped = [event for event in events if event.group_size > 1]
-    singles = [event for event in events if event.group_size == 1]
-
+    # Collapsed rows bucket like anything else. They used to be split off here and handed
+    # to a block the template printed above every section unconditionally — so a §7.4 row
+    # led the mail whatever it scored, and it escaped per_category_limit entirely. On the
+    # saved corpus that put a 3.476-point row above an 11.0-point concert. A collapsed row
+    # belongs to its own category and is ranked there, and it counts as ONE item: the row
+    # exists to compress volume, so charging it its member count would defeat that.
     buckets: dict[str, list[Event]] = {}
-    for event in singles:
+    for event in events:
         category = event.categories[0] if event.categories else config.fallback_category
         buckets.setdefault(category, []).append(event)
 
@@ -380,7 +369,7 @@ def _select_and_limit(
         ranked = sorted(members, key=lambda event: event.score, reverse=True)
         capped[category] = ranked[: config.newsletter.per_category_limit]
 
-    eligible = [*grouped, *(event for members in capped.values() for event in members)]
+    eligible = [event for members in capped.values() for event in members]
     overflow = len(eligible) - config.newsletter.total_limit
     dropped: set[str] = set()
     if overflow > 0:
@@ -388,7 +377,6 @@ def _select_and_limit(
         dropped = {event.id for event in weakest}
         log.info("newsletter_total_limit_trimmed", dropped=len(dropped))
 
-    kept_grouped = [event for event in grouped if event.id not in dropped]
     # The fallback bucket goes LAST, whatever it scores. It is not a recommendation — it
     # is the pile of events no rule recognised — so it must never lead the mail, and it is
     # also the feedback channel for the category rules: a section that keeps growing means
@@ -405,8 +393,7 @@ def _select_and_limit(
         }
         for category in order
     ]
-    sections = [section for section in sections if section["events"]]
-    return kept_grouped, sections
+    return [section for section in sections if section["events"]]
 
 
 def _expiring_candidates(events: list[Event], config: Config, today: date) -> list[Event]:
