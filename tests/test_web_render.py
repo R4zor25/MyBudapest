@@ -293,3 +293,21 @@ def test_write_site_purges_old_archive_entries_before_the_commit_step(tmp_path: 
 
     assert not (archive_dir / "2020-01-01.html").exists()
     assert (archive_dir / "2026-08-16.html").exists()
+
+
+def test_the_page_labels_a_row_with_its_calendar_date_not_only_a_weekday() -> None:
+    """The score-sorted view has no day separators, so without this a row carried no date
+    at all — and over a 20-day horizon three Wednesdays look identical."""
+    html = render_web([make_event(0)], Config(), now=NOW).index_html
+
+    assert "whenLabel" in html
+    # Built from effective_date, which prep() already resolved — the browser must not
+    # re-derive the night shift (CLAUDE.md 12).
+    assert "dayLong(e.evening)" in html
+
+
+def test_the_row_date_appears_in_the_meta_line_of_every_card() -> None:
+    # One place, used by the single card renderer, so it cannot be view-dependent.
+    html = render_web([make_event(0)], Config(), now=NOW).index_html
+
+    assert html.count('bits.push(\'<span class="when">') == 1

@@ -127,6 +127,7 @@ input[type="range"]::-moz-range-thumb{width:14px; height:14px; border:0; border-
 .ev h3 a:hover{color:var(--a300); text-decoration:underline}
 .meta{font-size:12px; line-height:1.5; color:var(--n500); display:flex; flex-wrap:wrap; gap:2px 7px; align-items:center}
 .meta .sep{color:var(--n700)}
+.meta .when{color:var(--n300); font-variant-numeric:tabular-nums}
 .meta .price{color:var(--n300)}
 .meta .noprice{color:var(--n600)}
 .free{font-size:11px; padding:1px 8px; border-radius:6px; background:var(--a800); color:var(--a200)}
@@ -368,6 +369,19 @@ function dayName(n){ return WD.format(new Date(n*86400000)); }
 const SUBLAT = ["vasárnapra","hétfőre","keddre","szerdára","csütörtökre","péntekre","szombatra"];
 function dayOnto(n){ return SUBLAT[new Date(n*86400000).getUTCDay()]; }
 function dayShort(n){ return MD.format(new Date(n*86400000)); }
+// "szeptember 2." — a hu-HU hosszú alak. A záró pont a magyar konvenció; ha az Intl nem
+// teszi ki, itt pótoljuk, hogy a sor mindig ugyanúgy nézzen ki.
+const DM = new Intl.DateTimeFormat("hu-HU",{timeZone:"UTC",month:"long",day:"numeric"});
+function dayLong(n){ const s = DM.format(new Date(n*86400000)); return s.endsWith(".") ? s : s + "."; }
+// A SOR dátuma, minden nézetben és minden rendezésben. A pontszám szerinti nézetben nincs
+// napelválasztó, tehát enélkül a sor semmilyen dátumot nem hordoz — húsz napos horizonton
+// három szerda megkülönböztethetetlen. A nap az `effective_date`-ből jön (prep()), nem
+// számoljuk újra (CLAUDE.md 12.), és óra csak akkor kerül rá, ha a forrás közölt egyet:
+// a `start_time_known:false` rekord 00:00-ja hiányzó érték, nem időpont (§7.1).
+function whenLabel(e){
+  const rel = e.evening === TODAY ? "ma" : e.evening === TODAY+1 ? "holnap" : dayName(e.evening);
+  return rel + ", " + dayLong(e.evening) + (e.time ? ", " + e.time : "");
+}
 
 const NOW = local(DATA.generated_at);
 const TODAY = dayNum(NOW);
@@ -434,6 +448,7 @@ function railHTML(e){
 }
 function metaHTML(e){
   const bits = [];
+  bits.push('<span class="when">'+esc(whenLabel(e))+"</span>");
   bits.push('<span class="cat">'+e.categories.map(c=>esc(CAT[c]||c)).join(" / ")+"</span>");
   if (e.venue) bits.push("<span>"+esc(e.venue)+"</span>");
   if (e.district) bits.push("<span>"+esc(e.district)+" kerület</span>");
