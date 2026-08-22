@@ -440,3 +440,83 @@ def test_an_event_kept_by_a_secondary_category_sections_under_its_primary() -> N
 
     assert rendered.html.index("Sima koncert") < rendered.html.index("Rejtélyes koncert")
     assert "Egyéb" in rendered.html
+
+
+# --------------------------------------------------------------------------------------
+# Every row carries its calendar date (the same defect the site had)
+# --------------------------------------------------------------------------------------
+
+
+def test_two_wednesdays_produce_two_distinct_row_labels() -> None:
+    """The defect, measured rather than assumed: both rows read "Szerda 19:00 — A38 Hajó ·
+    XI. kerület" and nothing told them apart over a 20-day horizon."""
+    config = site_config()
+    first = make_event(0, title="Szerda egy", start=datetime(2026, 9, 2, 19, 0, tzinfo=BUDAPEST))
+    second = make_event(1, title="Szerda kettő", start=datetime(2026, 9, 9, 19, 0, tzinfo=BUDAPEST))
+
+    rendered = render_email([first, second], config, published_count=2, now=NOW)
+
+    assert "szerda, szeptember 2., 19:00" in rendered.text
+    assert "szerda, szeptember 9., 19:00" in rendered.text
+    assert "szerda, szeptember 2., 19:00" in rendered.html
+    assert "szerda, szeptember 9., 19:00" in rendered.html
+
+
+def test_a_clockless_row_carries_the_date_and_no_placeholder() -> None:
+    config = site_config()
+    event = make_event(0, start=datetime(2026, 9, 4, 0, 0, tzinfo=BUDAPEST), start_time_known=False)
+
+    rendered = render_email([event], config, published_count=1, now=NOW)
+
+    assert "péntek, szeptember 4." in rendered.text
+    assert "00:00" not in rendered.text
+    assert "00:00" not in rendered.html
+    assert "péntek, szeptember 4., " not in rendered.text, "no trailing comma with no time"
+
+
+def test_today_and_tomorrow_keep_the_relative_word_and_the_date() -> None:
+    config = site_config()
+    today = make_event(0, title="Ma", start=datetime(2026, 8, 16, 20, 0, tzinfo=BUDAPEST))
+    tomorrow = make_event(1, title="Holnap", start=datetime(2026, 8, 17, 20, 0, tzinfo=BUDAPEST))
+
+    rendered = render_email([today, tomorrow], config, published_count=2, now=NOW)
+
+    assert "ma, augusztus 16., 20:00" in rendered.text
+    assert "holnap, augusztus 17., 20:00" in rendered.text
+
+
+def test_a_grouped_row_carries_the_date_too() -> None:
+    config = site_config()
+    films = [
+        make_event(
+            i,
+            title=f"Vetítés {i}",
+            categories=["film"],
+            venue_name="Bem Mozi",
+            start=datetime(2026, 9, 3, 18, 0, tzinfo=BUDAPEST),
+            score=3.0,
+        )
+        for i in range(4)
+    ]
+
+    rendered = render_email(group(films, config), config, published_count=4, now=NOW)
+
+    assert "csütörtök, szeptember 3." in rendered.html
+    assert "csütörtök, szeptember 3., 18:00" in rendered.text
+
+
+def test_an_expiring_row_carries_the_date_too() -> None:
+    # expiring_section lives under newsletter, not at the top level.
+    config = site_config(
+        newsletter=NewsletterConfig(
+            expiring_section=ExpiringSectionConfig(enabled=True, within_days=3)
+        )
+    )
+    soon = make_event(0, title="Lejár", start=datetime(2026, 8, 17, 19, 0, tzinfo=BUDAPEST))
+
+    rendered = render_email([soon], config, published_count=1, now=NOW)
+
+    assert "HAMAROSAN LEJÁR" in rendered.text
+    assert rendered.text.count("holnap, augusztus 17., 19:00") >= 1
+    # The old trailing "holnap" part is gone -- the label already says it.
+    assert "· holnap —" not in rendered.text

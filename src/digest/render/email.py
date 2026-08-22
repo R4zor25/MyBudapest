@@ -12,39 +12,18 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 from digest.config import Config
 from digest.models import Event
 from digest.render.common import source_health_line
-from digest.render.labels import category_label
+from digest.render.labels import (
+    WEEKDAY_DATIVE,
+    WEEKDAY_NAMES,
+    category_label,
+    full_date,
+    when_label,
+)
 from digest.state import SourceHealth
 
 log = structlog.get_logger()
 
 _TEMPLATES_DIR = Path(__file__).parent / "templates"
-
-# index 0 = Monday, matching date.weekday() (§ design: rail weekday reflects effective_date,
-# not the raw start — see _build_event_row).
-_WEEKDAY_NAMES = ("Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat", "Vasárnap")
-_WEEKDAY_DATIVE = (
-    "hétfőre",
-    "keddre",
-    "szerdára",
-    "csütörtökre",
-    "péntekre",
-    "szombatra",
-    "vasárnapra",
-)
-_MONTH_NAMES = (
-    "január",
-    "február",
-    "március",
-    "április",
-    "május",
-    "június",
-    "július",
-    "augusztus",
-    "szeptember",
-    "október",
-    "november",
-    "december",
-)
 
 # Hungarian display labels for the category slugs in SPEC 5.1's config.yaml. A category
 # present in the data but missing from config.categories (chiefly "egyeb", the fallback —
@@ -124,7 +103,7 @@ def render_email(
     tonight_count = sum(1 for event in displayed if event.effective_date == today)
 
     context = {
-        "weekday_label": _WEEKDAY_NAMES[today.weekday()],
+        "weekday_label": WEEKDAY_NAMES[today.weekday()].capitalize(),
         "date_label": _format_date(today),
         "new_count": new_count,
         "free_count": free_count,
@@ -170,7 +149,7 @@ def _preheader(displayed: list[Event], new_count: int, free_count: int) -> str:
 
 
 def _format_date(d: date) -> str:
-    return f"{d.year}. {_MONTH_NAMES[d.month - 1]} {d.day}."
+    return full_date(d)
 
 
 def _format_score(score: float) -> str:
@@ -211,8 +190,8 @@ def _price_part(event: Event) -> dict[str, object] | None:
     }
 
 
-def _meta_parts(event: Event) -> list[dict[str, object]]:
-    parts: list[dict[str, object]] = []
+def _meta_parts(event: Event, when: str) -> list[dict[str, object]]:
+    parts: list[dict[str, object]] = [{"html": False, "text": when}]
     if event.venue_name:
         parts.append({"html": False, "text": event.venue_name})
     if event.district:
@@ -242,25 +221,29 @@ def _time_label(event: Event) -> str:
 def _night_note(event: Event) -> str | None:
     if event.start.date() == event.effective_date:
         return None
-    return f"éjjel, {_WEEKDAY_DATIVE[event.start.date().weekday()]}"
+    return f"éjjel, {WEEKDAY_DATIVE[event.start.date().weekday()]}"
 
 
 def _build_event_row(event: Event, today: date) -> dict[str, object]:
     lit, color = _score_bar(event.score)
     return {
+        # The calendar date, in every row of every section. The rail above still shows the
+        # weekday and the clock as the compact anchor; this is the line that tells two
+        # Wednesdays apart (§ site's whenLabel, same wording, same helper).
+        "when_label": when_label(event.effective_date, today, _time_label(event)),
         # Set only on a §7.4 collapsed row, so its nature stays obvious now that it sits
         # among ordinary events rather than in a block of its own. None for everything
         # else, and the template prints nothing.
         "group_label": _group_label(event, today) if event.group_size > 1 else None,
         "url": event.urls[0] if event.urls else None,
         "title": event.title,
-        "weekday_label": _WEEKDAY_NAMES[event.effective_date.weekday()],
+        "weekday_label": WEEKDAY_NAMES[event.effective_date.weekday()].capitalize(),
         "time_label": _time_label(event),
         "night_note": _night_note(event),
         "bar_lit": lit,
         "score_color": color,
         "score_label": _format_score(event.score),
-        "meta_parts": _meta_parts(event),
+        "meta_parts": _meta_parts(event, when_label(event.effective_date, today, _time_label(event))),
         "meta_text": _meta_text(event),
         "description": event.description,
         "image_url": event.image_url,
@@ -291,9 +274,10 @@ def _group_label(event: Event, today: date) -> str:
     """The wording the standalone block used to carry, kept as the row's own label. It says
     what the row IS without asserting a category: §7.4 collapses any venue+day+category
     cluster of four, so "Fesztivál" was wrong for the cinema it actually caught."""
-    days_until = (event.effective_date - today).days
-    when = "ma" if days_until == 0 else f"{days_until} nap múlva"
-    return f"Egy helyszín, több program · {event.group_size} program {when}"
+    return (
+        f"Egy helyszín, több program · {event.group_size} program · "
+        f"{when_label(event.effective_date, today)}"
+    )
 
 
 def _build_expiring_row(event: Event, config: Config, today: date) -> dict[str, object]:
@@ -305,22 +289,21 @@ def _build_expiring_row(event: Event, config: Config, today: date) -> dict[str, 
     elif not event.venue_name and event.district:
         venue_district = event.district
     price = _price_part(event)
-    days_until = (event.effective_date - today).days
-    relative = "ma" if days_until == 0 else f"{days_until} nap múlva"
 
-    parts: list[dict[str, object]] = [{"html": False, "text": label}]
+    when = when_label(event.effective_date, today, _time_label(event))
+    parts: list[dict[str, object]] = [{"html": False, "text": when}, {"html": False, "text": label}]
     if venue_district:
         parts.append({"html": False, "text": venue_district})
     if price is not None:
         # No styled pill/span precedent in this compact row — plain text only.
         parts.append({"html": False, "text": _price_plain(event)})
-    parts.append({"html": False, "text": relative})
 
     return {
         "url": event.urls[0] if event.urls else None,
         "title": event.title,
-        "weekday_label": _WEEKDAY_NAMES[event.effective_date.weekday()],
+        "weekday_label": WEEKDAY_NAMES[event.effective_date.weekday()].capitalize(),
         "time_label": _time_label(event),
+        "when_label": when,
         "meta_parts": parts,
         "score_label": _format_score(event.score),
     }

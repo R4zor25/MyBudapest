@@ -17,7 +17,7 @@ ahhoz, hogy felírjam ide. Ez nem hiba: ez az életjel. Ha az email megjött, a 
 {% for event in section.rows %}
 * {% if event.group_label %}[{{ event.group_label }}]
   {% endif %}{{ event.title }}
-  {{ event.weekday_label }} {{ event.time_label }}{% if event.night_note %} ({{ event.night_note }}){% endif %} — {{ event.meta_text }} — {{ event.score_label }} pont
+  {{ event.when_label }}{% if event.night_note %} ({{ event.night_note }}){% endif %} — {{ event.meta_text }} — {{ event.score_label }} pont
 {% if event.description %}
   {{ event.description }}
 {% endif %}
@@ -28,7 +28,7 @@ ahhoz, hogy felírjam ide. Ez nem hiba: ez az életjel. Ha az email megjött, a 
 
 HAMAROSAN LEJÁR
 {% for row in expiring_rows %}
-* {{ row.title }} — {{ row.weekday_label }} {{ row.time_label }}
+* {{ row.title }}
   {% for part in row.meta_parts %}{{ part.text }}{% if not loop.last %} · {% endif %}{% endfor %} — {{ row.score_label }} pont
   {{ row.url }}
 {% endfor %}
