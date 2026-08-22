@@ -1,0 +1,41 @@
+id: redandblack
+name: Red & Black Társasjátékszalon
+enabled: false
+priority: 20
+fetcher: http
+rate_limit_seconds: 3
+plugin: null
+
+# PLACEHOLDER — deliberately empty, do not guess selectors here.
+#
+# This one is not a technical failure. robots.txt is empty (fully open), the page is
+# plain server-rendered PHP, the cards have stable hand-written classes (`.news__date`,
+# `.card`, `h3`) and the dates are machine-readable ("2024. 02. 12 - 2024. 08. 26.").
+# Every §6.1 step-3 precondition holds. The source is dropped because it has no current
+# events (checked 2026-08-22, fixture tests/fixtures/redandblack_programok.html):
+#
+#   1. The page renders two lists. `<div class="row programs programs__active">` —
+#      "Aktuális programjaink" — is server-rendered EMPTY. Every one of the 21 cards on
+#      the page sits under "Korábbi programjaink" (past programs).
+#   2. The newest date anywhere on the site is 2024-08-26 — two years stale. The blog's
+#      newest post is 2024-01-17 and sitemap.xml's every lastmod is 2023-11-08.
+#   3. The homepage states the reason: "Figyelem, szalonunk a továbbiakban csak
+#      rendezvények esetén tart nyitva!" — the salon now opens only for booked private
+#      events. There is no public programme to collect.
+#
+# ON THE BRIEF'S MONTH-PAGINATION GUESS: there is no month parameter, and no pagination
+# of any kind. `/programok?honap=2026-08`, `/programok/2026-08` and
+# `/programok?ev=2026&honap=8` all return the same 38,526-byte page as bare `/programok`
+# (a catch-all route that ignores unknown params). The `<div id="program-calendar">` next
+# to the list is never populated: the page loads no JavaScript file at all, and no inline
+# script mentions it. It is dead markup, not an XHR-backed widget.
+#
+# Enabling this with correct selectors would produce a source that parses ~21 records
+# cleanly and contributes exactly 0 events, because normalize.py drops all of them as
+# past — the silent-zero failure mode AUDIT-5 already caught once on port-hu.yaml, and
+# the reason test_source_readiness.py exists. Worth re-checking if the salon reopens to
+# the public; the selectors to use are recorded in tests/test_source_community.py, which
+# asserts against the saved fixture that they still work and that the active list is
+# still empty.
+listing:
+  urls: []

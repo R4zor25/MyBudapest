@@ -248,6 +248,11 @@ def test_registry_builds_every_declarative_source_from_the_real_sources_dir(
         "fidelio",
         "programturizmus",
         "szinhazak",
+        # Both disabled placeholders (package 12): redandblack has no current events and
+        # kedvesidegen publishes no machine-readable date. They are DeclarativeSources
+        # because they carry no `plugin:` key; kvizestek does, so it is not in this set.
+        "redandblack",
+        "kedvesidegen",
     }
 
 

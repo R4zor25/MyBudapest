@@ -1,0 +1,44 @@
+id: kedvesidegen
+name: Kedves Idegen Események
+enabled: false
+priority: 20
+fetcher: http
+rate_limit_seconds: 3
+plugin: null
+
+# PLACEHOLDER — deliberately empty, do not guess selectors here.
+#
+# STOP CONDITION: the site publishes no machine-readable date, anywhere, in any format.
+# Checked 2026-08-22, fixture tests/fixtures/kedvesidegen_products.json.
+#
+# Access is fine — robots.txt allows everything relevant, and the site is a WordPress +
+# WooCommerce install whose Store API (`/wp-json/wc/store/v1/products`) answers publicly
+# and unauthenticated. That is §6.1 step 2 satisfied on paper. What the endpoint returns
+# is the problem:
+#
+#   1. The product schema has NO date field. Not one: no `date_created`, no event meta,
+#      `attributes` and `categories` are empty arrays on all 7 products.
+#   2. The only date is inside the product NAME, as Hungarian prose with no year —
+#      "November 22. – Játékest", "Október 26. – Játékest".
+#   3. Those names are recycled. Product id 439 is named "Április 19. – Játékest" but its
+#      slug is `marcius-6-jatekest`; the record was reused for a later event and the two
+#      halves now disagree. Neither is a trustworthy date source.
+#   4. The whole site is one page (`wp-sitemap-posts-page-1.xml` lists the homepage and
+#      four WooCommerce boilerplate pages; the only post is "hello-world"). It has no
+#      `<time>` element and no JSON-LD block at all, so there is no structured markup to
+#      fall back to.
+#   5. Future dates exist only as `<br />`-separated prose in one `<p>`, with the year in
+#      a separate bold lead-in: "További játékestek 2026-ban:" then "október 10. szombat
+#      / november 14. szombat / december 12. szombat". There is no repeated element to
+#      write an item_selector against and no per-event URL.
+#
+# Reading any of this would mean writing a Hungarian prose date parser AND inferring the
+# missing year from context — inventing data the source does not publish. That is the
+# batch brief's explicit stop condition and §6.1's "dobd a forrást".
+#
+# The events themselves are real and would be a good fit (board game nights at ISON
+# Közösségi tér, 1074 Budapest, Hársfa utca 25., roughly monthly, 4800 Ft). They are just
+# not machine-readable. This becomes viable only if the organiser adds structured dates —
+# or via a manual override, if §5 ever grows one.
+listing:
+  urls: []

@@ -607,8 +607,40 @@ csak `"concert"` szerepelt. Az M0 egyik feladata ezt feltárni (`digest fetch po
 **B. Közösségi réteg** — kis oldalak, heti pár eseménnyel. Épp az alacsony volumenük az
 érték: ellensúlyozzák a fesztivál-elárasztást.
 
-kvizestek.hu/esemenyek · redandblack.hu/programok · esemenyek.kedvesidegen.hu ·
-Játsz/Ma Társasjáték Kávézó · Illegál kvízest · Meetup
+| Forrás | Út | Állapot | Mit ad |
+|---|---|---|---|
+| kvizestek.hu | 2. — JSON, igazolva | **él** | budapesti kvízestek, ~91 esemény |
+| redandblack.hu | 3. — SSR, igazolva | **elvetve** | semmit: nincs aktuális program |
+| esemenyek.kedvesidegen.hu | 2. — JSON, igazolva | **elvetve** | semmit: nincs gépi dátum |
+| Játsz/Ma Társasjáték Kávézó | — | felderítetlen | — |
+| Illegál kvízest | — | felderítetlen | — |
+| Meetup | 3. — `__NEXT_DATA__` | felderítetlen | lásd lent |
+
+Az „Út" a §6.1 döntési sorrend lépése, ameddig a forrás eljutott — az „Állapot" külön
+oszlop, mert a kettő nem ugyanaz: mindhárom felderített forrás elért egy működő lépésig,
+kettő mégis használhatatlan. A részletes indoklás a `sources/<id>.yaml` fejlécében van,
+a bizonyíték a `tests/fixtures/` alatti mentett válaszokban, az állítások pedig a
+`tests/test_source_community.py`-ben vannak rögzítve.
+
+**kvizestek.hu — a lista átköltözött.** A `kvizestek.hu/esemenyek` oldal 2026 februárja óta
+csak átirányít: az események a `foglalas.kvizestek.hu` React SPA-ban élnek, amely egyetlen
+lapozás nélküli `/api/events/upcoming` végpontot kérdez. Plugin, nem deklaratív spec, mert
+a kezdési időpont két mezőből áll össze (`eventDate` dél-UTC dátumjelölő + `eventTime`), és
+mert a végpont országos: a 132 rekordból 41 Budapesten kívüli, és **egyetlen pipeline
+szakasz sem szűr településre**. Amíg nincs ilyen szakasz, ezt a forrás végzi el.
+
+**redandblack.hu — nincs aktuális program.** A markup parse-olható és a dátumok gépiek, de
+az „Aktuális programjaink" konténer szerveroldalon üres, és a legfrissebb dátum az egész
+oldalon 2024-08-26. A szalon saját közlése szerint „csak rendezvények esetén" tart nyitva.
+Havi lapozás nincs: minden `?honap=` / `/2026-08` variáns ugyanazt az oldalt adja vissza,
+a `#program-calendar` pedig halott markup — az oldal egyetlen JS fájlt sem tölt be.
+
+**kedvesidegen — nincs gépi dátum, sehol.** A WooCommerce Store API nyilvánosan válaszol,
+de a termékséma egyetlen dátummezőt sem tartalmaz. A dátum kizárólag a terméknévben van,
+évszám nélkül („November 22. – Játékest"), és a nevek újrahasznosítottak: a 439-es termék
+neve „Április 19.", a slugja `marcius-6-jatekest`. A jövőbeli időpontok `<br>`-rel
+elválasztott prózaként állnak egyetlen bekezdésben. Kiolvasásuk prózaparsert és
+évszám-találgatást igényelne — §6.1 5. lépés.
 
 **Meetup: az API nem járható.** A nyílt REST API megszűnt; a GraphQL érdemi elérése Meetup Pro
 előfizetéshez és jóváhagyott OAuth consumerhez kötött, és a Pro sem garantálja a jóváhagyást.

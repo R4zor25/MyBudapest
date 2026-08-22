@@ -1,0 +1,46 @@
+id: kvizestek
+name: Kvízestek
+enabled: true
+priority: 20          # first-party organiser: beats the aggregators, loses to the backbone
+fetcher: api
+rate_limit_seconds: 3
+plugin: kvizestek
+
+# §6.1 step 2 — verified against the live site 2026-08-22.
+#
+# The URL in the batch brief, https://kvizestek.hu/esemenyek/, no longer lists events. It
+# is a WordPress/Elementor page whose entire body is: "2026. februárjától megújult
+# foglalási oldalunkon találjátok eseményeinket" linking to https://foglalas.kvizestek.hu/.
+# Its own sitemap has no event post type, and its WooCommerce products are merchandise (a
+# phone stand, a reusable cup). Parsing kvizestek.hu/esemenyek would yield zero events
+# forever, so this source follows the link instead.
+#
+# foglalas.kvizestek.hu is a Vite/React SPA (empty `<div id="root">`), so step 3 does not
+# apply. Step 2 does: its Events chunk queries `/api/events/upcoming`, which returns a
+# top-level JSON array of every upcoming event in one response — no pagination, no auth,
+# no query parameters (the site's city/venue/topic filters are all client-side).
+# robots.txt allows it (only /admin, /venue-dashboard and /musorvezeto-dashboard are
+# disallowed).
+#
+# A plugin rather than a declarative spec, for three reasons the §6.3 field/transform
+# vocabulary cannot express:
+#   1. The start time is split across two fields. `eventDate` is a date marker pinned to
+#      noon UTC on all 132 sampled records; the clock time lives in `eventTime`. Reading
+#      `eventDate` alone would put every quiz night at 14:00.
+#   2. The endpoint is nationwide. 43 of 132 sampled records were outside Budapest (Győr,
+#      Tiszaújváros, Balatonakarattya, one in Dunaszerdahely/SK) and no pipeline stage
+#      filters by city — see the batch report, this is the one place the source decides.
+#   3. Records must be dropped on `isCancelled`, and the bulk-import placeholder
+#      description ("[Excel import – 2026-07-15]", on ~90% of records) must not reach the
+#      reader.
+#
+# FIXTURE PROVENANCE — tests/fixtures/kvizestek_upcoming.json is the real 2026-08-22
+# response, all 132 records with their full field shape, with one edit: `hostName`,
+# `hostEmail`, `hostId`, `host2Name`, `host2Email`, `host2Id` and `hostConfirmationToken`
+# are nulled. The public payload carries quizmasters' personal email addresses and a live
+# 64-hex confirmation token; none of the seven is read by the parser, so all seven are
+# nulled rather than adjudicated one at a time. Reported upstream is not this project's
+# call to make, but committing them to a public repo is squarely this project's call.
+listing:
+  urls:
+    - "https://foglalas.kvizestek.hu/api/events/upcoming"
