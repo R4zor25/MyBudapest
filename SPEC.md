@@ -1303,36 +1303,60 @@ Három kimenet, mind Jinja2:
 | `index.html.j2` | `site/index.html` | statikus, kliensoldali szűrés `events.json` fölött |
 | `status.html.j2` | `site/status.html` | forrás-health tábla |
 
-A `render/web.py` az `index.html` mellé kiírja a `site/events.json`-t is. **A `web` profil
-szerint (§9.0): nincs benne `description`, `image`, sem `breakdown`.**
+### `site/events.json` — a séma
 
-```json
-{
-  "generated_at": "2026-08-16T04:34:11Z",
-  "events": [
-    {
-      "id": "a3f9c21e8b04d7f6",
-      "title": "...",
-      "url": "...",
-      "start": "2026-08-29T20:00:00+02:00",
-      "venue": "A38 Hajó",
-      "district": "XI.",
-      "categories": ["koncert"],
-      "price_min": 4500,
-      "is_free": false,
-      "score": 11.3,
-      "group_size": 1
-    }
-  ]
-}
-```
+A `render/web.py` az `index.html` mellé kiírja a `site/events.json`-t is. **Itt a séma van
+leírva, nem egy példa.** Korábban egy bemásolt JSON-blokk állt itt, és a
+`test_web_render.py` erre a dokumentumra hivatkozott mint mezőlista-forrásra — vagyis a
+spec volt a mérvadó egy olyan listára, amit nem tud kikényszeríteni. A mérvadó a kód:
+`render/web.py::WEB_PROFILE_FIELDS`, mellette a `_event_to_json`, és egy teszt őrzi, hogy
+a kettő ne csússzon szét. Ugyanaz a hibaosztály, mint a §5.1-nél és a CLAUDE.md 12.-nél.
+
+A gyökér két kulcs: `generated_at` (UTC ISO 8601, `Z` végű, a futás ideje) és `events`
+(tömb, pontszám szerint csökkenő, azonos pontszámnál kezdés szerint növekvő).
+
+Egy eseményrekord mezői — **mind kötelező, mind jelen van minden rekordon**; ami hiányozhat,
+az `null`, nem elhagyott kulcs:
+
+| mező | típus | megjegyzés |
+|---|---|---|
+| `id` | string | a §4.1 determinisztikus azonosítója; a kliens ezen tart nyilván mindent |
+| `title` | string | |
+| `url` | string | az elsődleges forrás-URL; a `urls` tömb **nem** kerül ki |
+| `start` | string | ISO 8601 **offsettel** (`+02:00`), nem UTC-re konvertálva |
+| `start_time_known` | bool | `false` esetén a `start` 00:00-ja hiányzó érték, nem időpont (§7.1) — a lap ilyenkor nem ír ki órát |
+| `effective_date` | string | `YYYY-MM-DD`, a §7.7 hajnali eltolás **eredménye**; a lap ezt olvassa, nem számolja újra (CLAUDE.md 12.) |
+| `venue` | string \| null | az `Event.venue_name` |
+| `district` | string \| null | római alak (`XI.`) |
+| `categories` | string[] | az első elem a `primary_category` |
+| `price_min` | int \| null | `null` = nincs publikált ár, ami **nem** ingyenes |
+| `is_free` | bool | |
+| `score` | float | a `pinned_bonus` levonva belőle, lásd lent |
+| `group_size` | int | 1, ha az esemény nem összevont sor (§7.4) |
+
+**Amit a web profil kihagy, és miért (§9.0):**
+
+- `description` és `image_url` — átvett forrásoldali tartalom; emailbe mehet, publikus
+  oldalra nem.
+- `score_breakdown` — a tagjai szó szerint a privát profil számai (`category` == az adott
+  kategória súlya, `weekday` == az adott nap súlya), tehát a közlésük a `PROFILE_YAML`-t
+  közölné (AUDIT-1 BLOCKER-2). Az összesített `score` marad, mert az kell a sorrendhez és
+  a pontsávhoz.
+- `pinned_bonus` a `score`-ból **kivonva** — különben a publikus fájl megmondaná, melyik
+  eseményt tűzte ki az író UI.
+- `lat`/`lon`/`distance_km` — a `home` koordinátáiból számolt táv a lakhelyet szivárogtatná.
+- `urls`, `price_max`, `end`, `is_series`, `source_ids`, `native_categories` — egyszerűen
+  nem kell a laphoz; a lista **explicit**, nem `model_dump()`, hogy egy később hozzáadott
+  `Event` mező ne kerüljön ki magától.
 
 Az archívum `site/archive/YYYY-MM-DD.html` néven **a `web` profillal** renderelődik —
-nem az email HTML másolata. `archive_keep_days` fölött a régiek törlődnek a commit előtt.
+nem az email HTML másolata, és a saját adatát beágyazva hordozza (az `index.html` ezzel
+szemben futásidőben tölti be a friss `events.json`-t). `archive_keep_days` fölött a régiek
+törlődnek a commit előtt.
 
-**Kötelező teszt (`test_web_render.py`):** az `events.json` egyetlen rekordja sem
-tartalmazhat `description`, `image` vagy `breakdown` kulcsot, és a generált `site/*.html`
-egyetlen `<img>` tagje sem mutathat forrásoldali domainre.
+**Kötelező teszt (`test_web_render.py`):** az `events.json` rekordjainak kulcskészlete
+pontosan a `WEB_PROFILE_FIELDS`, a fenti kihagyott mezők egyike sem szerepel bennük névre
+sem, és a generált `site/*.html` egyetlen `<img>` tagje sem mutathat forrásoldali domainre.
 
 ---
 

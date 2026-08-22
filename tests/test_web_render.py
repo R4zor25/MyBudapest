@@ -11,35 +11,29 @@ import pytest
 
 from digest.config import Config
 from digest.models import Event, make_event_id
-from digest.render.web import WebOutput, purge_archive, render_web, write_site
+from digest.render.web import (
+    WEB_PROFILE_FIELDS,
+    WebOutput,
+    purge_archive,
+    render_web,
+    write_site,
+)
 from digest.state import SourceHealth
 
 BUDAPEST = ZoneInfo("Europe/Budapest")
 NOW = datetime(2026, 8, 16, 4, 34, tzinfo=BUDAPEST)
 
-# The exact web-profile field set from SPEC 9.1's events.json example — nothing more,
-# nothing less. `description`, `image_url` and `breakdown` are deliberately absent
-# (the last one since AUDIT-1 BLOCKER-2: individual score_breakdown terms are the
-# private profile's numbers verbatim, e.g. breakdown.category == category_weights[cat]).
-_EXPECTED_EVENT_KEYS = {
-    "id",
-    "title",
-    "url",
-    "start",
-    # Not the timestamp's twin but its caveat: whether that 00:00 is a time or a gap
-    # (§7.1). The page shows an hour only when there is one.
-    "start_time_known",
-    # §7.7's night shift, as the pipeline decided it. The page reads this instead of
-    # redoing the arithmetic in JavaScript, which is what it used to do (CLAUDE.md 12).
-    "effective_date",
-    "venue",
-    "district",
-    "categories",
-    "price_min",
-    "is_free",
-    "score",
-    "group_size",
-}
+# Taken from the CODE, not from the spec. This used to be a hand-copy of SPEC 9.1's
+# events.json example, with the document cited as the source of truth — so the document was
+# authoritative for a field list it could not enforce, and any divergence between the two
+# would have been invisible here. `render.web.WEB_PROFILE_FIELDS` is the authority now;
+# SPEC 9.1 describes what the fields mean and deliberately carries no copy of them.
+#
+# What this alone cannot catch is a field wrongly ADDED to both at once, which is why the
+# absence assertions below name the excluded fields explicitly (§9.0, and AUDIT-1
+# BLOCKER-2 for `breakdown`: score_breakdown terms are the private profile's numbers
+# verbatim, e.g. breakdown.category == category_weights[cat]).
+_EXPECTED_EVENT_KEYS = set(WEB_PROFILE_FIELDS)
 
 
 def make_event(index: int = 0, **overrides: Any) -> Event:
@@ -90,11 +84,23 @@ def test_events_json_has_exactly_the_web_profile_fields_no_description_no_image(
     assert set(payload.keys()) == {"generated_at", "events"}
     assert len(payload["events"]) == 2
     for record in payload["events"]:
+        # The builder produces exactly what the constant declares — neither may drift from
+        # the other unnoticed, and both live in render/web.py where a reviewer sees them
+        # together.
         assert set(record.keys()) == _EXPECTED_EVENT_KEYS
-        assert "description" not in record
-        assert "image" not in record
-        assert "image_url" not in record
-        assert "breakdown" not in record
+        # And the §9.0 exclusions by name, which hold no matter what the constant says.
+        for excluded in (
+            "description",
+            "image",
+            "image_url",
+            "breakdown",
+            "score_breakdown",
+            "lat",
+            "lon",
+            "urls",
+            "price_max",
+        ):
+            assert excluded not in record
 
 
 def test_events_json_publishes_the_night_shift_result_not_its_inputs() -> None:

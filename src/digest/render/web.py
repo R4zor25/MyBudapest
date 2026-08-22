@@ -116,6 +116,27 @@ def purge_archive(archive_dir: Path, *, keep_after: date) -> None:
             log.info("archive_purged", file=path.name)
 
 
+# THE web profile field list (§9.0/§9.1). This module is the authority on it — SPEC 9.1
+# describes what the fields mean, it does not carry a copy to compare against, because a
+# copied example is a second definition that drifts. `_event_to_json` below must produce
+# exactly these keys, and the test that asserts the two agree is what keeps it honest.
+WEB_PROFILE_FIELDS: tuple[str, ...] = (
+    "id",
+    "title",
+    "url",
+    "start",
+    "start_time_known",
+    "effective_date",
+    "venue",
+    "district",
+    "categories",
+    "price_min",
+    "is_free",
+    "score",
+    "group_size",
+)
+
+
 def _event_to_json(event: Event) -> dict[str, Any]:
     """The explicit web-profile field list (§9.0/§9.1) — deliberately NOT model_dump(),
     so a future field added to Event cannot leak into the public site by default. No
