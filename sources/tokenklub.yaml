@@ -39,6 +39,10 @@ fields:
   start_raw:   { path: "start_date" }               # "2026-06-06 15:00:00" — fromisoformat reads it
   end_raw:     { path: "end_date", optional: true }
   venue_name:  { path: "venue.venue", optional: true }
+  # The settlement, for §7.6's geographic cut. Every record sampled says "Budapest", but
+  # the field is mapped rather than assumed: the club has run sessions at Rózsa
+  # Művelődési Ház and PIK too, and the API states the city per venue.
+  city:        { path: "venue.city", optional: true }
   address_raw: { path: "venue.address", optional: true }
   postal_code: { path: "venue.zip", optional: true }
   # `image` is the boolean `false` when unset, so the dotted walk stops at a non-dict and

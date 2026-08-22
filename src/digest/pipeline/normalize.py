@@ -241,9 +241,9 @@ def _city(raw: RawEvent) -> str | None:
     order of trust — and `None` wherever none of them applies, because "unknown" is a real
     answer here: §7.6 keeps unknown-city events by default rather than guessing.
 
-    1. What the source says. No source populates `RawEvent.city` yet, so this branch is
-       inert today; it is first because a stated city must never be overruled by an
-       address string.
+    1. What the source says (`RawEvent.city`) — cooltix, kvizestek and tokenklub
+       populate it. First because a stated city must never be overruled by an address
+       string.
     2. The postal code, from the field or from the address text. `1XYZ` is Budapest
        (§7.1). A four-digit code that is NOT Budapest's proves the event is elsewhere, but
        naming that settlement would need a gazetteer this project does not carry — so it

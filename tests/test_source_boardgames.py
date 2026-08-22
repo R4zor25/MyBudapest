@@ -82,8 +82,8 @@ def test_cooltix_keeps_only_dated_budapest_events(cooltix_payload, cooltix_event
 
 
 def test_cooltix_drops_events_outside_budapest(cooltix_payload, cooltix_events) -> None:
-    # The endpoint is countryCode: HU, not city-scoped, and no pipeline stage filters on
-    # settlement -- so this cut has to happen in the source or not at all.
+    # The endpoint is countryCode: HU, not city-scoped. §7.6 is the authoritative rule and
+    # keeps this source-level cut as well: don't carry through what you would discard.
     nodes = [e["node"] for e in cooltix_payload["data"]["events"]["edges"]]
     elsewhere = {
         (n.get("venue") or {}).get("name")
@@ -93,6 +93,26 @@ def test_cooltix_drops_events_outside_budapest(cooltix_payload, cooltix_events) 
     assert elsewhere, "fixture must contain non-Budapest events for this test to mean anything"
     # Every venue the source kept must be absent from the set of venues it should have cut.
     assert {e.venue_name for e in cooltix_events}.isdisjoint(elsewhere)
+
+
+def test_cooltix_maps_the_published_settlement(cooltix_payload, cooltix_events) -> None:
+    """`venue.address.city` is §7.1's first-choice input for `Event.city`, which §7.6
+    filters on. The source states it, the source passes it on -- no conversion here.
+
+    There is no "a Gyor record maps to Gyor" half to this test, and there cannot be: the
+    cut above runs first, so a non-Budapest record never becomes a RawEvent at all. What
+    reaches the pipeline from this source is Budapest and only Budapest, which is the
+    stronger statement and the one asserted. The engine-level mapping of a settlement that
+    is not Budapest is covered in test_declarative_source.py."""
+    nodes = [e["node"] for e in cooltix_payload["data"]["events"]["edges"]]
+    stated = {
+        ((n.get("venue") or {}).get("address") or {}).get("city")
+        for n in nodes
+        if n["startDate"] and not n["isOnline"]
+    }
+    assert len(stated) > 1, "fixture must span several settlements for this to mean anything"
+
+    assert {e.city for e in cooltix_events} == {"Budapest"}
 
 
 def test_cooltix_maps_the_board_game_record(cooltix_events) -> None:
@@ -311,6 +331,7 @@ def test_tokenklub_parses_the_saved_api_response(config, repo_root: Path) -> Non
     assert first.title == "TOKEN Társasjáték Klub (március 28.)"
     assert first.start_raw == "2025-03-28 17:00:00"
     assert first.venue_name == "Tomory Lajos Múzeum"
+    assert first.city == "Budapest"
     assert first.postal_code == "1181"
     # The declarative engine maps fields, it does not derive: §7.1's _district turns the
     # postal code into the roman district downstream.
@@ -318,6 +339,22 @@ def test_tokenklub_parses_the_saved_api_response(config, repo_root: Path) -> Non
     assert first.url.startswith("https://tokenklub.hu/esemenynaptar/")
     # Deliberately unmapped: the API returns it as raw HTML and §7.1 keeps tags.
     assert all(e.description is None for e in events)
+
+
+def test_tokenklub_maps_the_settlement_on_every_record(config, repo_root: Path) -> None:
+    """Unlike cooltix and kvizestek this source has no city cut of its own -- the club is
+    Budapest-only in practice, not by construction -- so `venue.city` is the only thing
+    that would tell §7.6 otherwise. All 18 sampled records say Budapest; the point of the
+    mapping is that a session at a venue elsewhere would say so."""
+    source = source_by_id(config, "tokenklub")
+    payload = json.loads(fixture_text(repo_root, "tokenklub_events.json"))
+    events = list(
+        source.parse(
+            make_result("https://tokenklub.hu/wp-json/tribe/events/v1/events", json_body=payload)
+        )
+    )
+
+    assert [e.city for e in events] == ["Budapest"] * 18
 
 
 def test_tokenklub_upcoming_is_honestly_empty(config, repo_root: Path) -> None:

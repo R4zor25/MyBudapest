@@ -40,11 +40,11 @@ class RawEvent(BaseModel):
     end_raw: str | None = None
     venue_name: str | None = None
     address_raw: str | None = None
-    # The settlement as the source states it. Optional and unset by every source today:
-    # the geographic filter stage (§7.6) reads it, and sources map it as they are revisited
-    # — cooltix (`venue.address.city`), kvizestek (`venueCity`) and tokenklub
-    # (`venue.city`) all publish one. Until then normalize derives what it can from the
-    # postal code (§7.1).
+    # The settlement as the source states it, and §7.1's first-choice input for
+    # `Event.city`, which §7.6 filters on. Mapped by the three sources that publish one —
+    # cooltix (`venue.address.city`), kvizestek (`venueCity`) and tokenklub
+    # (`venue.city`). Still optional, and still None for every other source: normalize
+    # then derives what it can from the postal code, and unknown fails open (§7.6).
     city: str | None = None
     postal_code: str | None = None
     district_raw: int | str | None = None

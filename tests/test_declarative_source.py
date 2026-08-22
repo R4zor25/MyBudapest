@@ -109,6 +109,39 @@ def test_jsonpath_field_extraction_end_to_end() -> None:
     assert event.url == "https://x/1"
 
 
+def test_a_mapped_city_reaches_raw_event_verbatim() -> None:
+    """`city` is §7.1's first-choice input for the settlement §7.6 filters on, and the
+    engine is the only way a declarative source (tokenklub) can supply it. Asserted with a
+    settlement that is not Budapest, because that is the case no saved fixture contains:
+    tokenklub's 18 real records all say Budapest, and the two plugin sources cut a
+    non-Budapest record before it ever becomes a RawEvent.
+
+    Verbatim on purpose — the engine maps, it does not canonicalize. "Budapest XI." is
+    shortened by §7.1's `_canonical_city`, in one place, downstream."""
+    spec = {
+        "id": "demo-api",
+        "fetcher": "api",
+        "listing": {"urls": ["https://example.com/api"], "json_path": "events[*]"},
+        "fields": {
+            "title": {"path": "title"},
+            "url": {"path": "url"},
+            "city": {"path": "venue.city", "optional": True},
+        },
+    }
+    source = DeclarativeSource(spec, Config())
+    payload = {
+        "events": [
+            {"title": "Kvíz", "url": "https://x/1", "venue": {"city": "Győr"}},
+            {"title": "Klub", "url": "https://x/2", "venue": {"city": "Budapest XI."}},
+            {"title": "Est", "url": "https://x/3", "venue": {}},
+        ]
+    }
+
+    events = list(source.parse(make_result("https://example.com/api", json=payload)))
+
+    assert [e.city for e in events] == ["Győr", "Budapest XI.", None]
+
+
 def test_a_transform_chain_runs_left_to_right() -> None:
     # truncate:5 after html_unescape+strip must cut the unescaped, stripped text — not
     # the raw entity-laden original, which proves the chain actually runs in order.

@@ -108,8 +108,8 @@ def test_parse_keeps_budapest_and_drops_the_rest_of_the_country(
     kvizestek_source: KvizestekSource, kvizestek_payload: list[dict[str, Any]]
 ) -> None:
     # 132 nationwide in, 91 Budapest out, 41 dropped. The endpoint is "kvízestek
-    # országszerte" and no pipeline stage filters by city, so this is the only place it
-    # can happen.
+    # országszerte"; §7.6 is the authoritative geographic rule and keeps this cut too, so
+    # that 41 records are never carried past the parser.
     with capture_logs() as logs:
         events = parse_fixture(kvizestek_source, kvizestek_payload)
 
@@ -135,6 +135,41 @@ def test_a_budapest_event_with_a_blank_city_is_recovered_from_its_address(
     assert len(events) == 2
     assert {event.title for event in events} == {"Szabadtéri kvíz a Margit-szigeten"}
     assert {event.postal_code for event in events} == {"1138"}
+    # A blank stays None rather than being recovered into `city` here. §7.1 owns the
+    # derivation and its step 2 reads the same postal code -- doing it twice would be two
+    # implementations to keep in step.
+    assert {event.city for event in events} == {None}
+
+
+def test_venue_city_is_mapped_onto_the_field_the_geo_stage_reads(
+    kvizestek_source: KvizestekSource, kvizestek_payload: list[dict[str, Any]]
+) -> None:
+    """`venueCity` is §7.1's first-choice input for `Event.city`, which §7.6 filters on.
+
+    As with cooltix there is no "a Győr record maps to Győr" half: the cut above runs
+    first, so the only settlement that survives into a RawEvent is Budapest. What the
+    mapping buys is the two blank-city records staying honestly unknown at the source and
+    being resolved by §7.1 instead -- asserted below on the normalized events."""
+    events = parse_fixture(kvizestek_source, kvizestek_payload)
+
+    assert Counter(e.city for e in events) == {"Budapest": 89, None: 2}
+
+
+def test_normalize_fills_the_blank_city_from_the_postal_code(
+    kvizestek_source: KvizestekSource,
+    kvizestek_payload: list[dict[str, Any]],
+    config_path: Path,
+    sources_dir: Path,
+) -> None:
+    # §7.1's three steps in order: the two Margit-sziget records state no settlement, so
+    # step 2 reads 1138 and answers Budapest. The source does not do this itself.
+    raw = parse_fixture(kvizestek_source, kvizestek_payload)
+    config = load_config(config_path, sources_dir, None)
+
+    events = normalize(raw, config, now=FIXTURE_DAY)
+
+    assert events
+    assert {event.city for event in events} == {"Budapest"}
 
 
 def test_a_stated_non_budapest_city_is_never_re_read_out_of_its_address(

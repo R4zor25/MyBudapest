@@ -122,6 +122,7 @@ class DeclarativeSource:
             end_raw=values.get("end_raw"),
             venue_name=values.get("venue_name"),
             address_raw=values.get("address_raw"),
+            city=values.get("city"),
             postal_code=values.get("postal_code"),
             district_raw=values.get("district_raw"),
             lat=values.get("lat"),

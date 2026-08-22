@@ -15,8 +15,10 @@ log = structlog.get_logger()
 _EVENT_BASE_URL = "https://cooltix.hu/event"
 
 # `countryCode: HU` already drops Austria and Serbia, but Cooltix is nationwide inside
-# Hungary and no pipeline stage filters on settlement (see the same note in kvizestek.py),
-# so the city cut happens here or not at all.
+# Hungary: of 130 dated on-site records in the saved page budget, 47 are not Budapest
+# (44 name another settlement, 3 name none).
+# §7.6 is the authoritative geographic rule and now has `city` to apply it — this cut
+# stays because that section says it should: don't carry through what you would discard.
 _CITY = "budapest"
 
 # The one query this source sends. `status: LIVE` excludes drafts and finished events,
@@ -155,6 +157,11 @@ class CooltixSource:
             start_raw=str(start_raw),
             end_raw=str(node.get("endDate") or "") or None,
             venue_name=str(venue.get("name") or "").strip() or None,
+            # As published, in its own case — §7.1 canonicalizes it and §7.6 compares it.
+            # The source-level cut above means only Budapest ever gets here, but §7.6 is
+            # the authoritative rule and needs this field to apply it; it is also what
+            # survives a dedup merge into a base record that knows no settlement (§7.2).
+            city=str(address.get("city") or "").strip() or None,
             address_raw=str(address.get("formatted") or "").strip() or None,
             postal_code=postal_code,
             # Real per-venue coordinates, which is what §7.7's `home`/`distance_km`

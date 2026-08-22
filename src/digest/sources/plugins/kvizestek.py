@@ -15,10 +15,10 @@ log = structlog.get_logger()
 
 _EVENT_BASE_URL = "https://foglalas.kvizestek.hu/esemenyek"
 
-# The booking API is nationwide ("kvízestek országszerte"), and no pipeline stage filters
-# by city: filter.py cuts on horizon, category, price, keywords, ledger and score, and
-# `home`/`distance_km` only ever adjust a score, never exclude. Without this the digest
-# would carry quiz nights in Győr and Tiszaújváros. Matched on `venueCountry` too, because
+# The booking API is nationwide ("kvízestek országszerte"): 41 of 132 sampled records are
+# outside Budapest. §7.6's geographic stage is the authoritative rule and now has `city` to
+# apply it, but that section keeps the source-level cut too — not carrying through what you
+# would discard is politeness, not duplication. Matched on `venueCountry` as well, because
 # one sampled record was Dunaszerdahely/SK.
 _CITY = "budapest"
 _COUNTRY = "HU"
@@ -171,6 +171,11 @@ class KvizestekSource:
             # `eventEndTime` exists in the schema but was null on every sampled record.
             end_raw=None,
             venue_name=str(record.get("venueName") or "").strip() or None,
+            # `venueCity` is blank on some records (both Margit-sziget ones), and a blank
+            # stays None rather than being recovered from the address here: §7.1 already
+            # derives what it can from the postal code and then the address, in that
+            # order. Duplicating it would be a second implementation to keep in step.
+            city=str(record.get("venueCity") or "").strip() or None,
             address_raw=address,
             postal_code=postal_code,
             price_raw=_price_raw(record),

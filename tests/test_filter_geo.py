@@ -1,17 +1,21 @@
 from __future__ import annotations
 
+import json
 from datetime import datetime, timedelta
+from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
 
 import pytest
 from structlog.testing import capture_logs
 
-from digest.config import Config, FiltersConfig, GeoFilterConfig, HomeConfig
+from digest.config import Config, FiltersConfig, GeoFilterConfig, HomeConfig, load_config
+from digest.fetch.base import FetchResult, FetchTask
 from digest.models import Event, RawEvent, make_event_id
 from digest.pipeline.filter import GEO_REASONS, filter_with_reasons
 from digest.pipeline.filter import filter as filter_events
 from digest.pipeline.normalize import normalize
+from digest.sources.registry import load_sources
 
 BUDAPEST = ZoneInfo("Europe/Budapest")
 NOW = datetime(2026, 8, 16, 12, 0, tzinfo=BUDAPEST)
@@ -367,3 +371,88 @@ def test_other_cities_are_matched_exactly_and_not_canonicalized() -> None:
 
     config = geo_config(city="Győr")
     assert filter_events([make_event(city=event.city)], config, now=NOW) == []
+
+
+# --------------------------------------------------------------------------------------
+# End to end, over the three sources that publish a settlement
+# --------------------------------------------------------------------------------------
+
+# Each fixture's own reference instant. tokenklub's differs because the club is seasonal
+# and its saved response is a past window (§14: nothing here reads the clock).
+FIXTURE_CASES = [
+    ("cooltix", "cooltix_events.json", datetime(2026, 8, 22, 10, 0, tzinfo=BUDAPEST), 83),
+    ("kvizestek", "kvizestek_upcoming.json", datetime(2026, 8, 22, 10, 0, tzinfo=BUDAPEST), 26),
+    ("tokenklub", "tokenklub_events.json", datetime(2025, 3, 20, 10, 0, tzinfo=BUDAPEST), 2),
+]
+
+
+def parse_fixture(config: Config, source_id: str, name: str) -> list[RawEvent]:
+    source = next(s for s in load_sources(config) if s.id == source_id)
+    payload = json.loads((Path(__file__).parent / "fixtures" / name).read_text(encoding="utf-8"))
+    result = FetchResult(
+        task=FetchTask(url=f"https://fixture.invalid/{source_id}"),
+        status=200,
+        text="",
+        json=payload,
+        from_cache=False,
+    )
+    return list(source.parse(result))
+
+
+@pytest.mark.parametrize(("source_id", "fixture", "now", "expected"), FIXTURE_CASES)
+def test_a_mapped_source_produces_no_geographic_exclusions(
+    config_path: Path,
+    sources_dir: Path,
+    source_id: str,
+    fixture: str,
+    now: datetime,
+    expected: int,
+) -> None:
+    """The number the run summary reports, pinned so it cannot drift unnoticed.
+
+    `dropped_by_geo` is 0 for all three, and stays 0 under the strictest setting there is
+    (`allow_missing_city: false`) — not because the stage is inert, but because cooltix and
+    kvizestek cut non-Budapest records at the parser as §7.6 tells them to, and every
+    tokenklub record is Budapest. Mapping `city` does not change this count on today's
+    fixtures; what it changes is that the settlement now arrives from the source instead of
+    being inferred from a postal code, so a venue outside Budapest cannot slip through as
+    "unknown"."""
+    config = load_config(config_path, sources_dir, None)
+    strict = config.model_copy(
+        update={
+            "filters": FiltersConfig(geo=GeoFilterConfig(city="Budapest", allow_missing_city=False))
+        }
+    )
+    events = normalize(parse_fixture(config, source_id, fixture), strict, now=now)
+    assert len(events) == expected
+    assert {event.city for event in events} == {"Budapest"}
+
+    outcome = filter_with_reasons(events, strict, now=now)
+
+    assert sum(outcome.excluded[reason] for reason in GEO_REASONS) == 0
+    assert len(outcome.events) == expected
+
+
+def test_the_settlement_the_source_published_is_what_the_geo_stage_acts_on(
+    config_path: Path, sources_dir: Path
+) -> None:
+    """The mismatch path end to end, on real records and without editing a fixture.
+
+    Inverted on purpose. The prompt's version of this test — a Budapest profile excluding
+    the non-Budapest records — is unsatisfiable against the saved fixtures: cooltix and
+    kvizestek cut those records at the parser (§7.6 keeps that cut) and tokenklub has none.
+    A Győr profile reaches the same branch from the other side, with a count to match.
+
+    What it does NOT prove is that the mapping is what supplied the city: on today's
+    fixtures every one of these records also carries a Budapest postal code, so §7.1 step 2
+    would answer the same. The tests that isolate the mapping are the RawEvent-level ones
+    in test_source_boardgames.py and test_source_community.py."""
+    config = load_config(config_path, sources_dir, None)
+    gyor = config.model_copy(update={"filters": FiltersConfig(geo=GeoFilterConfig(city="Győr"))})
+    now = datetime(2026, 8, 22, 10, 0, tzinfo=BUDAPEST)
+    events = normalize(parse_fixture(config, "cooltix", "cooltix_events.json"), gyor, now=now)
+
+    outcome = filter_with_reasons(events, gyor, now=now)
+
+    assert outcome.events == []
+    assert outcome.excluded["geo_city_mismatch"] == len(events) == 83
