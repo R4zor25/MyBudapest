@@ -265,106 +265,71 @@ Három forrásból áll össze, ebben a sorrendben (később felülír):
 2. `sources/*.yaml` — a repóban, **publikus**
 3. `PROFILE_YAML` GitHub Actions secret — **privát**, a személyes rész
 
-## 5.1 `config.yaml` (publikus)
+## 5.1 `config.yaml` (publikus) — a séma
 
-```yaml
-version: 1
+**Ez a szakasz a sémát írja le, nem az értékeket.** Az értékek a `config.yaml`-ban vannak,
+és az a mérvadó — ha ez a szakasz felsorolná őket, a másolat elavulna, és pontosan ez
+történt: 2026-08-22-ig szó szerinti másolat volt, és a `horizon_days`, a két `newsletter`
+limit meg az `llm.enabled` már mást mondott a fájlban, mint itt. Ugyanaz a hibaosztály,
+mint a CLAUDE.md 12. szabályánál: egy szabály két helyen leírva két szabály.
 
-schedule:
-  timezone: Europe/Budapest
-  horizon_days: 20
+A privát felét lásd a §5.2-ben; ami ide kerül, az **nem** személyes (CLAUDE.md 5.).
 
-fetch:
-  user_agent: "budapest-event-digest/1.0 (+https://github.com/<user>/<repo>)"
-  timeout_seconds: 20
-  max_retries: 3
-  backoff_base_seconds: 2
-  default_rate_limit_seconds: 1.5
-  respect_robots_txt: true
+### Blokkok
 
-categories:
-  # kategória -> jelek. A pontszám összeadódik, a legmagasabb nyer.
-  koncert:
-    keywords: { koncert: 3, "élő zene": 3, lemezbemutató: 2, zenekar: 2, akusztik: 2 }
-    venue_prior: { "A38 Hajó": 2, "Akvárium Klub": 2, "Dürer Kert": 2, "Kobuci Kert": 2 }
-    url_patterns: ["/koncert/", "/zene/"]
-    native_types: ["concert"]
-  klub:
-    keywords: { dj: 3, techno: 3, house: 2, party: 2, "lemezlovas": 2, rave: 3 }
-    venue_prior: { "Ötkert": 2, "Instant": 2, "Turbina": 2 }
-    native_types: []
-  szinhaz:
-    keywords: { előadás: 2, színház: 4, dráma: 2, bemutató: 2, stúdió: 1 }
-    url_patterns: ["/szinhaz/"]
-    native_types: ["theater", "theatre"]
-  kiallitas:
-    keywords: { kiállítás: 4, tárlat: 3, galéria: 2, múzeum: 2, "enteriőr": 1 }
-    url_patterns: ["/kiallitas/"]
-    native_types: ["exhibition"]
-  film:
-    keywords: { film: 3, vetítés: 3, mozi: 3, premier: 2 }
-    url_patterns: ["/film/", "/mozi/"]
-    native_types: ["movie", "screening"]
-  meetup:
-    keywords: { meetup: 4, workshop: 2, előadás: 1, "közösségi": 2, networking: 3 }
-  tarsasjatek:
-    keywords: { társasjáték: 4, "board game": 4, játékest: 4, "társasozás": 4, "játékklub": 3 }
-    venue_prior: { "Red & Black": 3, "Játsz/Ma": 3 }
-  kviz:
-    keywords: { kvíz: 4, quiz: 4, vetélkedő: 3, "kvízest": 4, pubquiz: 4 }
-  gasztro:
-    keywords: { borkóstoló: 3, sörkóstoló: 3, gasztro: 3, vacsora: 2, piac: 2, street food: 3 }
-  fesztival:
-    keywords: { fesztivál: 4, festival: 4 }
-  outdoor:
-    keywords: { túra: 3, séta: 2, kirándulás: 3, futás: 2, kerékpár: 2 }
-  sport:
-    keywords: { mérkőzés: 3, bajnokság: 2, verseny: 2, edzés: 2 }
-  csaladi:
-    keywords: { gyerek: 3, családi: 3, bábszínház: 3 }
-min_category_score: 2
-fallback_category: egyeb
+| blokk | mit állít | értelmes tartomány | hol hat |
+|---|---|---|---|
+| `version` | a séma verziója, egyetlen egész | `1`, amíg nincs migráció | `config.py` |
+| `schedule.timezone` | minden `datetime` ebben a zónában él | `Europe/Budapest` | §7.1 |
+| `schedule.horizon_days` | meddig előre nézünk | 7–30; lásd az interakciókat | §7.1, §7.6 |
+| `fetch.*` | udvariassági és hálózati korlátok | `timeout` 10–30 s, `max_retries` 2–3, `default_rate_limit_seconds` ≥ 1 | §6.4, CLAUDE.md 10. |
+| `categories` | kategóriánként a négy jel (`keywords`, `venue_prior`, `url_patterns`, `native_types`) | kulcsszósúly 1–4, a `native_types` egyezés fixen +4 | §7.5 |
+| `min_category_score` | ennyi pont alatt egy kategória nem számít találatnak | 2 körül; magasabb érték több eseményt tol a `fallback_category`-ba | §7.5 |
+| `fallback_category` | ahova a felismerhetetlen esemény kerül | egyetlen kategórianév, tipikusan `egyeb` | §7.5, §7.13 |
+| `grouping.*` | mikor lesz több esemény egyetlen összevont sor | `min_group_size` 3–5, `max_per_venue` 2–4 | §7.4 |
+| `recurrence.*` | mettől sorozat egy rekord, és mikor megy ki | `series_threshold_days` ≈ 7 | §7.3 |
+| `night_shift.before_hour` | eddig az óráig az előző estéhez tartozik az esemény | 4–6 | §7.7 |
+| `newsletter.*` | mennyi fér egy levélbe, és megy-e üresen | `per_category_limit` < `total_limit` | §9, §8.2 |
+| `llm.*` | az opcionális Gemini réteg kapcsolója és korlátai | `batch_size` 20–50, `max_calls_per_run` napi kvótából | §7.5, CLAUDE.md 4. |
+| `delivery` | célok listája, mindegyik külön kapcsolható | legalább egy `enabled: true`, különben a futás némán semmit nem küld | §9.3 |
+| `site.*` | a Pages kimenet útvonala és az archívum hossza | `archive_keep_days` 30–120 | §9.2 |
 
-grouping:
-  collapse_by: [venue_name, effective_date, primary_category]
-  min_group_size: 4
-  max_per_venue: 3
+### Interakciók, amiket egy érték átírása előtt érdemes tudni
 
-recurrence:
-  series_threshold_days: 7
-  series_behavior: send_once
-  run_behavior: send_at_start
+**`schedule.horizon_days` × `scoring.soon_bonus` (§5.2).** A horizont tágítása nem
+semleges a sorrendre. A `weekday_weights` egy péntek-szombat eseménynek 2 pontot ad, a
+`soon_bonus` a ma estinek 1-et — tehát egy két hét múlva esedékes péntek megelőzhet egy
+ma esti keddet, és minél tágabb a horizont, annál több ilyen távoli esemény versenyez.
+2026-08-22-én, a mentett merítésen, a §5.2 profiljával mérve a top 20 medián távolsága
+3,4 nap volt; egy sávos `soon_bonus`-szal (3 pont 2 napon belül, 1 pont 7 napon belül) 2,9
+napra csökkent, és a 20 helyből 19-en változott a sorrend. **A `soon_bonus` séma ma egysávos**
+(`{within_days, points}`), tehát a sávos alak sémamódosítást kérne — ez nyitott kérdés, nem
+szállított viselkedés.
 
-night_shift:
-  before_hour: 5          # 00:00-04:59 az előző naphoz tartozik
+**`newsletter.total_limit` × a ledger (§8.2).** A limit a renderelésben vág, és a ledger
+csak azt jegyzi fel, ami **ténylegesen kiment**. Ami kimarad, holnap újra indul — tehát a
+limit nem eldob, hanem sorba állít. Ha a napi merítés tartósan nagyobb a limitnél, a
+sor sosem ürül ki, és a pontszám alsó sávja gyakorlatilag soha nem megy ki; ha a limit
+bőven a merítés fölött van, minden esemény egyszer kimegy, és utána a ledger elnémítja.
+A limitet tehát a napi merítéshez kell mérni, nem ízlésre.
 
-newsletter:
-  per_category_limit: 10
-  total_limit: 50
-  send_when_empty: true   # heartbeat — az email hiánya a riasztás
-  expiring_section:
-    enabled: true
-    within_days: 3
+**`newsletter.per_category_limit` × `categories`.** A kategórialimit kategóriánként vág, a
+`total_limit` a végén — egy szűk kategórialimit egy erős kategóriát (nálunk a `kviz`) ki
+tud szorítani a levélből úgy, hogy a `total_limit` még nincs is kihasználva.
 
-llm:
-  enabled: true           # M7 óta bekapcsolva
-  provider: gemini
-  model: gemini-2.5-flash-lite
-  batch_size: 35
-  max_calls_per_run: 12
-  on_quota_error: fallback_to_rules
-  only_for: [uncategorized, ambiguous_dedup]
+**`expiring_section.within_days` × `horizon_days`.** Az „utolsó esély" szekció a horizonton
+belüli események egy részhalmaza; ha a `within_days` eléri a horizontot, a szekció a teljes
+levelet megismétli.
 
-delivery:
-  - type: smtp
-    enabled: true
-  - type: telegram
-    enabled: false
+**`llm.enabled` × a hitelesítés.** Bekapcsolva a réteg `GEMINI_API_KEY`-t vár. Hiányzó vagy
+elutasított kulcs esetén a futás **végigmegy**, és minden esemény a szabályalapú kategóriáját
+tartja meg (CLAUDE.md 4.) — de a kulcs hiánya nem hibaüzenet, hanem egy `llm_client_unavailable`
+sor a naplóban, tehát a bekapcsolt réteg csendben nem csinál semmit, amíg a kulcs nincs a
+környezetben.
 
-site:
-  base_path: "/budapest-event-digest"
-  archive_keep_days: 90
-```
+**`fetch.respect_robots_txt`.** Nem ízléskérdés és nem is teljesítménykapcsoló: a
+`false` érték a §6.6-ban rögzített forrásdöntéseket érvényteleníti (We Love Budapest,
+Port.hu), amelyek pontosan azon alapulnak, hogy a robots.txt-t betartjuk.
 
 ## 5.2 `PROFILE_YAML` secret (privát)
 
