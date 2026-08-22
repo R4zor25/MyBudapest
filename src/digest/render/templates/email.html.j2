@@ -63,7 +63,11 @@
 {% endif %}
 
 {% if grouped_rows %}
-  <!-- ══ ÖSSZEVONT FESZTIVÁL-SOR ═════════════════════════════════════ -->
+  <!-- ══ ÖSSZEVONT HELYSZÍN-SOR ═══════════════════════════════════════ -->
+  <!-- A §7.4 BÁRMELY kategóriában összevon, ha egy helyszínen egy napon 4+ program van
+       — nem csak fesztiválnál. A fejléc ezért nem állít kategóriát: a mentett merítésen
+       az egyetlen összevont sor négy FILM vetítes a Bem Moziban, ami eddig
+       Fesztival felirattal ment volna ki. -->
   <tr>
   <td class="pad" style="padding:22px 28px 0 28px;">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
@@ -71,7 +75,7 @@
       <td width="18" valign="middle" style="width:18px; padding:0 8px 0 0;">
         <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr><td width="18" height="2" bgcolor="#9184d9" style="width:18px; height:2px; font-size:0; line-height:2px; background-color:#9184d9;">&nbsp;</td></tr></table>
       </td>
-      <td style="font-size:11px; line-height:1; letter-spacing:0.16em; text-transform:uppercase; color:#b2b6ca; font-weight:600;">Fesztivál</td>
+      <td style="font-size:11px; line-height:1; letter-spacing:0.16em; text-transform:uppercase; color:#b2b6ca; font-weight:600;">Egy helyszín, több program</td>
       <td align="right" style="font-size:11px; line-height:1; color:#595d6c;">{{ grouped_rows|length }}</td>
     </tr>
     </table>

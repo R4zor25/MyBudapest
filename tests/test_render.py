@@ -7,6 +7,7 @@ from zoneinfo import ZoneInfo
 
 from digest.config import Config, ExpiringSectionConfig, NewsletterConfig, SiteConfig
 from digest.models import Event, make_event_id
+from digest.pipeline.group import group
 from digest.render.email import render_email
 
 BUDAPEST = ZoneInfo("Europe/Budapest")
@@ -310,3 +311,25 @@ def test_exactly_three_per_category_when_more_qualify() -> None:
     kept = {event.title for event in rendered.sent_events}
     assert kept == {"Koncert 5", "Koncert 4", "Koncert 3", "Kvíz 4", "Kvíz 3", "Kvíz 2"}
     assert len(rendered.sent_events) == 6
+
+
+def test_a_collapsed_row_is_not_labelled_a_festival() -> None:
+    """§7.4 collapses any 4+ events sharing (venue, day, primary category) — a cinema's
+    four screenings as readily as a festival's stages. The heading used to say "Fesztivál"
+    for all of them: on the shipped fixtures the one collapsed row is four FILM screenings
+    at Bem Mozi, and that is what went out above them."""
+    config = site_config(newsletter=NewsletterConfig(per_category_limit=3, total_limit=50))
+    films = [
+        make_event(i, title=f"Vetítés {i}", categories=["film"], venue_name="Bem Mozi", score=3.4)
+        for i in range(4)
+    ]
+    # render_email does not group — §7.4 runs before it in the pipeline, so the collapsed
+    # row has to exist before the renderer sees it.
+    collapsed = group(films, config)
+    assert [event.group_size for event in collapsed] == [4], "the row must actually collapse"
+
+    rendered = render_email(collapsed, config, published_count=4, now=NOW)
+
+    assert "Bem Mozi — 4 program" in rendered.html
+    assert "Fesztivál" not in rendered.html
+    assert "FESZTIVÁL" not in rendered.text
