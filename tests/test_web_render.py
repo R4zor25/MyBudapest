@@ -26,9 +26,12 @@ _EXPECTED_EVENT_KEYS = {
     "title",
     "url",
     "start",
-    # Not the timestamp's twin but its caveat: whether that 00:00 is a time or a gap.
-    # The page's own night-shift needs it (§7.1/§7.7).
+    # Not the timestamp's twin but its caveat: whether that 00:00 is a time or a gap
+    # (§7.1). The page shows an hour only when there is one.
     "start_time_known",
+    # §7.7's night shift, as the pipeline decided it. The page reads this instead of
+    # redoing the arithmetic in JavaScript, which is what it used to do (CLAUDE.md 12).
+    "effective_date",
     "venue",
     "district",
     "categories",
@@ -92,6 +95,26 @@ def test_events_json_has_exactly_the_web_profile_fields_no_description_no_image(
         assert "image" not in record
         assert "image_url" not in record
         assert "breakdown" not in record
+
+
+def test_events_json_publishes_the_night_shift_result_not_its_inputs() -> None:
+    """CLAUDE.md rule 12, pinned on the one case that motivated it: a 01:00 start belongs
+    to the previous evening, and the page must be able to read that rather than work it
+    out. Before this, index.html.j2 carried `isNight = l.h < 5` — the §7.7 rule
+    reimplemented in the browser, where no Python test could reach it."""
+    # effective_date is passed in, not derived here, because that is the contract under
+    # test: whatever §7.7 decided is what the payload must carry. normalize files a 01:00
+    # start on the previous evening; the renderer's job is to pass that through.
+    small_hours = make_event(
+        0, start=datetime(2026, 8, 20, 1, 0, tzinfo=BUDAPEST), effective_date=date(2026, 8, 19)
+    )
+    evening = make_event(1, start=datetime(2026, 8, 20, 20, 0, tzinfo=BUDAPEST))
+
+    payload = json.loads(render_web([small_hours, evening], Config(), now=NOW).events_json)
+    by_start = {record["start"]: record["effective_date"] for record in payload["events"]}
+
+    assert by_start["2026-08-20T01:00:00+02:00"] == "2026-08-19"
+    assert by_start["2026-08-20T20:00:00+02:00"] == "2026-08-20"
 
 
 def test_events_json_generated_at_is_utc_and_event_start_keeps_its_offset() -> None:

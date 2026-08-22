@@ -355,6 +355,9 @@ function local(iso){
   return {y:+p.year, mo:+p.month, d:+p.day, h:h, mi:+p.minute};
 }
 function dayNum(l){ return Date.UTC(l.y, l.mo-1, l.d) / 86400000; }
+// Ugyanaz a napszám egy sima "YYYY-MM-DD" naptári dátumból (events.json effective_date):
+// az már helyi dátum, nincs mit zónázni rajta.
+function dayNumOfDate(iso){ const p = String(iso).split("-").map(Number); return Date.UTC(p[0], p[1]-1, p[2]) / 86400000; }
 const WD = new Intl.DateTimeFormat("hu-HU",{timeZone:"UTC",weekday:"long"});
 const MD = new Intl.DateTimeFormat("hu-HU",{timeZone:"UTC",month:"short",day:"numeric"});
 const FULL = new Intl.DateTimeFormat("hu-HU",{timeZone:TZ,year:"numeric",month:"long",day:"numeric",hour:"2-digit",minute:"2-digit"});
@@ -373,8 +376,15 @@ function prep(e){
   // archívum korábbi events.json fájljaiban ez a kulcs még nincs benne, és azok a
   // rekordok a régi viselkedést kell megtartsák.
   const timeKnown = e.start_time_known !== false;
-  const isNight = timeKnown && l.h < 5;          // 01:00 → az előző este
-  const evening = dayNum(l) - (isNight ? 1 : 0); // melyik estéhez tartozik
+  // Melyik estéhez tartozik. A §7.7 hajnali eltolást a pipeline már elvégezte, és az
+  // `effective_date` AZ eredménye — itt csak beolvassuk. Korábban ez a sor újraszámolta
+  // (`l.h < 5`), ami a szabály második, független implementációja volt a böngészőben, ahol
+  // egyetlen Python teszt sem látta (CLAUDE.md 12. szabály).
+  // A ternária nem a szabály újraírása: ha a pipeline nem mondott estét, akkor nincs
+  // eltolás — nem az, hogy kitaláljuk, melyik lenne. (index.html és events.json mindig
+  // egy futásból származik, tehát ez csak azért van itt, hogy NaN dátum ne keletkezzen.)
+  const evening = e.effective_date ? dayNumOfDate(e.effective_date) : dayNum(l);
+  const isNight = evening !== dayNum(l);
   return Object.assign({}, e, {
     l:l, isNight:isNight, evening:evening, timeKnown:timeKnown,
     ts:new Date(e.start).getTime(),

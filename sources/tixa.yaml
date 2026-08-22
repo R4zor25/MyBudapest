@@ -31,15 +31,24 @@ plugin: tixa
 # dropped and logged (`skipped_placeholder_start`): that is no evidence either way, and a
 # wrong time is worse than a missing event.
 #
-# The URL list stays short because widening it is the operator's call, not because of a
-# defect. Nothing in §7.1 has to change first.
+# THE LIST, AND WHY IT IS THIS LENGTH.
+# Dürer Kert joined on 2026-08-22, once the placeholder fix removed the reason to hold it
+# back: its 24 records used to lose 16 to the midnight drop, so listing it would have shed
+# two thirds of the page. It no longer does — re-fetched live the same day, 24 records
+# parse, and the page adds 5 events inside a 14-day horizon on top of Játszóház Projekt's
+# 2.
 #
-# What it gives today: Játszóház Projekt's "Hétfői társasozás a Treffort Kertben", a
-# Monday board-game night at Treffort Kert & Könyvtár Klub (1088 Budapest, Múzeum krt. 4).
-# One event in a 14-day horizon — low volume by design, the §6.6-B community layer. The
-# placeholder fix recovers nothing here (this page has no midnight records); its 16
-# recovered records are all on the Dürer Kert page, which is saved as a fixture
-# (tests/fixtures/tixa_durerkert.html) but deliberately not in the list above.
+# It stops at two because the venues cannot be ENUMERATED, not because more were rejected.
+# The organiser pages are server-rendered (that is what makes them readable at all), but
+# tixa.hu itself is an SPA shell: its homepage HTML carries no organiser links, so there is
+# no index to walk. A third venue means either someone naming the slug or a separate look
+# at the SPA's own API — a reconnaissance task, not a line in this file. Guessing slugs is
+# not it: a wrong one 404s at somebody else's expense.
+#
+# Játszóház Projekt gives "Hétfői társasozás a Treffort Kertben", a Monday board-game night
+# at Treffort Kert & Könyvtár Klub (1088 Budapest, Múzeum krt. 4). Low volume by design —
+# the §6.6-B community layer.
 listing:
   urls:
     - "https://www.tixa.hu/jatszohazprojekt"
+    - "https://www.tixa.hu/durerkert"

@@ -46,6 +46,19 @@ pipeline-ban — a fetch és a delivery az egyetlen kivétel.
    Event objektumokat. Módosítás helyett `model_copy(update=...)` és új lista. Ez különösen
    a group szakaszra vonatkozik, ahol az összevont sor és a tagjai egyszerre élnek.
 
+12. A sablon renderel, nem dönt. Üzleti logika soha nem kerül Jinja2 sablonba vagy a
+    weboldal JavaScriptjébe. Ha egy szabály a pipeline-ban létezik, a sablon a KIMENETÉT
+    olvassa, nem implementálja újra. Konkrét eset, amiért ez a szabály létezik: az
+    index.html.j2 tartalmazott egy `isNight = l.h < 5` sort — a night-shift szabály
+    második, független implementációját a böngészőben. A Python tesztek ezt nem látták,
+    és a normalize javítása után az oldal még mindig egy nappal korábbra tett volna
+    eseményeket.
+
+13. A ground truth frissítése tudatos aktus, nem a felderítés mellékhatása. Egy
+    tests/fixtures/ alatti fájlt soha nem írsz felül azzal, hogy éppen lekérted az élő
+    oldalt. Ha egy fixture elavult, az külön csomag, külön committal, és a jelentésben
+    szerepel, hogy mi változott benne.
+
 ## Kódstílus
 
 - Python 3.12, teljes type hint, `from __future__ import annotations`.

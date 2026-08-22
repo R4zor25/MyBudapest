@@ -141,6 +141,12 @@ def _event_to_json(event: Event) -> dict[str, Any]:
         # that published no clock from one that published midnight, and its own night-shift
         # (see prep() in index.html.j2) would file the first a day early.
         "start_time_known": event.start_time_known,
+        # §7.7's night shift, already applied. The page used to redo that arithmetic in
+        # JavaScript (`l.h < 5`) — a second, independent implementation of a pipeline rule,
+        # living where no Python test could see it (CLAUDE.md rule 12). Publishing the
+        # RESULT is what lets the template read it instead of deriving it. Not profile
+        # data: `night_shift` is in the public config.yaml and `start` is already here.
+        "effective_date": event.effective_date.isoformat(),
         "venue": event.venue_name,
         "district": event.district,
         "categories": event.categories,

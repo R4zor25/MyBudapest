@@ -778,8 +778,11 @@ a bizonyíték a `tests/fixtures/` alatti mentett válaszokban, az állítások 
 csak átirányít: az események a `foglalas.kvizestek.hu` React SPA-ban élnek, amely egyetlen
 lapozás nélküli `/api/events/upcoming` végpontot kérdez. Plugin, nem deklaratív spec, mert
 a kezdési időpont két mezőből áll össze (`eventDate` dél-UTC dátumjelölő + `eventTime`), és
-mert a végpont országos: a 132 rekordból 41 Budapesten kívüli, és **egyetlen pipeline
-szakasz sem szűr településre**. Amíg nincs ilyen szakasz, ezt a forrás végzi el.
+mert a végpont országos: a 132 rekordból 41 Budapesten kívüli. A településre szűrés **ma már
+pipeline szakasz** — a §7.6 földrajzi kizárása, ami a mérvadó szabály —, de a forrás
+ettől függetlenül elvégzi a magáét: nem hordunk végig azon, amit úgyis eldobnánk (§7.6
+zárómondata). Ez a mondat 2026-08-22-ig azt állította, hogy ilyen szakasz nincs; a geo
+szakasz megérkezésével az állítás elavult.
 
 **tarsasjatekos.hu — a legjobb forrás a kategóriában, de kulcs kell hozzá.** A Magyar
 Társasjátékos Egyesület országos klubnaptára 160 eseményt tartott egy évre előre; ebből 8
