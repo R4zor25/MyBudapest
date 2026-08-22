@@ -382,7 +382,7 @@ def test_other_cities_are_matched_exactly_and_not_canonicalized() -> None:
 # and its saved response is a past window (§14: nothing here reads the clock).
 FIXTURE_CASES = [
     ("cooltix", "cooltix_events.json", datetime(2026, 8, 22, 10, 0, tzinfo=BUDAPEST), 83),
-    ("kvizestek", "kvizestek_upcoming.json", datetime(2026, 8, 22, 10, 0, tzinfo=BUDAPEST), 26),
+    ("kvizestek", "kvizestek_upcoming.json", datetime(2026, 8, 22, 10, 0, tzinfo=BUDAPEST), 40),
     ("tokenklub", "tokenklub_events.json", datetime(2025, 3, 20, 10, 0, tzinfo=BUDAPEST), 2),
 ]
 

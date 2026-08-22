@@ -272,7 +272,7 @@ version: 1
 
 schedule:
   timezone: Europe/Budapest
-  horizon_days: 14
+  horizon_days: 20
 
 fetch:
   user_agent: "budapest-event-digest/1.0 (+https://github.com/<user>/<repo>)"
@@ -339,15 +339,15 @@ night_shift:
   before_hour: 5          # 00:00-04:59 az előző naphoz tartozik
 
 newsletter:
-  per_category_limit: 5
-  total_limit: 25
+  per_category_limit: 10
+  total_limit: 50
   send_when_empty: true   # heartbeat — az email hiánya a riasztás
   expiring_section:
     enabled: true
     within_days: 3
 
 llm:
-  enabled: false          # M7-ben kapcsoljuk be
+  enabled: true           # M7 óta bekapcsolva
   provider: gemini
   model: gemini-2.5-flash-lite
   batch_size: 35
@@ -661,7 +661,10 @@ rekordoké. Ez a kettő nagyságrendileg eltér — a kvizestek 91 budapesti rek
 26 esik a 14 napos horizontba —, és a digest szempontjából csak az utóbbi létezik. A
 parse-olt szám zárójelben marad ott, ahol a különbség maga a lényeg. Minden érték a
 `tests/fixtures/` alatti mentett válaszból mérve, a fixture mentési napjához viszonyítva;
-`—` = nincs mért adat (felderítetlen vagy elvetett forrás).
+`—` = nincs mért adat (felderítetlen vagy elvetett forrás). **A tábla értékei 14 napos
+horizonton készültek**; a szállított `schedule.horizon_days` azóta 20, tehát a mai számok
+ennél magasabbak (a kvizestek például 26 helyett 40) — a tábla összehasonlításra jó, aktuális
+darabszámnak nem.
 
 | Forrás | Út | Állapot | Horizonton belül | Mit ad |
 |---|---|---|---|---|

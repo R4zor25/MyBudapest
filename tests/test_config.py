@@ -41,7 +41,7 @@ def test_profile_merges_a_nested_dict(config_path: Path, sources_dir: Path) -> N
     config = load_config(config_path, sources_dir, "newsletter:\n  total_limit: 10")
     assert config.newsletter.total_limit == 10
     # Untouched siblings survive the merge instead of being replaced with defaults.
-    assert config.newsletter.per_category_limit == 5
+    assert config.newsletter.per_category_limit == 10
     assert config.newsletter.expiring_section.within_days == 3
 
 
@@ -100,7 +100,7 @@ def test_missing_profile_loads_with_neutral_defaults(
     assert config.filters.max_price_huf is None
     assert config.filters.blocked_keywords == []
     assert config.filters.min_score == 0
-    assert config.schedule.horizon_days == 14
+    assert config.schedule.horizon_days == 20
 
 
 def test_every_category_gets_a_weight(config_path: Path, sources_dir: Path) -> None:
@@ -127,7 +127,7 @@ def test_public_config_parses(config_path: Path, sources_dir: Path) -> None:
     assert config.categories["koncert"].native_types == ["concert"]
     assert config.categories["koncert"].keywords["élő zene"] == 3
     assert [target.type for target in config.delivery] == ["smtp", "telegram"]
-    assert config.llm.enabled is False
+    assert config.llm.enabled is True
 
 
 def test_sources_are_keyed_by_filename(config_path: Path, tmp_path: Path) -> None:

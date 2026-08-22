@@ -2,7 +2,7 @@ version: 1
 
 schedule:
   timezone: Europe/Budapest
-  horizon_days: 14
+  horizon_days: 20
 
 fetch:
   user_agent: "budapest-event-digest/1.0 (+https://github.com/R4zor25/MyBudapest)"
@@ -100,15 +100,15 @@ night_shift:
   before_hour: 5          # 00:00-04:59 az előző naphoz tartozik
 
 newsletter:
-  per_category_limit: 5
-  total_limit: 25
+  per_category_limit: 10
+  total_limit: 50
   send_when_empty: true   # heartbeat — az email hiánya a riasztás
   expiring_section:
     enabled: true
     within_days: 3
 
 llm:
-  enabled: false          # M7-ben kapcsoljuk be
+  enabled: true          # M7-ben kapcsoljuk be
   provider: gemini
   model: gemini-2.5-flash-lite
   batch_size: 35

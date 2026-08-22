@@ -336,10 +336,11 @@ def test_the_events_reach_the_kviz_category_which_is_the_point_of_this_batch(
     that config.yaml's rules actually land these events there — end to end, through the
     real normalize and categorize, rather than assuming it.
 
-    The horizon is widened for the measurement only. `horizon_days: 14` is a delivery
-    window, not a statement about categorisation, and leaving it at 14 would silently
-    reduce this to whichever 30 events happen to fall in the fortnight after the fixture
-    day — a number that says nothing about whether the rules work.
+    The horizon is widened for the measurement only. `schedule.horizon_days` is a delivery
+    window, not a statement about categorisation, and leaving it at the shipped value would
+    silently reduce this to whichever events happen to fall in the weeks after the fixture
+    day — a number that says nothing about whether the rules work, and one that moves every
+    time somebody retunes the window.
     """
     config = load_config(config_path, sources_dir, None)
     wide = config.model_copy(
@@ -374,22 +375,24 @@ def test_the_events_reach_the_kviz_category_which_is_the_point_of_this_batch(
     assert primary["tarsasjatek"] == 0
 
 
-def test_the_real_fourteen_day_horizon_still_ships_a_useful_number_of_quiz_nights(
+def test_the_shipped_horizon_still_ships_a_useful_number_of_quiz_nights(
     kvizestek_source: KvizestekSource,
     kvizestek_payload: list[dict[str, Any]],
     config_path: Path,
     sources_dir: Path,
 ) -> None:
     # What the source contributes under the shipped config, as opposed to the measurement
-    # above: 26 of the 91 fall inside `horizon_days: 14`, 20 of them `kviz`. That is the
-    # number that actually reaches an email on the fixture day.
+    # above: 40 of the 91 fall inside `horizon_days: 20`, 32 of them `kviz`. That is the
+    # number that actually reaches an email on the fixture day. Both counts move with
+    # `schedule.horizon_days` — they were 26 and 20 while it was 14 — so the assertion is
+    # about this source being worth its slot, not about the window being any one length.
     config = load_config(config_path, sources_dir, None)
     raw = parse_fixture(kvizestek_source, kvizestek_payload)
 
     events = categorize(normalize(raw, config, now=FIXTURE_DAY), config)
 
-    assert len(events) == 26
-    assert Counter(event.categories[0] for event in events)["kviz"] == 20
+    assert len(events) == 40
+    assert Counter(event.categories[0] for event in events)["kviz"] == 32
 
 
 # --------------------------------------------------------------------------------------
