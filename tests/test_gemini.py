@@ -6,6 +6,7 @@ from typing import Any
 from zoneinfo import ZoneInfo
 
 import pytest
+from structlog.testing import capture_logs
 
 from digest.config import CategoryRules, Config, LLMConfig
 from digest.llm.gemini import GeminiCategorizer, content_hash
@@ -173,6 +174,64 @@ def test_two_events_with_identical_text_are_sent_only_once_in_the_same_run() -> 
     assert len(client.calls) == 1
     assert client.calls[0].count(twin_a.id) == 1
     assert all(event.categories == ["koncert"] for event in result)
+
+
+# --------------------------------------------------------------------------------------
+# Credentials: a missing or rejected key degrades, it does not fail (CLAUDE.md 4)
+# --------------------------------------------------------------------------------------
+
+
+@pytest.mark.parametrize(
+    "failure",
+    [
+        # What the google-genai SDK raises when no key is given and none is in the env.
+        ValueError("Missing key inputs argument! To use the Google AI API, provide..."),
+        # And what `from google import genai` raises when the optional extra is absent —
+        # the same guard, because both happen while BUILDING the client, not while calling.
+        ModuleNotFoundError("No module named 'google'"),
+    ],
+    ids=["missing-api-key", "extra-not-installed"],
+)
+def test_a_client_that_cannot_be_built_leaves_the_rule_based_categories(
+    monkeypatch: pytest.MonkeyPatch, failure: Exception
+) -> None:
+    """`on_quota_error: fallback_to_rules` covers a 429, which arrives from `generate()`.
+    A missing GEMINI_API_KEY never gets that far — it fails while constructing the client,
+    which used to be outside the guard. categorize is a pipeline stage, so the per-source
+    try/except in the run loop does not stand between this and a dead run."""
+
+    def explode() -> None:
+        raise failure
+
+    monkeypatch.setattr("digest.llm.gemini._RealGeminiClient", explode)
+    config = make_config(batch_size=35, max_calls_per_run=12)
+    events = [make_event(0), make_event(1)]
+
+    with capture_logs() as logs:
+        result = GeminiCategorizer().categorize(events, config)
+
+    assert [event.categories for event in result] == [["egyeb"], ["egyeb"]]
+    (entry,) = [line for line in logs if line["event"] == "llm_client_unavailable"]
+    assert str(failure) in entry["error"]
+
+
+def test_a_rejected_api_key_leaves_the_rule_based_categories() -> None:
+    """The other half: the key exists, the client builds, and the API refuses it. This one
+    already degraded — the failure arrives from `generate()`, inside the guard — and it is
+    pinned so it stays that way."""
+
+    class Rejecting:
+        def generate(self, *, model: str, prompt: str) -> str:
+            raise RuntimeError("401 UNAUTHENTICATED: API key not valid")
+
+    config = make_config(batch_size=35, max_calls_per_run=12)
+    events = [make_event(0), make_event(1)]
+
+    with capture_logs() as logs:
+        result = GeminiCategorizer(client=Rejecting()).categorize(events, config)
+
+    assert [event.categories for event in result] == [["egyeb"], ["egyeb"]]
+    assert [line for line in logs if line["event"] == "llm_call_failed"]
 
 
 def test_disabled_llm_never_calls_the_client() -> None:

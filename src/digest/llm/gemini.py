@@ -171,7 +171,17 @@ class GeminiCategorizer:
         updates: dict[str, str],
         config: Config,
     ) -> None:
-        client = self._client or _RealGeminiClient()
+        try:
+            client = self._client or _RealGeminiClient()
+        except Exception as exc:  # noqa: BLE001 — same rule as the call below (CLAUDE.md 4)
+            # BUILDING the client is a second, separate way this layer can fail, and it
+            # used to sit outside the guard: `on_quota_error` covers a 429, which arrives
+            # from `generate()`, but a MISSING or invalid GEMINI_API_KEY fails here instead
+            # — as does the optional `llm` extra not being installed. categorize is a
+            # pipeline stage, so nothing above it catches this: the whole run died on a
+            # missing key, which is exactly the critical path the LLM must never be on.
+            log.warning("llm_client_unavailable", error=str(exc))
+            return
         calls_made = 0
         for batch in _batches(to_call, config.llm.batch_size):
             if calls_made >= config.llm.max_calls_per_run:
