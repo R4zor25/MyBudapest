@@ -562,6 +562,20 @@ Támogatott transzformok: `html_unescape`, `strip`, `lower`, `truncate:<n>`, `ab
 **Kötelező viselkedés:** ha egy nem-`optional` mező hiányzik egy tételnél, azt a tételt
 kihagyjuk és `WARNING`-ot logolunk a forrás id-jével — de a futás megy tovább.
 
+**A fenti kulcskészlet zárt, és betöltéskor ellenőrzött.** Ismeretlen kulcs a `fields:`,
+`listing:`, `listing.pagination:` vagy `transforms:` alatt — és ismeretlen transzformnév —
+`ConfigError`, a forrás nevével és a legközelebbi érvényes kulccsal. Nem parse-időben: a
+`DeclarativeSource` felépítésekor, `enabled` állásától függetlenül. Korábban az ismeretlen
+kulcsot a motor kiolvasta és eldobta, és a tünet egy mindig üres mező volt —
+megkülönböztethetetlen attól, hogy a forrás nem közli az adatot. A `tokenklub.yaml`
+`city:` sora pontosan így élt holtan. A `fields:` érvényes készlete a
+`RawEvent.model_fields`-ből származik, nem kézzel karbantartott listából; három mező ki van
+zárva belőle, és az elutasítás megmondja, miért: `source_id` és `source_event_key` a motoré,
+az `extra` pedig szabad dict, amibe semmilyen kinyerés nem ír.
+
+A `plugin:` kulcsot hordozó specek **nem** esnek át ezen: a `listing:` blokkjuk a pluginé,
+saját szótárral (a Cooltix `pagination.page_size`-t olvas, ami itt semmit nem jelentene).
+
 ## 6.4 Fetch réteg
 
 ```python

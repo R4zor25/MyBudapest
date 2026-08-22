@@ -10,6 +10,8 @@ from digest.config import Config, load_config
 from digest.errors import ConfigError
 from digest.fetch.base import FetchResult, FetchTask
 from digest.sources.declarative import (
+    MAPPABLE_FIELDS,
+    TRANSFORM_NAMES,
     DeclarativeSource,
     apply_transforms,
     resolve_json_path,
@@ -267,6 +269,137 @@ def test_an_enabled_source_without_title_or_url_fields_fails_fast() -> None:
         DeclarativeSource({"id": "broken", "fields": {}}, Config())
 
 
+# --------------------------------------------------------------------------------------
+# Unknown keys fail at LOAD time (§6.3)
+# --------------------------------------------------------------------------------------
+
+
+def minimal(**spec: Any) -> dict[str, Any]:
+    base: dict[str, Any] = {
+        "id": "demo",
+        "fetcher": "api",
+        "listing": {"urls": ["https://example.com/api"], "json_path": "events[*]"},
+        "fields": {"title": {"path": "title"}, "url": {"path": "url"}},
+    }
+    return {**base, **spec}
+
+
+def test_a_misspelled_field_names_the_source_and_the_field_it_meant() -> None:
+    """The defect this closes: `city: { path: "venue.city" }` sat in tokenklub.yaml being
+    extracted and dropped, and the symptom was a field that was simply always empty —
+    which looks exactly like a source that does not publish it. A typo has to fail where
+    it is written."""
+    spec = minimal(fields={"title": {"path": "t"}, "url": {"path": "u"}, "citty": {"path": "c"}})
+
+    with pytest.raises(ConfigError) as excinfo:
+        DeclarativeSource(spec, Config())
+
+    message = str(excinfo.value)
+    assert "'demo'" in message
+    assert "citty" in message
+    assert "'city'" in message
+
+
+@pytest.mark.parametrize(
+    ("field", "reason"),
+    [
+        ("source_id", "id:"),
+        ("source_event_key", "url"),
+        ("extra", "free-form dict"),
+    ],
+)
+def test_the_three_unmappable_fields_are_refused_with_the_reason(field: str, reason: str) -> None:
+    """These are real RawEvent fields, so a "did you mean" would be nonsense — they are
+    plausible mistakes with specific answers, and the error gives the answer."""
+    spec = minimal(fields={"title": {"path": "t"}, "url": {"path": "u"}, field: {"path": "x"}})
+
+    with pytest.raises(ConfigError, match=reason):
+        DeclarativeSource(spec, Config())
+
+    assert field not in MAPPABLE_FIELDS
+
+
+def test_an_unknown_transform_is_the_same_class_of_error() -> None:
+    spec = minimal(transforms={"title": ["html_unescape", "uppercase"]})
+
+    with pytest.raises(ConfigError) as excinfo:
+        DeclarativeSource(spec, Config())
+
+    assert "uppercase" in str(excinfo.value)
+    assert "'demo'" in str(excinfo.value)
+
+
+def test_a_transform_keyed_on_a_field_that_does_not_exist_is_rejected() -> None:
+    with pytest.raises(ConfigError, match="titel"):
+        DeclarativeSource(minimal(transforms={"titel": ["strip"]}), Config())
+
+
+def test_an_argument_carrying_transform_is_validated_on_its_name_only() -> None:
+    # `truncate:400` and `regex:pat:1` are valid; only the part before the first colon is
+    # the name. A bare `regex` with no argument is a name too -- it is the extraction that
+    # would do nothing, not the spec that is wrong.
+    DeclarativeSource(minimal(transforms={"title": ["truncate:400", "regex:(x):1"]}), Config())
+    DeclarativeSource(minimal(transforms={"title": ["regex"]}), Config())
+
+
+@pytest.mark.parametrize(
+    ("section", "block", "expected"),
+    [
+        ("listing", {"urls": [], "item_selectors": "div"}, "item_selector"),
+        ("pagination", {"parm": "page"}, "param"),
+    ],
+)
+def test_an_unknown_listing_or_pagination_key_is_rejected(
+    section: str, block: dict[str, Any], expected: str
+) -> None:
+    listing = block if section == "listing" else {"urls": [], "pagination": block}
+    spec = minimal(listing={**listing, "json_path": "events[*]"})
+
+    with pytest.raises(ConfigError, match=expected):
+        DeclarativeSource(spec, Config())
+
+
+def test_a_disabled_source_is_validated_too() -> None:
+    # A typo in a switched-off source is still a typo, and should not be lying in wait for
+    # the day someone switches it on.
+    with pytest.raises(ConfigError, match="citty"):
+        DeclarativeSource(minimal(enabled=False, fields={"citty": {"path": "c"}}), Config())
+
+
+def test_every_mappable_field_survives_the_trip_into_raw_event() -> None:
+    """The half the validator cannot prove on its own, and the half that actually failed.
+
+    MAPPABLE_FIELDS comes from `RawEvent.model_fields`, so a new field is accepted in YAML
+    the day it is added — but `_build_event` still names each field one by one, and a field
+    it forgets is extracted and dropped exactly as `city` was. This maps every mappable
+    field at once and checks each one arrived, so the two halves cannot drift apart
+    silently. It iterates the derived set on purpose: a written-out list here would be the
+    same hand-maintained copy that caused the bug."""
+    samples = {"lat": "47.5", "lon": "19.05"}
+    item = {name: samples.get(name, f"value-{name}") for name in sorted(MAPPABLE_FIELDS)}
+    spec = minimal(fields={name: {"path": name} for name in sorted(MAPPABLE_FIELDS)})
+    source = DeclarativeSource(spec, Config())
+
+    (event,) = list(source.parse(make_result("https://example.com/api", json={"events": [item]})))
+
+    dropped = sorted(name for name in MAPPABLE_FIELDS if getattr(event, name) is None)
+    assert dropped == [], f"mapped in the spec but never reached RawEvent: {dropped}"
+
+
+def test_every_declared_transform_name_is_one_apply_transforms_actually_runs() -> None:
+    """TRANSFORM_NAMES is a second copy of what `apply_transforms` dispatches on — there is
+    no vocabulary object to derive it from. This runs a value through every name in the
+    set and fails if the chain does not recognise one, which is what keeps the copies in
+    step."""
+    arguments = {"truncate": "truncate:3", "regex": "regex:(x):1"}
+
+    with capture_logs() as logs:
+        for name in sorted(TRANSFORM_NAMES):
+            apply_transforms("x", [arguments.get(name, name)], "https://example.com/")
+
+    assert [entry for entry in logs if entry["event"] == "unknown_transform"] == []
+
+
 def test_every_source_yaml_builds_a_usable_source(config_path: Path, sources_dir: Path) -> None:
     """A property over the directory, not a fixed list. The previous version asserted set
     equality against the ids it expected, so every new source needed this test edited —
@@ -295,6 +428,15 @@ def test_every_source_yaml_builds_a_usable_source(config_path: Path, sources_dir
     for source in sources:
         assert callable(source.discover), f"{source.id} has no discover()"
         assert callable(source.parse), f"{source.id} has no parse()"
+
+    # The other half of the same property: a spec that is NOT valid must fail to load,
+    # loudly. Until §6.3 validation existed, an unrecognised key was extracted and dropped,
+    # so this half was silently false for every typo anyone had ever written.
+    with pytest.raises(ConfigError, match="citty"):
+        DeclarativeSource(
+            {"id": "bogus", "fields": {"title": {"path": "t"}, "citty": {"path": "c"}}},
+            config,
+        )
 
 
 def test_every_source_declares_a_fetcher_the_runtime_can_build(

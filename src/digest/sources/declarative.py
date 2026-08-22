@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import difflib
 import html
 import re
 from collections.abc import Iterable
@@ -21,6 +22,84 @@ log = structlog.get_logger()
 # at construction (SPEC 6.3's example never omits them either).
 _MANDATORY_RAW_EVENT_FIELDS = ("title", "url")
 
+# The three RawEvent fields a spec may NOT map, each with the reason it is refused. They
+# are not typos, so they do not get a "did you mean" — they get an answer.
+_UNMAPPABLE_FIELDS = {
+    "source_id": "the engine fills it from the spec's own `id:`",
+    "source_event_key": "the engine fills it from the mapped `url`",
+    "extra": "it is a free-form dict, and no extraction produces one",
+}
+
+# Everything else on the model, derived from the model itself. A field added to RawEvent
+# is mappable the same day, with nothing here to remember to update — which is the whole
+# point: the hand-maintained alternative is what let `city` sit in tokenklub.yaml doing
+# nothing. What this does NOT prove is that the engine passes the field on;
+# `_build_event` still names each one, and the test that maps every field at once is what
+# guards that half.
+MAPPABLE_FIELDS = frozenset(RawEvent.model_fields) - set(_UNMAPPABLE_FIELDS)
+
+_LISTING_KEYS = frozenset({"urls", "pagination", "item_selector", "json_path"})
+_PAGINATION_KEYS = frozenset({"param", "start", "max", "stop_when_empty"})
+
+# SPEC 6.3's fixed transform vocabulary, by name — `truncate:400` and `regex:pat:1` carry
+# an argument after the colon, so only the part before it is a name. This is a second copy
+# of what `apply_transforms` dispatches on; the test that runs a value through every name
+# in this set is what keeps the two from drifting apart.
+TRANSFORM_NAMES = frozenset(
+    {"html_unescape", "strip", "lower", "truncate", "absolute_url", "regex"}
+)
+
+
+def validate_spec(source_id: str, spec: dict[str, Any]) -> None:
+    """Reject a key no part of the engine reads, at LOAD time (§6.3).
+
+    An unrecognised key used to be extracted and dropped, and the symptom was a field that
+    was quietly always empty — indistinguishable from a source that simply does not
+    publish it. `city: { path: "venue.city" }` sat in tokenklub.yaml exactly that way. A
+    typo has to fail where it is written, not turn into an absence somebody has to notice.
+
+    Declarative specs only. A `plugin:` spec's `listing:` block belongs to its plugin and
+    has its own vocabulary — cooltix reads `pagination.page_size`, which means nothing
+    here — so validating those against this list would reject working sources."""
+    listing = spec.get("listing") or {}
+    _reject_unknown(source_id, "listing", listing, _LISTING_KEYS)
+    _reject_unknown(
+        source_id, "listing.pagination", listing.get("pagination") or {}, _PAGINATION_KEYS
+    )
+    _reject_unknown(source_id, "fields", spec.get("fields") or {}, MAPPABLE_FIELDS)
+
+    transforms = spec.get("transforms") or {}
+    _reject_unknown(source_id, "transforms", transforms, MAPPABLE_FIELDS)
+    for field, names in transforms.items():
+        for transform in names or []:
+            name = str(transform).partition(":")[0]
+            if name not in TRANSFORM_NAMES:
+                raise ConfigError(
+                    f"source {source_id!r}: unknown transform {name!r} on "
+                    f"transforms.{field}{_suggest(name, TRANSFORM_NAMES)}"
+                )
+
+
+def _reject_unknown(
+    source_id: str, section: str, block: dict[str, Any], valid: frozenset[str]
+) -> None:
+    for key in block:
+        if key in valid:
+            continue
+        reason = _UNMAPPABLE_FIELDS.get(key) if valid is MAPPABLE_FIELDS else None
+        if reason is not None:
+            raise ConfigError(f"source {source_id!r}: {section}.{key} cannot be mapped — {reason}")
+        raise ConfigError(
+            f"source {source_id!r}: unknown key {key!r} under {section}:{_suggest(key, valid)}"
+        )
+
+
+def _suggest(key: str, valid: frozenset[str]) -> str:
+    close = difflib.get_close_matches(key, sorted(valid), n=1, cutoff=0.6)
+    if close:
+        return f" — did you mean {close[0]!r}?"
+    return f" — valid: {', '.join(sorted(valid))}"
+
 
 class DeclarativeSource:
     """A Source built entirely from YAML (SPEC 6.3) — adding a static source needs no
@@ -29,6 +108,10 @@ class DeclarativeSource:
 
     def __init__(self, spec: dict[str, Any], config: Config) -> None:
         self.id: str = spec["id"]
+        # Before anything is read out of the spec, and regardless of `enabled`: a typo in
+        # a source that is switched off is still a typo, and it should not be waiting to
+        # surface on the day someone switches the source on.
+        validate_spec(self.id, spec)
         self.name: str = spec.get("name", self.id)
         self.enabled: bool = bool(spec.get("enabled", True))
         self.priority: int = int(spec.get("priority", 50))
