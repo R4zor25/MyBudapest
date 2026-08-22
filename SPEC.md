@@ -705,14 +705,31 @@ JSON-LD nélkül — abból csak találgatással lehetne időpontot csinálni. A
 kizárólag a beágyazott Google-naptár. Annak nyilvános `.ics` exportja viszont a
 `calendar.google.com`-on él, aminek a robots.txt-je `Allow: /$` után `Disallow: /`, és a
 Python `RobotFileParser` — amit a `fetch/http.py` használ — `False`-t ad rá; a régi
-`www.google.com/calendar/ical/...` út pedig 302-vel ugyanoda visz. Ezért a forrás a
-Google Calendar API-n keresztül olvas (`www.googleapis.com`, nincs robots.txt, 404 =
-minden engedett), ami ugyanezt a nyilvános naptárat adja, `singleEvents=true`-val
-szerveroldalon kibontott ismétlődéssel. Egyetlen hiányzó darab a `GCAL_API_KEY`; addig
+`www.google.com/calendar/ical/...` út pedig 302-vel ugyanoda visz. A forrás ezért a Google
+Calendar API-n olvas, `singleEvents=true`-val szerveroldalon kibontott ismétlődéssel.
+
+**Miért helyes ez, és mi NEM az indoklás.** Két okból:
+
+1. A `www.googleapis.com` **dokumentált programozói felület**, API-kulccsal, pontosan erre
+   a célra. Egy publikált API-t használni ahelyett, hogy a HTML- vagy ICS-frontendet
+   kapargatnánk, nem megkerülés, hanem a **helyesebb** viselkedés: ez az a csatorna,
+   amelyet az üzemeltető a gépi olvasásra szánt, kulccsal azonosított hívóval és ismert
+   kvótával.
+2. A naptár **tartalma a tarsasjatekos.hu-é, nem a Google-é**. Az egyesület nyilvánosra
+   állította és a saját oldalába ágyazva közzétette — olvasásra. A `calendar.google.com`
+   robots.txt-je a Google saját webalkalmazására vonatkozik, nem az egyesület adatára; az
+   API ugyanazt a nyilvános naptárat adja vissza, csak a szánt csatornán.
+
+**Az indoklás NEM az, hogy a `www.googleapis.com`-nak nincs robots.txt-je.** Ez a tény
+igaz, de önmagában semmit nem engedélyez, és tilos így hivatkozni rá: a „nincs robots.txt,
+tehát bármit lehet" általánosítás hamis, és pont az ellenkezője annak, amit a §6.1 10.
+pontja és a We Love Budapest esete (ahol a robots.txt névre tiltott minket, és emiatt
+elvetettük a forrást) rögzít. A hiányzó robots.txt legfeljebb azt jelenti, hogy **nincs
+külön tiltás**; az engedélyt a fenti két pont adja, nem a hiánya. Egyetlen hiányzó darab a `GCAL_API_KEY`; addig
 `enabled: false`, és kulcs nélkül hangosan hasal el, nem csendben (a futásból a
 `cli.py` `source_disabled_in_config` ággal esik ki, tehát nem termel hibát sem).
 
-**A 12-es szám becslés, nem mérés.** Ugyanannak a naptárnak az `.ics` exportjából
+**A `parse()` még soha nem futott valódi API-válaszon, és a 12-es szám becslés.** Ugyanannak a naptárnak az `.ics` exportjából
 számolt — az az egyetlen alak, amit robots-tiltás nélkül *nem* lehetett letölteni, de
 elemezni igen: 160 esemény, ebből 8 budapesti a 14 napos horizonton, plusz 4 a két heti
 klubból. A `plugins/tarsasjatekos.py` `parse()` függvénye viszont **még nem futott valódi

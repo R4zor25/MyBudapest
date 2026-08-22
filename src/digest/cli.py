@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from datetime import date, datetime, timedelta
 from pathlib import Path
 from time import perf_counter
-from typing import Annotated
+from typing import Annotated, Any
 from zoneinfo import ZoneInfo
 
 import structlog
@@ -479,16 +479,37 @@ def _load_raw_events(source_id: str, fixture: Path) -> tuple[Config, list[RawEve
     if source_id not in sources:
         raise ConfigError(f"unknown source {source_id!r}; known sources: {sorted(sources)}")
 
+    source = sources[source_id]
     text = fixture.read_text(encoding="utf-8")
-    try:
-        payload = json.loads(text)
-    except ValueError as exc:
-        raise ParseError(f"{fixture} is not valid JSON: {exc}") from exc
+
+    # Dispatch on what the source actually asked for. This used to call json.loads
+    # unconditionally, which made `digest fetch --fixture` unusable for every `http`
+    # source — bigcitylife, programturizmus and tixa could only ever be exercised from
+    # their unit tests, never through the code path a real run takes.
+    payload: Any = None
+    if source.fetcher == "api":
+        try:
+            payload = json.loads(text)
+        except ValueError as exc:
+            raise ParseError(f"{fixture} is not valid JSON: {exc}") from exc
 
     result = FetchResult(
-        task=FetchTask(url=str(fixture)), status=200, text=text, json=payload, from_cache=False
+        task=FetchTask(url=_fixture_base_url(source_id, config, fixture)),
+        status=200,
+        text=text,
+        json=payload,
+        from_cache=False,
     )
-    return config, list(sources[source_id].parse(result))
+    return config, list(source.parse(result))
+
+
+def _fixture_base_url(source_id: str, config: Config, fixture: Path) -> str:
+    """The listing URL the fixture was saved from, when the config names one. It is what
+    `absolute: true` fields resolve against (§6.3), so passing the local path instead
+    turns every relative href into a file:// URL and the output silently disagrees with a
+    real run."""
+    urls = ((config.sources.get(source_id) or {}).get("listing") or {}).get("urls") or []
+    return str(urls[0]) if urls else str(fixture)
 
 
 def fixture_table(source_id: str, fixture: Path) -> list[str]:

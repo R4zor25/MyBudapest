@@ -25,6 +25,12 @@ plugin: tarsasjatekos
 #   3. Save a real response to tests/fixtures/tarsasjatekos_calendar.json and flip this
 #      flag. test_source_boardgames.py has the assertions ready and skips until the
 #      fixture exists.
+#
+# UNTESTED AGAINST REAL DATA. parse() has never run on a Calendar API response — the field
+# mapping was written from the documented schema, and the ~12 events it is credited with
+# were measured on the .ics export of the same calendar, not on the API. The first keyed
+# run is also its first real exercise; treat that run's output as evidence, not as a
+# regression check.
 # Enabling it without the key is loud, not silent: discover() raises ConfigError naming
 # the variable, which cli.py logs as `source_failed`.
 #
@@ -33,10 +39,21 @@ plugin: tarsasjatekos
 # needs no key — but calendar.google.com/robots.txt is `Allow: /$` followed by
 # `Disallow: /`, and Python's own RobotFileParser (the one fetch/http.py uses) reports
 # False for that path. `www.google.com/calendar/ical/...` still resolves, but only as a
-# 302 into the same disallowed host, so it is the same fetch with an extra hop. The
-# Calendar API is the route Google documents for reading a calendar programmatically, and
-# www.googleapis.com serves no robots.txt at all (404 -> allow all under RFC 9309). Same
-# public data, published interface, no rule stepped around.
+# 302 into the same disallowed host, so it is the same fetch with an extra hop.
+#
+# The justification for the API is NOT that www.googleapis.com serves no robots.txt.
+# That is true and it authorises nothing; "no robots.txt means scrape anything" is a false
+# generalisation and the opposite of what §6.1's politeness rule and the We Love Budapest
+# case (dropped because robots.txt named us) establish. The actual reasons are:
+#
+#   1. www.googleapis.com is a DOCUMENTED programmatic interface, accessed with an API
+#      key. Reading a published API instead of scraping the HTML or ICS front-end is the
+#      more correct behaviour, not a workaround: it is the channel meant for machine
+#      reads, with an identified caller and a known quota.
+#   2. The calendar's CONTENTS belong to tarsasjatekos.hu, not to Google. The association
+#      made it public and embedded it on their own site to be read. calendar.google.com's
+#      robots.txt governs Google's own web app, not the association's data; the API
+#      returns that same public calendar through the intended channel.
 #
 # WHY NOT klubok.html. The page the brief pointed at is a club DIRECTORY, not a calendar:
 # each entry states a recurrence rule in prose — "minden csütörtökön", "minden hónap 2.
