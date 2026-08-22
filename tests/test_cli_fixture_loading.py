@@ -15,7 +15,6 @@ from digest.errors import ParseError
         # before package 22 -- json.loads ran unconditionally, so no HTML source could be
         # exercised through the CLI at all.
         ("bigcitylife", "bigcitylife_list.html", "http"),
-        ("programturizmus", "programturizmus_budapest_p1.html", "http"),
         ("tixa", "tixa_durerkert.html", "http"),
         # An api source: the parser reads result.json.
         ("port-hu", "port_hu_list.json", "api"),
@@ -38,12 +37,14 @@ def test_a_relative_href_resolves_against_the_configured_listing_url(repo_root: 
     """`absolute: true` resolves against the task URL (§6.3). Passing the fixture's local
     path would turn every relative href into a file:// URL, so the CLI's output would
     silently disagree with a real run -- which is exactly the kind of divergence a smoke
-    test through this path exists to catch."""
-    _, raw = _load_raw_events(
-        "programturizmus", repo_root / "tests/fixtures/programturizmus_budapest_p1.html"
-    )
+    test through this path exists to catch.
 
-    assert all(event.url.startswith("https://www.programturizmus.hu/") for event in raw)
+    Was exercised on programturizmus until §6.6 dropped it; bigcitylife is the remaining
+    http source whose cards link with a bare "/slug"."""
+    _, raw = _load_raw_events("bigcitylife", repo_root / "tests/fixtures/bigcitylife_list.html")
+
+    assert raw
+    assert all(event.url.startswith("https://bigcitylife.hu/") for event in raw)
 
 
 def test_an_api_source_still_rejects_a_non_json_fixture(repo_root: Path) -> None:

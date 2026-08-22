@@ -43,7 +43,7 @@ def make_raw(**overrides: Any) -> RawEvent:
         "2026. 08. 20. 19:00",
         "2026-08-20T19:00:00+02:00",
         "2026-08-20T17:00:00Z",
-        "2026.08.20. 19:00",  # programturizmus.hu's shape — dotted, no spaces (§ package 11)
+        "2026.08.20. 19:00",  # dotted, no spaces — programturizmus's shape, kept after §6.6
         "2026. augusztus 20., csütörtök 19:00",  # bigcitylife.hu's shape — spelled-out month
     ],
 )
@@ -201,7 +201,7 @@ def test_a_genuine_midnight_event_today_is_still_past_by_the_morning() -> None:
 
 
 def test_a_date_only_run_is_not_past_on_its_final_day() -> None:
-    """The same missing value at the closing boundary. programturizmus publishes ranges as
+    """The same missing value at the closing boundary. programturizmus published ranges as
     two bare dates ("2026.08.20." — "2026.08.22."), and the end is what the past cut reads
     once there is one: read as an instant it ended at 00:00 on its last day, so the whole
     of that day was lost."""

@@ -20,7 +20,7 @@ from digest.pipeline.normalize import normalize_district
         ("xi", "XI."),
         ("IX. kerület", "IX."),
         ("V. ker.", "V."),
-        # 3. Hungarian text, as programturizmus publishes it.
+        # 3. Hungarian text, the shape programturizmus published before §6.6 dropped it.
         ("9. kerület - Ferencváros", "IX."),
         ("13. kerület", "XIII."),
         ("5. kerület - Belváros-Lipótváros", "V."),
@@ -107,7 +107,7 @@ def normalized_district(**overrides) -> str | None:
 
 
 def test_the_pipeline_normalizes_whatever_the_source_supplied() -> None:
-    # Port.hu hands over the int it publishes; programturizmus hands over its text; the
+    # Port.hu hands over the int it publishes; a text-publishing source hands over text; the
     # plugins that only know a postal code hand over nothing at all.
     assert normalized_district(district_raw=11) == "XI."
     assert normalized_district(district_raw="9. kerület - Ferencváros") == "IX."

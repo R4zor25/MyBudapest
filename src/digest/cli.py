@@ -493,7 +493,7 @@ def _load_raw_events(source_id: str, fixture: Path) -> tuple[Config, list[RawEve
 
     # Dispatch on what the source actually asked for. This used to call json.loads
     # unconditionally, which made `digest fetch --fixture` unusable for every `http`
-    # source — bigcitylife, programturizmus and tixa could only ever be exercised from
+    # source — bigcitylife and tixa could only ever be exercised from
     # their unit tests, never through the code path a real run takes.
     payload: Any = None
     if source.fetcher == "api":

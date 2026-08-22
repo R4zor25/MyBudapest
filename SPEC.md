@@ -56,7 +56,6 @@ budapest-event-digest/
 │   ├── welovebudapest.yaml
 │   ├── fidelio.yaml
 │   ├── bigcitylife.yaml
-│   ├── programturizmus.yaml
 │   ├── szinhazak.yaml
 │   ├── kvizestek.yaml
 │   ├── redandblack.yaml
@@ -647,7 +646,7 @@ parse-olt szám zárójelben marad ott, ahol a különbség maga a lényeg. Mind
 | Port.hu | 2. — JSON, igazolva | **függőben** | 20 (20 parse-olt) | minden, ár kivételével — a listázó URL nyitott (§17.1) |
 | Jegy.hu | 2. — JSON | felderítetlen | — | **árat** — ez tölti a `free_bonus`/`cheap_bonus` szabályt |
 | bigcitylife.hu | 3. — SSR, igazolva | **él** | 2 (9 parse-olt) | koncert, klub, fesztivál — kurált hétvégi válogatás |
-| Programturizmus | 3. — SSR, igazolva | **él** | — | budapesti merítés, de főleg gyűjtőoldalak |
+| Programturizmus | 3. — SSR, igazolva | **elvetve** | 16 → 2 öt nap alatt | 20 kártyából 3 valódi esemény; lásd lent |
 | We Love Budapest | — | **elvetve** | — | semmit: a robots.txt névre tiltja az `anthropic-ai`-t |
 | Funzine | 3. — SSR, igazolva | **elvetve** | — | semmit: az esemény poszttípus 2018 óta halott |
 | Fidelio | 3. — SSR kereső, igazolva | **elvetve** | 0 | semmit: a kereső működik, az adatbázis üres — „0 találat" |
@@ -661,6 +660,52 @@ másképp nevezett kliens letölthetné — de az oldal egyértelműen megmondta
 Anthropic-modellt nem szeretne ott látni, és ezt a fixture-t pontosan egy az. Más néven
 bekopogni azért, hogy megkerüljünk egy ránk szabott szabályt, nem opció: nincs fixture,
 nincsenek szelektorok. Újraellenőrizve 2026-08-22, a szabály változatlan.
+
+**Programturizmus — technikailag működött, tartalmilag nem. Eltávolítva 2026-08-22.**
+A forrás elért a §6.1 3. lépéséig: a szelektorok illeszkedtek, a Budapest-hatókör megvolt,
+két oldal 20 rekordot adott megbízhatóan. A mérés mégis ellene döntött, és a számok azért
+állnak itt, hogy fél év múlva ne kelljen újra felfedezni:
+
+| mérés | érték |
+|---|---|
+| valódi, egyedi esemény a 20 kártyából | **3 (15%)** — a többi gyűjtőoldal („Budapest Jazz Club programok 2026") |
+| több különböző dátumot hordozó részletoldal | **11 / 20**, a legrosszabb egyetlen oldalon **71** dátummal |
+| helyszínnel | **0 / 20** — a helyszínsáv csak megye/város/kerület |
+| órával | **0 / 20** — minden rekord dátum, a 00:00 hiányzó érték |
+| dátumtartomány (`end_raw`) | 13 / 20 |
+
+**A döntő szám nem a minőség, hanem az avulás.** Ugyanaz a 20 mentett rekord, a szállított
+14 napos horizonton, `digest` végig (normalize → … → group):
+
+| futás napja | ebből a forrásból a digestben |
+|---|---|
+| 2026-08-16 | 15 |
+| 2026-08-22 (a fixture mentési napja) | **16** |
+| 2026-08-27 (+5 nap) | **2** |
+| 2026-09-01 (+10 nap) | 2 |
+| 2026-09-05 (+14 nap) | 4 (egy későbbi rekord lép a horizontba) |
+
+Öt nap alatt 16-ról 2-re esik, és nem azért, mert a horizont mozog, hanem mert a forrás
+nem görgeti előre a dátumait. Bent hagyva a semmi felé tart, miközben naponta két
+oldalletöltésbe kerül, és nincs mit később visszakapcsolni.
+
+A törlés ára a teljes digestben, ugyanezen a mentett merítésen, az engedélyezett források
+felett: **127 → 111** esemény a fixture napján (−16), és **65 → 63** öt nappal később
+(−2). A második szám az igazi: ennyit ért volna a forrás egy hét múlva.
+
+**Miért törlés és nem `enabled: false`.** A letiltott forrás bent marad a registryben,
+bent marad ezekben a táblákban, karbantartást kér a szelektoraira, és azt a látszatot
+kelti, hogy van egy tartalék, ami valójában nincs. A mérés viszont megmarad — ez a szakasz
+maga a megőrzött eredmény.
+
+**Amit a forrás csak megmutatott, az marad.** A §7.1 `normalize_district`-je (magyar
+kerületszöveg), a §7.4 helyszín nélküli csoportosítási szabálya, a `start_time_known` mező
+és a §7.7 hajnali eltolása mind általános szabályok, és mind a helyükön vannak. Két
+következménye van a törlésnek, mindkettő tudatos: a repóban **egyetlen fixture sem gyárt
+többé helyszín nélküli rekordot** (a §7.4 szabályát a `tests/test_group.py` szintetikus
+eseményeken őrzi), és a `%Y.%m.%d.` / `%Y. %m. %d.` dátumformátumoknak sem maradt élő
+kibocsátója — a parserben maradnak, mert egy formátum olcsó és a következő magyar oldal
+ugyanígy fog írni.
 
 **Fidelio — a kereső megvan, a mögötte lévő adatbázis üres.** A korábbi jegyzet azt
 mondta, nincs listaoldal; ez tévedés volt. A `fidelio.hu/programok` **a** Programkereső,
@@ -996,9 +1041,10 @@ egyébként:
 helyszínt osztanak, hanem a helyszín hiányát: a belőlük képzett kosár azt jelenti, hogy
 „minden helyszín nélküli X kategóriájú esemény Y napon" — egymáshoz semmi közük, és az
 összevonás valódi, különböző eseményeket rejtene el egy értelmetlen összegző sor mögött.
-A programturizmus mind a 20 kártyája ilyen (a helyszínsáv csak megye/város/kerület), és a
-régi kulcs ezekből `"None — 4 program"` című sorokat gyártott, ami így ment volna ki a
-levélben. Ezek az események tehát **változatlanul, egyenként** haladnak tovább, és a
+A programturizmus mind a 20 kártyája ilyen volt (a helyszínsáv csak megye/város/kerület), és
+a régi kulcs ezekből `"None — 4 program"` című sorokat gyártott, ami így ment volna ki a
+levélben. Az a forrás 2026-08-22-én kikerült (§6.6), tehát ma egyetlen fixture sem gyárt
+helyszín nélküli rekordot — a szabály marad, a `tests/test_group.py` őrzi. Ezek az események tehát **változatlanul, egyenként** haladnak tovább, és a
 `max_per_venue` sem vonatkozik rájuk — nincs mit korlátozni. A kimaradás naplózódik
 (`grouping_skipped_venueless`, forrásonként) és bekerül a futásösszegzőbe
 (`ungrouped_venueless`), hogy egy forrás, amelyik elkezd helyszín nélkül publikálni,
@@ -1085,7 +1131,7 @@ Kizár: horizonton kívül · **földrajz** · nem engedett kategória ·
 (§8.2) · `min_score` alatt.
 
 **Földrajzi kizárás.** Több forrás országos — a kvizestek végpontja 132 rekordból 41-et ad
-Budapesten kívül, és a Programturizmus meg a jegyértékesítők ugyanilyenek. Enélkül a
+Budapesten kívül, és a jegyértékesítők ugyanilyenek. Enélkül a
 szabály forrásonként íródna újra, egymástól eltérően. Három ok, mindegyik `filters.geo`
 alól (§5.2), és mindegyik **nyitva bukik**, ha hiányzik a tény, amire szüksége van:
 
@@ -1151,8 +1197,8 @@ else:
 
 **Csak ismert órára.** Ha a forrás óra nélküli dátumot közöl, a parser 00:00-t ad — az ott
 **hiányzó érték, nem időpont**. Öt órát visszalépni belőle egy nappal korábbra iktatja az
-eseményt; a programturizmus mind a 20 rekordja így volt hibás. A döntést a §7.1 parsere
-hozza meg, abból, hogy melyik formátumra illeszkedett (`Event.start_time_known`), és
+eseményt; a programturizmus mind a 20 rekordja így volt hibás (az a forrás azóta kikerült,
+§6.6). A döntést a §7.1 parsere hozza meg, abból, hogy melyik formátumra illeszkedett (`Event.start_time_known`), és
 **soha nem** a `start.time() == éjfél` vizsgálatból: valódi éjféli esemény létezik, és annak
 tovább kell tolódnia. A Port.hu időbélyegei valódi órát hordoznak, tehát a 01:00-s és
 03:00-s szettjei változatlanul az előző estéhez kerülnek.

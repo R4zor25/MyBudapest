@@ -33,9 +33,9 @@ CONFIG = Config(
     sources={
         "port-hu": {"priority": 10},
         "jegy-hu": {"priority": 20},
-        # Weakest of the enabled sources, and the only date-only one -- so it is never the
-        # merge base against a timed record. See the note in dedup._merge.
-        "programturizmus": {"priority": 40},
+        # Weakest of the enabled sources, and the one that publishes bare dates -- so it
+        # is never the merge base against a timed record. See the note in dedup._merge.
+        "tixa": {"priority": 35},
     }
 )
 
@@ -289,8 +289,8 @@ def test_a_date_only_event_merges_with_a_timed_one_on_the_same_day() -> None:
     timed = make_event(source_ids=["port-hu"], start=START, start_time_known=True)
     date_only = make_event(
         title="Sub Focus | A38 Hajó Nagyterem",
-        urls=["https://programturizmus.hu/x"],
-        source_ids=["programturizmus"],
+        urls=["https://tixa.hu/x"],
+        source_ids=["tixa"],
         start=START.replace(hour=0, minute=0),
         start_time_known=False,
     )
@@ -298,7 +298,7 @@ def test_a_date_only_event_merges_with_a_timed_one_on_the_same_day() -> None:
     merged = dedup([timed, date_only], CONFIG)
 
     assert len(merged) == 1
-    assert set(merged[0].source_ids) == {"port-hu", "programturizmus"}
+    assert set(merged[0].source_ids) == {"port-hu", "tixa"}
     # The timed record is the merge base (lower priority number), so the real clock and
     # its flag survive -- see the note in dedup._merge.
     assert merged[0].start_time_known is True
@@ -310,8 +310,8 @@ def test_a_date_only_event_does_not_merge_across_days() -> None:
     timed = make_event(source_ids=["port-hu"], start=START, start_time_known=True)
     next_day = make_event(
         title="Sub Focus | A38 Hajó Nagyterem",
-        urls=["https://programturizmus.hu/x"],
-        source_ids=["programturizmus"],
+        urls=["https://tixa.hu/x"],
+        source_ids=["tixa"],
         start=(START + timedelta(days=1)).replace(hour=0, minute=0),
         start_time_known=False,
     )
