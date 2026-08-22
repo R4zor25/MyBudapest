@@ -821,10 +821,10 @@ Sorrend kötött.
   soha nem tipp: a §7.7 egyenlőséggel hasonlít, tehát a rossz kerület pontot ad, a hiányzó
   csak nem ad. A négyjegyű bemenet **mindig** irányítószám, és ott meg is áll — különben
   Szigethalom 2315-e XXIII. kerület lenne.
-- `start_time_known`: a §7.7 hajnali eltolás és a §7.2 indulási kapu bemenete. Az az egy
-  bit, hogy a forrás közölt-e órát — a parser állítja be aszerint, melyik formátumra
-  illeszkedett (`2026.09.19.` → False, `2026-08-16 01:00:00` → True), mert utólag a
-  00:00-ból ez már nem visszafejthető.
+- `start_time_known`: a §7.7 hajnali eltolás, a §7.2 indulási kapu és a lenti múltbeli
+  vágás bemenete. Az az egy bit, hogy a forrás közölt-e órát — a parser állítja be
+  aszerint, melyik formátumra illeszkedett (`2026.09.19.` → False,
+  `2026-08-16 01:00:00` → True), mert utólag a 00:00-ból ez már nem visszafejthető.
 - `city`: a §7.6 földrajzi szűrésének bemenete, három lépcsőben. (1) amit a forrás mond
   (`RawEvent.city`); (2) az irányítószám — `1XYZ` = Budapest, más négyjegyű kód
   bizonyítja, hogy nem Budapest, de a település nevét **nem találjuk ki**, ott `None`
@@ -840,7 +840,21 @@ Sorrend kötött.
 - Kerület: `district_raw`, ha nincs → irányítószámból, ha az sincs → `None`.
 - `distance_km`: haversine a profil `home.lat/lon`-jától, ha van `lat/lon`.
 - `effective_date`: §7.7.
-- Horizonton kívüli és múltbeli események eldobva.
+- Horizonton kívüli és múltbeli események eldobva. **A vágás órát hasonlít, ha van óra,
+  és dátumot, ha nincs.** Az óra nélküli rekord 00:00-ra esik, és az ott hiányzó érték
+  (ugyanaz a gyökérok, mint a §7.7 hajnali eltolásánál) — időbélyegként hasonlítva minden
+  éjfél utáni futás, tehát **minden** futás, eldobta a MAI dátumú, óra nélküli
+  eseményeket, némán. Ezért `start_time_known: False` mellett a szabály `start.date() >=
+  ma`; ismert óra mellett marad az időbélyeg, mert egy három órája elkezdődött koncert
+  valóban elmúlt. Ahol a forrás közölt záró dátumot, a vágás azt olvassa, és annak a
+  mezőnek a saját óra-bitjével: a „2026.08.22." záródátum az egész 22-ét jelenti. A
+  horizont oldalán ugyanez a felosztás — ott ma egyetlen kimenetet sem változtat, mert a
+  00:00 a nap első pillanata, tehát a két alak eleve egyetért; azért van kiírva, mert ez
+  a parser tulajdonsága, nem a vágásé.
+- A múltbeli eldobások **forrásonként** számlálódnak, és a futásösszegzőbe kerülnek
+  (`dropped_as_past`). Egy forrás, amelynek a dátumai megállnak, nem hibázik és nem áll le:
+  továbbra is tisztán parse-ol, csak minden rekordja `now` mögé kerül — a §13 drift-vizsgálat
+  pedig a **parse-olt** rekordokat számolja, tehát ezt nem látja.
 
 ## 7.2 `dedup(events, config) -> list[Event]`
 

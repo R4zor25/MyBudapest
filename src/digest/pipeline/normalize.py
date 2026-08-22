@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import html
 import re
+from collections import Counter
+from dataclasses import dataclass
 from datetime import date, datetime, timedelta
 from math import asin, cos, radians, sin, sqrt
 from zoneinfo import ZoneInfo
@@ -294,11 +296,80 @@ def _effective_date(start: datetime, start_time_known: bool, config: Config) -> 
     return (start - timedelta(hours=config.night_shift.before_hour)).date()
 
 
+def _is_past(last: datetime, now: datetime, *, time_known: bool) -> bool:
+    """A date-only record parses to 00:00, and that 00:00 is a MISSING VALUE, not a time
+    (§7.1). Compared as an instant it is behind every run that starts after midnight —
+    which is every run — so today's date-only events were discarded before anything else
+    in the pipeline could see them, silently and for every source that publishes bare
+    dates. When the clock is unknown the comparison therefore drops to whole days: the
+    record is past only once its DAY is over.
+
+    `last` is the end when the source published one and the start otherwise, with that
+    same field's own clock bit — a bare "2026.08.22." end means the event runs through the
+    whole 22nd, exactly as a bare start does. This is the same root cause as §7.7's night
+    shift; that fix did not reach here because `effective_date` is not part of this
+    comparison."""
+    return last < now if time_known else last.date() < now.date()
+
+
+def _is_beyond_horizon(start: datetime, horizon: datetime, *, time_known: bool) -> bool:
+    """The same split at the far end, so the rule reads as one rule rather than two.
+
+    It changes no outcome today, and says so on purpose: `time_known=False` only ever
+    comes out of a date-only parse, whose time is exactly 00:00, and 00:00 is the first
+    instant of its day — so `start > horizon` and `start.date() > horizon.date()` already
+    agree for every value that can reach here. That equivalence is a property of the
+    parser, not of this cut, which is why it is written out instead of relied on."""
+    return start > horizon if time_known else start.date() > horizon.date()
+
+
 def _distance_km(raw: RawEvent, config: Config) -> float | None:
     home = config.home
     if home is None or raw.lat is None or raw.lon is None:
         return None
     return round(haversine_km(home.lat, home.lon, raw.lat, raw.lon), 2)
+
+
+@dataclass(frozen=True)
+class _Drop:
+    reason: str
+
+
+@dataclass(frozen=True)
+class NormalizeOutcome:
+    events: list[Event]
+    # Past drops per source id, which is what the run summary reports. Per source and not
+    # as one total because of the failure this is here to expose: a source whose dates stop
+    # rolling forward does not error and does not stop parsing — it keeps returning the
+    # same records until every one of them is behind `now`, and §13's drift check counts
+    # records PARSED, so it sees nothing. A total would say the run shrank; this says which
+    # source it shrank from.
+    dropped_as_past: Counter[str]
+
+
+def normalize_with_reasons(
+    raw: list[RawEvent],
+    config: Config,
+    now: datetime | None = None,
+) -> NormalizeOutcome:
+    """`normalize()` plus the per-source tally of past drops the run summary needs. Split
+    out rather than changing `normalize()`'s return type, for the same reason
+    `filter_with_reasons` exists: CLAUDE.md fixes every pipeline stage at
+    `(list[Event], Config) -> list[Event]`."""
+    tz = ZoneInfo(config.schedule.timezone)
+    moment = now.astimezone(tz) if now is not None else datetime.now(tz)
+    horizon = moment + timedelta(days=config.schedule.horizon_days)
+
+    events: list[Event] = []
+    dropped_as_past: Counter[str] = Counter()
+    for item in raw:
+        result = _normalize_one(item, config, tz, moment, horizon)
+        if isinstance(result, _Drop):
+            if result.reason == "dropped_past":
+                dropped_as_past[item.source_id] += 1
+            continue
+        events.append(result)
+    return NormalizeOutcome(events=events, dropped_as_past=dropped_as_past)
 
 
 def normalize(
@@ -308,16 +379,7 @@ def normalize(
 ) -> list[Event]:
     """`now` is injectable so the horizon and the past-event cut are testable; the rest of
     the stage is pure."""
-    tz = ZoneInfo(config.schedule.timezone)
-    moment = now.astimezone(tz) if now is not None else datetime.now(tz)
-    horizon = moment + timedelta(days=config.schedule.horizon_days)
-
-    events: list[Event] = []
-    for item in raw:
-        event = _normalize_one(item, config, tz, moment, horizon)
-        if event is not None:
-            events.append(event)
-    return events
+    return normalize_with_reasons(raw, config, now).events
 
 
 def _normalize_one(
@@ -326,7 +388,7 @@ def _normalize_one(
     tz: ZoneInfo,
     now: datetime,
     horizon: datetime,
-) -> Event | None:
+) -> Event | _Drop:
     parsed_start = parse_datetime(raw.start_raw or "", tz)
     if parsed_start is None:
         log.warning(
@@ -335,7 +397,7 @@ def _normalize_one(
             key=raw.source_event_key,
             value=raw.start_raw,
         )
-        return None
+        return _Drop("unparseable_start")
     start, start_time_known = parsed_start
 
     parsed_end = parse_datetime(raw.end_raw, tz) if raw.end_raw else None
@@ -350,12 +412,32 @@ def _normalize_one(
 
     # An event that is still running is not in the past — a festival that opened in May is
     # dropped only once it is over, otherwise the recurrence stage would never see it.
-    if (end or start) < now:
-        log.info("dropped_past", source=raw.source_id, key=raw.source_event_key)
-        return None
-    if start > horizon:
-        log.info("dropped_beyond_horizon", source=raw.source_id, key=raw.source_event_key)
-        return None
+    # Whichever boundary answers that question also decides how it is compared: the end's
+    # own clock bit when there is an end, the start's otherwise.
+    last, last_time_known = (
+        (end, parsed_end[1]) if parsed_end is not None else (start, start_time_known)
+    )
+    if _is_past(last, now, time_known=last_time_known):
+        log.info(
+            "dropped_past",
+            source=raw.source_id,
+            key=raw.source_event_key,
+            # Which field was compared and whether it carried a clock: a run of these with
+            # time_known=False is the fingerprint of the defect this cut used to have.
+            boundary="end" if parsed_end is not None else "start",
+            time_known=last_time_known,
+            value=raw.end_raw if parsed_end is not None else raw.start_raw,
+        )
+        return _Drop("dropped_past")
+    if _is_beyond_horizon(start, horizon, time_known=start_time_known):
+        log.info(
+            "dropped_beyond_horizon",
+            source=raw.source_id,
+            key=raw.source_event_key,
+            time_known=start_time_known,
+            value=raw.start_raw,
+        )
+        return _Drop("dropped_beyond_horizon")
 
     price_min, price_max, is_free = parse_price(raw.price_raw)
     title = _WHITESPACE_RE.sub(" ", raw.title).strip()

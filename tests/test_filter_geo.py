@@ -260,6 +260,7 @@ def test_the_run_summary_reports_the_geographic_exclusion_count(tmp_path) -> Non
     assert dropped_by_geo == 2
     summary = RunSummary(
         source_counts={},
+        dropped_as_past={},
         merged=0,
         dropped_by_filter=2,
         dropped_by_geo=dropped_by_geo,

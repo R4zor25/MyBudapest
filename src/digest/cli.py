@@ -27,7 +27,7 @@ from digest.pipeline.dedup import dedup
 from digest.pipeline.filter import GEO_REASONS, filter_with_reasons
 from digest.pipeline.filter import filter as filter_events
 from digest.pipeline.group import group, group_with_counts
-from digest.pipeline.normalize import normalize
+from digest.pipeline.normalize import normalize, normalize_with_reasons
 from digest.pipeline.recurrence import recurrence
 from digest.pipeline.score import score, score_one
 from digest.render.email import RenderedEmail, render_email
@@ -72,6 +72,12 @@ _DRIFT_MIN_PREVIOUS_COUNT = 10
 @dataclass(frozen=True)
 class RunSummary:
     source_counts: dict[str, int]
+    # Records normalize dropped for being over, per source. Not a subset of any other
+    # figure here — these never became Events at all, so `source_counts` still counts them
+    # and nothing downstream ever saw them. Per source because that is the whole signal: a
+    # feed that stops rolling its dates forward keeps parsing cleanly and just goes quiet,
+    # and §13's drift check counts records parsed, so this is where it becomes visible.
+    dropped_as_past: dict[str, int]
     merged: int
     dropped_by_filter: int
     # A subset of dropped_by_filter, not an addition to it: the geographic cut is one of
@@ -189,7 +195,8 @@ def _run_pipeline(
     state = purge(state, today=today)
     raw_events, state, source_counts, drifted = _run_sources(sources, config, state, today)
 
-    events = normalize(raw_events, config, now=moment)
+    normalized = normalize_with_reasons(raw_events, config, now=moment)
+    events = normalized.events
     after_normalize = len(events)
     events = dedup(events, config)
     merged = after_normalize - len(events)
@@ -260,6 +267,7 @@ def _run_pipeline(
 
     summary = RunSummary(
         source_counts=source_counts,
+        dropped_as_past=dict(normalized.dropped_as_past),
         merged=merged,
         dropped_by_filter=dropped_by_filter,
         dropped_by_geo=dropped_by_geo,
@@ -272,6 +280,7 @@ def _run_pipeline(
     log.info(
         "run_summary",
         sources=summary.source_counts,
+        dropped_as_past=summary.dropped_as_past,
         merged=summary.merged,
         dropped_by_filter=summary.dropped_by_filter,
         dropped_by_geo=summary.dropped_by_geo,

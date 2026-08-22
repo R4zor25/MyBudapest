@@ -11,10 +11,18 @@ from structlog.testing import capture_logs
 
 from digest.config import Config, HomeConfig, ScheduleConfig
 from digest.models import RawEvent
-from digest.pipeline.normalize import clean_description, normalize, parse_price
+from digest.pipeline.normalize import (
+    clean_description,
+    normalize,
+    normalize_with_reasons,
+    parse_price,
+)
 
 BUDAPEST = ZoneInfo("Europe/Budapest")
 NOW = datetime(2026, 8, 16, 12, 0, tzinfo=BUDAPEST)
+# A run that starts after midnight, which every real run does. The whole defect below only
+# shows itself at such an instant: at 00:00 exactly, a date-only start is not yet behind.
+MORNING = datetime(2026, 8, 16, 9, 0, tzinfo=BUDAPEST)
 
 
 def make_raw(**overrides: Any) -> RawEvent:
@@ -151,6 +159,96 @@ def test_a_running_multi_day_event_is_not_past() -> None:
     assert event.end is not None
 
 
+# --------------------------------------------------------------------------------------
+# The past cut, and what 00:00 means on each side of it (§7.1)
+# --------------------------------------------------------------------------------------
+
+
+def test_a_date_only_event_dated_today_survives_a_morning_run() -> None:
+    """The defect: a bare date parses to 00:00, so comparing it to `now` as an instant put
+    every one of today's date-only events in the past by 00:00:01. It was silent — the
+    events simply never appeared."""
+    (event,) = normalize([make_raw(start_raw="2026.08.16.")], Config(), now=MORNING)
+
+    assert event.start_time_known is False
+    assert event.start.date() == date(2026, 8, 16)
+
+
+def test_a_date_only_event_dated_yesterday_is_dropped() -> None:
+    assert normalize([make_raw(start_raw="2026.08.15.")], Config(), now=MORNING) == []
+
+
+def test_a_timed_event_that_started_three_hours_ago_is_dropped() -> None:
+    # The clock is real here, so the instant comparison is the correct one: a concert that
+    # started at 06:00 is genuinely over, not a record missing its time.
+    assert normalize([make_raw(start_raw="2026-08-16 06:00:00")], Config(), now=MORNING) == []
+
+
+def test_a_timed_event_starting_in_three_hours_survives() -> None:
+    (event,) = normalize([make_raw(start_raw="2026-08-16 12:00:00")], Config(), now=MORNING)
+
+    assert event.start_time_known is True
+    assert event.start.hour == 12
+
+
+def test_a_genuine_midnight_event_today_is_still_past_by_the_morning() -> None:
+    """The bit comes from the parser, never from `start.time() == midnight` (§7.1). A
+    source that published "00:00:00" stated midnight, so by 09:00 that event is over —
+    exactly the case that makes reading the time back out of the value wrong."""
+    midnight = make_raw(start_raw="2026-08-16 00:00:00")
+
+    assert normalize([midnight], Config(), now=MORNING) == []
+
+
+def test_a_date_only_run_is_not_past_on_its_final_day() -> None:
+    """The same missing value at the closing boundary. programturizmus publishes ranges as
+    two bare dates ("2026.08.20." — "2026.08.22."), and the end is what the past cut reads
+    once there is one: read as an instant it ended at 00:00 on its last day, so the whole
+    of that day was lost."""
+    run = make_raw(start_raw="2026.08.14.", end_raw="2026.08.16.")
+
+    (event,) = normalize([run], Config(), now=MORNING)
+
+    assert event.end is not None and event.end.date() == date(2026, 8, 16)
+
+
+def test_a_timed_run_that_ended_this_morning_is_past() -> None:
+    ended = make_raw(start_raw="2026-08-14 19:00:00", end_raw="2026-08-16 02:00:00")
+
+    assert normalize([ended], Config(), now=MORNING) == []
+
+
+def test_the_past_drop_is_logged_with_the_reason_and_the_clock_bit() -> None:
+    raw = [
+        make_raw(source_event_key="bare", start_raw="2026.08.15."),
+        make_raw(source_event_key="timed", start_raw="2026-08-16 06:00:00"),
+    ]
+
+    with capture_logs() as logs:
+        normalize(raw, Config(), now=MORNING)
+
+    dropped = {entry["key"]: entry for entry in logs if entry["event"] == "dropped_past"}
+    assert set(dropped) == {"bare", "timed"}
+    assert dropped["bare"]["time_known"] is False
+    assert dropped["timed"]["time_known"] is True
+    assert {entry["boundary"] for entry in dropped.values()} == {"start"}
+
+
+def test_past_drops_are_counted_per_source_for_the_run_summary() -> None:
+    """A source whose dates stop rolling forward keeps parsing cleanly and just goes quiet.
+    Counting per source is what makes that visible instead of the run merely shrinking."""
+    raw = [
+        make_raw(source_id="stalled", source_event_key="a", start_raw="2026.08.15."),
+        make_raw(source_id="stalled", source_event_key="b", start_raw="2026-08-01 19:00:00"),
+        make_raw(source_id="port-hu", source_event_key="c", start_raw="2026-08-20 19:00:00"),
+    ]
+
+    outcome = normalize_with_reasons(raw, Config(), now=MORNING)
+
+    assert [event.urls for event in outcome.events] == [[raw[2].url]]
+    assert outcome.dropped_as_past == {"stalled": 2}
+
+
 def test_events_beyond_the_horizon_are_dropped() -> None:
     config = Config(schedule=ScheduleConfig(horizon_days=14))
     inside = make_raw(source_event_key="inside", start_raw="2026-08-29 19:00:00")
@@ -159,6 +257,28 @@ def test_events_beyond_the_horizon_are_dropped() -> None:
     events = normalize([inside, outside], config, now=NOW)
 
     assert [event.urls for event in events] == [[inside.url]]
+
+
+@pytest.mark.parametrize(
+    ("start_raw", "kept"),
+    [
+        # The horizon is 2026-08-30 09:00. Its own day is inside for both kinds, the next
+        # day is outside for both — the split does not move the boundary.
+        ("2026.08.30.", True),
+        ("2026.08.31.", False),
+        ("2026-08-30 08:00:00", True),
+        ("2026-08-31 08:00:00", False),
+        # A known clock still resolves within the day, which is the intended asymmetry:
+        # 10:00 on the horizon's own day is past it by an hour.
+        ("2026-08-30 10:00:00", False),
+    ],
+)
+def test_the_horizon_boundary_treats_both_kinds_the_same_day(start_raw: str, kept: bool) -> None:
+    config = Config(schedule=ScheduleConfig(horizon_days=14))
+
+    events = normalize([make_raw(start_raw=start_raw)], config, now=MORNING)
+
+    assert bool(events) is kept
 
 
 def test_distance_is_measured_from_home() -> None:

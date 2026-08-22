@@ -121,6 +121,39 @@ def make_config() -> Config:
 
 
 @respx.mock
+def test_a_source_whose_dates_stopped_rolling_forward_is_named_in_the_summary(
+    tmp_path: Path,
+) -> None:
+    """The failure this count exists for. A frozen feed does not error and does not stop
+    parsing — `source_counts` still reports 2, and §13's drift check counts records parsed,
+    so neither of them notices. `dropped_as_past` names the source that went quiet."""
+    respx.get("https://example.com/good").mock(return_value=httpx.Response(200, json={}))
+    respx.get("https://example.com/stale").mock(return_value=httpx.Response(200, json={}))
+    fresh = FakeSource("good", url="https://example.com/good", events=[make_raw("good", "1")])
+    stale = FakeSource(
+        "stale",
+        url="https://example.com/stale",
+        events=[
+            make_raw("stale", "1", start="2026-07-01T20:00:00+02:00"),
+            make_raw("stale", "2", start="2026-07-02T20:00:00+02:00"),
+        ],
+    )
+
+    summary = _run_pipeline(
+        make_config(),
+        [fresh, stale],
+        State(),
+        tmp_path / "state.json",
+        tmp_path / "site",
+        tmp_path / "overrides.yaml",
+        now=NOW,
+    )
+
+    assert summary.source_counts == {"good": 1, "stale": 2}
+    assert summary.dropped_as_past == {"stale": 2}
+
+
+@respx.mock
 def test_the_full_pipeline_runs_and_produces_output(tmp_path: Path) -> None:
     respx.get("https://example.com/good").mock(return_value=httpx.Response(200, json={}))
     source = FakeSource(
@@ -140,6 +173,7 @@ def test_the_full_pipeline_runs_and_produces_output(tmp_path: Path) -> None:
     )
 
     assert summary.source_counts == {"good": 2}
+    assert summary.dropped_as_past == {}
     assert summary.sent == 2
     (smtp,) = _FakeSmtp.instances
     assert smtp.sent is not None
