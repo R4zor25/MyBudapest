@@ -191,6 +191,24 @@ def tixa_events(config, repo_root: Path) -> list[RawEvent]:
     return list(source.parse(make_result("https://www.tixa.hu/jatszohazprojekt", text=html)))
 
 
+def test_tixa_lists_both_organiser_pages(sources_dir: Path) -> None:
+    """The URL list is the whole of what this source fetches, and it had no test — a venue
+    could have been dropped in an unrelated edit without anything going red.
+
+    The count is asserted alongside the membership on purpose: adding a third venue is a
+    deliberate act with a measurable effect on the digest, so it should fail here and make
+    whoever adds it say so, rather than slipping in unnoticed."""
+    spec = yaml.safe_load((sources_dir / "tixa.yaml").read_text(encoding="utf-8"))
+
+    urls = spec["listing"]["urls"]
+
+    assert urls == [
+        "https://www.tixa.hu/jatszohazprojekt",
+        "https://www.tixa.hu/durerkert",
+    ]
+    assert len(urls) == 2
+
+
 def test_tixa_requests_hungarian(config) -> None:
     # Without this header the whole listing comes back in English ("Board game night at
     # Treffort Kert") in an otherwise Hungarian newsletter.

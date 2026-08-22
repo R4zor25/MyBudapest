@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Any
 
 import pytest
+import yaml
 from structlog.testing import capture_logs
 
 from digest.config import Config, load_config
@@ -359,11 +360,67 @@ def test_an_unknown_listing_or_pagination_key_is_rejected(
         DeclarativeSource(spec, Config())
 
 
+def test_a_misspelled_inner_field_key_names_the_field_and_the_key_it_meant() -> None:
+    """The original bug's exact shape one level down: `{ selctor: "h3" }` extracted nothing
+    and said nothing about it, so the field looked like data the site does not publish."""
+    spec = minimal(fields={"title": {"selctor": "h3"}, "url": {"path": "u"}})
+
+    with pytest.raises(ConfigError) as excinfo:
+        DeclarativeSource(spec, Config())
+
+    message = str(excinfo.value)
+    assert "'demo'" in message
+    assert "fields.title" in message
+    assert "selctor" in message
+    assert "'selector'" in message
+
+
+def test_a_misspelled_top_level_key_is_rejected() -> None:
+    """The worst of the silent ignores. Every other one loses a field; this one makes the
+    YAML disagree with reality about whether the source runs at all."""
+    with pytest.raises(ConfigError) as excinfo:
+        DeclarativeSource(minimal(enabledd=True), Config())
+
+    assert "enabledd" in str(excinfo.value)
+    assert "'enabled'" in str(excinfo.value)
+
+
 def test_a_disabled_source_is_validated_too() -> None:
     # A typo in a switched-off source is still a typo, and should not be lying in wait for
     # the day someone switches it on.
     with pytest.raises(ConfigError, match="citty"):
         DeclarativeSource(minimal(enabled=False, fields={"citty": {"path": "c"}}), Config())
+
+
+# --------------------------------------------------------------------------------------
+# What the `plugin:` exemption does and does not cover
+# --------------------------------------------------------------------------------------
+
+
+def cooltix_spec(sources_dir: Path) -> dict[str, Any]:
+    return yaml.safe_load((sources_dir / "cooltix.yaml").read_text(encoding="utf-8"))
+
+
+def test_a_plugin_keeps_its_own_listing_vocabulary(sources_dir: Path) -> None:
+    """`listing.pagination.page_size` is cooltix's, not §6.3's — the plugin drives its own
+    cursor pagination. Validating a plugin's listing block against the declarative list
+    would reject a working source, which is why that block is exempt."""
+    spec = cooltix_spec(sources_dir)
+    assert spec["listing"]["pagination"]["page_size"], "the premise of this test"
+
+    (source,) = load_sources(Config(sources={"cooltix": spec}))
+
+    assert source.id == "cooltix"
+
+
+def test_a_plugin_does_not_get_an_exemption_at_the_top_level(sources_dir: Path) -> None:
+    """The exemption belongs to `listing:` and `fields:`, not to the whole spec. Nothing
+    owns `enabled:` except the registry, and it reads cooltix's the same way it reads
+    tokenklub's."""
+    spec = {**cooltix_spec(sources_dir), "enabledd": True}
+
+    with pytest.raises(ConfigError, match="enabledd"):
+        load_sources(Config(sources={"cooltix": spec}))
 
 
 def test_every_mappable_field_survives_the_trip_into_raw_event() -> None:

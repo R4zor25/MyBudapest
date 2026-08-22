@@ -10,7 +10,7 @@ from digest.config import Config
 from digest.errors import ConfigError
 from digest.fetch.base import FetchResult, FetchTask
 from digest.models import RawEvent
-from digest.sources.declarative import DeclarativeSource
+from digest.sources.declarative import DeclarativeSource, validate_spec
 
 log = structlog.get_logger()
 
@@ -39,6 +39,9 @@ def load_sources(config: Config) -> list[Source]:
     sources: list[Source] = []
     for source_id, spec in sorted(config.sources.items()):
         plugin = spec.get("plugin")
+        # Every spec, not only the declarative ones: a plugin owns its `listing:` and
+        # `fields:` blocks, but nothing owns `enabled:` except the registry right here.
+        validate_spec(source_id, spec, declarative=plugin is None)
         if plugin is None:
             # A spec without a `plugin:` key describes its own parsing (§6.3) — no Python
             # module needed, DeclarativeSource reads the spec directly.

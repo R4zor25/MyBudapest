@@ -562,9 +562,11 @@ Támogatott transzformok: `html_unescape`, `strip`, `lower`, `truncate:<n>`, `ab
 **Kötelező viselkedés:** ha egy nem-`optional` mező hiányzik egy tételnél, azt a tételt
 kihagyjuk és `WARNING`-ot logolunk a forrás id-jével — de a futás megy tovább.
 
-**A fenti kulcskészlet zárt, és betöltéskor ellenőrzött.** Ismeretlen kulcs a `fields:`,
-`listing:`, `listing.pagination:` vagy `transforms:` alatt — és ismeretlen transzformnév —
-`ConfigError`, a forrás nevével és a legközelebbi érvényes kulccsal. Nem parse-időben: a
+**A fenti kulcskészlet zárt, és betöltéskor ellenőrzött.** Ismeretlen kulcs a spec
+**bármelyik** szintjén — a legfelső szinten, a `listing:`, `listing.pagination:`,
+`fields:`, egy `fields.<mező>:` bejegyzésen belül vagy a `transforms:` alatt —, valamint
+ismeretlen transzformnév: `ConfigError`, a forrás nevével és a legközelebbi érvényes
+kulccsal. Nem parse-időben: a
 `DeclarativeSource` felépítésekor, `enabled` állásától függetlenül. Korábban az ismeretlen
 kulcsot a motor kiolvasta és eldobta, és a tünet egy mindig üres mező volt —
 megkülönböztethetetlen attól, hogy a forrás nem közli az adatot. A `tokenklub.yaml`
@@ -573,8 +575,14 @@ megkülönböztethetetlen attól, hogy a forrás nem közli az adatot. A `tokenk
 zárva belőle, és az elutasítás megmondja, miért: `source_id` és `source_event_key` a motoré,
 az `extra` pedig szabad dict, amibe semmilyen kinyerés nem ír.
 
-A `plugin:` kulcsot hordozó specek **nem** esnek át ezen: a `listing:` blokkjuk a pluginé,
-saját szótárral (a Cooltix `pagination.page_size`-t olvas, ami itt semmit nem jelentene).
+A `plugin:` kulcsot hordozó specek **részben** esnek át ezen. A `listing:` és a `fields:`
+blokkjuk a pluginé, saját szótárral — a Cooltix `listing.pagination.page_size`-t olvas, ami
+itt semmit nem jelentene —, tehát az a két blokk kimarad. A **legfelső szint** és a
+`transforms:` viszont nem: azokat a kulcsokat a registry és a fetch réteg olvassa, nem a
+plugin, és a Cooltix `enabled:`-jét pontosan ugyanaz a kód nézi, mint a tokenklubét. Egy
+elgépelt `enabledd:` a legrosszabb néma hiba a készletben: minden másik egy mezőt veszít
+el, ez viszont arra a kérdésre ad rossz választ, hogy fut-e egyáltalán a forrás — arra,
+amit az ember a YAML-ból olvas ki.
 
 ## 6.4 Fetch réteg
 

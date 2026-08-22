@@ -372,9 +372,12 @@ const TODAY = dayNum(NOW);
 function prep(e){
   const l = local(e.start);
   // A forrás közölt-e órát. Ha nem, a 00:00 hiányzó érték, nem időpont — ilyenkor sem
-  // éjszakai eltolás nincs, sem óra nem jelenik meg. A `!== false` szándékos: a 90 napos
-  // archívum korábbi events.json fájljaiban ez a kulcs még nincs benne, és azok a
-  // rekordok a régi viselkedést kell megtartsák.
+  // éjszakai eltolás nincs, sem óra nem jelenik meg. A `!== false` szándékos, de NEM
+  // verziókülönbség miatt: az index.html mindig az aznapi events.json-t tölti be, az
+  // archívumoldalak pedig a saját adatukat hordozzák beágyazva, tehát a kettő sosem
+  // csúszik el egymástól. Az ok egyszerűbb: hiányzó vagy csonka mezőnél a biztonságos
+  // alapértelmezés az, hogy VAN óra — a fordítottja minden rekordról letörölné az
+  // időpontot, ami látványos adatvesztés lenne egy hibás payloadból.
   const timeKnown = e.start_time_known !== false;
   // Melyik estéhez tartozik. A §7.7 hajnali eltolást a pipeline már elvégezte, és az
   // `effective_date` AZ eredménye — itt csak beolvassuk. Korábban ez a sor újraszámolta

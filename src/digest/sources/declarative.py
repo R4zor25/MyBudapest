@@ -38,8 +38,33 @@ _UNMAPPABLE_FIELDS = {
 # guards that half.
 MAPPABLE_FIELDS = frozenset(RawEvent.model_fields) - set(_UNMAPPABLE_FIELDS)
 
+# Every key a spec may carry at the top level, plugin-backed or not (§6.3). These are the
+# runtime's own — `enabled`, `priority` and `fetcher` are read by the registry and the
+# fetch layer, never by a plugin — so a plugin spec gets no exemption here. A typo in this
+# block is the worst of the silent ignores: every other one loses a field, but `enabledd:
+# true` makes a source's on/off state differ from what the YAML says, and the YAML is what
+# a person reads to answer whether a source is running at all.
+_TOP_LEVEL_KEYS = frozenset(
+    {
+        "id",
+        "name",
+        "enabled",
+        "priority",
+        "fetcher",
+        "rate_limit_seconds",
+        "plugin",
+        "listing",
+        "fields",
+        "transforms",
+    }
+)
+
 _LISTING_KEYS = frozenset({"urls", "pagination", "item_selector", "json_path"})
 _PAGINATION_KEYS = frozenset({"param", "start", "max", "stop_when_empty"})
+# What one entry under `fields:` may say. `selector`+`attr` is the http form, `path` the
+# api one; `optional` and `absolute` apply to both. A typo here is the original bug's exact
+# shape — `{ selctor: "h3" }` extracted nothing and said nothing about it.
+_FIELD_SPEC_KEYS = frozenset({"selector", "attr", "path", "optional", "absolute"})
 
 # SPEC 6.3's fixed transform vocabulary, by name — `truncate:400` and `regex:pat:1` carry
 # an argument after the colon, so only the part before it is a name. This is a second copy
@@ -50,7 +75,7 @@ TRANSFORM_NAMES = frozenset(
 )
 
 
-def validate_spec(source_id: str, spec: dict[str, Any]) -> None:
+def validate_spec(source_id: str, spec: dict[str, Any], *, declarative: bool) -> None:
     """Reject a key no part of the engine reads, at LOAD time (§6.3).
 
     An unrecognised key used to be extracted and dropped, and the symptom was a field that
@@ -58,18 +83,38 @@ def validate_spec(source_id: str, spec: dict[str, Any]) -> None:
     publish it. `city: { path: "venue.city" }` sat in tokenklub.yaml exactly that way. A
     typo has to fail where it is written, not turn into an absence somebody has to notice.
 
-    Declarative specs only. A `plugin:` spec's `listing:` block belongs to its plugin and
-    has its own vocabulary — cooltix reads `pagination.page_size`, which means nothing
-    here — so validating those against this list would reject working sources."""
-    listing = spec.get("listing") or {}
-    _reject_unknown(source_id, "listing", listing, _LISTING_KEYS)
-    _reject_unknown(
-        source_id, "listing.pagination", listing.get("pagination") or {}, _PAGINATION_KEYS
-    )
-    _reject_unknown(source_id, "fields", spec.get("fields") or {}, MAPPABLE_FIELDS)
+    What the `plugin:` exemption covers, and what it does not:
+
+    - NOT exempt, for any spec: the top level, and `transforms:`. Those keys belong to the
+      registry, the fetch layer and this engine, not to a plugin — cooltix's `enabled:` is
+      read by exactly the same code as tokenklub's.
+    - Exempt for a plugin spec: `listing:` and `fields:`. A plugin parses its own
+      responses and drives its own pagination, so those blocks carry its vocabulary, not
+      §6.3's — cooltix reads `listing.pagination.page_size`, which means nothing here, and
+      validating it against this list would reject a working source.
+
+    Called from `registry.load_sources` for every spec and again from
+    `DeclarativeSource.__init__`, so a source built directly is checked too. It is a pure
+    function of the spec, so running it twice costs nothing and means neither entry point
+    can be the unguarded one."""
+    _reject_unknown(source_id, "the top level", spec, _TOP_LEVEL_KEYS)
+
+    if declarative:
+        listing = spec.get("listing") or {}
+        _reject_unknown(source_id, "listing:", listing, _LISTING_KEYS)
+        _reject_unknown(
+            source_id, "listing.pagination:", listing.get("pagination") or {}, _PAGINATION_KEYS
+        )
+        fields = spec.get("fields") or {}
+        _reject_unknown(source_id, "fields:", fields, MAPPABLE_FIELDS)
+        for field, field_spec in fields.items():
+            # A non-dict entry has no keys to check; it still fails later, exactly as it
+            # does today. This validator's job is unknown keys, not the wrong shape.
+            if isinstance(field_spec, dict):
+                _reject_unknown(source_id, f"fields.{field}:", field_spec, _FIELD_SPEC_KEYS)
 
     transforms = spec.get("transforms") or {}
-    _reject_unknown(source_id, "transforms", transforms, MAPPABLE_FIELDS)
+    _reject_unknown(source_id, "transforms:", transforms, MAPPABLE_FIELDS)
     for field, names in transforms.items():
         for transform in names or []:
             name = str(transform).partition(":")[0]
@@ -88,9 +133,11 @@ def _reject_unknown(
             continue
         reason = _UNMAPPABLE_FIELDS.get(key) if valid is MAPPABLE_FIELDS else None
         if reason is not None:
-            raise ConfigError(f"source {source_id!r}: {section}.{key} cannot be mapped — {reason}")
+            raise ConfigError(
+                f"source {source_id!r}: {section[:-1]}.{key} cannot be mapped — {reason}"
+            )
         raise ConfigError(
-            f"source {source_id!r}: unknown key {key!r} under {section}:{_suggest(key, valid)}"
+            f"source {source_id!r}: unknown key {key!r} under {section}{_suggest(key, valid)}"
         )
 
 
@@ -111,7 +158,7 @@ class DeclarativeSource:
         # Before anything is read out of the spec, and regardless of `enabled`: a typo in
         # a source that is switched off is still a typo, and it should not be waiting to
         # surface on the day someone switches the source on.
-        validate_spec(self.id, spec)
+        validate_spec(self.id, spec, declarative=True)
         self.name: str = spec.get("name", self.id)
         self.enabled: bool = bool(spec.get("enabled", True))
         self.priority: int = int(spec.get("priority", 50))
