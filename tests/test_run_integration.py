@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import smtplib
 from collections.abc import Iterable
 from datetime import datetime, timedelta
@@ -537,3 +538,156 @@ def test_email_scope_keeps_the_old_queueing_behaviour(tmp_path: Path) -> None:
     )
 
     assert second.sent == 1, "yesterday's leftover is served today"
+
+
+# --------------------------------------------------------------------------------------
+# The site is the full current view; the email is the delta (§7.6)
+# --------------------------------------------------------------------------------------
+
+
+def _site_events(site_dir: Path) -> list[str]:
+    payload = json.loads((site_dir / "events.json").read_text(encoding="utf-8"))
+    return sorted(record["id"] for record in payload["events"])
+
+
+@respx.mock
+def test_two_runs_publish_the_same_site_with_a_full_ledger_in_between(tmp_path: Path) -> None:
+    """The defect this closes: the ledger sat among the content filters, so every run
+    removed from the SITE whatever the last email had covered, and the page shrank toward
+    empty. Re-running must be idempotent for the site."""
+    respx.get("https://example.com/good").mock(return_value=httpx.Response(200, json={}))
+    state_path, site_dir = tmp_path / "state.json", tmp_path / "site"
+    config = make_config()
+
+    first = _run_pipeline(
+        config,
+        [FakeSource("good", url="https://example.com/good", events=_two_events())],
+        State(),
+        state_path,
+        site_dir,
+        tmp_path / "overrides.yaml",
+        now=NOW,
+    )
+    after_first = _site_events(site_dir)
+    ledger = load_state(state_path)
+    assert ledger.sent, "the second run must start from a non-empty ledger"
+
+    second = _run_pipeline(
+        config,
+        [FakeSource("good", url="https://example.com/good", events=_two_events())],
+        ledger,
+        state_path,
+        site_dir,
+        tmp_path / "overrides.yaml",
+        now=NOW,
+    )
+
+    assert _site_events(site_dir) == after_first
+    assert first.dropped_by_content == second.dropped_by_content
+    # The email is where the history shows up, and only there.
+    assert second.sent == 0
+    assert second.suppressed_by_ledger == len(after_first)
+
+
+@respx.mock
+def test_a_sent_event_stays_on_the_site_and_leaves_the_email(tmp_path: Path) -> None:
+    respx.get("https://example.com/good").mock(return_value=httpx.Response(200, json={}))
+    state_path, site_dir = tmp_path / "state.json", tmp_path / "site"
+    config = _ledger_config("email", per_category_limit=1)
+
+    _run_pipeline(
+        config,
+        [FakeSource("good", url="https://example.com/good", events=_two_events())],
+        State(),
+        state_path,
+        site_dir,
+        tmp_path / "overrides.yaml",
+        now=NOW,
+    )
+    # state.sent holds SentEntry records, not bare ids (§8.2) — the id is one field.
+    sent_ids = {entry.id for entry in load_state(state_path).sent}
+    assert len(sent_ids) == 1
+
+    summary = _run_pipeline(
+        config,
+        [FakeSource("good", url="https://example.com/good", events=_two_events())],
+        load_state(state_path),
+        state_path,
+        site_dir,
+        tmp_path / "overrides.yaml",
+        now=NOW,
+    )
+
+    on_site = set(_site_events(site_dir))
+    assert sent_ids <= on_site, "an emailed event is still part of the site's full view"
+    assert summary.suppressed_by_ledger == 1
+
+
+@respx.mock
+def test_clearing_the_ledger_leaves_the_site_unchanged(tmp_path: Path) -> None:
+    # The other direction of the same property: the site does not depend on ledger state at
+    # all, so wiping it changes nothing about what gets published.
+    respx.get("https://example.com/good").mock(return_value=httpx.Response(200, json={}))
+    site_dir = tmp_path / "site"
+    config = make_config()
+
+    _run_pipeline(
+        config,
+        [FakeSource("good", url="https://example.com/good", events=_two_events())],
+        State(),
+        tmp_path / "a.json",
+        site_dir,
+        tmp_path / "overrides.yaml",
+        now=NOW,
+    )
+    with_ledger = _site_events(site_dir)
+
+    _run_pipeline(
+        config,
+        [FakeSource("good", url="https://example.com/good", events=_two_events())],
+        State(),
+        tmp_path / "b.json",
+        site_dir,
+        tmp_path / "overrides.yaml",
+        now=NOW,
+    )
+
+    assert _site_events(site_dir) == with_ledger
+
+
+@respx.mock
+def test_the_summary_counts_content_drops_and_ledger_suppressions_apart(tmp_path: Path) -> None:
+    """Two numbers, because they answer different questions and move for different reasons:
+    content drops are reproducible, ledger suppressions grow with the reader's history."""
+    respx.get("https://example.com/good").mock(return_value=httpx.Response(200, json={}))
+    state_path, site_dir = tmp_path / "state.json", tmp_path / "site"
+    config = make_config()
+    config = config.model_copy(
+        update={"filters": config.filters.model_copy(update={"blocked_keywords": ["HØT"]})}
+    )
+
+    first = _run_pipeline(
+        config,
+        [FakeSource("good", url="https://example.com/good", events=_two_events())],
+        State(),
+        state_path,
+        site_dir,
+        tmp_path / "overrides.yaml",
+        now=NOW,
+    )
+
+    assert first.dropped_by_content == 1, "the blocked keyword, not the ledger"
+    assert first.suppressed_by_ledger == 0, "nothing has been sent yet"
+
+    second = _run_pipeline(
+        config,
+        [FakeSource("good", url="https://example.com/good", events=_two_events())],
+        load_state(state_path),
+        state_path,
+        site_dir,
+        tmp_path / "overrides.yaml",
+        now=NOW,
+    )
+
+    assert second.dropped_by_content == 1, "content drops are the same every run"
+    assert second.suppressed_by_ledger == 1, "and the ledger number is the one that grew"

@@ -10,7 +10,7 @@ from structlog.testing import capture_logs
 from digest.config import Config
 from digest.models import Event, make_event_id
 from digest.overrides import Overrides, load_overrides
-from digest.pipeline.filter import filter as filter_events
+from digest.pipeline.filter import content_filter as filter_events
 from digest.pipeline.score import PINNED_BONUS, score
 
 BUDAPEST = ZoneInfo("Europe/Budapest")

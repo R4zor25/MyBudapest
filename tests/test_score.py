@@ -145,7 +145,7 @@ def test_without_a_cap_the_penalty_is_unbounded() -> None:
 def test_the_cap_bounds_the_penalty_and_never_excludes() -> None:
     """The whole point of the rename: this field cannot remove an event from the digest.
     Exclusion is filters.geo.max_distance_km (§7.6), tested in test_filter_geo.py."""
-    from digest.pipeline.filter import filter as filter_events
+    from digest.pipeline.filter import content_filter as filter_events
 
     event = make_event(distance_km=40)
 

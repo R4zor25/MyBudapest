@@ -25,8 +25,12 @@ from digest.overrides import load_overrides
 from digest.pipeline.categorize import categorize as categorize_events
 from digest.pipeline.categorize import explain_event, score_category
 from digest.pipeline.dedup import dedup
-from digest.pipeline.filter import GEO_REASONS, filter_with_reasons
-from digest.pipeline.filter import filter as filter_events
+from digest.pipeline.filter import (
+    GEO_REASONS,
+    content_filter,
+    content_filter_with_reasons,
+    exclude_already_sent,
+)
 from digest.pipeline.group import group, group_with_counts
 from digest.pipeline.normalize import normalize, normalize_with_reasons
 from digest.pipeline.recurrence import recurrence
@@ -80,12 +84,20 @@ class RunSummary:
     # and §13's drift check counts records parsed, so this is where it becomes visible.
     dropped_as_past: dict[str, int]
     merged: int
-    dropped_by_filter: int
+    # Dropped by the CONTENT filters — horizon, geography, category, price, blocked
+    # keywords, explicit hides. A property of the event, so this number is reproducible:
+    # the same corpus drops the same events tomorrow.
+    dropped_by_content: int
     # A subset of dropped_by_filter, not an addition to it: the geographic cut is one of
     # filter()'s reasons (§7.6), reported separately because it is the one rule that used
     # to live inside individual sources.
     dropped_by_geo: int
     dropped_by_min_score: int
+    # Suppressed from TODAY'S EMAIL by the ledger — NOT dropped. Every one of these is on
+    # the site. Counted apart from `dropped_by_content` because it answers a different
+    # question and moves for a different reason: this one grows as the reader's history
+    # grows, while the content drops stay flat.
+    suppressed_by_ledger: int
     # Events that skipped §7.4 grouping for having no venue_name. Not a drop -- they are
     # all still in the digest, individually. Reported so a source that stops supplying
     # venues is visible instead of quietly reshaping the output.
@@ -122,7 +134,9 @@ def run(
         config, raw = _load_raw_events(source_id, fixture)
         events = recurrence(dedup(normalize(raw, config), config), config)
         events = categorize_events(events, config)
-        events = filter_events(events, config)
+        # No ledger here: --dry has no state to read, and a preview that changed with
+        # yesterday's email would not be a preview of the content rules.
+        events = content_filter(events, config)
         events = score(events, config)
         events = group(events, config)
 
@@ -206,9 +220,10 @@ def _run_pipeline(
     events = categorize_events(events, config)
     events = _llm_categorize(events, config)
 
-    # Exactly what filter.py's own docstring anticipates: resolve was_sent()'s fuzzy
-    # branch once per candidate event, then hand filter()/score() the resulting id set —
-    # their own exact-membership checks do the rest (§4.1, §8.2).
+    # Resolve was_sent()'s fuzzy branch once per candidate event, then hand the resulting
+    # id set to the two places that read history: score()'s novelty bonus, and the email
+    # branch's `exclude_already_sent`. Their own exact-membership checks do the rest
+    # (§4.1, §8.2). The CONTENT filters never see it — that is the point of the split.
     sent_ids = frozenset(event.id for event in events if was_sent(state, event))
     # The write UI's overrides.yaml (package 14) — hand-edited via the GitHub Contents
     # API, never by the pipeline itself. Missing/corrupt file -> empty, never raises.
@@ -217,11 +232,9 @@ def _run_pipeline(
     pinned_ids = frozenset(overrides.pinned)
 
     before_filter = len(events)
-    filtered = filter_with_reasons(
-        events, config, sent_ids=sent_ids, hidden_ids=hidden_ids, now=moment
-    )
+    filtered = content_filter_with_reasons(events, config, hidden_ids=hidden_ids, now=moment)
     events = filtered.events
-    dropped_by_filter = before_filter - len(events)
+    dropped_by_content = before_filter - len(events)
     dropped_by_geo = sum(filtered.excluded[reason] for reason in GEO_REASONS)
 
     before_score = len(events)
@@ -230,11 +243,25 @@ def _run_pipeline(
 
     grouped = group_with_counts(events, config)
     events = grouped.events
+
+    # THE FORK. Everything above answers "does this event interest the reader" and is
+    # identical on every run, so `events` is the site's full current view. Only below here
+    # does the reader's history enter, and only on the email branch: the site is the full
+    # view, the email is the delta. Skipping a day therefore costs an email, never a site
+    # entry — the site is rebuilt from the same content-filtered set either way.
+    #
+    # Grouping runs BEFORE the fork on purpose. A collapsed row must be composed from every
+    # event at that venue, not from whichever ones happened not to be in yesterday's mail;
+    # otherwise the site's rows would change shape according to email history, which is the
+    # same defect one level up.
+    email_events = exclude_already_sent(events, sent_ids)
+    suppressed_by_ledger = len(events) - len(email_events)
+
     # `events` is what the SITE publishes in full; the email shows a per-category slice of
-    # it. The button at the top of the email promises the whole set, so it is labelled with
-    # this count and not with the email's own.
+    # what survives the ledger. The button at the top of the email promises the whole set,
+    # so it is labelled with the site's count and not with the email's own.
     rendered = render_email(
-        events,
+        email_events,
         config,
         source_health=state.source_health,
         published_count=len(events),
@@ -296,9 +323,10 @@ def _run_pipeline(
         source_counts=source_counts,
         dropped_as_past=dict(normalized.dropped_as_past),
         merged=merged,
-        dropped_by_filter=dropped_by_filter,
+        dropped_by_content=dropped_by_content,
         dropped_by_geo=dropped_by_geo,
         dropped_by_min_score=dropped_by_min_score,
+        suppressed_by_ledger=suppressed_by_ledger,
         ungrouped_venueless=grouped.ungrouped_venueless,
         sent=len(rendered.sent_events),
         drifted=drifted,
@@ -309,9 +337,10 @@ def _run_pipeline(
         sources=summary.source_counts,
         dropped_as_past=summary.dropped_as_past,
         merged=summary.merged,
-        dropped_by_filter=summary.dropped_by_filter,
+        dropped_by_content=summary.dropped_by_content,
         dropped_by_geo=summary.dropped_by_geo,
         dropped_by_min_score=summary.dropped_by_min_score,
+        suppressed_by_ledger=summary.suppressed_by_ledger,
         ungrouped_venueless=summary.ungrouped_venueless,
         sent=summary.sent,
         drifted=summary.drifted,

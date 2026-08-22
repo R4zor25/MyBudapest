@@ -35,15 +35,14 @@ class FilterOutcome:
     excluded: Counter[str]
 
 
-def filter_with_reasons(
+def content_filter_with_reasons(
     events: list[Event],
     config: Config,
-    sent_ids: frozenset[str] = frozenset(),
     hidden_ids: frozenset[str] = frozenset(),
     now: datetime | None = None,
 ) -> FilterOutcome:
-    """`filter()` plus the per-reason tally the run summary needs. Split out rather than
-    changing `filter()`'s return type, because CLAUDE.md fixes every pipeline stage at
+    """`content_filter()` plus the per-reason tally the run summary needs. Split out rather
+    than changing its return type, because CLAUDE.md fixes every pipeline stage at
     `(list[Event], Config) -> list[Event]`."""
     tz = ZoneInfo(config.schedule.timezone)
     moment = now.astimezone(tz) if now is not None else datetime.now(tz)
@@ -52,7 +51,7 @@ def filter_with_reasons(
     survivors: list[Event] = []
     excluded: Counter[str] = Counter()
     for event in events:
-        exclusion = _exclusion_reason(event, config, sent_ids, hidden_ids, horizon)
+        exclusion = _exclusion_reason(event, config, hidden_ids, horizon)
         if exclusion is None:
             survivors.append(event)
             continue
@@ -67,30 +66,51 @@ def filter_with_reasons(
     return FilterOutcome(events=survivors, excluded=excluded)
 
 
-def filter(
+def content_filter(
     events: list[Event],
     config: Config,
-    sent_ids: frozenset[str] = frozenset(),
     hidden_ids: frozenset[str] = frozenset(),
     now: datetime | None = None,
 ) -> list[Event]:
-    """Five of SPEC 7.6's six exclusion reasons. The sixth, min_score, needs Event.score,
-    which does not exist yet here — filter runs before score in the pipeline (SPEC 7.4,
-    CLAUDE.md). score() applies that cut once it has something to compare against.
+    """"Does this event interest the reader" — and nothing else (§7.6).
 
-    `sent_ids` defaults to "nothing sent yet": the ledger (state.py, package 8) does not
-    exist yet either. Once it does, its `was_sent()` result is what a caller passes in.
+    Every cut here is a property of the EVENT and the reader's standing preferences, so it
+    answers the same on every run: horizon, geography, category, price, blocked keywords,
+    and the write UI's explicit hides. The same input gives the same output tomorrow, which
+    is what lets the published site be a stable full view rather than a shrinking one.
 
-    `hidden_ids` is the write UI's overrides.yaml (package 14) — a user explicitly asked
-    never to see this event again. Checked first: nothing else about the event matters
-    once it is hidden."""
-    return filter_with_reasons(events, config, sent_ids, hidden_ids, now).events
+    What is deliberately NOT here: the sent-ledger. "Have I already emailed about this" is
+    a property of the reader's HISTORY, not of the event, and it belongs only to the email
+    branch — see `exclude_already_sent`. It used to sit in this chain, and because it did,
+    every run removed from the SITE whatever the last email had covered, and a skipped day
+    lost those events from the site permanently.
+
+    `min_score` is the one §7.6 reason that is not here either, for an unrelated reason: it
+    needs `Event.score`, which does not exist until score() runs after this stage.
+
+    `hidden_ids` is overrides.yaml (package 14) — a user asked never to see this event
+    again. That is a standing preference, so it is content, and it applies to both outputs.
+    Checked first: nothing else about the event matters once it is hidden."""
+    return content_filter_with_reasons(events, config, hidden_ids, now).events
+
+
+def exclude_already_sent(events: list[Event], sent_ids: frozenset[str]) -> list[Event]:
+    """"Was this in a previous email" — the EMAIL branch only (§7.6, §8.2).
+
+    Kept apart from `content_filter` on purpose, and not as a flag on it: the two answer
+    different questions about different subjects. This one reads the reader's history, so
+    its answer changes between runs by design; the content filters must not. Applying it to
+    the web output is what made the site lose events it had already shown.
+
+    No `Config`, no clock, no logging of its own — the caller reports the count, because
+    "suppressed from today's email" is a fact about one output, not a pipeline-wide
+    exclusion like the reasons in `FilterOutcome`."""
+    return [event for event in events if event.id not in sent_ids]
 
 
 def _exclusion_reason(
     event: Event,
     config: Config,
-    sent_ids: frozenset[str],
     hidden_ids: frozenset[str],
     horizon: datetime,
 ) -> _Exclusion | None:
@@ -141,9 +161,6 @@ def _exclusion_reason(
         for keyword in config.filters.blocked_keywords
     ):
         return _Exclusion("blocked_keyword")
-
-    if event.id in sent_ids:
-        return _Exclusion("already_sent")
 
     return None
 

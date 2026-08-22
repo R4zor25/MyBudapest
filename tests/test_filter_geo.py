@@ -12,8 +12,8 @@ from structlog.testing import capture_logs
 from digest.config import Config, FiltersConfig, GeoFilterConfig, HomeConfig, load_config
 from digest.fetch.base import FetchResult, FetchTask
 from digest.models import Event, RawEvent, make_event_id
-from digest.pipeline.filter import GEO_REASONS, filter_with_reasons
-from digest.pipeline.filter import filter as filter_events
+from digest.pipeline.filter import GEO_REASONS, content_filter_with_reasons
+from digest.pipeline.filter import content_filter as filter_events
 from digest.pipeline.normalize import normalize
 from digest.sources.registry import load_sources
 
@@ -86,7 +86,7 @@ def test_an_event_with_no_city_is_kept_when_allow_missing_city_is_true() -> None
 def test_an_event_with_no_city_is_dropped_when_allow_missing_city_is_false() -> None:
     config = geo_config(city="Budapest", allow_missing_city=False)
 
-    outcome = filter_with_reasons([make_event(city=None)], config, now=NOW)
+    outcome = content_filter_with_reasons([make_event(city=None)], config, now=NOW)
 
     assert outcome.events == []
     assert outcome.excluded["geo_city_missing"] == 1
@@ -115,7 +115,7 @@ def test_max_distance_km_excludes_independently_of_the_scoring_penalty() -> None
     config = geo_config(max_distance_km=8)
 
     assert config.scoring.proximity is None
-    outcome = filter_with_reasons([near, far], config, now=NOW)
+    outcome = content_filter_with_reasons([near, far], config, now=NOW)
 
     assert [e.title for e in outcome.events] == ["Közeli"]
     assert outcome.excluded["geo_too_far"] == 1
@@ -204,7 +204,7 @@ def test_distance_exclusion_works_end_to_end_from_coordinates() -> None:
     events = normalize(records, config, now=NOW)
     assert [round(e.distance_km or 0) for e in events] == [3, 27]
 
-    outcome = filter_with_reasons(events, config, now=NOW)
+    outcome = content_filter_with_reasons(events, config, now=NOW)
 
     assert [e.title for e in outcome.events] == ["Belvárosi est"]
     assert outcome.excluded["geo_too_far"] == 1
@@ -254,7 +254,7 @@ def test_the_run_summary_reports_the_geographic_exclusion_count(tmp_path) -> Non
         make_event(title="Pesti", city="Budapest"),
     ]
 
-    outcome = filter_with_reasons(events, config, now=NOW)
+    outcome = content_filter_with_reasons(events, config, now=NOW)
     dropped_by_geo = sum(outcome.excluded[reason] for reason in GEO_REASONS)
 
     assert dropped_by_geo == 2
@@ -262,9 +262,10 @@ def test_the_run_summary_reports_the_geographic_exclusion_count(tmp_path) -> Non
         source_counts={},
         dropped_as_past={},
         merged=0,
-        dropped_by_filter=2,
+        dropped_by_content=2,
         dropped_by_geo=dropped_by_geo,
         dropped_by_min_score=0,
+        suppressed_by_ledger=0,
         ungrouped_venueless=0,
         sent=1,
         drifted=[],
@@ -277,7 +278,7 @@ def test_geo_is_a_subset_of_dropped_by_filter_not_an_addition() -> None:
     config = geo_config(city="Budapest")
     events = [make_event(title="Győri", city="Győr"), make_event(title="Pesti", city="Budapest")]
 
-    outcome = filter_with_reasons(events, config, now=NOW)
+    outcome = content_filter_with_reasons(events, config, now=NOW)
 
     assert len(events) - len(outcome.events) == 1
     assert sum(outcome.excluded[reason] for reason in GEO_REASONS) == 1
@@ -290,7 +291,7 @@ def test_horizon_wins_attribution_over_geography() -> None:
     config = geo_config(city="Budapest")
     outside_and_late = make_event(city="Győr", start=NOW + timedelta(days=90))
 
-    outcome = filter_with_reasons([outside_and_late], config, now=NOW)
+    outcome = content_filter_with_reasons([outside_and_late], config, now=NOW)
 
     assert outcome.excluded["beyond_horizon"] == 1
     assert sum(outcome.excluded[reason] for reason in GEO_REASONS) == 0
@@ -428,7 +429,7 @@ def test_a_mapped_source_produces_no_geographic_exclusions(
     assert len(events) == expected
     assert {event.city for event in events} == {"Budapest"}
 
-    outcome = filter_with_reasons(events, strict, now=now)
+    outcome = content_filter_with_reasons(events, strict, now=now)
 
     assert sum(outcome.excluded[reason] for reason in GEO_REASONS) == 0
     assert len(outcome.events) == expected
@@ -453,7 +454,7 @@ def test_the_settlement_the_source_published_is_what_the_geo_stage_acts_on(
     now = datetime(2026, 8, 22, 10, 0, tzinfo=BUDAPEST)
     events = normalize(parse_fixture(config, "cooltix", "cooltix_events.json"), gyor, now=now)
 
-    outcome = filter_with_reasons(events, gyor, now=now)
+    outcome = content_filter_with_reasons(events, gyor, now=now)
 
     assert outcome.events == []
     assert outcome.excluded["geo_city_mismatch"] == len(events) == 83

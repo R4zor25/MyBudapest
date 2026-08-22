@@ -9,7 +9,8 @@ from structlog.testing import capture_logs
 from digest.config import CategoryRules, Config, FiltersConfig, ScheduleConfig
 from digest.models import Event, make_event_id
 from digest.pipeline.categorize import score_category
-from digest.pipeline.filter import filter as filter_events
+from digest.pipeline.filter import content_filter as filter_events
+from digest.pipeline.filter import exclude_already_sent
 
 BUDAPEST = ZoneInfo("Europe/Budapest")
 NOW = datetime(2026, 8, 16, 12, 0, tzinfo=BUDAPEST)
@@ -204,11 +205,21 @@ def test_a_categorization_keyword_still_matches_a_prefix() -> None:
     assert score_category(make_event(title="Társasjátékos est"), exact).total == 0
 
 
-def test_an_already_sent_event_is_excluded() -> None:
+def test_the_content_filter_knows_nothing_about_the_ledger() -> None:
+    """WAS "an already sent event is excluded", when the ledger lived in this chain. It is
+    a separate stage now, and this asserts the property that makes the site stable: the
+    content filter gives the same answer whatever the reader has been sent."""
     event = make_event()
 
-    assert filter_events([event], Config(), sent_ids=frozenset(), now=NOW) == [event]
-    assert filter_events([event], Config(), sent_ids=frozenset({event.id}), now=NOW) == []
+    assert filter_events([event], Config(), now=NOW) == [event]
+
+
+def test_the_sent_ledger_is_its_own_stage() -> None:
+    event = make_event()
+    other = make_event(title="Másik")
+
+    assert exclude_already_sent([event, other], frozenset()) == [event, other]
+    assert exclude_already_sent([event, other], frozenset({event.id})) == [other]
 
 
 def test_every_exclusion_reason_is_logged() -> None:

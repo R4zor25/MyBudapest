@@ -12,8 +12,10 @@ Pages oldalt. Nincs szerver, nincs adatbázis, nincs webframework.
 ## Architektúra
 
 ```
-fetch → normalize → dedup → recurrence → categorize → filter → score → group → limit
-      → render (email + web) → deliver → state commit
+fetch → normalize → dedup → recurrence → categorize → content_filter → score → group
+      ├─ web:   render → write_site                    (a teljes nézet)
+      └─ email: exclude_already_sent → limit → render → deliver
+      → state commit
 ```
 
 Minden pipeline szakasz **tiszta függvény** `(list[Event], Config) -> list[Event]` alakban,

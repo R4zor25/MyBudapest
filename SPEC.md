@@ -1045,7 +1045,9 @@ látszódjon, ne csak csendben átformálja a digestet.
 
 **Fontos sorrend:** a `group` a `score` UTÁN fut, mert a csoport pontszáma a tagok
 pontszámától függ. A pipeline tényleges sorrendje tehát:
-`normalize → dedup → recurrence → categorize → filter → score → group → limit`.
+`normalize → dedup → recurrence → categorize → content_filter → score → group`, majd az
+elágazás: a web a teljes listát kapja, az email előbb az `exclude_already_sent`-en megy
+át, utána jönnek a `limit`-ek (§7.6).
 
 ## 7.5 `categorize(events, config) -> list[Event]`
 
@@ -1117,11 +1119,44 @@ A publikus források a napi kvótára 250 / 1000 / 1500 közötti számokat mond
 kevesebbet — a kötegelés miatt ez mindegy. **Az `on_quota_error: fallback_to_rules` nem opció,
 hanem követelmény: az LLM soha nem lehet a pipeline kritikus útján.**
 
-## 7.6 `filter(events, config) -> list[Event]`
+## 7.6 `content_filter(events, config)` és `exclude_already_sent(events, sent_ids)`
 
-Kizár: horizonton kívül · **földrajz** · nem engedett kategória ·
-`price_min > max_price_huf` · `blocked_keywords` egyezés · a ledger szerint már kiküldött
-(§8.2) · `min_score` alatt.
+**Két kérdés, két szakasz.** Ez a szakasz 2026-08-22-ig egyetlen listaként sorolta fel a
+kizárásokat, a „ledger szerint már kiküldött" ponttal együtt — és pontosan ez a felsorolás
+volt a hiba forrása.
+
+| | mit kérdez | mihez tartozik | mikor változik a válasza |
+|---|---|---|---|
+| `content_filter` | **érdekli-e az olvasót ez az esemény** | magának az ESEMÉNYNEK és az olvasó állandó beállításainak a tulajdonsága | soha, ugyanarra a bemenetre |
+| `exclude_already_sent` | **volt-e már róla levél** | az olvasó ELŐZMÉNYÉNEK a tulajdonsága | futásról futásra, szándékosan |
+
+`content_filter` kizár: horizonton kívül · **földrajz** · nem engedett kategória ·
+`price_min > max_price_huf` · `blocked_keywords` egyezés · `overrides.hidden` (§14).
+A `min_score` ugyanide tartozik fogalmilag, de a `score()`-ban fut, mert `Event.score` kell
+hozzá, ami ennél a szakasznál még nincs meg.
+
+`exclude_already_sent` **csak az email ágon** fut, a `group` UTÁN:
+
+```
+… → categorize → content_filter → score → group ──┬──→ render_web      (a teljes nézet)
+                                                  └──→ exclude_already_sent
+                                                        → render_email  (a napi delta)
+```
+
+**Miért nem mindegy.** Amíg a ledger a tartalmi szűrők között volt, minden futás kivette az
+OLDALRÓL azt, amiről előző nap levél ment — a publikált lista futásról futásra fogyott, egy
+kihagyott nap pedig véglegesen elvitte azokat az eseményeket a webről. A mentett merítésen
+mérve: az első futás 84 eseményt publikált, a második a régi alakkal **1**-et, az újjal
+ismét 84-et. A szabály egy mondatban: **egy kihagyott nap egy emailbe kerül, sosem egy
+oldalbejegyzésbe.**
+
+A `group` szándékosan az elágazás ELŐTT fut. Egy összevont sornak a helyszín összes
+eseményéből kell állnia, nem abból, ami épp nem volt a tegnapi levélben — különben az oldal
+sorai az email-előzménytől függően változnának, ami ugyanaz a hiba egy szinttel feljebb.
+
+A futásösszegző a kettőt külön számolja: `dropped_by_content` (reprodukálható) és
+`suppressed_by_ledger` (az olvasó előzményével nő, és **nem** eldobás — minden ilyen esemény
+ott van az oldalon).
 
 **Földrajzi kizárás.** Több forrás országos — a kvizestek végpontja 132 rekordból 41-et ad
 Budapesten kívül, és a jegyértékesítők ugyanilyenek. Enélkül a
