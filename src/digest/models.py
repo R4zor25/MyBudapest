@@ -65,6 +65,12 @@ class Event(BaseModel):
     description: str | None
     start: datetime
     end: datetime | None
+    # False when the source published a bare date and `start`'s 00:00 is a MISSING VALUE
+    # rather than a clock reading. Set by normalize from the format the parser matched
+    # (§7.1) — never inferred from `start.time() == midnight`, because a genuine midnight
+    # event exists and must keep behaving like one. Defaults True so that every Event
+    # built before this field existed keeps its old meaning.
+    start_time_known: bool = True
     effective_date: date
     is_series: bool = False
     venue_name: str | None

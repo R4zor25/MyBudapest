@@ -26,6 +26,9 @@ _EXPECTED_EVENT_KEYS = {
     "title",
     "url",
     "start",
+    # Not the timestamp's twin but its caveat: whether that 00:00 is a time or a gap.
+    # The page's own night-shift needs it (§7.1/§7.7).
+    "start_time_known",
     "venue",
     "district",
     "categories",

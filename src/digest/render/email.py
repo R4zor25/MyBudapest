@@ -237,6 +237,14 @@ def _meta_text(event: Event) -> str:
     return " · ".join(part for part in parts if part)
 
 
+def _time_label(event: Event) -> str:
+    """Empty when the source published no clock. The templates that render a bare label
+    show the date's weekday beside it and simply lose the time; the two that append a
+    suffix ("19:00-tól") guard on the value, because "-tól" with nothing before it reads
+    worse than the 00:00 this replaces."""
+    return event.start.strftime("%H:%M") if event.start_time_known else ""
+
+
 def _night_note(event: Event) -> str | None:
     if event.start.date() == event.effective_date:
         return None
@@ -249,7 +257,7 @@ def _build_event_row(event: Event) -> dict[str, object]:
         "url": event.urls[0] if event.urls else None,
         "title": event.title,
         "weekday_label": _WEEKDAY_NAMES[event.effective_date.weekday()],
-        "time_label": event.start.strftime("%H:%M"),
+        "time_label": _time_label(event),
         "night_note": _night_note(event),
         "bar_lit": lit,
         "score_color": color,
@@ -294,7 +302,7 @@ def _build_grouped_row(event: Event, today: date) -> dict[str, object]:
         "url": event.urls[0] if event.urls else None,
         "venue_name": event.venue_name,
         "day_word": day_word,
-        "time_label": event.start.strftime("%H:%M"),
+        "time_label": _time_label(event),
         "district_label": f"{event.district} kerület" if event.district else None,
         "description": event.description,
         "remaining": remaining,
@@ -326,7 +334,7 @@ def _build_expiring_row(event: Event, config: Config, today: date) -> dict[str, 
         "url": event.urls[0] if event.urls else None,
         "title": event.title,
         "weekday_label": _WEEKDAY_NAMES[event.effective_date.weekday()],
-        "time_label": event.start.strftime("%H:%M"),
+        "time_label": _time_label(event),
         "meta_parts": parts,
         "score_label": _format_score(event.score),
     }

@@ -74,7 +74,7 @@
         </tr>
         <tr>
           <td style="font-size:12px; line-height:1.5; color:#9397ab; padding:0;">
-            {{ row.time_label }}-tól{% if row.district_label %} &nbsp;·&nbsp; {{ row.district_label }}{% endif %} &nbsp;·&nbsp; {{ row.description }}{% if row.remaining > 0 %} és további {{ row.remaining }} program{% endif %}
+            {% if row.time_label %}{{ row.time_label }}-tól &nbsp;·&nbsp; {% endif %}{% if row.district_label %}{{ row.district_label }} &nbsp;·&nbsp; {% endif %}{{ row.description }}{% if row.remaining > 0 %} és további {{ row.remaining }} program{% endif %}
           </td>
         </tr>
         </table>

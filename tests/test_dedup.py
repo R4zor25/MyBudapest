@@ -20,7 +20,15 @@ from digest.sources.plugins.port_hu import PortHuSource
 BUDAPEST = ZoneInfo("Europe/Budapest")
 START = datetime(2026, 8, 20, 20, 0, tzinfo=BUDAPEST)
 
-CONFIG = Config(sources={"port-hu": {"priority": 10}, "jegy-hu": {"priority": 20}})
+CONFIG = Config(
+    sources={
+        "port-hu": {"priority": 10},
+        "jegy-hu": {"priority": 20},
+        # Weakest of the enabled sources, and the only date-only one -- so it is never the
+        # merge base against a timed record. See the note in dedup._merge.
+        "programturizmus": {"priority": 40},
+    }
+)
 
 
 def make_event(**overrides: Any) -> Event:
@@ -262,6 +270,58 @@ def test_a_stated_city_is_not_overwritten_by_a_lower_priority_one() -> None:
     (merged,) = dedup([base, other], CONFIG)
 
     assert merged.city == "Budapest"
+
+
+def test_a_date_only_event_merges_with_a_timed_one_on_the_same_day() -> None:
+    """The blindness this removes: a source publishing a bare date lands on 00:00, so the
+    90-minute gate could only ever compare it against 00:00-01:30 starts. Title and venue
+    are unchanged as conditions -- only the start gate widens, and only when a clock is
+    genuinely unknown."""
+    timed = make_event(source_ids=["port-hu"], start=START, start_time_known=True)
+    date_only = make_event(
+        title="Sub Focus | A38 Hajó Nagyterem",
+        urls=["https://programturizmus.hu/x"],
+        source_ids=["programturizmus"],
+        start=START.replace(hour=0, minute=0),
+        start_time_known=False,
+    )
+
+    merged = dedup([timed, date_only], CONFIG)
+
+    assert len(merged) == 1
+    assert set(merged[0].source_ids) == {"port-hu", "programturizmus"}
+    # The timed record is the merge base (lower priority number), so the real clock and
+    # its flag survive -- see the note in dedup._merge.
+    assert merged[0].start_time_known is True
+    assert merged[0].start == START
+
+
+def test_a_date_only_event_does_not_merge_across_days() -> None:
+    """The widened gate is a same-CALENDAR-DAY gate, not "no gate at all"."""
+    timed = make_event(source_ids=["port-hu"], start=START, start_time_known=True)
+    next_day = make_event(
+        title="Sub Focus | A38 Hajó Nagyterem",
+        urls=["https://programturizmus.hu/x"],
+        source_ids=["programturizmus"],
+        start=(START + timedelta(days=1)).replace(hour=0, minute=0),
+        start_time_known=False,
+    )
+
+    assert len(dedup([timed, next_day], CONFIG)) == 2
+
+
+def test_two_timed_events_still_use_the_ninety_minute_gate() -> None:
+    """The widening must not leak into the ordinary case: same day, same title, same
+    venue, but four hours apart and both clocks real -- still two events."""
+    early = make_event(source_ids=["port-hu"], start=START.replace(hour=14, minute=0))
+    late = make_event(
+        title="Sub Focus | A38 Hajó Nagyterem",
+        urls=["https://jegy.hu/x"],
+        source_ids=["jegy-hu"],
+        start=START.replace(hour=18, minute=0),
+    )
+
+    assert len(dedup([early, late], CONFIG)) == 2
 
 
 def test_a_free_flag_travels_with_its_price() -> None:

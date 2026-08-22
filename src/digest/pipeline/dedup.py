@@ -96,11 +96,30 @@ def _merge_fuzzy(events: list[Event], config: Config) -> list[Event]:
 
 def _fuzzy_score(a: Event, b: Event) -> float | None:
     """None when the pair fails a non-title condition — all three are mandatory (§7.2)."""
-    if abs(a.start - b.start) > _MAX_START_GAP:
+    if not _starts_match(a, b):
         return None
     if not _venues_match(a, b):
         return None
     return token_set_ratio(fuzzy_title(a), fuzzy_title(b))
+
+
+def _starts_match(a: Event, b: Event) -> bool:
+    """90 minutes apart when both clocks are real, the same calendar day when either one
+    is not.
+
+    A source that publishes a bare date lands on 00:00, so under the 90-minute rule it
+    could only ever match something starting between 00:00 and 01:30 — which is to say it
+    was structurally unable to deduplicate against an evening listing of the same event.
+    That was permanent, silent blindness, not a tuning problem: no gap setting fixes a
+    comparison between a real time and a missing one. Comparing the day is the most the
+    coarser record supports, and it is exactly what that record actually asserts.
+
+    `start.date()` and not `effective_date`: the latter has already had the night shift
+    applied to whichever side had a real clock, so an 00:30 event would be compared on the
+    previous day and never match the date-only record naming its actual day."""
+    if a.start_time_known and b.start_time_known:
+        return abs(a.start - b.start) <= _MAX_START_GAP
+    return a.start.date() == b.start.date()
 
 
 def _venues_match(a: Event, b: Event) -> bool:
@@ -149,6 +168,14 @@ def _merge(first: Event, second: Event, config: Config) -> Event:
     # know the settlement would drop an event both sources agree is in town.
     if base.city is None and other.city is not None:
         update["city"] = other.city
+    # NO start/start_time_known rule here on purpose. The pairing this enables — a
+    # date-only record merging with a timed one — always has the timed record as base
+    # today, because programturizmus is the only date-only source and its priority (40) is
+    # the weakest of all of them, while every timed source sits at 35 or below. So the
+    # base already holds the better value and there is nothing to promote. If a date-only
+    # source ever gets a strong priority, this is where it has to be handled, and `start`,
+    # `start_time_known` and `effective_date` must move together — the last is derived
+    # from the first two in §7.1 and would otherwise contradict them.
     return base.model_copy(update=update)
 
 

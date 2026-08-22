@@ -11,7 +11,7 @@ ahhoz, hogy felírjam ide. Ez nem hiba: ez az életjel. Ha az email megjött, a 
 
 FESZTIVÁL
 {% for row in grouped_rows %}
-* {{ row.venue_name }} — {{ row.day_word }} {{ row.group_size }} program ({{ row.time_label }}-tól{% if row.district_label %}, {{ row.district_label }}{% endif %})
+* {{ row.venue_name }} — {{ row.day_word }} {{ row.group_size }} program{% if row.time_label or row.district_label %} ({% if row.time_label %}{{ row.time_label }}-tól{% endif %}{% if row.time_label and row.district_label %}, {% endif %}{% if row.district_label %}{{ row.district_label }}{% endif %}){% endif %}
   {{ row.description }}{% if row.remaining > 0 %} és további {{ row.remaining }} program{% endif %}
   {{ row.url }}
 {% endfor %}

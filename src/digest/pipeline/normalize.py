@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import html
 import re
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 from math import asin, cos, radians, sin, sqrt
 from zoneinfo import ZoneInfo
 
@@ -29,12 +29,14 @@ _NON_DIGIT_RE = re.compile(r"\D")
 # these are the Hungarian display formats it cannot read (§7.1). The dotted-without-spaces
 # pair ("%Y.%m.%d.") was added for package 11's declarative sources — Port.hu's own format
 # goes through fromisoformat and never touched this list until a real site needed it.
-_DISPLAY_FORMATS = (
-    "%Y. %m. %d. %H:%M",
-    "%Y. %m. %d. %H:%M:%S",
-    "%Y. %m. %d.",
-    "%Y.%m.%d. %H:%M",
-    "%Y.%m.%d.",
+# Each format is paired with whether it carries a clock. A date-only format yields
+# midnight, and that midnight must not be read as a time (§7.1) — it is the absence of one.
+_DISPLAY_FORMATS: tuple[tuple[str, bool], ...] = (
+    ("%Y. %m. %d. %H:%M", True),
+    ("%Y. %m. %d. %H:%M:%S", True),
+    ("%Y. %m. %d.", False),
+    ("%Y.%m.%d. %H:%M", True),
+    ("%Y.%m.%d.", False),
 )
 
 # strptime has no locale-independent way to read a spelled-out month name, and setting the
@@ -65,31 +67,51 @@ _DESCRIPTION_LIMIT = 400
 _EARTH_RADIUS_KM = 6371.0
 
 
-def parse_datetime(value: str, tz: ZoneInfo) -> datetime | None:
-    """Naive input is Budapest local time, not UTC: every source in the list publishes
-    local times, and reading them as UTC would move an evening concert to the afternoon."""
+def parse_datetime(value: str, tz: ZoneInfo) -> tuple[datetime, bool] | None:
+    """`(start, time_known)`, or None if nothing matched.
+
+    Naive input is Budapest local time, not UTC: every source in the list publishes local
+    times, and reading them as UTC would move an evening concert to the afternoon.
+
+    `time_known` is decided HERE, by which format matched, and nowhere else. A source that
+    publishes "2026.09.19." carries no clock, so the 00:00 that comes out is a missing
+    value; a source that publishes "2026-08-16 00:00:00" is stating midnight. The two are
+    identical afterwards, which is why the answer has to travel with the value instead of
+    being recovered from it later (§7.1)."""
     text = value.strip()
     if not text:
         return None
-    parsed = _parse_any_format(text)
-    if parsed is None:
-        return None
-    if parsed.tzinfo is None:
-        return parsed.replace(tzinfo=tz)
-    return parsed.astimezone(tz)
+    return _parse_any_format(text, tz)
 
 
-def _parse_any_format(text: str) -> datetime | None:
+def _parse_any_format(text: str, tz: ZoneInfo) -> tuple[datetime, bool] | None:
+    # A bare ISO date parses as a datetime too, so it is tested first and separately —
+    # `date.fromisoformat` rejects anything carrying a clock, which makes this a decision
+    # about the input's shape rather than about the value it produced.
     try:
-        return datetime.fromisoformat(text)
+        day = date.fromisoformat(text)
     except ValueError:
         pass
-    for fmt in _DISPLAY_FORMATS:
+    else:
+        return _localize(datetime(day.year, day.month, day.day), tz), False  # noqa: DTZ001
+
+    try:
+        return _localize(datetime.fromisoformat(text), tz), True
+    except ValueError:
+        pass
+    for fmt, time_known in _DISPLAY_FORMATS:
         try:
-            return datetime.strptime(text, fmt)  # noqa: DTZ007 — the caller attaches the zone
+            parsed = datetime.strptime(text, fmt)  # noqa: DTZ007 — _localize attaches the zone
         except ValueError:
             continue
-    return _parse_hungarian_long_date(text)
+        return _localize(parsed, tz), time_known
+    # The Hungarian long form's regex requires HH:MM, so a match always carries a clock.
+    long_form = _parse_hungarian_long_date(text)
+    return (_localize(long_form, tz), True) if long_form is not None else None
+
+
+def _localize(value: datetime, tz: ZoneInfo) -> datetime:
+    return value.replace(tzinfo=tz) if value.tzinfo is None else value.astimezone(tz)
 
 
 def _parse_hungarian_long_date(text: str) -> datetime | None:
@@ -207,6 +229,16 @@ def _first_zip(text: str | None) -> str | None:
     return match[1] if match else None
 
 
+def _effective_date(start: datetime, start_time_known: bool, config: Config) -> date:
+    """§7.7's night shift: a 02:00 festival set belongs to the previous evening. It applies
+    only when the clock reading is real. Shifting a source that published a bare date files
+    it a day early — the shift would be reading a missing value as "just after midnight",
+    which is the one thing 00:00 does not mean there."""
+    if not start_time_known:
+        return start.date()
+    return (start - timedelta(hours=config.night_shift.before_hour)).date()
+
+
 def _distance_km(raw: RawEvent, config: Config) -> float | None:
     home = config.home
     if home is None or raw.lat is None or raw.lon is None:
@@ -240,8 +272,8 @@ def _normalize_one(
     now: datetime,
     horizon: datetime,
 ) -> Event | None:
-    start = parse_datetime(raw.start_raw or "", tz)
-    if start is None:
+    parsed_start = parse_datetime(raw.start_raw or "", tz)
+    if parsed_start is None:
         log.warning(
             "unparseable_start",
             source=raw.source_id,
@@ -249,8 +281,10 @@ def _normalize_one(
             value=raw.start_raw,
         )
         return None
+    start, start_time_known = parsed_start
 
-    end = parse_datetime(raw.end_raw, tz) if raw.end_raw else None
+    parsed_end = parse_datetime(raw.end_raw, tz) if raw.end_raw else None
+    end = parsed_end[0] if parsed_end else None
     if raw.end_raw and end is None:
         log.warning(
             "unparseable_end",
@@ -280,7 +314,8 @@ def _normalize_one(
         description=clean_description(raw.description),
         start=start,
         end=end,
-        effective_date=(start - timedelta(hours=config.night_shift.before_hour)).date(),
+        start_time_known=start_time_known,
+        effective_date=_effective_date(start, start_time_known, config),
         venue_name=venue_name,
         city=_city(raw),
         district=_district(raw),

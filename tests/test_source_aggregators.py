@@ -17,7 +17,7 @@ from structlog.testing import capture_logs
 from digest.config import Config, load_config
 from digest.fetch.base import FetchResult, FetchTask
 from digest.models import Event, RawEvent
-from digest.pipeline.dedup import _MAX_START_GAP, _venues_match, dedup, fuzzy_title
+from digest.pipeline.dedup import _MAX_START_GAP, _starts_match, _venues_match, dedup, fuzzy_title
 from digest.pipeline.normalize import normalize
 from digest.sources.declarative import DeclarativeSource
 from digest.sources.registry import load_sources
@@ -422,45 +422,49 @@ def test_no_same_day_cross_source_pair_is_even_close_to_the_title_threshold(
     assert best < 40
 
 
-def test_every_programturizmus_event_lands_in_the_previous_days_bucket(
+def test_programturizmus_events_keep_their_own_day(
     all_fixture_events: list[Event],
 ) -> None:
-    """A REPORTED DEFECT, pinned rather than patched — the fix belongs in normalize.py or
-    config.yaml, both outside this batch.
+    """WAS a pinned defect: the listing publishes a date with no clock, `%Y.%m.%d.` parsed
+    to 00:00, and §7.7's night shift then subtracted five hours and filed every event on
+    the previous day — feeding `weekday_weights`, the group key and the email's day
+    headings a date that was simply wrong.
 
-    The listing publishes a date with no clock time, so `%Y.%m.%d.` parses to 00:00. §7.7's
-    night-shift then subtracts `night_shift.before_hour` (5) before taking the date, so a
-    Saturday event filed at 00:00 gets `effective_date` = Friday. That feeds
-    `weekday_weights` in scoring, the `group` key, and the email's day headings.
-
-    Port.hu's 00:00 starts shift too, and there the rule is doing its job: those really are
-    late-night Sziget sets belonging to the previous evening. The rule cannot tell a
-    genuine 00:30 concert from a source that simply does not publish a time — and no
-    source-level fix exists, because §6.3's transforms cannot synthesize one.
-    """
+    Fixed by carrying `start_time_known` out of the parser (§7.1): the shift now applies
+    only to a real clock reading. Port.hu's genuine 00:00-04:00 sets still shift; see
+    test_port_hu_night_sets_still_shift below."""
     programturizmus = [e for e in all_fixture_events if e.source_ids == ["programturizmus"]]
-    shifted = [e for e in programturizmus if e.effective_date != e.start.date()]
 
     assert len(programturizmus) == 20
-    assert len(shifted) == 20
+    # The source publishes no clock, so the 00:00 is a missing value, not midnight.
+    assert all(not e.start_time_known for e in programturizmus)
     assert all(e.start.hour == 0 and e.start.minute == 0 for e in programturizmus)
+    # ...and therefore every event stays on the day the listing actually named.
+    assert [e for e in programturizmus if e.effective_date != e.start.date()] == []
 
 
-def test_programturizmus_can_never_merge_with_anything_regardless_of_overlap(
+def test_programturizmus_is_no_longer_structurally_unable_to_merge(
     all_fixture_events: list[Event],
 ) -> None:
-    # The structural half of the zero-merge result, as opposed to the fixture-window half.
-    # Every event from this source starts at 00:00, and `_fuzzy_score` returns None beyond a
-    # 90-minute gap — so it can only ever be compared against events starting 00:00-01:30.
-    # This holds on every real run, however well the capture windows line up.
+    """WAS the structural half of the zero-merge result: every event from this source
+    starts at 00:00, and the old `_fuzzy_score` gate returned None beyond a 90-minute gap,
+    so a date-only record could only ever be compared against events starting 00:00-01:30.
+    No capture window could fix that — it held on every real run.
+
+    The gate is now same-calendar-day whenever either side's clock is unknown, so these
+    records can finally be compared at all: 0 comparable pairs before, 19 after, on this
+    same fixture set. They still do not merge, but now for an ordinary reason (title and
+    venue), not because the comparison was impossible."""
     programturizmus = [e for e in all_fixture_events if e.source_ids == ["programturizmus"]]
     others = [e for e in all_fixture_events if e.source_ids != ["programturizmus"]]
 
-    comparable = [
+    by_old_gate = [
         (a, b) for a in programturizmus for b in others if abs(a.start - b.start) <= _MAX_START_GAP
     ]
+    by_new_gate = [(a, b) for a in programturizmus for b in others if _starts_match(a, b)]
 
-    assert comparable == []
+    assert by_old_gate == []
+    assert len(by_new_gate) == 19
 
 
 def test_a_venueless_group_collapses_into_a_row_titled_none(

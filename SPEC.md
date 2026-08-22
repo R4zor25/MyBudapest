@@ -796,6 +796,10 @@ Sorrend kötött.
 - Dátum parseolás: `eventStart`-szerű ISO, magyar display formátumok (`2026. 08. 14. 19:00`),
   ISO 8601 `datetime` attribútum. Ismeretlen formátum → rekord eldobva + WARNING.
 - Minden `datetime` `Europe/Budapest`-re tz-aware-ré alakítva.
+- `start_time_known`: a §7.7 hajnali eltolás és a §7.2 indulási kapu bemenete. Az az egy
+  bit, hogy a forrás közölt-e órát — a parser állítja be aszerint, melyik formátumra
+  illeszkedett (`2026.09.19.` → False, `2026-08-16 01:00:00` → True), mert utólag a
+  00:00-ból ez már nem visszafejthető.
 - `city`: a §7.6 földrajzi szűrésének bemenete, három lépcsőben. (1) amit a forrás mond
   (`RawEvent.city`); (2) az irányítószám — `1XYZ` = Budapest, más négyjegyű kód
   bizonyítja, hogy nem Budapest, de a település nevét **nem találjuk ki**, ott `None`
@@ -832,6 +836,11 @@ Három szint, ebben a sorrendben:
 3. **Fuzzy:** `rapidfuzz.fuzz.token_set_ratio(t_a, t_b) >= 88`
    **ÉS** `abs(start_a - start_b) <= 90 perc`
    **ÉS** (`token_set_ratio(venue_a, venue_b) >= 85` **VAGY** az egyik venue `None`).
+
+**Indulási kapu:** 90 perc, ha **mindkét** rekord órája ismert; **azonos naptári nap**, ha
+bármelyiké nem (`start_time_known`, §7.1). Óra nélküli forrás 00:00-ra esik, tehát a 90
+perces szabály alatt csak 00:00–01:30 között indulókkal volt egyáltalán összevethető — ez
+állandó, néma vakfolt volt, nem hangolási kérdés. A cím- és helyszínkapu változatlan.
 
 **Merge szabály:** a kisebb `priority` értékű forrás rekordja a bázis. Mezőnként:
 a hosszabb `description` nyer; a nem-`None` ár nyer; a `lat/lon` az elsőtől, akinek van;
@@ -992,8 +1001,19 @@ parancsot (a Pages UI-nak nincs ilyen nézete, lásd §9.0 AUDIT-1 BLOCKER-2).
 tartoznak. Eltolás nélkül egy péntek éjjeli 02:00-s buli szombati `weekday_weight`-et kapna.
 
 ```python
-effective_date = (start - timedelta(hours=config.night_shift.before_hour)).date()
+if not event.start_time_known:
+    effective_date = start.date()
+else:
+    effective_date = (start - timedelta(hours=config.night_shift.before_hour)).date()
 ```
+
+**Csak ismert órára.** Ha a forrás óra nélküli dátumot közöl, a parser 00:00-t ad — az ott
+**hiányzó érték, nem időpont**. Öt órát visszalépni belőle egy nappal korábbra iktatja az
+eseményt; a programturizmus mind a 20 rekordja így volt hibás. A döntést a §7.1 parsere
+hozza meg, abból, hogy melyik formátumra illeszkedett (`Event.start_time_known`), és
+**soha nem** a `start.time() == éjfél` vizsgálatból: valódi éjféli esemény létezik, és annak
+tovább kell tolódnia. A Port.hu időbélyegei valódi órát hordoznak, tehát a 01:00-s és
+03:00-s szettjei változatlanul az előző estéhez kerülnek.
 
 ---
 

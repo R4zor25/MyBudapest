@@ -368,12 +368,17 @@ const TODAY = dayNum(NOW);
 
 function prep(e){
   const l = local(e.start);
-  const isNight = l.h < 5;                       // 01:00 → az előző este
+  // A forrás közölt-e órát. Ha nem, a 00:00 hiányzó érték, nem időpont — ilyenkor sem
+  // éjszakai eltolás nincs, sem óra nem jelenik meg. A `!== false` szándékos: a 90 napos
+  // archívum korábbi events.json fájljaiban ez a kulcs még nincs benne, és azok a
+  // rekordok a régi viselkedést kell megtartsák.
+  const timeKnown = e.start_time_known !== false;
+  const isNight = timeKnown && l.h < 5;          // 01:00 → az előző este
   const evening = dayNum(l) - (isNight ? 1 : 0); // melyik estéhez tartozik
   return Object.assign({}, e, {
-    l:l, isNight:isNight, evening:evening,
+    l:l, isNight:isNight, evening:evening, timeKnown:timeKnown,
     ts:new Date(e.start).getTime(),
-    time:String(l.h).padStart(2,"0")+":"+String(l.mi).padStart(2,"0"),
+    time:timeKnown ? String(l.h).padStart(2,"0")+":"+String(l.mi).padStart(2,"0") : "",
     hay:fold([e.title, e.venue||"", (e.categories||[]).map(c=>CAT[c]||c).join(" ")].join(" "))
   });
 }
@@ -407,7 +412,7 @@ function meter(score){
 // no per-term breakdown on the public site (SPEC 9.0) — score_breakdown terms are the
 // private profile's numbers verbatim. The full breakdown still renders in the email.
 function railHTML(e){
-  return '<div class="rail"><div class="day">'+esc(dayLabel(e))+'</div><div class="time">'+e.time+"</div>"
+  return '<div class="rail"><div class="day">'+esc(dayLabel(e))+'</div>'+(e.time?'<div class="time">'+e.time+"</div>":"")
     + (e.isNight ? '<div class="night">éjjel, '+esc(dayOnto(e.evening+1))+"</div>" : "")
     + meter(e.score) + '<div class="score">'+num1(e.score)+"</div></div>";
 }

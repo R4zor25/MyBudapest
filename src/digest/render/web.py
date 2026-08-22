@@ -137,6 +137,10 @@ def _event_to_json(event: Event) -> dict[str, Any]:
         "title": event.title,
         "url": event.urls[0] if event.urls else "",
         "start": event.start.isoformat(),
+        # A data-quality flag, not profile data: without it the page cannot tell a source
+        # that published no clock from one that published midnight, and its own night-shift
+        # (see prep() in index.html.j2) would file the first a day early.
+        "start_time_known": event.start_time_known,
         "venue": event.venue_name,
         "district": event.district,
         "categories": event.categories,
