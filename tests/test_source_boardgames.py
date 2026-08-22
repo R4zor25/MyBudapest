@@ -399,9 +399,12 @@ def test_tokenklub_upcoming_is_honestly_empty(config, repo_root: Path) -> None:
 # --------------------------------------------------------------------------------------
 
 
-def test_tarsasjatekos_is_disabled_and_says_why(sources_dir: Path) -> None:
+def test_tarsasjatekos_is_enabled_against_the_calendar_api(sources_dir: Path) -> None:
+    # Enabled 2026-08-22 once GCAL_API_KEY existed. It was off for exactly one reason --
+    # no credential -- and the URL is pinned because the calendar id is percent-encoded
+    # into it (test_config_privacy.py rejects a bare at-sign anywhere under sources/).
     spec = yaml.safe_load((sources_dir / "tarsasjatekos.yaml").read_text(encoding="utf-8"))
-    assert spec["enabled"] is False
+    assert spec["enabled"] is True
     assert spec["listing"]["urls"] == [
         (
             "https://www.googleapis.com/calendar/v3/calendars/"
@@ -530,11 +533,22 @@ def test_tarsasjatekos_asserts_the_board_game_topic_itself(config) -> None:
     assert event.categories[0] == "tarsasjatek"
 
 
-def test_disabled_sources_never_reach_discover(config) -> None:
-    """tarsasjatekos raises without its key, so it must not be entered at all while
-    disabled -- cli.py's run loop skips on `enabled` before calling discover()."""
+def test_an_enabled_source_without_its_key_fails_loudly_rather_than_silently(
+    config, monkeypatch
+) -> None:
+    """WAS "disabled sources never reach discover()", which stopped saying anything the
+    moment this source was switched on. What still matters is the property underneath it:
+    a source that cannot authenticate must fail where it is entered, not contribute zero
+    events and look like a quiet night -- the silent-zero mode AUDIT-5 caught on port-hu.
+
+    cli.py's run loop catches this per source, so a keyless run loses tarsasjatekos and
+    nothing else."""
+    monkeypatch.delenv("GCAL_API_KEY", raising=False)
     source = source_by_id(config, "tarsasjatekos")
-    assert source.enabled is False
+
+    assert source.enabled is True
+    with pytest.raises(ConfigError, match="GCAL_API_KEY"):
+        list(source.discover())
 
 
 # --------------------------------------------------------------------------------------

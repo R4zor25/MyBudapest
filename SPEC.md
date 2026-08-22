@@ -1429,6 +1429,7 @@ jobs:
           SMTP_USER:       ${{ secrets.SMTP_USER }}
           SMTP_PASSWORD:   ${{ secrets.SMTP_PASSWORD }}
           GEMINI_API_KEY:  ${{ secrets.GEMINI_API_KEY }}
+          GCAL_API_KEY:    ${{ secrets.GCAL_API_KEY }}
         run: digest run
 
       - name: Commit state
@@ -1446,6 +1447,13 @@ jobs:
       - id: deploy
         uses: actions/deploy-pages@v4
 ```
+
+**Ez a blokk másolat, és a másolat elavul.** A mérvadó a
+`.github/workflows/digest.yml`; ez itt a szerkezet magyarázatára van. A `GCAL_API_KEY` sor
+2026-08-22-ig hiányzott innen, miközben a workflow-ban ott volt — ugyanaz a hibaosztály,
+mint a §5.1-nél és a §9.1-nél volt. A `tests/test_workflow.py` innentől azt őrzi, hogy a
+kód által olvasott minden környezeti változó szerepeljen a `Run digest` lépés `env:`
+blokkjában, és hogy ne legyen benne olyan, amit semmi nem olvas.
 
 **Költség.** Privát repóban havi 2000 ingyenes Linux-perc, publikusban korlátlan.
 Napi 3-5 perces futás ≈ 150 perc/hó.

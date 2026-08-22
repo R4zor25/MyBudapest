@@ -1,6 +1,6 @@
 id: tarsasjatekos
 name: Magyar Társasjátékos Egyesület — klubnaptár
-enabled: false
+enabled: true
 priority: 15
 fetcher: api
 rate_limit_seconds: 3
@@ -14,25 +14,22 @@ plugin: tarsasjatekos
 # sampled 2026-08-22 it held 160 events across a year, of which 8 fell inside a 14-day
 # horizon in Budapest, plus 4 more from two weekly clubs once recurrence is expanded.
 #
-# ENABLED: false — ONLY because GCAL_API_KEY does not exist yet. Nothing else is missing:
-# the plugin is written, the calendar is public and confirmed readable, and the API
-# answered the exact request below with a 403 whose message is "Method doesn't allow
-# unregistered callers", i.e. the path and calendar id are right and only the credential
-# is absent. To turn this on:
-#   1. Create an API key in any Google Cloud project with the Calendar API enabled
-#      (no OAuth, no billing — a public calendar needs nothing but a key).
-#   2. Put it in the repo's Actions secrets as GCAL_API_KEY and export it locally.
-#   3. Save a real response to tests/fixtures/tarsasjatekos_calendar.json and flip this
-#      flag. test_source_boardgames.py has the assertions ready and skips until the
-#      fixture exists.
+# ENABLED 2026-08-22, once GCAL_API_KEY existed as a repo secret. The workflow has passed
+# it to the run since the source was written (`.github/workflows/digest.yml`, and
+# tests/test_workflow.py now fails if any variable the code reads stops reaching it).
 #
-# UNTESTED AGAINST REAL DATA. parse() has never run on a Calendar API response — the field
-# mapping was written from the documented schema, and the ~12 events it is credited with
-# were measured on the .ics export of the same calendar, not on the API. The first keyed
-# run is also its first real exercise; treat that run's output as evidence, not as a
-# regression check.
-# Enabling it without the key is loud, not silent: discover() raises ConfigError naming
-# the variable, which cli.py logs as `source_failed`.
+# STILL UNTESTED AGAINST REAL DATA — this flag being true does not change that. parse()
+# has never run on a Calendar API response: the field mapping was written from the
+# documented schema, and the ~12 events this source is credited with were measured on the
+# .ics export of the same calendar, not on the API. The key is not available outside CI,
+# so the first real exercise is the first scheduled run. Treat that run's output as
+# evidence, not as confirmation, and read `record_skipped` in its log before trusting the
+# counts. There is still no tests/fixtures/tarsasjatekos_calendar.json, so the assertions
+# in test_source_boardgames.py that wait on one continue to skip.
+#
+# The failure mode without the key is loud, not silent: discover() raises ConfigError
+# naming the variable, and cli.py logs it as `source_failed` under the per-source guard —
+# so a keyless run loses this source and nothing else.
 #
 # WHY THE API AND NOT THE .ics. The calendar's public iCal export
 # (calendar.google.com/calendar/ical/.../public/basic.ics) returns the same 160 events and
