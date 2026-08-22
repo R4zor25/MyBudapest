@@ -1,36 +1,6 @@
 {
-  "generated_at": "2026-08-21T05:00:57Z",
+  "generated_at": "2026-08-22T04:56:42Z",
   "events": [
-    {
-      "id": "bd333d5921bf4dd2",
-      "title": "hiperkarma",
-      "url": "https://bigcitylife.hu/kobuci-kert/hiperkarma-budapest-2026-08-21",
-      "start": "2026-08-21T19:00:00+02:00",
-      "venue": "Kobuci Kert",
-      "district": null,
-      "categories": [
-        "koncert"
-      ],
-      "price_min": 5900,
-      "is_free": false,
-      "score": 1.0,
-      "group_size": 1
-    },
-    {
-      "id": "387281de19eebbc1",
-      "title": "Kobuci Alter Bugi // péntek",
-      "url": "https://bigcitylife.hu/kobuci-kert/kobuci-alter-bugi-pentek-budapest-2026-08-21",
-      "start": "2026-08-21T22:01:00+02:00",
-      "venue": "Kobuci Kert",
-      "district": null,
-      "categories": [
-        "koncert"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 1.0,
-      "group_size": 1
-    },
     {
       "id": "3011b082ce80c148",
       "title": "Honeybeast",
