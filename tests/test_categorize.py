@@ -107,13 +107,75 @@ def test_accent_insensitive_matching(config: Config) -> None:
     assert plain_result.categories[0] == "tarsasjatek"
 
 
-def test_keyword_does_not_match_inside_a_longer_word() -> None:
+def test_keyword_does_not_match_in_the_middle_of_a_word() -> None:
+    """Prefix matching anchors at the start of a word, so a keyword buried inside one
+    still does not fire."""
     rules = CategoryRules(keywords={"koncert": 3})
-    inside_longer_word = make_event(title="Koncertterem bérlés")
+    buried = make_event(title="Szimfonikuskoncert-bérlet")
     standalone = make_event(title="Ma este koncert")
 
-    assert score_category(inside_longer_word, rules).total == 0
+    assert score_category(buried, rules).total == 0
     assert score_category(standalone, rules).total == 3
+
+
+def test_a_leading_compound_does_match_and_this_is_the_known_trade_off() -> None:
+    """The limitation prefix matching cannot dodge: Hungarian writes compounds closed, so
+    "koncertterem" (concert HALL, a venue-rental listing) is indistinguishable from
+    "koncertje" (his concert, an inflection) by shape alone. Both start at a word boundary
+    and continue with word characters. Matching the inflections is worth far more than the
+    occasional compound costs -- package 16 measured 12 new matches, 11 of them correct --
+    and `$` is the escape hatch where a specific stem proves otherwise."""
+    rules = CategoryRules(keywords={"koncert": 3})
+    compound = make_event(title="Koncertterem bérlés")
+
+    assert score_category(compound, rules).total == 3
+    assert score_category(compound, CategoryRules(keywords={"koncert$": 3})).total == 0
+
+
+@pytest.mark.parametrize(
+    ("title", "keyword"),
+    [
+        # The case that started this: Hungarian attaches suffixes, so the base form has to
+        # carry the declensions or every category silently under-matches.
+        ("Társasjátékos est", "társasjáték"),
+        ("koncertek a kertben", "koncert"),
+        ("kiállításon jártunk", "kiállítás"),
+        # Real surface forms from the fixtures, package 16 Part A.
+        ("A csapat hazai mérkőzése", "mérkőzés"),
+        ("ZSAZSA – Létay Dóra előadásában", "előadás"),
+        ("Társasjátékok Éjszakája", "társasjáték"),
+    ],
+)
+def test_a_keyword_matches_its_suffixed_forms(title: str, keyword: str) -> None:
+    assert score_category(make_event(title=title), CategoryRules(keywords={keyword: 3})).total == 3
+
+
+def test_a_short_keyword_keeps_whole_word_matching() -> None:
+    """Under five characters the stem is a common beginning of unrelated words, so prefix
+    matching would cost more than it gains: "rave" would fire on "ravasz"."""
+    rules = CategoryRules(keywords={"rave": 3})
+
+    assert score_category(make_event(title="Ravasz terv"), rules).total == 0
+    assert score_category(make_event(title="rave a kertben"), rules).total == 3
+
+
+def test_a_trailing_dollar_forces_whole_word_matching() -> None:
+    """The opt-out for a stem that over-matches. "party" is the measured one: it should
+    fire on "partysorozat" but not on "partyjátékokat" in a board-game description."""
+    prefix = CategoryRules(keywords={"party": 3})
+    exact = CategoryRules(keywords={"party$": 3})
+    inflected = make_event(title="Kommunikációs, partyjátékokat játsszunk")
+
+    assert score_category(inflected, prefix).total == 3
+    assert score_category(inflected, exact).total == 0
+    # The exact form still matches, so `$` narrows rather than disables.
+    assert score_category(make_event(title="party a kertben"), exact).total == 3
+
+
+def test_matching_stays_accent_and_case_insensitive_under_prefix_rules() -> None:
+    rules = CategoryRules(keywords={"kiállítás": 3})
+
+    assert score_category(make_event(title="KIALLITASON jartunk"), rules).total == 3
 
 
 def test_keyword_matches_a_multi_word_phrase() -> None:

@@ -324,9 +324,11 @@ def test_the_events_reach_the_kviz_category_which_is_the_point_of_this_batch(
         titles_by_category.setdefault(event.categories[0], set()).add(event.title)
 
     # FINDING 1 (reported, not patched — category rules are out of scope for this batch):
-    # `contains_word` matches on word boundaries, so the `kvíz` keyword does not fire
-    # inside the Hungarian compound "Filmkvíz". config.yaml already carries "kvízest" as a
-    # separate keyword for exactly this reason; "filmkvíz" is not in that list.
+    # the `kvíz` keyword does not fire inside the Hungarian compound "Filmkvíz". Package 16
+    # made keyword matching word-PREFIX based, which fixes the suffix case ("kvízestek"),
+    # but "Filmkvíz" puts the keyword at the END of a compound, where no prefix rule
+    # reaches it — and `kvíz` is under the five-character threshold anyway, so it stays
+    # whole-word. Still `egyeb`, for a reason that is now precisely stated.
     assert "Filmkvíz" in titles_by_category["egyeb"]
 
     # FINDING 2: the murder-mystery nights genuinely are not quizzes, so landing outside

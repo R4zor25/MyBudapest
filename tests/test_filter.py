@@ -118,11 +118,24 @@ def test_a_blocked_keyword_is_excluded_accent_and_case_insensitive() -> None:
     assert survivors == [allowed]
 
 
-def test_a_keyword_does_not_match_inside_a_longer_word() -> None:
+def test_a_keyword_does_not_match_in_the_middle_of_a_word() -> None:
     config = Config(filters=FiltersConfig(blocked_keywords=["koncert"]))
-    event = make_event(title="Koncertterem bérlés")
+    event = make_event(title="Szimfonikuskoncert-bérlet")
 
     assert filter_events([event], config, now=NOW) == [event]
+
+
+def test_blocked_keywords_widened_with_the_shared_matcher() -> None:
+    """blocked_keywords runs through the same contains_word as categorize (§7.6), so
+    prefix matching widened exclusion too -- deliberately: "gyerekprogram" should also
+    block "gyerekprogramok". The cost is the same compound ambiguity, and the same `$`
+    opt-out applies."""
+    config = Config(filters=FiltersConfig(blocked_keywords=["gyerekprogram"]))
+    inflected = make_event(title="Hétvégi gyerekprogramok a ligetben")
+
+    assert filter_events([inflected], config, now=NOW) == []
+    exact = Config(filters=FiltersConfig(blocked_keywords=["gyerekprogram$"]))
+    assert filter_events([inflected], exact, now=NOW) == [inflected]
 
 
 def test_an_already_sent_event_is_excluded() -> None:

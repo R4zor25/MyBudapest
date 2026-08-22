@@ -134,12 +134,58 @@ def fold_text(s: str) -> str:
     return _strip_accents(s).lower()
 
 
+# Below this length a keyword keeps whole-word matching. A short stem is a common
+# beginning of unrelated words, and dropping its trailing boundary is where prefix
+# matching turns into noise: of config.yaml's four-character keywords, "rave" would fire
+# on "ravasz", "piac" on "piackutatás", and "dj" on "djembe" — none of which are the
+# category they were written for. The suffix gain is also smallest there, because a
+# four-letter stem is usually already the whole word.
+#
+# The cost is real and accepted: "film" stays whole-word, so "filmek" is still missed.
+# Lowering this threshold is a config-wide decision that wants the Part A measurement
+# rerun, not a per-keyword judgement call.
+_MIN_PREFIX_KEYWORD_LENGTH = 5
+
+# A keyword written with a trailing "$" in the config opts out of prefix matching and is
+# matched as a whole word only — the escape hatch for the rare stem that over-matches.
+_EXACT_MATCH_MARKER = "$"
+
+
 def contains_word(text: str, phrase: str) -> bool:
-    """Accent- and case-insensitive, word-boundary containment: "koncert" must not match
-    inside "koncertterem". Shared by categorize's keyword scoring, filter's
-    blocked_keywords, and score's keyword_boosts (§7.5, §7.6, §7.7) — the same phrase must
-    count as present the same way everywhere, not almost the same way three times."""
-    pattern = r"(?<!\w)" + re.escape(fold_text(phrase)) + r"(?!\w)"
+    """Accent- and case-insensitive containment of a config keyword.
+
+    Hungarian is agglutinative: "társasjáték" appears in real titles as "Társasjátékos",
+    "Társasjátékok", "társasjátékot". Whole-word matching missed every one of them, in
+    every category — "koncert" missed "koncertje", "mérkőzés" missed "mérkőzése",
+    "előadás" missed "előadásában" — so the keyword must be allowed to carry a suffix.
+    The match therefore anchors at the START of a word and lets word characters follow;
+    it never matches mid-word, so "koncert" still does not fire inside "szimfonikuskoncert".
+
+    What it cannot do is tell an inflection from a compound. Hungarian writes compounds
+    closed, so "koncertje" (wanted) and "koncertterem" (a hall rental, not wanted) have
+    the same shape. Prefix matching accepts both. That is the deliberate trade: the
+    inflections are common and the compounds are rare — measured over the saved Port.hu,
+    Cooltix and kvizestek fixtures, 12 new matches, 11 of them correct — and `$` is the
+    per-keyword escape hatch when a specific stem turns out to be the exception.
+
+    Two guards on that:
+    - A phrase shorter than `_MIN_PREFIX_KEYWORD_LENGTH` keeps the old whole-word rule.
+    - A phrase ending in `$` is whole-word regardless of length (`_EXACT_MATCH_MARKER`).
+
+    Shared by categorize's keyword scoring, filter's blocked_keywords, and score's
+    keyword_boosts (§7.5, §7.6, §7.7) — the same phrase must count as present the same way
+    everywhere, not almost the same way three times. Widening it here widens all three by
+    design: the agglutination problem is not specific to categorization."""
+    folded = fold_text(phrase).strip()
+    exact_only = folded.endswith(_EXACT_MATCH_MARKER)
+    if exact_only:
+        folded = folded[: -len(_EXACT_MATCH_MARKER)].strip()
+    if not folded:
+        return False
+
+    pattern = r"(?<!\w)" + re.escape(folded)
+    if exact_only or len(folded) < _MIN_PREFIX_KEYWORD_LENGTH:
+        pattern += r"(?!\w)"
     return re.search(pattern, fold_text(text)) is not None
 
 

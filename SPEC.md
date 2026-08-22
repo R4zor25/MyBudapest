@@ -398,13 +398,23 @@ scoring:
 filters:
   categories: [koncert, klub, szinhaz, kiallitas, film, meetup, tarsasjatek, kviz, gasztro, fesztival, outdoor]
   max_price_huf: 12000
-  blocked_keywords: ["gyerekprogram", "bábszínház"]
+  blocked_keywords: ["gyerekprogram", "bábszínház"]   # szóeleji illesztés — lásd lent
   min_score: 3
   geo:
     city: "Budapest"          # a normalizált `city` mezőhöz hasonlítva
     allow_missing_city: true  # ismeretlen városú esemény MARAD, nem esik ki
     max_distance_km: null     # kemény kizárás, NEM a scoring.proximity büntetéshatára
 ```
+
+**Figyelem a `blocked_keywords`-re.** Ez a lista ugyanazon a `contains_word`-ön megy át,
+mint a kategóriák kulcsszavai, tehát a §7.5 szóeleji illesztése **ide is** vonatkozik — és
+ez az egyetlen hely, ahol a túlilleszés nem félrecímkéz, hanem **eldob** egy eseményt. A
+`gyerekprogram` így már fogja a „gyerekprogramok"-at is (ez a cél), de egy rövidebb
+`gyerek` tiltás kizárná a „Gyerekkori álmom volt ez a koncert" leírású koncertet és a
+„Gyerekzsivaj nélküli felnőtt est"-et is — vagyis pont az ellenkezőjét annak, amit kértél.
+Ha egy tiltószó túl tágan fog, írd `gyerek$` alakban: akkor csak a pontos szóra illeszkedik.
+A `keyword_boosts` ugyanígy szélesedett, de ott a hiba csak pontot mozdít, nem tüntet el
+eseményt.
 
 ## 5.3 Merge és validáció
 
@@ -842,6 +852,31 @@ pontszámától függ. A pipeline tényleges sorrendje tehát:
 
 Kategóriánként pontszám négy jelből: `keywords` (cím + leírás, súlyozva),
 `venue_prior`, `url_patterns`, `native_types`. A `native_types` egyezés **erős**: +4.
+
+**Kulcsszó-illesztés: szóeleji, nem teljes szavas.** A magyar toldalékol, ezért a teljes
+szavas illesztés minden kategóriában alulmért: a „társasjáték" nem fogta a
+„Társasjátékos"-t, a „koncert" a „koncertje"-t, a „mérkőzés" a „mérkőzése"-t, az „előadás"
+az „előadásában"-t. A `contains_word` ezért **szó elején horgonyoz, és a végén nyitva
+hagyja**: `(?<!\w)kulcsszó`. Szó közepén továbbra sem talál — a „koncert" nem tüzel a
+„szimfonikuskoncert" belsejében.
+
+Két korlát:
+
+- **5 karakternél rövidebb kulcsszó marad teljes szavas.** Rövid tő túl sok idegen szó
+  eleje: a `rave` a „ravasz"-ra, a `piac` a „piackutatás"-ra, a `dj` a „djembe"-re tüzelne.
+  Ennek ára is van, és vállaljuk: a `film` így nem fogja a „filmek"-et.
+- **A `$` végződésű kulcsszó kimarad a szóeleji illesztésből** és csak pontos szóra
+  illeszkedik. Ez a menekülőút arra a ritka tőre, ami túlilleszt.
+
+Amit a szóeleji illesztés **nem** tud: a toldalékot megkülönböztetni az összetételtől. A
+magyar egybeírja az összetett szavakat, így a „koncertje" (kell) és a „koncertterem"
+(nem kell) alakilag azonos. A csere ezt tudatosan vállalja — a mentett Port.hu, Cooltix
+és kvizestek fixture-ökön mérve 12 új találat, ebből 11 helyes —, a `$` pedig ott van
+arra az esetre, amikor egy konkrét tő mégis rosszul viselkedik.
+
+Ugyanez a függvény szolgálja a §7.6 `blocked_keywords`-öt és a §7.7 `keyword_boosts`-ot,
+tehát a bővítés **mindhármat** érinti; ez szándékos, a toldalékolás nem a kategorizálás
+sajátja.
 
 A legmagasabb pontszámú kategória a `primary_category`; minden `min_category_score` fölötti
 bekerül a `categories` listába. Ha egy sem éri el, `fallback_category` (`egyeb`).

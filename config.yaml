@@ -14,6 +14,12 @@ fetch:
 
 categories:
   # kategória -> jelek. A pontszám összeadódik, a legmagasabb nyer.
+  #
+  # A kulcsszavak SZÓELEJI illesztéssel mennek (§7.5): a "koncert" fogja a "koncertje" és
+  # "koncertek" alakot is, mert a magyar toldalékol. Ezért az alapalakot írd ide, ne a
+  # ragozott változatokat. Két kivétel: az 5 karakternél rövidebb kulcsszó teljes szavas
+  # marad, és a "$"-ra végződő kulcsszó szándékosan kimarad a szóeleji illesztésből
+  # (pl. `party$`), ha egy tő túlilleszt.
   koncert:
     keywords: { koncert: 3, "élő zene": 3, lemezbemutató: 2, zenekar: 2, akusztik: 2 }
     venue_prior: { "A38 Hajó": 2, "Akvárium Klub": 2, "Dürer Kert": 2, "Kobuci Kert": 2 }
@@ -38,16 +44,13 @@ categories:
   meetup:
     keywords: { meetup: 4, workshop: 2, előadás: 1, "közösségi": 2, networking: 3 }
   tarsasjatek:
-    # contains_word() is word-boundary anchored, so a Hungarian keyword only matches the
-    # exact surface form: "társasjáték" does NOT match "Társasjátékos kaland" or
-    # "Társasjátékok Éjszakája". Rather than loosen the shared matcher (filter and score
-    # depend on its strictness too), the suffixed forms that actually occur in the saved
-    # fixtures are listed explicitly. Adding a form here needs a fixture that contains it.
+    # `társasjátékos` / `társasjátékok` used to be listed here as separate keywords,
+    # because the matcher was whole-word only. contains_word() now matches a keyword plus
+    # any suffix (§7.5), so the base form covers every declension and the workaround was
+    # removed — it made this one category look special when the problem was config-wide.
     keywords:
       társasjáték: 4
-      társasjátékos: 4        # "Bunny Kingdom - Társasjátékos kaland" (tarsasjatekos)
-      társasjátékok: 4        # "Társasjátékok Éjszakája a TOKEN Klubban" (tokenklub)
-      játékbemutató: 4        # "Matchy Matchy és Palackposta - Játékbemutató"
+      játékbemutató: 4
       "board game": 4
       játékest: 4
       "társasozás": 4

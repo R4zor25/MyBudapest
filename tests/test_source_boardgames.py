@@ -503,9 +503,11 @@ def test_venue_prior_strings_match_what_sources_actually_emit(config, cooltix_ev
 def test_board_game_events_reach_the_tarsasjatek_category(
     config, cooltix_events, tixa_events
 ) -> None:
-    """The number this batch exists to move. contains_word is word-boundary anchored, so
-    "társasjáték" does not match "Társasjátékos kaland" -- before this batch every one of
-    these landed in `egyeb`."""
+    """The number that batch existed to move: before it, every one of these landed in
+    `egyeb`. It was fixed twice -- first by listing the suffixed forms as extra keywords,
+    then properly in package 16, which made contains_word match a word PREFIX so the base
+    form covers "Társasjátékos kaland" on its own. The extra keywords are gone; this still
+    passes, which is the point."""
     raw = [e for e in cooltix_events + tixa_events]
     events = categorize(in_horizon(raw, config), config)
     board_games = [e for e in events if "tarsasjatek" in e.categories]
