@@ -467,25 +467,21 @@ def test_programturizmus_is_no_longer_structurally_unable_to_merge(
     assert len(by_new_gate) == 19
 
 
-def test_a_venueless_group_collapses_into_a_row_titled_none(
+def test_venueless_events_are_never_collapsed_into_a_none_titled_row(
     all_fixture_events: list[Event], config: Config
 ) -> None:
-    """A REPORTED DEFECT, pinned rather than patched — the fix is in group.py, which this
-    batch does not own.
+    """WAS a pinned defect: programturizmus cards carry no venue (their location strip is
+    county/city/district only), so §7.4's key put them all in the same bucket and built the
+    collapsed title as f"{venue_name} — ...", which rendered "None — 4 program" straight
+    into the email.
 
-    programturizmus cards carry no venue (the location strip is county/city/district only),
-    so `venue_name` is None on all 20. §7.4 keys groups on
-    `(venue_name, effective_date, primary_category)` and builds the collapsed title as
-    `f"{venue_name} — {len(group)} program"`, which renders None literally. Four events
-    sharing a date and category therefore produce a row reading "None — 4 program", and
-    that string would go out in the email as-is.
-
-    Enabling any source without a venue triggers this; programturizmus is simply the first.
-    """
+    Fixed by excluding venue-less events from grouping entirely, not by patching the
+    title: a bucket of "every venue-less event of category X on day Y" is not a venue
+    group, and collapsing it hides unrelated events behind a meaningless summary row."""
     from digest.pipeline.categorize import categorize
     from digest.pipeline.dedup import dedup
     from digest.pipeline.filter import filter as filter_events
-    from digest.pipeline.group import group
+    from digest.pipeline.group import group_with_counts
     from digest.pipeline.recurrence import recurrence
     from digest.pipeline.score import score
 
@@ -493,9 +489,16 @@ def test_a_venueless_group_collapses_into_a_row_titled_none(
     # score -> group. The group key includes primary_category, so skipping categorize
     # would group different events than a real run does.
     events = categorize(recurrence(dedup(all_fixture_events, config), config), config)
-    grouped = group(score(filter_events(events, config), config), config)
-    collapsed = [event for event in grouped if event.group_size > 1]
+    scored = score(filter_events(events, config), config)
+    outcome = group_with_counts(scored, config)
+    collapsed = [event for event in outcome.events if event.group_size > 1]
 
-    assert "None — 4 program" in {event.title for event in collapsed}
-    # The other collapsed row shows what the stage looks like when a venue IS present.
+    assert not any(event.title.startswith("None") for event in collapsed)
+    assert all(event.venue_name is not None for event in collapsed)
+    # Every venue-less event survives individually, and the stage says how many.
+    venueless = [event for event in scored if event.venue_name is None]
+    assert venueless, "fixture should contain venue-less events"
+    assert outcome.ungrouped_venueless == len(venueless)
+    assert {event.id for event in venueless} <= {event.id for event in outcome.events}
+    # The stage still does its actual job where a venue IS present.
     assert "Sziget Fesztivál — 18 program" in {event.title for event in collapsed}

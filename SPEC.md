@@ -884,6 +884,8 @@ szabályt: nincs mihez tervezni.
 mindent.
 
 ```
+ha venue_name is None:
+    az esemény kimarad a csoportosításból, egyedül megy tovább
 csoportkulcs = (venue_name, effective_date, primary_category)
 ha a csoport mérete >= min_group_size (4):
     egyetlen összevont Event jön létre:
@@ -896,6 +898,19 @@ egyébként:
     a csoport tagjai változatlanul mennek tovább, de venue-nként
     legfeljebb max_per_venue (3) darab, pontszám szerint
 ```
+
+**Helyszín nélküli esemény nem csoportosul.** A §7.4 azért létezik, hogy **egy** fesztivál
+**egy** helyszínen ne szorítson ki mindent. A `venue_name is None` rekordok viszont nem
+helyszínt osztanak, hanem a helyszín hiányát: a belőlük képzett kosár azt jelenti, hogy
+„minden helyszín nélküli X kategóriájú esemény Y napon" — egymáshoz semmi közük, és az
+összevonás valódi, különböző eseményeket rejtene el egy értelmetlen összegző sor mögött.
+A programturizmus mind a 20 kártyája ilyen (a helyszínsáv csak megye/város/kerület), és a
+régi kulcs ezekből `"None — 4 program"` című sorokat gyártott, ami így ment volna ki a
+levélben. Ezek az események tehát **változatlanul, egyenként** haladnak tovább, és a
+`max_per_venue` sem vonatkozik rájuk — nincs mit korlátozni. A kimaradás naplózódik
+(`grouping_skipped_venueless`, forrásonként) és bekerül a futásösszegzőbe
+(`ungrouped_venueless`), hogy egy forrás, amelyik elkezd helyszín nélkül publikálni,
+látszódjon, ne csak csendben átformálja a digestet.
 
 **Fontos sorrend:** a `group` a `score` UTÁN fut, mert a csoport pontszáma a tagok
 pontszámától függ. A pipeline tényleges sorrendje tehát:

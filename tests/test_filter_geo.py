@@ -226,6 +226,7 @@ def test_the_run_summary_reports_the_geographic_exclusion_count(tmp_path) -> Non
         dropped_by_filter=2,
         dropped_by_geo=dropped_by_geo,
         dropped_by_min_score=0,
+        ungrouped_venueless=0,
         sent=1,
         drifted=[],
         seconds=0.0,

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 from collections.abc import Iterable
+from dataclasses import dataclass
 from datetime import date
 
 import structlog
@@ -14,38 +15,79 @@ log = structlog.get_logger()
 # The titles making up the collapsed row's description (§7.4).
 _DESCRIPTION_MEMBERS = 3
 
+_GroupKey = tuple[str, date, str | None]
 
-def group(events: list[Event], config: Config) -> list[Event]:
-    """Runs after score() — a collapsed row's score is the max of its members', so nothing
-    upstream of score can compute it (§7.4). Wire this stage accordingly."""
+
+@dataclass(frozen=True)
+class GroupOutcome:
+    events: list[Event]
+    # How many events skipped grouping for having no venue. Reported so that a source
+    # which stops supplying venue names shows up in the run summary instead of quietly
+    # changing the shape of the digest.
+    ungrouped_venueless: int
+
+
+def group_with_counts(events: list[Event], config: Config) -> GroupOutcome:
+    """`group()` plus the venue-less tally the run summary needs. Split out rather than
+    changing `group()`'s return type, because CLAUDE.md fixes every pipeline stage at
+    `(list[Event], Config) -> list[Event]`."""
     grouping = config.grouping
-    buckets: dict[tuple[str | None, date, str | None], list[Event]] = {}
-    order: list[tuple[str | None, date, str | None]] = []
+    buckets: dict[_GroupKey, list[Event]] = {}
+    # One slot per output position: either a passthrough Event or a group key, in the
+    # order they were first seen — so excluding the venue-less ones does not reshuffle
+    # everything else.
+    slots: list[Event | _GroupKey] = []
+    venueless: list[Event] = []
+
     for event in events:
-        key = _group_key(event)
+        if event.venue_name is None:
+            # §7.4 exists to collapse ONE festival at ONE venue. Keying venue-less events
+            # together produces "every venueless event of category X on day Y", which is
+            # not a venue group: those events have nothing to do with each other, and
+            # collapsing them would hide real, distinct events behind a summary row whose
+            # title reads "None — 4 program". They pass through individually instead.
+            venueless.append(event)
+            slots.append(event)
+            continue
+        key = (event.venue_name, event.effective_date, _primary_category(event))
         if key not in buckets:
             buckets[key] = []
-            order.append(key)
+            slots.append(key)
         buckets[key].append(event)
 
+    if venueless:
+        log.info(
+            "grouping_skipped_venueless",
+            count=len(venueless),
+            sources=sorted({source for event in venueless for source in event.source_ids}),
+        )
+
     result: list[Event] = []
-    for key in order:
+    for slot in slots:
+        if isinstance(slot, Event):
+            # max_per_venue does not apply either: there is no venue to cap.
+            result.append(slot)
+            continue
+        key = slot
         members = buckets[key]
         if len(members) >= grouping.min_group_size:
             result.append(_collapse(key, members))
         else:
             result.extend(_cap(key, members, grouping.max_per_venue))
-    return result
+    return GroupOutcome(events=result, ungrouped_venueless=len(venueless))
 
 
-def _group_key(event: Event) -> tuple[str | None, date, str | None]:
-    primary = event.categories[0] if event.categories else None
-    return (event.venue_name, event.effective_date, primary)
+def group(events: list[Event], config: Config) -> list[Event]:
+    """Runs after score() — a collapsed row's score is the max of its members', so nothing
+    upstream of score can compute it (§7.4). Wire this stage accordingly."""
+    return group_with_counts(events, config).events
 
 
-def _cap(
-    key: tuple[str | None, date, str | None], members: list[Event], max_per_venue: int
-) -> list[Event]:
+def _primary_category(event: Event) -> str | None:
+    return event.categories[0] if event.categories else None
+
+
+def _cap(key: _GroupKey, members: list[Event], max_per_venue: int) -> list[Event]:
     if len(members) <= max_per_venue:
         return members
     ranked = sorted(members, key=lambda event: event.score, reverse=True)
@@ -60,7 +102,7 @@ def _cap(
     return ranked[:max_per_venue]
 
 
-def _collapse(key: tuple[str | None, date, str | None], members: list[Event]) -> Event:
+def _collapse(key: _GroupKey, members: list[Event]) -> Event:
     venue_name, effective_date, primary_category = key
     ranked = sorted(members, key=lambda event: event.score, reverse=True)
     top = ranked[0]
@@ -102,7 +144,7 @@ def _group_urls(ranked_members: list[Event]) -> list[str]:
     return [top.urls[0]] if top.urls else []
 
 
-def _group_id(venue_name: str | None, effective_date: date, primary_category: str | None) -> str:
+def _group_id(venue_name: str, effective_date: date, primary_category: str | None) -> str:
     """A festival slot's identity is the group key itself, not a member's id or the display
     title — the display title embeds the member count, which can shift run to run as acts
     are added or dropped, and that must not make the ledger treat it as a new event."""

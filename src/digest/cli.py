@@ -26,7 +26,7 @@ from digest.pipeline.categorize import explain_event
 from digest.pipeline.dedup import dedup
 from digest.pipeline.filter import GEO_REASONS, filter_with_reasons
 from digest.pipeline.filter import filter as filter_events
-from digest.pipeline.group import group
+from digest.pipeline.group import group, group_with_counts
 from digest.pipeline.normalize import normalize
 from digest.pipeline.recurrence import recurrence
 from digest.pipeline.score import score, score_one
@@ -79,6 +79,10 @@ class RunSummary:
     # to live inside individual sources.
     dropped_by_geo: int
     dropped_by_min_score: int
+    # Events that skipped §7.4 grouping for having no venue_name. Not a drop -- they are
+    # all still in the digest, individually. Reported so a source that stops supplying
+    # venues is visible instead of quietly reshaping the output.
+    ungrouped_venueless: int
     sent: int
     drifted: list[str]
     seconds: float
@@ -215,7 +219,8 @@ def _run_pipeline(
     events = score(events, config, sent_ids=sent_ids, pinned_ids=pinned_ids, now=moment)
     dropped_by_min_score = before_score - len(events)
 
-    events = group(events, config)
+    grouped = group_with_counts(events, config)
+    events = grouped.events
     rendered = render_email(events, config, source_health=state.source_health, now=moment)
 
     # The public site is not the email digest: it gets every post-group event (no
@@ -259,6 +264,7 @@ def _run_pipeline(
         dropped_by_filter=dropped_by_filter,
         dropped_by_geo=dropped_by_geo,
         dropped_by_min_score=dropped_by_min_score,
+        ungrouped_venueless=grouped.ungrouped_venueless,
         sent=len(rendered.sent_events),
         drifted=drifted,
         seconds=elapsed,
@@ -270,6 +276,7 @@ def _run_pipeline(
         dropped_by_filter=summary.dropped_by_filter,
         dropped_by_geo=summary.dropped_by_geo,
         dropped_by_min_score=summary.dropped_by_min_score,
+        ungrouped_venueless=summary.ungrouped_venueless,
         sent=summary.sent,
         drifted=summary.drifted,
         seconds=round(summary.seconds, 2),

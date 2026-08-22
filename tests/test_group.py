@@ -4,9 +4,11 @@ from datetime import datetime
 from typing import Any
 from zoneinfo import ZoneInfo
 
+from structlog.testing import capture_logs
+
 from digest.config import Config, GroupingConfig
 from digest.models import Event, make_event_id
-from digest.pipeline.group import group
+from digest.pipeline.group import group, group_with_counts
 
 BUDAPEST = ZoneInfo("Europe/Budapest")
 EFFECTIVE_DATE = datetime(2026, 8, 16, 20, 0, tzinfo=BUDAPEST).date()
@@ -181,3 +183,81 @@ def test_group_does_not_mutate_its_input() -> None:
     group(events, Config())
 
     assert events == originals
+
+
+# --------------------------------------------------------------------------------------
+# Venue-less events are excluded from grouping (§7.4)
+# --------------------------------------------------------------------------------------
+
+
+def test_venueless_events_all_survive_individually() -> None:
+    """Six events with no venue, same day and category. Under the old key they were one
+    bucket and collapsed into a single "None — 6 program" row; a venue group needs a
+    venue, and these events have nothing to do with each other."""
+    events = [make_event(i, venue_name=None, title=f"Program {i}") for i in range(6)]
+
+    result = group(events, Config())
+
+    assert len(result) == 6
+    assert {event.title for event in result} == {f"Program {i}" for i in range(6)}
+    assert all(event.group_size == 1 for event in result)
+
+
+def test_venueless_events_pass_through_while_a_real_venue_still_collapses() -> None:
+    """The two halves in one run: the venue group does its job, the venue-less events do
+    not become a second, meaningless one."""
+    venueless = [make_event(i, venue_name=None, title=f"Program {i}") for i in range(6)]
+    at_venue = [make_event(10 + i, venue_name="Sziget Fesztivál") for i in range(5)]
+
+    result = group(venueless + at_venue, Config())
+
+    collapsed = [event for event in result if event.group_size > 1]
+    assert len(collapsed) == 1
+    assert collapsed[0].title == "Sziget Fesztivál — 5 program"
+    assert len(result) == 7
+    assert {f"Program {i}" for i in range(6)} <= {event.title for event in result}
+
+
+def test_max_per_venue_does_not_apply_to_venueless_events() -> None:
+    """A cap of one would leave a single event of any real venue group under
+    min_group_size. There is no venue to cap here, so all four stay."""
+    config = Config(grouping=GroupingConfig(min_group_size=99, max_per_venue=1))
+    events = [make_event(i, venue_name=None, title=f"Program {i}") for i in range(4)]
+
+    assert len(group(events, config)) == 4
+
+
+def test_venueless_events_keep_their_position_in_the_output() -> None:
+    """Excluding them must not reshuffle everything else."""
+    events = [
+        make_event(0, venue_name=None, title="első"),
+        make_event(1, venue_name="Akvárium"),
+        make_event(2, venue_name=None, title="utolsó"),
+    ]
+
+    result = group(events, Config())
+
+    assert [event.title for event in result] == ["első", "Act 1", "utolsó"]
+
+
+def test_the_stage_counts_and_logs_the_venueless_events() -> None:
+    """Requirement 3: a source that stops supplying venue names has to be visible in the
+    run summary, not just quietly reshape the digest."""
+    events = [make_event(i, venue_name=None) for i in range(6)]
+    events += [make_event(10 + i, venue_name="Sziget Fesztivál") for i in range(5)]
+
+    with capture_logs() as logs:
+        outcome = group_with_counts(events, Config())
+
+    assert outcome.ungrouped_venueless == 6
+    (entry,) = [line for line in logs if line["event"] == "grouping_skipped_venueless"]
+    assert entry["count"] == 6
+    assert entry["sources"] == ["port-hu"]
+
+
+def test_nothing_is_logged_when_every_event_has_a_venue() -> None:
+    with capture_logs() as logs:
+        outcome = group_with_counts(make_lineup(5), Config())
+
+    assert outcome.ungrouped_venueless == 0
+    assert not [line for line in logs if line["event"] == "grouping_skipped_venueless"]
