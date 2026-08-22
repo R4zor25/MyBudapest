@@ -31,6 +31,13 @@ _CITY = "budapest"
 _MIDNIGHT_RE = re.compile(r"T00:00:00")
 
 
+def _date_part(iso: str) -> str:
+    """ "2026-08-22T00:00:00+02:00" -> "2026-08-22". Safe against the offset shifting the
+    day: every startDate in the sampled pages carries +01:00 or +02:00, which is Budapest
+    in winter and summer, so the calendar date is already the local one."""
+    return iso.split("T", 1)[0]
+
+
 class TixaSource:
     """tixa.hu organizer and venue pages (§6.1 step 3). The listing itself is server-side
     JSON-LD, which is why this reads the markup and not the `POST /search` endpoint the
@@ -83,15 +90,32 @@ class TixaSource:
         if not start_raw:
             self._skip(url, "missing startDate")
             return None
+
         if _MIDNIGHT_RE.search(start_raw):
-            log.warning(
-                "skipped_placeholder_start",
+            custom_date = str(item.get("customDate") or "").strip()
+            if not custom_date:
+                # No evidence either way: this could be a genuine midnight event. A wrong
+                # time is worse than a missing event, so the record is still dropped.
+                log.warning(
+                    "skipped_placeholder_start",
+                    source_id=self.id,
+                    url=url,
+                    start_raw=start_raw,
+                )
+                return None
+            # `customDate` carries a clock the ISO field does not, which is positive
+            # evidence that the ISO field is a placeholder rather than a real midnight.
+            # Hand over only the date — §7.1 reads a bare ISO date as "time unknown" and
+            # sets start_time_known False, which is the same answer this plugin would
+            # give, arrived at by the one authority that decides it. Deliberately no
+            # attempt to parse the prose: the date is enough for the digest.
+            log.info(
+                "placeholder_start_kept_as_date_only",
                 source_id=self.id,
                 url=url,
-                start_raw=start_raw,
-                custom_date=item.get("customDate"),
+                custom_date=custom_date,
             )
-            return None
+            start_raw = _date_part(start_raw)
 
         location = item.get("location") or {}
         address = str(location.get("address") or "").strip() or None

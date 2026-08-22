@@ -15,20 +15,31 @@ plugin: tixa
 # the request needs an `Accept-Language: hu-HU` header (the YAML schema has no header
 # field) or the whole listing comes back in English.
 #
-# WHY THE URL LIST IS SHORT, AND WHAT HAS TO BE SOLVED BEFORE IT GROWS.
+# THE MIDNIGHT PLACEHOLDER, AND WHY IT NO LONGER BLOCKS ANYTHING.
 # Tixa's `startDate` is machine-readable but only sometimes true. On the Dürer Kert venue
-# page, 16 of 24 records carried `T00:00:00` while the real time appeared only in
+# page, 16 of 24 records carry `T00:00:00` while the real time appears only in
 # `customDate` as Hungarian prose without a weekday ("2026. augusztus 22. 19:00") — a
-# shape §7.1 cannot parse, and the event detail pages repeat the same broken
-# `T00:00:00`, so there is no fallback. The plugin therefore drops midnight records and
-# logs `skipped_placeholder_start`. That is the right call per record, but it means a
-# wide venue list would silently shed two thirds of its events, so the list stays at the
-# board-game organiser this batch was about. Widening it is blocked on §7.1 learning the
-# bare "YYYY. hónap NN. HH:MM" form — not on anything in this file.
+# shape §7.1 cannot parse, and the event detail pages repeat the same `T00:00:00`, so
+# there is no second source for the clock.
+#
+# These records used to be dropped, which cost two thirds of that page. They are now kept:
+# a non-empty `customDate` is positive evidence that the ISO field is a placeholder rather
+# than a genuine midnight, so the plugin hands over only the DATE and §7.1 reads a bare
+# ISO date as `start_time_known: False`. The prose is never parsed — the date is enough
+# for the digest, and the flag keeps the night shift, the dedup start gate and the
+# rendering honest about what is known. A midnight record with NO `customDate` is still
+# dropped and logged (`skipped_placeholder_start`): that is no evidence either way, and a
+# wrong time is worse than a missing event.
+#
+# The URL list stays short because widening it is the operator's call, not because of a
+# defect. Nothing in §7.1 has to change first.
 #
 # What it gives today: Játszóház Projekt's "Hétfői társasozás a Treffort Kertben", a
 # Monday board-game night at Treffort Kert & Könyvtár Klub (1088 Budapest, Múzeum krt. 4).
-# One event in a 14-day horizon — low volume by design, the §6.6-B community layer.
+# One event in a 14-day horizon — low volume by design, the §6.6-B community layer. The
+# placeholder fix recovers nothing here (this page has no midnight records); its 16
+# recovered records are all on the Dürer Kert page, which is saved as a fixture
+# (tests/fixtures/tixa_durerkert.html) but deliberately not in the list above.
 listing:
   urls:
     - "https://www.tixa.hu/jatszohazprojekt"

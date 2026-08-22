@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 import re
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
@@ -189,17 +189,20 @@ def test_tixa_maps_the_board_game_record(tixa_events) -> None:
     assert event.district_raw is None
 
 
-def test_tixa_drops_midnight_placeholder_starts(config) -> None:
-    """Tixa's startDate is `T00:00:00` whenever no time was recorded, and the real time
-    exists only as Hungarian prose in `customDate` that §7.1 cannot read. Publishing the
-    placeholder would claim the event starts at midnight, so the record is dropped."""
+def test_tixa_keeps_a_placeholder_start_when_customdate_backs_it_up(config) -> None:
+    """Tixa's `startDate` is `T00:00:00` whenever no time was recorded, and the real clock
+    lives only in `customDate` as Hungarian prose §7.1 cannot read. These records used to be
+    dropped, which cost two thirds of a page. A non-empty `customDate` is positive evidence
+    that the ISO field is a placeholder rather than a real midnight, so the record is kept
+    with only its DATE — §7.1 then reads a bare ISO date as time-unknown. The prose is never
+    parsed; the date is enough for the digest."""
     source = source_by_id(config, "tixa")
     page = _tixa_page(
         {
             "@type": "Event",
             "name": "Placeholder start",
-            "startDate": "2026-08-22T00:00:00+02:00",
-            "customDate": "2026. augusztus 22. 19:00",
+            "startDate": "2026-08-25T00:00:00+02:00",
+            "customDate": "2026. augusztus 25. 19:00",
             "location": {
                 "@type": "Place",
                 "name": "Dürer Kert",
@@ -208,10 +211,52 @@ def test_tixa_drops_midnight_placeholder_starts(config) -> None:
             "url": "https://www.tixa.hu/placeholder",
         }
     )
+
+    (event,) = list(source.parse(make_result("https://www.tixa.hu/durerkert", text=page)))
+
+    assert event.start_raw == "2026-08-25"
+    (normalized,) = in_horizon([event], config)
+    assert normalized.start_time_known is False
+    # Unshifted: §7.7 skips the night shift when the clock is unknown, so the event
+    # stays on the day the listing named rather than moving to the 24th.
+    assert normalized.effective_date == date(2026, 8, 25)
+
+
+def test_tixa_drops_a_placeholder_start_with_no_customdate(config) -> None:
+    """No `customDate` is no evidence either way — it could be a genuine midnight event,
+    and a wrong time is worse than a missing event."""
+    source = source_by_id(config, "tixa")
+    page = _tixa_page(
+        {
+            "@type": "Event",
+            "name": "Placeholder start, no evidence",
+            "startDate": "2026-08-22T00:00:00+02:00",
+            "location": {
+                "@type": "Place",
+                "name": "Dürer Kert",
+                "address": "1117 Budapest, Öböl utca 1.",
+            },
+            "url": "https://www.tixa.hu/placeholder",
+        }
+    )
+
     with capture_logs() as logs:
         events = list(source.parse(make_result("https://www.tixa.hu/durerkert", text=page)))
+
     assert events == []
     assert any(entry["event"] == "skipped_placeholder_start" for entry in logs)
+
+
+def test_tixa_recovers_two_thirds_of_the_durer_kert_page(config, repo_root: Path) -> None:
+    """Requirement 4, against the real saved response rather than a synthetic one."""
+    source = source_by_id(config, "tixa")
+    html = fixture_text(repo_root, "tixa_durerkert.html")
+
+    events = list(source.parse(make_result("https://www.tixa.hu/durerkert", text=html)))
+    date_only = [e for e in events if e.start_raw and "T" not in e.start_raw]
+
+    assert len(events) == 24, "every record on the page is now kept"
+    assert len(date_only) == 16, "16 of them carried the midnight placeholder"
 
 
 def test_tixa_keeps_a_real_time_on_the_same_page_shape(config) -> None:
