@@ -929,6 +929,28 @@ pontszámától függ. A pipeline tényleges sorrendje tehát:
 Kategóriánként pontszám négy jelből: `keywords` (cím + leírás, súlyozva),
 `venue_prior`, `url_patterns`, `native_types`. A `native_types` egyezés **erős**: +4.
 
+**A `venue_prior` fuzzyn illeszt, ugyanazzal az összehasonlítással, mint a §7.2 harmadik
+kapuja** (`venue_matches`, `token_set_ratio >= 85`). Korábban `normalize_venue` utáni
+pontos egyezés volt, ami egy forrásnál működik, többnél nem: a Cooltix
+„Red&Black Társasjátékszalon"-t ad, egy másik oldal „Red and Black"-et, egy harmadik
+„Red & Black Társasjáték Szalon"-t — pontos egyezésnél mindegyik külön configsort kér, és
+ha hiányzik, a bónusz **némán** nem tüzel. Ezért a configban a helyszín **neve** áll, nem
+egy forrás írásmódja.
+
+A `normalize_venue` a központozást meghagyja, ami egyenlőséghez elég, tokenizáláshoz nem:
+a „Red&Black" **egy** token, tehát a „Red & Black"-kel semmi közös nincs benne
+(`token_set_ratio` = 47). A `venue_matches` ezért előbb központozás mentén szétvágja a
+nevet — így mindkettő „red black", az érték 100. A 85-ös küszöb mérve tartható: a mentett
+fixture-ök 27 valódi budapesti helyszínnevén minden szándékolt találat 100, a legközelebbi
+nem szándékolt pár a „Kobuci Kert" ~ „Kopaszi Kert" 70-nel — a küszöb a résben ül, nem a
+peremén. A szétvágás a §7.2 viselkedését nem változtatja: 351 helyszínpárból **egy sem**
+kerül át a küszöb másik oldalára tőle.
+
+**A rothadás látszik.** Egy `venue_prior` bejegyzés állítás a világról, és az állítások
+avulnak — a helyszín bezár, nevet vált, vagy egyszerűen egyik forrás sem hozza. Ezért a
+`categorize` futásonként egyszer, kategóriánként `venue_prior_unmatched` INFO sorban
+kiírja azokat a bejegyzéseket, amelyek az **egész** merítésben semmire nem illeszkedtek.
+
 **Kulcsszó-illesztés: szóeleji, nem teljes szavas.** A magyar toldalékol, ezért a teljes
 szavas illesztés minden kategóriában alulmért: a „társasjáték" nem fogta a
 „Társasjátékos"-t, a „koncert" a „koncertje"-t, a „mérkőzés" a „mérkőzése"-t, az „előadás"

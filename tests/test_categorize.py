@@ -6,10 +6,11 @@ from typing import Any
 from zoneinfo import ZoneInfo
 
 import pytest
+from structlog.testing import capture_logs
 
 from digest.config import CategoryRules, Config, load_config
 from digest.llm.base import Categorizer
-from digest.models import make_event_id
+from digest.models import make_event_id, venue_matches
 from digest.pipeline.categorize import RuleCategorizer, categorize, explain_event, score_category
 
 BUDAPEST = ZoneInfo("Europe/Budapest")
@@ -61,10 +62,9 @@ def test_native_type_concert_wins(config: Config) -> None:
 
 
 def test_keyword_and_venue_prior_both_contribute(config: Config) -> None:
-    # The venue name has to be the exact string a source emits: venue_prior is compared
-    # with normalize_venue(a) == normalize_venue(b), never as a substring. This used to say
-    # "Red & Black", a short-hand no source publishes, so the assertion below passed against
-    # a config value that could never fire on real data (package 15).
+    # venue_prior no longer needs the exact string a source emits: package 20 gave it the
+    # same fuzzy comparison dedup uses, so the config's short "Red & Black" matches what
+    # Cooltix actually publishes.
     event = make_event(
         title="Társasjáték est a Red & Blackben",
         venue_name="Red&Black Társasjátékszalon",
@@ -74,7 +74,7 @@ def test_keyword_and_venue_prior_both_contribute(config: Config) -> None:
     tarsasjatek = scores["tarsasjatek"]
 
     assert any(signal.startswith("keyword:") for signal in tarsasjatek.signals)
-    assert "venue_prior" in tarsasjatek.signals
+    assert any(name.startswith("venue_prior:") for name in tarsasjatek.signals)
 
     (result,) = categorize([event], config)
     assert result.categories[0] == "tarsasjatek"
@@ -212,14 +212,91 @@ def test_venue_prior_matches_regardless_of_accents_and_case() -> None:
     rules = CategoryRules(venue_prior={"A38 Hajó": 2})
     event = make_event(venue_name="a38   hajo")
 
-    assert score_category(event, rules).signals == {"venue_prior": 2}
+    assert score_category(event, rules).signals == {"venue_prior:A38 Hajó": 2}
+
+
+@pytest.mark.parametrize(
+    ("entry", "venue"),
+    [
+        # The spelling Cooltix actually publishes, against the short name in config.yaml.
+        ("Red & Black", "Red&Black Társasjátékszalon"),
+        # Two spellings another source could plausibly use for the same venue.
+        ("Red & Black", "Red and Black"),
+        ("Red & Black", "Red & Black Társasjáték Szalon"),
+        ("Játsz/Ma", "Játsz/Ma Társasjáték Kávézó"),
+        ("Board Game Café", "Board Game Café - Budapest"),
+    ],
+)
+def test_venue_prior_matches_a_different_spelling_of_the_same_venue(entry: str, venue: str) -> None:
+    """Under exact equality every one of these needed its own config line, and a missing
+    one failed silently — the bonus just never fired. They now share one entry."""
+    rules = CategoryRules(venue_prior={entry: 3})
+
+    assert score_category(make_event(venue_name=venue), rules).total == 3
+
+
+@pytest.mark.parametrize(
+    "venue",
+    [
+        "Akvárium Klub",
+        "Black Box Színház",  # shares a word with "Red & Black"
+        "Kopaszi Kert",  # the closest real pair in the corpus is Kobuci/Kopaszi at 70
+        "Ma este Színház",  # shares a token with "Játsz/Ma"
+        "Café Vian",  # shares a token with "Board Game Café"
+    ],
+)
+def test_an_unrelated_venue_does_not_match(venue: str) -> None:
+    rules = CategoryRules(venue_prior={"Red & Black": 3, "Játsz/Ma": 3, "Board Game Café": 3})
+
+    assert score_category(make_event(venue_name=venue), rules).signals == {}
+
+
+def test_kobuci_and_kopaszi_stay_apart_at_the_shared_threshold() -> None:
+    """The margin the threshold rests on: two real Budapest venues one letter apart score
+    70, every intended match scores 100, and 85 sits in the gap."""
+    assert venue_matches("Kobuci Kert", "Kobuci Kert")
+    assert not venue_matches("Kobuci Kert", "Kopaszi Kert")
+
+
+def test_an_unmatched_venue_prior_entry_is_reported(config: Config) -> None:
+    """A venue_prior entry is an assertion about the world and they rot — venues close,
+    rename, or stop being carried by any source. Nothing else would notice: the failure is
+    a bonus that quietly never fires."""
+    events = [make_event(title="Valami", venue_name="Akvárium Klub")]
+
+    with capture_logs() as logs:
+        categorize(events, config)
+
+    reported = {
+        entry
+        for line in logs
+        if line["event"] == "venue_prior_unmatched"
+        for entry in line["entries"]
+    }
+    assert "Red & Black" in reported
+    assert "Játsz/Ma" in reported
+
+
+def test_a_matched_venue_prior_entry_is_not_reported(config: Config) -> None:
+    events = [make_event(title="Valami", venue_name="Red&Black Társasjátékszalon")]
+
+    with capture_logs() as logs:
+        categorize(events, config)
+
+    reported = {
+        entry
+        for line in logs
+        if line["event"] == "venue_prior_unmatched"
+        for entry in line["entries"]
+    }
+    assert "Red & Black" not in reported
 
 
 def test_missing_venue_never_scores_venue_prior() -> None:
     rules = CategoryRules(venue_prior={"A38 Hajó": 2})
     event = make_event(venue_name=None)
 
-    assert "venue_prior" not in score_category(event, rules).signals
+    assert not any(name.startswith("venue_prior") for name in score_category(event, rules).signals)
 
 
 def test_categories_below_threshold_do_not_appear() -> None:

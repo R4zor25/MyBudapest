@@ -55,15 +55,17 @@ categories:
       játékest: 4
       "társasozás": 4
       "játékklub": 3
-    # venue_prior is compared with `normalize_venue(a) == normalize_venue(b)` — exact
-    # equality after casefold/accent-strip, not substring. The previous two entries
-    # ("Red & Black", "Játsz/Ma") were short-hand names no source ever emits, so neither
-    # could ever fire. These are the exact strings the saved fixtures contain.
+    # venue_prior is matched with the same fuzzy comparison dedup uses (§7.2/§7.5), so an
+    # entry is the venue's NAME, not one source's spelling of it: "Red & Black" matches
+    # Cooltix's "Red&Black Társasjátékszalon", a future "Red and Black" and a
+    # "Red & Black Társasjáték Szalon" alike. Package 19 had lengthened these to exact
+    # source strings because matching was equality; that is no longer needed, and the
+    # long forms were three spellings of two venues.
     venue_prior:
-      "Red&Black Társasjátékszalon": 3    # cooltix; the venue is alive, its own site is not
-      "Játsz/Ma Társasjáték Kávézó": 3    # cooltix
-      "Board Game Café": 3                # tarsasjatekos — carries untitled game nights
-                                          # ("Visszapillantó 2010: Dixit") no keyword can catch
+      "Red & Black": 3        # the szalon is alive and sells through Cooltix
+      "Játsz/Ma": 3
+      "Board Game Café": 3    # carries untitled game nights ("Visszapillantó 2010: Dixit")
+                              # that no keyword can catch
     # The tarsasjatekos source is the Hungarian Board Gamers Association's own club
     # calendar: every record in it is a board-game club session, so the source asserts the
     # topic instead of leaving it to be guessed from a game title.

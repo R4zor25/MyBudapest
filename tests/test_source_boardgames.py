@@ -14,7 +14,7 @@ from structlog.testing import capture_logs
 from digest.config import load_config
 from digest.errors import ConfigError
 from digest.fetch.base import FetchResult, FetchTask
-from digest.models import RawEvent, normalize_venue
+from digest.models import RawEvent, venue_matches
 from digest.pipeline.categorize import categorize
 from digest.pipeline.normalize import normalize
 from digest.sources.plugins import tarsasjatekos as tj
@@ -493,13 +493,18 @@ def test_klubok_page_states_recurrence_as_prose_not_dates(repo_root: Path) -> No
 # --------------------------------------------------------------------------------------
 
 
-def test_venue_prior_strings_match_what_sources_actually_emit(config, cooltix_events) -> None:
-    """venue_prior is exact equality after normalize_venue, never substring (§7.5). The
-    previous entries ("Red & Black", "Játsz/Ma") were short-hand names no source emits, so
-    neither could ever fire. This pins them to real fixture output."""
-    priors = {normalize_venue(v) for v in config.categories["tarsasjatek"].venue_prior}
-    emitted = {normalize_venue(e.venue_name) for e in cooltix_events}
-    assert normalize_venue("Játsz/Ma Társasjáték Kávézó") in priors & emitted
+def test_venue_prior_entries_match_what_sources_actually_emit(config, cooltix_events) -> None:
+    """venue_prior used to be exact equality after normalize_venue, so the config had to
+    carry each source's own spelling. Package 20 gave it dedup's fuzzy comparison, so the
+    entries are venue NAMES again — this pins that the short forms still reach the real
+    strings Cooltix publishes."""
+    priors = list(config.categories["tarsasjatek"].venue_prior)
+    emitted = [e.venue_name for e in cooltix_events if e.venue_name]
+
+    assert "Játsz/Ma" in priors, "the config should hold the venue name, not one spelling"
+    assert any(venue_matches(venue, "Játsz/Ma") for venue in emitted if "Játsz" in venue), (
+        "the short entry must still match what Cooltix emits"
+    )
 
 
 def test_board_game_events_reach_the_tarsasjatek_category(

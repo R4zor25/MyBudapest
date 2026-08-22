@@ -136,6 +136,41 @@ def normalize_venue(venue: str | None) -> str:
     return _WHITESPACE_RE.sub(" ", _strip_accents(venue).lower()).strip()
 
 
+# §7.2's venue gate, and since package 20 §7.5's venue_prior too. One threshold, because
+# the two are answering the same question: "are these two strings the same venue?"
+VENUE_MATCH_RATIO = 85
+
+# normalize_venue casefolds and strips accents but keeps punctuation, which is enough for
+# an equality test and not enough for a token one: "Red&Black" is a SINGLE token, so it
+# shares nothing with "Red & Black" and token_set_ratio scores the pair 47. Splitting on
+# punctuation first makes both "red black" and the pair scores 100. Measured over the 27
+# distinct venue names in the saved fixtures, this changes no dedup verdict at all: 0 of
+# 351 pairs cross the threshold differently with the fold than without it.
+_VENUE_PUNCTUATION_RE = re.compile(r"[^0-9a-z]+")
+
+
+def _venue_tokens(venue: str) -> str:
+    return _VENUE_PUNCTUATION_RE.sub(" ", normalize_venue(venue)).strip()
+
+
+def venue_matches(a: str | None, b: str | None) -> bool:
+    """Are these two strings the same venue? Shared by dedup's third gate (§7.2) and
+    categorize's venue_prior (§7.5), which were solving it two different ways: dedup
+    fuzzily, categorize by exact equality after normalize_venue.
+
+    Exact equality does not survive contact with more than one source. Cooltix publishes
+    "Red&Black Társasjátékszalon", another site writes "Red and Black", a third
+    "Red & Black Társasjáték Szalon" — under equality each new spelling needs its own
+    config entry, and when one is missing the bonus simply never fires and nothing says so.
+
+    On the real corpus the margin is wide: every intended match scores 100, and the closest
+    unintended pair among 27 genuine Budapest venue names is "Kobuci Kert" against
+    "Kopaszi Kert" at 70. 85 sits in the gap rather than on an edge."""
+    if not a or not b:
+        return False
+    return token_set_ratio(_venue_tokens(a), _venue_tokens(b)) >= VENUE_MATCH_RATIO
+
+
 def fold_text(s: str) -> str:
     return _strip_accents(s).lower()
 

@@ -2,8 +2,12 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 
+import structlog
+
 from digest.config import CategoryRules, Config
-from digest.models import Event, contains_word, normalize_venue
+from digest.models import Event, contains_word, venue_matches
+
+log = structlog.get_logger()
 
 # A native_types match is the strongest signal (§7.5): the source itself said what this
 # is, which is more trustworthy than any keyword we guessed.
@@ -30,10 +34,11 @@ def score_category(event: Event, rules: CategoryRules) -> CategoryScore:
             signals[f"keyword:{keyword}"] = weight
 
     if event.venue_name is not None and rules.venue_prior:
-        venue_norm = normalize_venue(event.venue_name)
         for venue, weight in rules.venue_prior.items():
-            if normalize_venue(venue) == venue_norm:
-                signals["venue_prior"] = weight
+            if venue_matches(event.venue_name, venue):
+                # The entry that fired is named, so `digest categorize --explain` shows
+                # which assertion about the world produced the points.
+                signals[f"venue_prior:{venue}"] = weight
                 break
 
     if rules.url_patterns and any(
@@ -64,7 +69,36 @@ def _categorize_one(event: Event, config: Config) -> Event:
 
 
 def categorize(events: list[Event], config: Config) -> list[Event]:
-    return [_categorize_one(event, config) for event in events]
+    result = [_categorize_one(event, config) for event in events]
+    _log_unmatched_venue_priors(events, config)
+    return result
+
+
+def _log_unmatched_venue_priors(events: list[Event], config: Config) -> None:
+    """A venue_prior entry is an assertion about the world — "this venue exists and events
+    there are board games" — and assertions rot: venues close, rename, or stop being
+    carried by any source. Nothing else notices, because the failure mode is a bonus that
+    quietly never fires. Once per run, per category, the entries that matched nothing at
+    all are named.
+
+    Reported over the whole corpus rather than per event, because matching nothing on ONE
+    event is the normal case; matching nothing on ALL of them is the signal."""
+    venues = [event.venue_name for event in events if event.venue_name]
+    for category, rules in config.categories.items():
+        if not rules.venue_prior:
+            continue
+        unmatched = [
+            entry
+            for entry in rules.venue_prior
+            if not any(venue_matches(venue, entry) for venue in venues)
+        ]
+        if unmatched:
+            log.info(
+                "venue_prior_unmatched",
+                category=category,
+                entries=unmatched,
+                venues_seen=len(venues),
+            )
 
 
 class RuleCategorizer:

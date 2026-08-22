@@ -8,13 +8,12 @@ import structlog
 from rapidfuzz.fuzz import token_set_ratio
 
 from digest.config import Config
-from digest.models import Event, normalize_title, normalize_venue, strip_venue_suffix
+from digest.models import Event, normalize_title, strip_venue_suffix, venue_matches
 
 log = structlog.get_logger()
 
 _TITLE_MERGE_RATIO = 88
 _TITLE_AMBIGUOUS_RATIO = 80
-_VENUE_RATIO = 85
 _MAX_START_GAP = timedelta(minutes=90)
 
 # A source the config does not describe must never win the merge base against one it does.
@@ -123,10 +122,11 @@ def _starts_match(a: Event, b: Event) -> bool:
 
 
 def _venues_match(a: Event, b: Event) -> bool:
+    """A missing venue does not block a merge — that is this stage's own rule, and the only
+    part not shared with §7.5. The comparison itself is `venue_matches`."""
     if a.venue_name is None or b.venue_name is None:
         return True
-    ratio = token_set_ratio(normalize_venue(a.venue_name), normalize_venue(b.venue_name))
-    return ratio >= _VENUE_RATIO
+    return venue_matches(a.venue_name, b.venue_name)
 
 
 def _log_merge(a: Event, b: Event, reason: str, score: float) -> None:
