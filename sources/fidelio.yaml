@@ -8,16 +8,48 @@ plugin: null
 
 # PLACEHOLDER — deliberately empty, do not guess selectors here.
 #
-# robots.txt is fully open (only a Sitemap line), so this is not an access problem — it
-# is that no "programkereső" (event finder) listing page could be found (checked
-# 2026-08-16). fidelio.hu is a magazine: its sitemap index is entirely article-based
-# ("gsitemap_*", Google News style), its nav is editorial categories (Klasszikus,
-# Színház, Zenés színház, Tánc, Jazz/World, Vizuál, Könyv), and /programok, /koncertek
-# and /programajanlo all resolve to generic pages with no repeated event-card structure
-# — no `item_selector` guess would be honest here (requirement 7). If Fidelio does
-# publish a structured event calendar, it was not discoverable by URL-guessing,
-# robots.txt/sitemap inspection or a site-search pass within reasonable effort; a fresh
-# look with real DevTools access might find a JSON endpoint SPEC 6.1 step 2 would prefer
-# anyway.
+# CORRECTION (2026-08-22). The earlier header said no event-finder listing page could be
+# found. That was wrong: fidelio.hu/programok IS the Programkereső, it is server-rendered,
+# and it takes a fully parameterised GET. The real reason to drop it is different and
+# better evidenced — the finder works and its database is empty.
+#
+# THE ENDPOINT, recorded so nobody has to re-derive it. `GET /programok`, Yii backend,
+# jQuery + pjax front end, robots.txt is a single Sitemap line (nothing disallowed):
+#
+#   ProgramSearch[query]      free text
+#   ProgramSearch[city]       1 = Budapest  (Békéscsaba 4, Debrecen 7, Győr 16, …)
+#   ProgramSearch[category]   7 Klasszikus · 1 Színház · 4 Zenés színház · 19 Tánc
+#                             16 Kiállítás · 10 Jazz/World/Folk · 13 Gyerek
+#   ProgramSearch[date_from]  "YYYY.MM.DD" — the input's own placeholder format
+#   ProgramSearch[date_to]    same
+#   ProgramSearch[daypart]    egesznap | de | du | este
+#
+# The date format matters: an ISO `date_to=2026-09-05` makes the server 302 to the
+# homepage, while `2026.09.05` returns 200. That redirect is what a URL-guessing pass
+# reads as "no listing page".
+#
+# WHY IT IS DROPPED ANYWAY: zero rows, for every range tried. The filters are accepted
+# and echoed back — the saved fixture (tests/fixtures/fidelio_programkereso.html, a real
+# response to city=Budapest + 2026.08.22..2026.09.05) has `<option value="1" selected>`
+# on Budapest and the submitted dates in the inputs — and the results container renders
+# its own empty state:
+#
+#   <div class="search-wrapper-container programs calendar-view">
+#     <h4 class="search-counts">0 találat</h4>
+#     ... <div class="search-items"></div> Nincs találat
+#
+# Same for 2018.01.01–2018.12.31, 2019.06.01–2019.06.30 and a full year forward. A
+# diff against the unfiltered page differs only in the CSRF token, the echoed filter
+# values and Cloudflare's rotating email obfuscation — 14 lines, no content. So this is
+# not a JavaScript-rendering problem and not an access problem: the search runs
+# server-side and the programme database behind it has nothing in it. Funzine's shape
+# exactly — live UI, dead data (§6.6).
+#
+# If it ever fills, the work is small and the selectors are already known:
+# item container `.search-wrapper-container.programs .search-items`, count in
+# `h4.search-counts`, and `data-view="calendar"` toggles the calendar rendering of the
+# same result set. Until `search-counts` reports a non-zero number, there is nothing to
+# parse. tests/test_source_culture.py asserts the empty state against the fixture, so
+# this claim fails loudly if the site changes.
 listing:
   urls: []

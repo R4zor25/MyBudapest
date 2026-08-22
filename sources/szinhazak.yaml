@@ -8,16 +8,22 @@ plugin: null
 
 # PLACEHOLDER — deliberately empty, do not guess selectors here.
 #
-# Checked both plausible domains (2026-08-16):
-#   - szinhazak.hu resolves to a parked-domain page ("Kezdőlap | parkolo") behind a
-#     self-signed certificate (CN=byte.hu, a shared-hosting default) — the domain is
-#     dead, not the intended site.
-#   - szinhaz.hu ("Színház.hu") is real and live, but it is an editorial blog (built on
-#     blog.hu, generator "blfr4 [at] blog.hu") with news articles, not a structured
-#     repertoire/ticketing listing — its own RSS feed's most recent visible item was
-#     from 2020. There is no per-performance listing page with date/venue/price cards to
-#     select against.
+# Re-checked 2026-08-22; the earlier verdict holds and the evidence is now firmer.
 #
-# Neither is a working substitute for a real theatre-repertoire source.
+#   - szinhazak.hu (and www.) redirect to https://old.byte.hu/ and answer HTTP 526
+#     (Cloudflare: the origin's TLS certificate is invalid). It is not a theatre site at
+#     all — byte.hu is the hosting company, and this is its leftover parking target.
+#   - szinhaz.hu is alive and answers 200, but it is an editorial blog on the blog.hu
+#     platform, not a repertoire. Fixture: tests/fixtures/szinhaz_hu_home.html. Its
+#     newest article anywhere on the front page is 2020-11-25 ("Meghalt Böröndi Tamás"),
+#     it publishes no <time> element, no datetime attribute and no per-performance
+#     markup, and the whole page carries one JSON-LD block that is site metadata rather
+#     than an Event.
+#
+# WORTH KNOWING FOR A FUTURE BATCH: szinhaz.hu's own ticket link points at //port.hu/jegy.
+# The site that would have been the theatre-repertoire source delegates its ticketing to
+# a source this project already has. So the theatre gap is a Port.hu coverage question
+# (§17.1's open listing URL), not a missing-source question — looking for another
+# "theatre portal" is likely to keep finding magazines.
 listing:
   urls: []

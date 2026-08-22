@@ -16,6 +16,21 @@ plugin: null
 # The date text ("2026. augusztus 16., vasárnap 18:00") needed a small, additive fix to
 # normalize.py's date parsing (a spelled-out Hungarian month name) — see the package 11
 # report for why that crossed outside this package's file list.
+#
+# PRIORITY STAYS 30, i.e. it never outranks Port.hu (20) in a dedup merge. The culture
+# batch asked whether a specialist should sit below 20 so it wins those fields; this one
+# should not. It is a curated weekly "what's on this weekend" pick — eight events on the
+# sampled page, one row per event, chosen editorially — not a repertoire feed with
+# authoritative per-performance data. It carries no field where it is the better source:
+# no price beyond a free-text string, no coordinates, no native category. Where it does
+# overlap Port.hu it is the same event described more loosely, so the lower-priority
+# position is correct and its real value is the `urls` union, not the merge.
+#
+# REPERTOIRE SHAPE (culture batch, requirement 2): individual dates, no ranges. On the
+# saved fixture all 8 parsed records are distinct (title, venue) pairs, none repeats on
+# another date, and none carries an end date on a different day. A weekend-picks list
+# cannot show the twenty-performances-of-one-production pattern, so this source neither
+# demonstrates nor rules out that risk.
 listing:
   urls:
     - "https://bigcitylife.hu/hetvegi-programok-budapesten"

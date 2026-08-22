@@ -617,8 +617,8 @@ oszlop, mert a kettő nem ugyanaz (lásd B tábla).
 | Programturizmus | 3. — SSR, igazolva | **él** | budapesti merítés, de főleg gyűjtőoldalak |
 | We Love Budapest | — | **elvetve** | semmit: a robots.txt névre tiltja az `anthropic-ai`-t |
 | Funzine | 3. — SSR, igazolva | **elvetve** | semmit: az esemény poszttípus 2018 óta halott |
-| Fidelio | 3. — nincs listaoldal | **elvetve** | semmit: magazin, nem programkereső |
-| Színházak.hu | — | **elvetve** | semmit: a domain parkolt, a szinhaz.hu blog |
+| Fidelio | 3. — SSR kereső, igazolva | **elvetve** | semmit: a kereső működik, az adatbázis üres — „0 találat" |
+| Színházak.hu | — | **elvetve** | semmit: a domain parkolt, a szinhaz.hu 2020 óta halott blog |
 | Cooltix | 2. — GraphQL, igazolva | **él** | vegyes budapesti merítés, 79 esemény horizonton belül |
 
 **We Love Budapest — nem technikai akadály.** A `welovebudapest.com/robots.txt` név
@@ -628,6 +628,30 @@ másképp nevezett kliens letölthetné — de az oldal egyértelműen megmondta
 Anthropic-modellt nem szeretne ott látni, és ezt a fixture-t pontosan egy az. Más néven
 bekopogni azért, hogy megkerüljünk egy ránk szabott szabályt, nem opció: nincs fixture,
 nincsenek szelektorok. Újraellenőrizve 2026-08-22, a szabály változatlan.
+
+**Fidelio — a kereső megvan, a mögötte lévő adatbázis üres.** A korábbi jegyzet azt
+mondta, nincs listaoldal; ez tévedés volt. A `fidelio.hu/programok` **a** Programkereső,
+szerveroldalon renderelt, és teljesen paraméterezett GET-et fogad:
+`ProgramSearch[city]` (1 = Budapest), `[category]` (7 Klasszikus, 1 Színház, 4 Zenés
+színház, 19 Tánc, 16 Kiállítás), `[date_from]`, `[date_to]`, `[daypart]`. A dátum formátuma
+`ÉÉÉÉ.HH.NN` — ISO alakkal a szerver 302-vel a főoldalra dob, és pont ez olvasódik
+„nincs listaoldal"-ként egy URL-találgatós körben. A robots.txt egyetlen Sitemap sor.
+Mégis elvetve, más okból: **minden lekérdezés nulla sort ad.** A szűrők vissza vannak
+echózva (`<option value="1" selected>` Budapesten, a beküldött dátumok az inputokban),
+a találati konténer pedig a saját üres állapotát rendereli:
+`<h4 class="search-counts">0 találat</h4>` és „Nincs találat" — 2018-ra, 2019-re és egy
+teljes évre előre ugyanúgy. A szűretlen oldalhoz képest a diff 14 sor: CSRF token,
+echózott szűrőértékek, Cloudflare email-obfuszkáció. Tehát nem JS-renderelési és nem
+hozzáférési kérdés — ugyanaz az alakzat, mint a Funzine: élő felület, halott adat. A
+szelektorok a `sources/fidelio.yaml`-ban rögzítve arra az esetre, ha feltöltenék.
+
+**Színházak.hu — rossz domain parkolt, a jó domain 2020-ban megállt.** A `szinhazak.hu`
+az `old.byte.hu`-ra megy és HTTP 526-ot ad (érvénytelen origin-tanúsítvány) — a byte.hu a
+tárhelyszolgáltató, ez az ő parkolója. A `szinhaz.hu` él, de blog.hu-alapú szerkesztőségi
+blog: a címlap legfrissebb cikke 2020-11-25, nincs `<time>`, nincs előadásonkénti markup.
+**Amit érdemes tudni:** a saját jegylinkje a `//port.hu/jegy`-re mutat. Vagyis a
+színházi repertoár hiánya **Port.hu-lefedettségi kérdés** (§17.1), nem hiányzó forrás —
+másik „színházportál" keresése nagy eséllyel megint magazint talál.
 
 **Funzine — élő archívum, halott tartalom.** A WordPress `event` poszttípus minden
 technikai feltételt teljesít (saját archívum lapozással, tiszta SSR, nyitott robots.txt),
@@ -823,6 +847,19 @@ if event.end and (event.end - event.start).days > config.recurrence.series_thres
 
 `series_behavior: send_once` → a ledger úgy kezeli, mint bármely eseményt: egyszer kimegy,
 utána néma. `run_behavior: send_at_start` → a többnapos futás a kezdőnapján megy ki.
+
+**A repertoár-kockázat: felmérve, nem cáfolva.** Egy színházi repertoár a legrosszabb eset
+ezeknek a szabályoknak: ugyanaz a produkció húszszor megy három hónap alatt. Ha egy forrás
+ezt **húsz külön rekordként** adja, sem a §7.3, sem a §7.4 nem fogja meg — a recurrence
+egyetlen rekord `end - start` távolságát nézi, a grouping kulcsa pedig
+`(venue_name, effective_date, primary_category)`, és ezeknél épp a dátum tér el. A mentett
+fixture-ökön ez **ma nem fordul elő**: a Port.hu 20 rekordjában nincs ismétlődő
+(cím, helyszín) pár, viszont van két valódi dátumtartomány, és a §7.3 helyesen sorozatnak
+jelöli a „HØT SPØT 2026 / Every Wednesday" 2026-05-06 → 2026-09-30 rekordot. A
+bigcitylife 8 rekordja szintén egyedi, tartomány nélkül. Tehát minden jelenlegi forrás a
+**jó** alakot adja (egy rekord tartománnyal), a rossz alak pedig **megfigyeletlen**, nem
+kizárt — az első valódi repertoárforrás hozná be. Addig nem vezetünk be új grouping
+szabályt: nincs mihez tervezni.
 
 ## 7.4 `group(events, config) -> list[Event]`
 
