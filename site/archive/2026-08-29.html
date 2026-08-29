@@ -1,4 +1,340 @@
-{
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Budapesti lista — mi van ma este?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#161826; --bg-deep:#12131f; --surface:#232532; --surface-2:#1c1e2b;
+  --text:#e9e9ed; --n100:#f3f5fe; --n200:#e4e7f5; --n300:#cfd3e5; --n400:#b2b6ca;
+  --n500:#9397ab; --n600:#75798c; --n700:#595d6c; --n800:#3f424d; --n900:#292b31;
+  --accent:#9184d9; --a200:#e7e5fe; --a300:#d2cefd; --a400:#b5abfc; --a600:#796cbf;
+  --a700:#5d5294; --a800:#423a6a; --a900:#2b2741;
+  --section:#262a60; --divider:rgba(233,233,237,.16);
+  --s1:2.8px; --s2:5.6px; --s3:8.4px; --s4:11.2px; --s6:16.8px; --s8:22.4px;
+  --r-sm:4px; --r-md:8px; --r-lg:14px;
+  --wrap:860px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg-deep); color:var(--text);
+  font-family:"Inter",system-ui,-apple-system,'Segoe UI',sans-serif;
+  font-size:15px; line-height:1.55; font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent); text-underline-offset:3px}
+a:hover{color:var(--a400)}
+:focus{outline:none}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:2px}
+::selection{background:rgba(145,132,217,.3)}
+button,input,select{font:inherit; color:inherit}
+h1,h2,h3{font-weight:500; line-height:1.14; letter-spacing:-.015em; margin:0}
+.wrap{max-width:var(--wrap); margin:0 auto; padding:0 18px}
+
+/* ── masthead ─────────────────────────────────────────── */
+.masthead{background:var(--section); padding:22px 0 20px}
+.kicker{font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--a400); margin:0 0 10px}
+.masthead h1{font-size:27px; color:var(--n100); letter-spacing:-.02em}
+.runline{margin:9px 0 0; font-size:12.5px; color:var(--a300); display:flex; flex-wrap:wrap; gap:4px 12px; align-items:center}
+.pulse{display:inline-flex; align-items:center; gap:6px}
+.pulse i{width:6px; height:6px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 3px rgba(145,132,217,.22)}
+
+/* ── filters ──────────────────────────────────────────── */
+.filters{position:sticky; top:0; z-index:20; background:rgba(18,19,31,.94); backdrop-filter:blur(8px);
+  border-bottom:1px solid #24263a; padding:12px 0 11px}
+.frow{display:flex; gap:var(--s2); align-items:center; flex-wrap:wrap}
+.frow + .frow{margin-top:9px}
+.search{flex:1 1 190px; min-width:150px; position:relative; display:flex; align-items:center}
+.input{width:100%; min-height:38px; padding:6px 32px 6px 11px; font-size:14px; color:var(--text);
+  caret-color:var(--accent); background:var(--surface); border:1px solid var(--divider); border-radius:var(--r-md)}
+.input::placeholder{color:var(--n600)}
+.input:hover{border-color:rgba(233,233,237,.45)}
+.input:focus-visible{border-color:var(--accent); outline-offset:0}
+.clearq{position:absolute; right:5px; width:26px; height:26px; display:none; place-items:center;
+  background:none; border:0; border-radius:var(--r-sm); color:var(--n500); cursor:pointer; line-height:1}
+.clearq:hover{color:var(--text); background:rgba(233,233,237,.08)}
+.clearq.on{display:grid}
+.seg{display:inline-flex; overflow:hidden; border:1px solid var(--divider); border-radius:var(--r-md)}
+.seg button{padding:8px 11px; font-size:13px; background:none; border:0; cursor:pointer; color:var(--n300); white-space:nowrap}
+.seg button + button{border-left:1px solid var(--divider)}
+.seg button:hover{background:rgba(233,233,237,.07)}
+.seg button[aria-pressed="true"]{color:var(--accent); box-shadow:inset 0 0 0 1px var(--accent)}
+.chips{display:flex; flex-wrap:wrap; gap:var(--s2)}
+.chips.scroll{flex-wrap:nowrap; overflow-x:auto; padding-bottom:2px; scrollbar-width:thin}
+.chip{padding:5px 11px; font-size:12.5px; letter-spacing:.01em; background:none; border:1px solid var(--divider);
+  border-radius:6px; color:var(--n300); cursor:pointer; white-space:nowrap}
+.chip:hover{background:rgba(233,233,237,.07)}
+.chip[aria-pressed="true"]{border-color:var(--accent); color:var(--a200); background:var(--a900)}
+.chip .n{color:var(--n600); margin-left:6px; font-size:11px}
+.chip[aria-pressed="true"] .n{color:var(--a600)}
+.more{background:none; border:0; padding:5px 2px; font-size:12.5px; color:var(--accent); cursor:pointer}
+.more:hover{color:var(--a400)}
+.adv{display:none; gap:var(--s6); flex-wrap:wrap; align-items:flex-end; padding-top:11px; margin-top:9px;
+  border-top:1px solid #24263a}
+.adv.open{display:flex}
+.field{display:flex; flex-direction:column; gap:5px}
+.field > span{font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--n500)}
+.switch{display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-size:13.5px; color:var(--n200)}
+.switch input{position:absolute; opacity:0; width:0; height:0}
+.switch .track{width:34px; height:19px; flex:none; border-radius:10px; border:1px solid var(--divider);
+  background:var(--surface); position:relative; transition:border-color .15s, background .15s}
+.switch .track::after{content:""; position:absolute; top:2px; left:2px; width:13px; height:13px; border-radius:50%;
+  background:var(--n500); transition:transform .15s, background .15s}
+.switch input:checked + .track{border-color:var(--accent); background:var(--a900)}
+.switch input:checked + .track::after{transform:translateX(15px); background:var(--accent)}
+.switch input:focus-visible + .track{outline:2px solid var(--accent); outline-offset:2px}
+input[type="range"]{-webkit-appearance:none; appearance:none; width:150px; height:20px; background:none; cursor:pointer}
+input[type="range"]::-webkit-slider-runnable-track{height:3px; background:var(--n800); border-radius:2px}
+input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none; width:14px; height:14px; margin-top:-5.5px;
+  border-radius:50%; background:var(--accent); border:0}
+input[type="range"]::-moz-range-track{height:3px; background:var(--n800); border-radius:2px}
+input[type="range"]::-moz-range-thumb{width:14px; height:14px; border:0; border-radius:50%; background:var(--accent)}
+.resetall{background:none; border:0; font-size:12.5px; color:var(--n500); cursor:pointer; padding:5px 2px}
+.resetall:hover{color:var(--a400)}
+
+/* ── result bar ───────────────────────────────────────── */
+.resultbar{display:flex; justify-content:space-between; align-items:baseline; gap:12px;
+  padding:20px 0 4px; font-size:12.5px; color:var(--n500)}
+.resultbar b{color:var(--n200); font-weight:500}
+
+/* ── list ─────────────────────────────────────────────── */
+.list{padding-bottom:64px}
+.daysep{display:flex; align-items:center; gap:10px; margin:26px 0 4px; font-size:11px;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--n400)}
+.daysep::before{content:""; width:18px; height:2px; background:var(--accent); flex:none}
+.daysep span{color:var(--n700); letter-spacing:.06em}
+.ev{display:grid; grid-template-columns:64px minmax(0,1fr); gap:0 14px;
+  padding:17px 0 18px; border-bottom:1px solid #24263a}
+.rail{display:flex; flex-direction:column; align-items:flex-start; padding-top:1px}
+.day{font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--n600)}
+.time{font-size:21px; line-height:1.05; font-weight:500; letter-spacing:-.01em; font-variant-numeric:tabular-nums;
+  color:var(--text); margin-top:1px}
+.night{font-size:10.5px; line-height:1.3; color:var(--a600); margin-top:2px}
+.meter{display:flex; gap:3px; margin-top:10px}
+.meter i{width:6px; height:4px; border-radius:1px; background:#332e4d}
+.meter i.on{background:var(--accent)}
+.meter-hot i.on{box-shadow:0 0 6px rgba(145,132,217,.75)}
+.score{font-size:11px; font-variant-numeric:tabular-nums; color:var(--accent); margin-top:6px}
+.meter-hot + .score{color:var(--a400)}
+.ev h3{font-size:18px; line-height:1.3; text-wrap:pretty; margin-bottom:7px}
+.ev h3 a{color:var(--text); text-decoration:none}
+.ev h3 a:hover{color:var(--a300); text-decoration:underline}
+.meta{font-size:12px; line-height:1.5; color:var(--n500); display:flex; flex-wrap:wrap; gap:2px 7px; align-items:center}
+.meta .sep{color:var(--n700)}
+.meta .when{color:var(--n300); font-variant-numeric:tabular-nums}
+.meta .price{color:var(--n300)}
+.meta .noprice{color:var(--n600)}
+.free{font-size:11px; padding:1px 8px; border-radius:6px; background:var(--a800); color:var(--a200)}
+.cat{font-size:11px; letter-spacing:.02em; color:var(--n400)}
+.out{font-size:12px; color:var(--accent); margin-left:7px; font-weight:400}
+.fest{grid-template-columns:64px minmax(0,1fr) auto}
+.fest .badge{display:flex; flex-direction:column; align-items:flex-end; text-align:right}
+.fest .badge b{font-size:19px; font-weight:500; color:var(--accent); line-height:1}
+.fest .badge span{font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--n600); margin-top:3px}
+.fest h3 .grouped{color:var(--n600)}
+
+/* ── empty ────────────────────────────────────────────── */
+.empty{padding:34px 0 70px; max-width:520px}
+.empty h2{font-size:21px; margin-bottom:9px}
+.empty p{margin:0 0 16px; font-size:14px; line-height:1.65; color:var(--n400)}
+.relax{display:flex; flex-direction:column; gap:var(--s2); align-items:flex-start}
+.relax button{display:inline-flex; align-items:center; gap:9px; padding:8px 13px; font-size:13px;
+  background:none; border:1px solid var(--accent); border-radius:var(--r-md); color:var(--accent); cursor:pointer}
+.relax button:hover{background:rgba(145,132,217,.12)}
+.relax button:active{background:rgba(145,132,217,.22)}
+.relax button em{font-style:normal; color:var(--n500)}
+.sentinel{height:1px}
+
+@media (max-width:640px){
+  .masthead h1{font-size:23px}
+  .ev{grid-template-columns:54px minmax(0,1fr); gap:0 11px}
+  .fest{grid-template-columns:54px minmax(0,1fr) auto}
+  .time{font-size:19px}
+  .adv{gap:var(--s4) var(--s6)}
+  input[type="range"]{width:130px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important; animation:none !important}
+  html{scroll-behavior:auto}
+}
+
+/* ── író UI (package 14): rejtett, amíg nincs elmentett token ────────── */
+.gearBtn{position:fixed; top:14px; right:14px; z-index:30; width:36px; height:36px;
+  border-radius:50%; border:1px solid var(--divider); background:var(--surface);
+  color:var(--n300); font-size:16px; cursor:pointer; display:grid; place-items:center}
+.gearBtn:hover{color:var(--text); border-color:rgba(233,233,237,.45)}
+dialog.settings{border:0; border-radius:var(--r-lg); padding:0; color:var(--text);
+  background:var(--surface); width:min(480px, calc(100vw - 32px)); box-shadow:0 20px 60px rgba(0,0,0,.5)}
+dialog.settings::backdrop{background:rgba(10,10,16,.6); backdrop-filter:blur(2px)}
+.settingsHead{display:flex; align-items:center; justify-content:space-between;
+  padding:16px 18px; border-bottom:1px solid var(--divider)}
+.settingsHead h2{font-size:16px}
+.dlgClose{background:none; border:0; color:var(--n500); font-size:15px; cursor:pointer; padding:4px}
+.dlgClose:hover{color:var(--text)}
+.settingsBlock{padding:16px 18px}
+.settingsHint{font-size:12.5px; line-height:1.6; color:var(--n400); margin:0 0 12px}
+.settingsHint code{background:var(--surface-2); padding:1px 5px; border-radius:4px; font-size:11.5px}
+.settingsRow{display:flex; gap:var(--s4); flex-wrap:wrap; align-items:flex-end; margin-bottom:11px}
+.settingsRow .field{flex:1 1 140px}
+.settingsBlock h3{font-size:13px; margin:0 0 8px; color:var(--n200)}
+.settingsDivider{height:1px; background:var(--divider); margin:16px 0}
+.saveBtn{padding:8px 13px; font-size:13px; border-radius:var(--r-md); border:1px solid var(--accent);
+  background:none; color:var(--accent); cursor:pointer}
+.saveBtn:hover{background:rgba(145,132,217,.12)}
+.forgetBtn{padding:7px 12px; font-size:12.5px; border-radius:var(--r-md); border:1px solid #6a4040;
+  background:none; color:#e08a8a; cursor:pointer}
+.forgetBtn:hover{background:rgba(224,138,138,.1)}
+.warnBanner{font-size:12px; line-height:1.55; color:#f0c98a; background:rgba(240,201,138,.1);
+  border:1px solid rgba(240,201,138,.3); border-radius:var(--r-md); padding:10px 12px; margin:0 0 12px}
+.settingsStatus{padding:0 18px 16px; font-size:12.5px; color:var(--n400); min-height:1px}
+.settingsStatus.err{color:#e08a8a}
+.settingsStatus.ok{color:var(--a300)}
+.cardActions{display:flex; gap:8px; margin-top:9px}
+.pinbtn,.hidebtn{background:none; border:1px solid var(--divider); border-radius:6px;
+  padding:3px 9px; font-size:11.5px; color:var(--n400); cursor:pointer}
+.pinbtn:hover,.hidebtn:hover{border-color:rgba(233,233,237,.45); color:var(--text)}
+.pinbtn[aria-pressed="true"]{border-color:var(--accent); color:var(--a200); background:var(--a900)}
+</style>
+</head>
+<body>
+
+<button class="gearBtn" id="gearBtn" type="button" aria-haspopup="dialog" aria-controls="settingsPanel" title="Beállítások">⚙</button>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker">Budapesti lista</p>
+    <h1>Van ma este bármi?</h1>
+    <p class="runline">
+      <span class="pulse"><i></i>Utolsó futás: <span id="runAt">—</span></span>
+      <span><span id="totalCount">—</span> esemény a listában</span>
+      <span>6 forrásból 6 rendben</span>
+    </p>
+  </div>
+</header>
+
+<section class="filters" aria-label="Szűrők">
+  <div class="wrap">
+    <div class="frow">
+      <label class="search">
+        <span class="sr" hidden>Keresés</span>
+        <input class="input" id="q" type="search" placeholder="Keresés címben, helyszínben, kategóriában…" autocomplete="off">
+        <button class="clearq" id="clearq" type="button" aria-label="Keresés törlése">✕</button>
+      </label>
+      <div class="seg" id="sortSeg" role="group" aria-label="Rendezés">
+        <button type="button" data-sort="score" aria-pressed="true">Pontszám</button>
+        <button type="button" data-sort="time" aria-pressed="false">Időpont</button>
+      </div>
+    </div>
+    <div class="frow">
+      <div class="seg" id="rangeSeg" role="group" aria-label="Dátumtartomány">
+        <button type="button" data-range="ma" aria-pressed="false">Ma</button>
+        <button type="button" data-range="holnap" aria-pressed="false">Holnap</button>
+        <button type="button" data-range="hetvege" aria-pressed="false">Hétvége</button>
+        <button type="button" data-range="7nap" aria-pressed="false">7 nap</button>
+        <button type="button" data-range="mind" aria-pressed="true">Mind</button>
+      </div>
+      <button class="more" id="moreBtn" type="button" aria-expanded="false">Több szűrő</button>
+      <button class="resetall" id="resetAll" type="button">Szűrők törlése</button>
+    </div>
+    <div class="frow">
+      <div class="chips scroll" id="catChips" role="group" aria-label="Kategória"></div>
+    </div>
+    <div class="adv" id="adv">
+      <label class="switch"><input type="checkbox" id="freeOnly"><span class="track"></span>Csak ingyenes</label>
+      <div class="field">
+        <span>Ár-plafon: <span id="priceLabel">nincs</span></span>
+        <input type="range" id="priceCap" min="0" max="10000" step="500" value="10000">
+      </div>
+      <div class="field">
+        <span>Kerület</span>
+        <div class="chips" id="distChips" role="group" aria-label="Kerület"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="resultbar">
+    <span id="resultCount"></span>
+    <span id="resultHint"></span>
+  </div>
+  <main class="list" id="list"></main>
+  <div class="sentinel" id="sentinel"></div>
+</div>
+
+<dialog id="settingsPanel" class="settings">
+  <div class="settingsHead">
+    <h2>Beállítások</h2>
+    <button class="dlgClose" id="settingsClose" type="button" aria-label="Bezárás">✕</button>
+  </div>
+
+  <section class="settingsBlock" id="tokenBlock">
+    <p class="settingsHint">
+      Ehhez egy <b>fine-grained personal access token</b> kell, ami <b>csak erre az egy
+      repóra</b> van korlátozva, <code>Contents: Read and write</code> és
+      <code>Actions: Read and write</code> jogosultsággal. A tokent a böngésző
+      <b>localStorage</b>-ában tárolja ez az oldal — bárki, akinek hozzáférése van ehhez
+      a böngészőhöz vagy géphez, vagy bármely, ezen az oldalon futó script, ki tudja
+      olvasni. Ne oszd meg, és ne közös/más gépen mentsd el.
+    </p>
+    <div class="settingsRow">
+      <label class="field"><span>GitHub felhasználó</span>
+        <input class="input" id="ghOwner" type="text" autocomplete="off" placeholder="pl. demetermate"></label>
+      <label class="field"><span>Repó neve</span>
+        <input class="input" id="ghRepo" type="text" autocomplete="off" placeholder="pl. budapest-event-digest"></label>
+    </div>
+    <label class="field"><span>Token</span>
+      <input class="input" id="ghToken" type="password" autocomplete="off" placeholder="github_pat_…"></label>
+    <button class="saveBtn" id="tokenSave" type="button">Token mentése</button>
+  </section>
+
+  <section class="settingsBlock" id="unlockedBlock" hidden>
+    <p class="warnBanner">
+      ⚠️ A token ebben a böngészőben, titkosítatlanul van tárolva. A „Token elfelejtése”
+      törli innen — a GitHub-fiókodból nem, azt a Settings → Developer settings alatt
+      tudod visszavonni.
+    </p>
+    <button class="forgetBtn" id="tokenForget" type="button">Token elfelejtése</button>
+
+    <div class="settingsDivider"></div>
+
+    <h3>Forrás ki/bekapcsolása</h3>
+    <div class="settingsRow">
+      <label class="field"><span>Forrás id</span>
+        <input class="input" id="srcId" type="text" autocomplete="off" placeholder="pl. bigcitylife"></label>
+      <button class="saveBtn" id="srcLoad" type="button">Betöltés</button>
+    </div>
+    <div class="settingsRow" id="srcToggleRow" hidden>
+      <label class="switch"><input type="checkbox" id="srcEnabled"><span class="track"></span>
+        <span id="srcToggleLabel">enabled</span></label>
+      <button class="saveBtn" id="srcSave" type="button">Mentés</button>
+    </div>
+
+    <div class="settingsDivider"></div>
+
+    <h3>Futtatás</h3>
+    <p class="settingsHint">Elindítja a napi futást most, a beütemezett időponttól függetlenül.</p>
+    <button class="saveBtn" id="runNow" type="button">Futtatás most</button>
+
+    <div class="settingsDivider"></div>
+    <p class="settingsHint">
+      Az eseménykártyákon megjelenő 📌 / 🙈 gombok az <code>overrides.yaml</code>-t írják:
+      a rejtett programok a következő futástól nem jelennek meg többé, a kitűzöttek
+      mindig bekerülnek a listába.
+    </p>
+  </section>
+
+  <p class="settingsStatus" id="settingsStatus" role="status" aria-live="polite"></p>
+</dialog>
+
+<script type="module">
+const DATA = {
   "generated_at": "2026-08-29T11:13:23Z",
   "category_order": [
     "koncert",
@@ -5707,4 +6043,570 @@
       "group_size": 1
     }
   ]
+};
+
+/* ── szótárak ────────────────────────────────────────────────────────── */
+// A taxonómia a PAYLOADBÓL jön, nincs itt második másolata (CLAUDE.md 12.). Korábban itt
+// állt kézzel a címkelista és a sorrend is, és mindkettő elcsúszott a config.yaml-tól:
+// a `sport`, `csaladi` és `egyeb` hiányzott innen, így azoknak az eseményeknek nem volt
+// szűrőcsipjük, a címkéjük pedig a nyers, kisbetűs slug volt. Új kategóriához ma nem kell
+// hozzányúlni ehhez a fájlhoz.
+const CAT = DATA.category_labels || {};
+const CAT_ORDER = DATA.category_order || [];
+// Ismeretlen kulcs nem csendben esik vissza a slugra — az tette észrevehetetlenné a
+// szétcsúszást. A címke a render/labels.py-ban él; ha ott nincs, ez látszik és naplózódik.
+function catLabel(c){
+  if (CAT[c]) return CAT[c];
+  console.error("hiányzó kategórianév:", c, "— add hozzá: src/digest/render/labels.py");
+  return c + " ⚠";
 }
+const TZ = "Europe/Budapest", MAX_SCORE = 14, TICKS = 7;
+const fold = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/ø/g,"o").replace(/đ/g,"d");
+
+/* ── idő: minden budapesti helyi időben, az éjszaka az előző estéhez tartozik ── */
+const P = new Intl.DateTimeFormat("en-CA",{timeZone:TZ,year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false});
+function local(iso){
+  const p = {};
+  for (const x of P.formatToParts(new Date(iso))) if (x.type !== "literal") p[x.type] = x.value;
+  const h = (+p.hour) % 24;
+  return {y:+p.year, mo:+p.month, d:+p.day, h:h, mi:+p.minute};
+}
+function dayNum(l){ return Date.UTC(l.y, l.mo-1, l.d) / 86400000; }
+// Ugyanaz a napszám egy sima "YYYY-MM-DD" naptári dátumból (events.json effective_date):
+// az már helyi dátum, nincs mit zónázni rajta.
+function dayNumOfDate(iso){ const p = String(iso).split("-").map(Number); return Date.UTC(p[0], p[1]-1, p[2]) / 86400000; }
+const WD = new Intl.DateTimeFormat("hu-HU",{timeZone:"UTC",weekday:"long"});
+const MD = new Intl.DateTimeFormat("hu-HU",{timeZone:"UTC",month:"short",day:"numeric"});
+const FULL = new Intl.DateTimeFormat("hu-HU",{timeZone:TZ,year:"numeric",month:"long",day:"numeric",hour:"2-digit",minute:"2-digit"});
+function dayName(n){ return WD.format(new Date(n*86400000)); }
+const SUBLAT = ["vasárnapra","hétfőre","keddre","szerdára","csütörtökre","péntekre","szombatra"];
+function dayOnto(n){ return SUBLAT[new Date(n*86400000).getUTCDay()]; }
+function dayShort(n){ return MD.format(new Date(n*86400000)); }
+// "szeptember 2." — a hu-HU hosszú alak. A záró pont a magyar konvenció; ha az Intl nem
+// teszi ki, itt pótoljuk, hogy a sor mindig ugyanúgy nézzen ki.
+const DM = new Intl.DateTimeFormat("hu-HU",{timeZone:"UTC",month:"long",day:"numeric"});
+function dayLong(n){ const s = DM.format(new Date(n*86400000)); return s.endsWith(".") ? s : s + "."; }
+// A SOR dátuma, minden nézetben és minden rendezésben. A pontszám szerinti nézetben nincs
+// napelválasztó, tehát enélkül a sor semmilyen dátumot nem hordoz — húsz napos horizonton
+// három szerda megkülönböztethetetlen. A nap az `effective_date`-ből jön (prep()), nem
+// számoljuk újra (CLAUDE.md 12.), és óra csak akkor kerül rá, ha a forrás közölt egyet:
+// a `start_time_known:false` rekord 00:00-ja hiányzó érték, nem időpont (§7.1).
+function whenLabel(e){
+  const rel = e.evening === TODAY ? "ma" : e.evening === TODAY+1 ? "holnap" : dayName(e.evening);
+  return rel + ", " + dayLong(e.evening) + (e.time ? ", " + e.time : "");
+}
+
+const NOW = local(DATA.generated_at);
+const TODAY = dayNum(NOW);
+
+function prep(e){
+  const l = local(e.start);
+  // A forrás közölt-e órát. Ha nem, a 00:00 hiányzó érték, nem időpont — ilyenkor sem
+  // éjszakai eltolás nincs, sem óra nem jelenik meg. A `!== false` szándékos, de NEM
+  // verziókülönbség miatt: az index.html mindig az aznapi events.json-t tölti be, az
+  // archívumoldalak pedig a saját adatukat hordozzák beágyazva, tehát a kettő sosem
+  // csúszik el egymástól. Az ok egyszerűbb: hiányzó vagy csonka mezőnél a biztonságos
+  // alapértelmezés az, hogy VAN óra — a fordítottja minden rekordról letörölné az
+  // időpontot, ami látványos adatvesztés lenne egy hibás payloadból.
+  const timeKnown = e.start_time_known !== false;
+  // Melyik estéhez tartozik. A §7.7 hajnali eltolást a pipeline már elvégezte, és az
+  // `effective_date` AZ eredménye — itt csak beolvassuk. Korábban ez a sor újraszámolta
+  // (`l.h < 5`), ami a szabály második, független implementációja volt a böngészőben, ahol
+  // egyetlen Python teszt sem látta (CLAUDE.md 12. szabály).
+  // A ternária nem a szabály újraírása: ha a pipeline nem mondott estét, akkor nincs
+  // eltolás — nem az, hogy kitaláljuk, melyik lenne. (index.html és events.json mindig
+  // egy futásból származik, tehát ez csak azért van itt, hogy NaN dátum ne keletkezzen.)
+  const evening = e.effective_date ? dayNumOfDate(e.effective_date) : dayNum(l);
+  const isNight = evening !== dayNum(l);
+  return Object.assign({}, e, {
+    l:l, isNight:isNight, evening:evening, timeKnown:timeKnown,
+    ts:new Date(e.start).getTime(),
+    time:timeKnown ? String(l.h).padStart(2,"0")+":"+String(l.mi).padStart(2,"0") : "",
+    hay:fold([e.title, e.venue||"", (e.categories||[]).map(c=>CAT[c]||c).join(" ")  /* kereséshez a nyers slug is jó */].join(" "))
+  });
+}
+const EVENTS = DATA.events.map(prep);
+
+/* ── formázás ────────────────────────────────────────────────────────── */
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const num1 = n => n.toFixed(1).replace(".",",");
+const ft = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "\u00a0") + "\u00a0Ft";
+function priceHTML(e){
+  if (e.is_free) return '<span class="free">ingyenes</span>';
+  if (e.price_min === null || e.price_min === undefined) return '<span class="noprice">ár nincs megadva</span>';
+  if (e.price_min === 0) return '<span class="free">ingyenes</span>';
+  return '<span class="price">'+ft(e.price_min)+'</span>';
+}
+function dayLabel(e){
+  if (e.evening === TODAY) return e.isNight ? "MA ÉJJEL" : "MA";
+  if (e.evening === TODAY+1) return "HOLNAP";
+  return dayName(e.evening).slice(0,3);
+}
+
+/* ── a lap aláírás-eleme: a pontsáv ──────────────────────────────────── */
+function meter(score){
+  const on = Math.min(TICKS, Math.max(1, Math.ceil(score / (MAX_SCORE/TICKS))));
+  let h = '<div class="meter'+(score>=12?" meter-hot":"")+'" role="img" aria-label="'+num1(score)+' pont a '+MAX_SCORE+'-ből">';
+  for (let i=0;i<TICKS;i++) h += '<i class="'+(i<on?"on":"off")+'"></i>';
+  return h + "</div>";
+}
+/* ── kártya ──────────────────────────────────────────────────────────── */
+// AUDIT-1 BLOCKER-2: no "Miért ennyi a pont?" breakdown panel here. events.json carries
+// no per-term breakdown on the public site (SPEC 9.0) — score_breakdown terms are the
+// private profile's numbers verbatim. The full breakdown still renders in the email.
+function railHTML(e){
+  return '<div class="rail"><div class="day">'+esc(dayLabel(e))+'</div>'+(e.time?'<div class="time">'+e.time+"</div>":"")
+    + (e.isNight ? '<div class="night">éjjel, '+esc(dayOnto(e.evening+1))+"</div>" : "")
+    + meter(e.score) + '<div class="score">'+num1(e.score)+"</div></div>";
+}
+function metaHTML(e){
+  const bits = [];
+  bits.push('<span class="when">'+esc(whenLabel(e))+"</span>");
+  bits.push('<span class="cat">'+e.categories.map(c=>esc(catLabel(c))).join(" / ")+"</span>");
+  if (e.venue) bits.push("<span>"+esc(e.venue)+"</span>");
+  if (e.district) bits.push("<span>"+esc(e.district)+" kerület</span>");
+  bits.push(priceHTML(e));
+  return '<div class="meta">'+bits.join('<span class="sep">·</span>')+"</div>";
+}
+function pinHideHTML(e){
+  // Only once a token is saved (package 14) — a read-only visitor never sees these.
+  if (!W) return "";
+  const pinned = OVR && OVR.pinned.has(e.id);
+  return '<div class="cardActions">'
+    + '<button class="pinbtn" type="button" data-pin="'+e.id+'" aria-pressed="'+(pinned?"true":"false")+'">📌 '+(pinned?"kitűzve":"kitűzés")+'</button>'
+    + '<button class="hidebtn" type="button" data-hide="'+e.id+'">🙈 elrejtés</button>'
+    + "</div>";
+}
+function cardHTML(e){
+  if (e.group_size > 1) {
+    return '<article class="ev fest">'+railHTML(e)
+      + '<div><h3><a href="'+esc(e.url)+'" target="_blank" rel="noopener">'+esc(e.title)+' <span class="out">↗</span></a>'
+      + ' <span class="grouped">— '+e.group_size+" program</span></h3>"
+      + metaHTML(e)
+      + pinHideHTML(e) + "</div>"
+      + '<div class="badge"><b>'+e.group_size+"</b><span>program</span></div></article>";
+  }
+  return '<article class="ev">'+railHTML(e)
+    + '<div><h3><a href="'+esc(e.url)+'" target="_blank" rel="noopener">'+esc(e.title)+' <span class="out">↗</span></a></h3>'
+    + metaHTML(e)
+    + pinHideHTML(e) + "</div>"
+    + "</article>";
+}
+
+/* ── szűrőállapot ────────────────────────────────────────────────────── */
+const KEY = "bp-lista-szurok-v1";
+const DEFAULTS = {q:"", cats:[], range:"mind", free:false, cap:null, dists:[], sort:"score"};
+let S = Object.assign({}, DEFAULTS);
+try { const raw = localStorage.getItem(KEY); if (raw) S = Object.assign(S, JSON.parse(raw)); } catch(_){}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(_){} };
+
+const TESTS = {
+  q: e => !S.q || e.hay.includes(fold(S.q.trim())),
+  cats: e => !S.cats.length || e.categories.some(c => S.cats.includes(c)),
+  range: e => {
+    if (S.range === "mind") return true;
+    if (S.range === "ma") return e.evening === TODAY;
+    if (S.range === "holnap") return e.evening === TODAY+1;
+    if (S.range === "7nap") return e.evening >= TODAY && e.evening <= TODAY+7;
+    if (S.range === "hetvege") {              // a következő péntek estétől vasárnapig
+      for (let d = TODAY; d <= TODAY+7; d++) {
+        const wd = new Date(d*86400000).getUTCDay();
+        if ((wd===5||wd===6||wd===0) && e.evening===d) return true;
+      }
+      return false;
+    }
+    return true;
+  },
+  free: e => !S.free || e.is_free || e.price_min === 0,
+  cap: e => S.cap === null || e.is_free || e.price_min === null || e.price_min <= S.cap,
+  dists: e => !S.dists.length || (e.district && S.dists.includes(e.district))
+};
+const LABEL = {q:"a keresés", cats:"a kategória-szűrő", range:"a dátumtartomány",
+  free:"a „csak ingyenes”", cap:"az ár-plafon", dists:"a kerület-szűrő"};
+const activeKeys = () => Object.keys(TESTS).filter(k => {
+  if (k==="q") return !!S.q.trim();
+  if (k==="cats") return S.cats.length>0;
+  if (k==="range") return S.range!=="mind";
+  if (k==="free") return S.free;
+  if (k==="cap") return S.cap!==null;
+  if (k==="dists") return S.dists.length>0;
+});
+function apply(skip){
+  const keys = Object.keys(TESTS).filter(k => k !== skip);
+  return EVENTS.filter(e => keys.every(k => TESTS[k](e)));
+}
+function sortRows(rows){
+  return rows.slice().sort((a,b) => S.sort === "score"
+    ? b.score - a.score || a.ts - b.ts
+    : a.ts - b.ts || b.score - a.score);
+}
+
+/* ── szakaszos renderelés (300+ eseményre) ───────────────────────────── */
+const listEl = document.getElementById("list");
+const BATCH = 40;
+let queue = [], drawn = 0, lastDay = null;
+function drawBatch(){
+  if (drawn >= queue.length) return;
+  const frag = document.createElement("div");
+  let html = "";
+  for (let i = drawn; i < Math.min(drawn+BATCH, queue.length); i++) {
+    const e = queue[i];
+    if (S.sort === "time" && e.evening !== lastDay) {
+      lastDay = e.evening;
+      const n = queue.filter(x => x.evening === e.evening).length;
+      const head = e.evening === TODAY ? "Ma" : e.evening === TODAY+1 ? "Holnap" : dayName(e.evening);
+      html += '<div class="daysep">'+esc(head)+' <span>'+esc(dayShort(e.evening))+" · "+n+"</span></div>";
+    }
+    html += cardHTML(e);
+  }
+  frag.innerHTML = html;
+  while (frag.firstChild) listEl.appendChild(frag.firstChild);
+  drawn = Math.min(drawn+BATCH, queue.length);
+}
+const io = new IntersectionObserver(es => { if (es.some(x => x.isIntersecting)) drawBatch(); }, {rootMargin:"400px"});
+io.observe(document.getElementById("sentinel"));
+
+/* ── render ──────────────────────────────────────────────────────────── */
+const countEl = document.getElementById("resultCount"), hintEl = document.getElementById("resultHint");
+function render(){
+  const rows = sortRows(apply(null));
+  queue = rows; drawn = 0; lastDay = null; listEl.innerHTML = "";
+  countEl.innerHTML = rows.length
+    ? "<b>"+rows.length+"</b> program" + (rows.length!==EVENTS.length ? " a "+EVENTS.length+"-ből" : "")
+    : "";
+  hintEl.textContent = rows.length ? (S.sort==="score" ? "pontszám szerint" : "időpont szerint") : "";
+  if (!rows.length) { listEl.appendChild(emptyEl()); }
+  else drawBatch();
+  syncControls();
+}
+function emptyEl(){
+  const box = document.createElement("div");
+  box.className = "empty";
+  const suggestions = activeKeys().map(k => ({k:k, n:apply(k).length})).filter(s => s.n > 0)
+    .sort((a,b) => b.n - a.n).slice(0,3);
+  let h = "<h2>Erre a szűrésre nincs semmi.</h2>";
+  h += suggestions.length
+    ? "<p>Nem a lista üres, a szűrő szűk. Ezek nyitnak rajta a legtöbbet:</p><div class=\"relax\">"
+      + suggestions.map(s => '<button type="button" data-relax="'+s.k+'">'+esc(LABEL[s.k])+' feloldása <em>→ '+s.n+" program</em></button>").join("")
+      + "</div>"
+    : "<p>Egyetlen szűrő feloldása sem hoz találatot — a teljes lista "+EVENTS.length+" eseményt tartalmaz. Töröld az összes szűrőt, és nézd meg előrébb a héten.</p>"
+      + '<div class="relax"><button type="button" data-relax="__all">Minden szűrő törlése</button></div>';
+  box.innerHTML = h;
+  box.addEventListener("click", ev => {
+    const b = ev.target.closest("[data-relax]"); if (!b) return;
+    const k = b.getAttribute("data-relax");
+    if (k === "__all") S = Object.assign({}, DEFAULTS, {sort:S.sort});
+    else if (k === "q") S.q = "";
+    else if (k === "cats") S.cats = [];
+    else if (k === "range") S.range = "mind";
+    else if (k === "free") S.free = false;
+    else if (k === "cap") S.cap = null;
+    else if (k === "dists") S.dists = [];
+    save(); render();
+  });
+  return box;
+}
+
+/* ── vezérlők ────────────────────────────────────────────────────────── */
+// A csipek a payloadban TÉNYLEGESEN jelen lévő kategóriákból állnak, a taxonómia
+// sorrendjében; ami nincs a sorrendben, az a végére kerül ábécében — így egy új kategória
+// azonnal szűrhető, UI-módosítás nélkül.
+//
+// A nulla eseményes kategória REJTVE marad, nem letiltott nullás csipként jelenik meg: a
+// payload egyetlen nap merítése, tizennégy kategóriából jellemzően nyolc-kilenc van benne,
+// és a hiányzókat kirakni hat halott gombot jelentene a szűrősávban. Tudatos döntés.
+const catsInPayload = [...new Set(EVENTS.flatMap(e => e.categories || []))];
+const catsPresent = [
+  ...CAT_ORDER.filter(c => catsInPayload.includes(c)),
+  ...catsInPayload.filter(c => !CAT_ORDER.includes(c)).sort(),
+];
+const distsPresent = [...new Set(EVENTS.map(e => e.district).filter(Boolean))];
+document.getElementById("catChips").innerHTML = catsPresent.map(c =>
+  '<button class="chip" type="button" data-cat="'+c+'" aria-pressed="false">'+esc(catLabel(c))
+  + '<span class="n">'+EVENTS.filter(e=>e.categories.includes(c)).length+"</span></button>").join("");
+document.getElementById("distChips").innerHTML = distsPresent.map(d =>
+  '<button class="chip" type="button" data-dist="'+esc(d)+'" aria-pressed="false">'+esc(d)+"</button>").join("");
+
+const qEl = document.getElementById("q"), clearQ = document.getElementById("clearq");
+const capEl = document.getElementById("priceCap"), capLabel = document.getElementById("priceLabel");
+const freeEl = document.getElementById("freeOnly"), advEl = document.getElementById("adv");
+const moreBtn = document.getElementById("moreBtn");
+
+function syncControls(){
+  qEl.value = S.q; clearQ.classList.toggle("on", !!S.q);
+  document.querySelectorAll("#sortSeg button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.sort===S.sort)));
+  document.querySelectorAll("#rangeSeg button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.range===S.range)));
+  document.querySelectorAll("[data-cat]").forEach(b => b.setAttribute("aria-pressed", String(S.cats.includes(b.dataset.cat))));
+  document.querySelectorAll("[data-dist]").forEach(b => b.setAttribute("aria-pressed", String(S.dists.includes(b.dataset.dist))));
+  freeEl.checked = S.free;
+  capEl.value = S.cap === null ? capEl.max : S.cap;
+  capLabel.textContent = S.cap === null ? "nincs" : ft(S.cap);
+  const advWanted = S.free || S.cap !== null || S.dists.length > 0;
+  if (advWanted && !advEl.classList.contains("open")) { advEl.classList.add("open"); moreBtn.setAttribute("aria-expanded","true"); moreBtn.textContent = "Kevesebb szűrő"; }
+}
+
+let qTimer;
+qEl.addEventListener("input", () => {
+  clearTimeout(qTimer);
+  qTimer = setTimeout(() => { S.q = qEl.value; save(); render(); }, 130);
+});
+clearQ.addEventListener("click", () => { S.q = ""; qEl.value = ""; qEl.focus(); save(); render(); });
+document.getElementById("sortSeg").addEventListener("click", e => {
+  const b = e.target.closest("[data-sort]"); if (!b) return;
+  S.sort = b.dataset.sort; save(); render();
+});
+document.getElementById("rangeSeg").addEventListener("click", e => {
+  const b = e.target.closest("[data-range]"); if (!b) return;
+  S.range = b.dataset.range; save(); render();
+});
+document.getElementById("catChips").addEventListener("click", e => {
+  const b = e.target.closest("[data-cat]"); if (!b) return;
+  const c = b.dataset.cat;
+  S.cats = S.cats.includes(c) ? S.cats.filter(x=>x!==c) : S.cats.concat(c);
+  save(); render();
+});
+document.getElementById("distChips").addEventListener("click", e => {
+  const b = e.target.closest("[data-dist]"); if (!b) return;
+  const d = b.dataset.dist;
+  S.dists = S.dists.includes(d) ? S.dists.filter(x=>x!==d) : S.dists.concat(d);
+  save(); render();
+});
+freeEl.addEventListener("change", () => { S.free = freeEl.checked; save(); render(); });
+capEl.addEventListener("input", () => {
+  const v = +capEl.value;
+  S.cap = v >= +capEl.max ? null : v;
+  capLabel.textContent = S.cap === null ? "nincs" : ft(S.cap);
+  save(); render();
+});
+moreBtn.addEventListener("click", () => {
+  const open = advEl.classList.toggle("open");
+  moreBtn.setAttribute("aria-expanded", String(open));
+  moreBtn.textContent = open ? "Kevesebb szűrő" : "Több szűrő";
+});
+document.getElementById("resetAll").addEventListener("click", () => {
+  S = Object.assign({}, DEFAULTS, {sort:S.sort}); save(); render();
+});
+listEl.addEventListener("click", e => {
+  const pinBtn = e.target.closest("[data-pin]");
+  if (pinBtn) { togglePinned(pinBtn.dataset.pin); return; }
+  const hideBtn = e.target.closest("[data-hide]");
+  if (hideBtn) { hideEvent(hideBtn.dataset.hide); return; }
+});
+
+/* ── író UI (package 14): PAT-tal írható a repo a GitHub Contents API-n át,
+   szerver nélkül. Rejtve, amíg nincs elmentett token — lásd a #settingsPanel
+   dialógust a body végén. W/OVR deklarációja itt, a render() első hívása
+   ELŐTT kell hogy legyen: cardHTML() -> pinHideHTML() ezeket már az első
+   render()-ben olvassa, és a let/const kötések nem "hoistolódnak" használhatóan. */
+const WRITE_KEY = "bp-lista-write-v1";
+const API = "https://api.github.com";
+let W = null;
+try { const raw = localStorage.getItem(WRITE_KEY); if (raw) W = JSON.parse(raw); } catch(_){}
+let OVR = null, overridesSha = null;
+
+document.getElementById("runAt").textContent = FULL.format(new Date(DATA.generated_at));
+document.getElementById("totalCount").textContent = EVENTS.length;
+render();
+
+function detectOwnerRepo(){
+  const m = location.hostname.match(/^([^.]+)\.github\.io$/);
+  if (!m) return {owner:"", repo:""};
+  return {owner:m[1], repo: location.pathname.split("/").filter(Boolean)[0] || ""};
+}
+function saveWrite(next){ W = next; try { localStorage.setItem(WRITE_KEY, JSON.stringify(W)); } catch(_){} }
+function forgetWrite(){ W = null; try { localStorage.removeItem(WRITE_KEY); } catch(_){} }
+
+function b64encode(text){ return btoa(unescape(encodeURIComponent(text))); }
+function b64decode(b64){ return decodeURIComponent(escape(atob(b64.replace(/\n/g,"")))); }
+
+async function ghGet(path){
+  const res = await fetch(API+"/repos/"+W.owner+"/"+W.repo+"/contents/"+path, {
+    headers: {"Authorization":"Bearer "+W.token, "Accept":"application/vnd.github+json"}
+  });
+  if (res.status === 404) return {sha:null, text:null};
+  if (!res.ok) throw new Error("GitHub hiba olvasáskor ("+res.status+"): "+path);
+  const body = await res.json();
+  return {sha: body.sha, text: b64decode(body.content)};
+}
+async function ghPut(path, text, sha, message){
+  const res = await fetch(API+"/repos/"+W.owner+"/"+W.repo+"/contents/"+path, {
+    method: "PUT",
+    headers: {"Authorization":"Bearer "+W.token, "Accept":"application/vnd.github+json"},
+    // branch omitted on purpose: the Contents API defaults to the repo's default branch,
+    // so this does not need to know or assume its name.
+    body: JSON.stringify({message: message, content: b64encode(text), sha: sha || undefined})
+  });
+  if (res.status === 409 || res.status === 422) {
+    throw new Error("Ütközés: valaki (vagy valami — pl. a napi futás) időközben módosította ezt a fájlt. Zárd be, nyisd meg újra, és próbáld ismét.");
+  }
+  if (!res.ok) throw new Error("GitHub hiba íráskor ("+res.status+"): "+(await res.text()).slice(0,200));
+  return res.json();
+}
+async function ghDispatchRun(){
+  const res = await fetch(API+"/repos/"+W.owner+"/"+W.repo+"/actions/workflows/digest.yml/dispatches", {
+    method: "POST",
+    headers: {"Authorization":"Bearer "+W.token, "Accept":"application/vnd.github+json"},
+    body: JSON.stringify({ref: "main"})  // SPEC 11's workflow only ever runs off main
+  });
+  if (!res.ok) throw new Error("Indítási hiba ("+res.status+"): "+(await res.text()).slice(0,200));
+}
+
+function parseOverridesYaml(text){
+  const result = {hidden:[], pinned:[]};
+  let current = null;
+  for (const raw of text.split("\n")) {
+    // Flow style ("hidden: []" or a hand-edited "hidden: [a, b]") on one line — this UI
+    // only ever writes "[]" for an empty list, but a hand-edit could use either style,
+    // and silently dropping it here would lose those ids on the next write from here.
+    const flow = raw.match(/^(hidden|pinned):\s*\[(.*)\]\s*$/);
+    if (flow) {
+      current = null;
+      result[flow[1]] = flow[2].split(",").map(s => s.trim()).filter(Boolean);
+      continue;
+    }
+    if (/^hidden:\s*$/.test(raw)) { current = "hidden"; continue; }
+    if (/^pinned:\s*$/.test(raw)) { current = "pinned"; continue; }
+    const m = raw.match(/^\s*-\s*(.+?)\s*$/);
+    if (m && current) result[current].push(m[1]);
+  }
+  return result;
+}
+function stringifyOverridesYaml(obj){
+  // "key:\n" with nothing under it parses as null in YAML, not [] — load_overrides()
+  // would then reject the WHOLE file (extra="forbid" territory once mode="before"
+  // coercion didn't exist yet) and silently drop both lists. Flow-style "[]" for an
+  // empty list keeps every write valid on the Python side.
+  const block = (key, list) => list.length
+    ? key+":\n" + list.map(id => "  - "+id+"\n").join("")
+    : key+": []\n";
+  return block("hidden", obj.hidden) + block("pinned", obj.pinned);
+}
+async function ensureOverridesLoaded(){
+  if (OVR) return OVR;
+  const {sha, text} = await ghGet("overrides.yaml");
+  overridesSha = sha;
+  const parsed = text ? parseOverridesYaml(text) : {hidden:[], pinned:[]};
+  OVR = {hidden: new Set(parsed.hidden), pinned: new Set(parsed.pinned)};
+  return OVR;
+}
+async function writeOverrides(){
+  const text = stringifyOverridesYaml({hidden:[...OVR.hidden], pinned:[...OVR.pinned]});
+  const res = await ghPut("overrides.yaml", text, overridesSha, "chore: update overrides.yaml via write UI");
+  overridesSha = res.content.sha;
+}
+async function togglePinned(id){
+  try {
+    setStatus("Mentés…");
+    await ensureOverridesLoaded();
+    if (OVR.pinned.has(id)) OVR.pinned.delete(id); else OVR.pinned.add(id);
+    await writeOverrides();
+    setStatus("Mentve — a következő futástól érvényes.", false);
+    render();
+  } catch (err) { setStatus(err.message, true); }
+}
+async function hideEvent(id){
+  if (!confirm("Elrejted ezt a programot? A következő futástól nem jelenik meg többé (visszavonás csak az overrides.yaml kézi szerkesztésével).")) return;
+  try {
+    setStatus("Mentés…");
+    await ensureOverridesLoaded();
+    OVR.hidden.add(id);
+    await writeOverrides();
+    const idx = EVENTS.findIndex(x => x.id === id);
+    if (idx !== -1) EVENTS.splice(idx, 1);
+    setStatus("Elrejtve — a következő futástól nem jelenik meg többé.", false);
+    render();
+  } catch (err) { setStatus(err.message, true); }
+}
+
+let currentSrcSha = null, currentSrcText = null, currentSrcId = null;
+async function loadSource(){
+  const id = document.getElementById("srcId").value.trim();
+  if (!id) return;
+  try {
+    setStatus("Betöltés…");
+    const {sha, text} = await ghGet("sources/"+id+".yaml");
+    if (text === null) throw new Error("Nincs ilyen forrás: sources/"+id+".yaml");
+    currentSrcSha = sha; currentSrcText = text; currentSrcId = id;
+    const m = text.match(/^enabled:\s*(true|false)\s*$/m);
+    const enabled = m ? m[1] === "true" : true;
+    document.getElementById("srcEnabled").checked = enabled;
+    document.getElementById("srcToggleLabel").textContent = "enabled: " + enabled;
+    document.getElementById("srcToggleRow").hidden = false;
+    setStatus("Betöltve.", false);
+  } catch (err) { setStatus(err.message, true); }
+}
+async function saveSource(){
+  try {
+    setStatus("Mentés…");
+    const next = document.getElementById("srcEnabled").checked;
+    if (!/^enabled:\s*(true|false)\s*$/m.test(currentSrcText)) {
+      throw new Error("Nem található 'enabled:' sor ebben a fájlban — kézi szerkesztés kell.");
+    }
+    const text = currentSrcText.replace(/^enabled:\s*(true|false)\s*$/m, "enabled: " + next);
+    const res = await ghPut(
+      "sources/"+currentSrcId+".yaml", text, currentSrcSha,
+      "chore: "+(next?"enable ":"disable ")+currentSrcId+" via write UI"
+    );
+    currentSrcSha = res.content.sha; currentSrcText = text;
+    document.getElementById("srcToggleLabel").textContent = "enabled: " + next;
+    setStatus("Mentve.", false);
+  } catch (err) { setStatus(err.message, true); }
+}
+async function runNow(){
+  try {
+    setStatus("Indítás…");
+    await ghDispatchRun();
+    setStatus("Elindítva — a futás néhány perc múlva lezajlik, az oldal a következő commit után frissül.", false);
+  } catch (err) { setStatus(err.message, true); }
+}
+
+function setStatus(msg, isErr){
+  const el = document.getElementById("settingsStatus");
+  el.textContent = msg || "";
+  el.classList.toggle("err", !!isErr);
+  el.classList.toggle("ok", !!msg && !isErr);
+}
+function syncPanel(){
+  const unlocked = !!W;
+  document.getElementById("tokenBlock").hidden = unlocked;
+  document.getElementById("unlockedBlock").hidden = !unlocked;
+}
+const settingsDlg = document.getElementById("settingsPanel");
+document.getElementById("gearBtn").addEventListener("click", () => {
+  if (!W) {
+    const guess = detectOwnerRepo();
+    document.getElementById("ghOwner").value = guess.owner;
+    document.getElementById("ghRepo").value = guess.repo;
+  }
+  setStatus("");
+  syncPanel();
+  settingsDlg.showModal();
+});
+document.getElementById("settingsClose").addEventListener("click", () => settingsDlg.close());
+document.getElementById("tokenSave").addEventListener("click", () => {
+  const owner = document.getElementById("ghOwner").value.trim();
+  const repo = document.getElementById("ghRepo").value.trim();
+  const token = document.getElementById("ghToken").value.trim();
+  if (!owner || !repo || !token) { setStatus("Mind a három mező kötelező.", true); return; }
+  saveWrite({owner: owner, repo: repo, token: token});
+  document.getElementById("ghToken").value = "";
+  OVR = null; overridesSha = null;
+  syncPanel();
+  setStatus("Token elmentve.", false);
+  render();
+});
+document.getElementById("tokenForget").addEventListener("click", () => {
+  forgetWrite();
+  OVR = null; overridesSha = null;
+  syncPanel();
+  setStatus("Token törölve.", false);
+  render();
+});
+document.getElementById("srcLoad").addEventListener("click", loadSource);
+document.getElementById("srcSave").addEventListener("click", saveSource);
+document.getElementById("runNow").addEventListener("click", runNow);
+syncPanel();
+if (W) { ensureOverridesLoaded().then(render).catch(() => {}); }
+</script>
+</body>
+</html>
