@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_run": "2026-09-14T12:01:17.838635+02:00",
+  "last_run": "2026-09-15T11:30:46.832392+02:00",
   "sent": [
     {
       "id": "7dc95175cfed442d",
@@ -129,13 +129,6 @@
       "u": "2026-09-21"
     },
     {
-      "id": "6c6cf34232164d1c",
-      "t": "sunset cruise & daytime boat party by elb ✘ 13th sept ✘ stadt wien boat",
-      "d": "2026-09-13",
-      "s": "2026-08-25",
-      "u": "2026-09-14"
-    },
-    {
       "id": "7dc95175cfed442d",
       "t": "6 alkalmas berlet - jatszohaz projekt",
       "d": "2026-04-13",
@@ -164,69 +157,6 @@
       "u": "2026-09-21"
     },
     {
-      "id": "6c6cf34232164d1c",
-      "t": "sunset cruise & daytime boat party by elb ✘ 13th sept ✘ stadt wien boat",
-      "d": "2026-09-13",
-      "s": "2026-08-26",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "58b3cffd5842c872",
-      "t": "egy zuhanas anatomiaja / anatomie d'une chute | oscar hetfo #5",
-      "d": "2026-09-14",
-      "s": "2026-08-26",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "0ff8d7f80827f745",
-      "t": "adam almai / adams aebler",
-      "d": "2026-09-14",
-      "s": "2026-08-26",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "2f40634cfe7ee5f6",
-      "t": "taxisofor / taxi driver | 50 eves jubileumi vetites",
-      "d": "2026-09-14",
-      "s": "2026-08-26",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "f7fb20f843a2bcfb",
-      "t": "studio 103 | keramia workshop | 09.14.",
-      "d": "2026-09-14",
-      "s": "2026-08-26",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "188b2e9915b55b97",
-      "t": "igy jartam anyatokkal kviz",
-      "d": "2026-09-14",
-      "s": "2026-08-26",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "dbd8c0dd148706ab",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-08-26",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "7a03b27b533ca819",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-08-26",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d68d8854d04828f7",
-      "t": "eltunt a naplemente nyomozos jatek",
-      "d": "2026-09-14",
-      "s": "2026-08-26",
-      "u": "2026-09-14"
-    },
-    {
       "id": "7dc95175cfed442d",
       "t": "6 alkalmas berlet - jatszohaz projekt",
       "d": "2026-04-13",
@@ -246,41 +176,6 @@
       "d": "2026-09-12",
       "s": "2026-08-27",
       "u": "2026-09-21"
-    },
-    {
-      "id": "6c6cf34232164d1c",
-      "t": "sunset cruise & daytime boat party by elb ✘ 13th sept ✘ stadt wien boat",
-      "d": "2026-09-13",
-      "s": "2026-08-27",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "58b3cffd5842c872",
-      "t": "egy zuhanas anatomiaja / anatomie d'une chute | oscar hetfo #5",
-      "d": "2026-09-14",
-      "s": "2026-08-27",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "0ff8d7f80827f745",
-      "t": "adam almai / adams aebler",
-      "d": "2026-09-14",
-      "s": "2026-08-27",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "2f40634cfe7ee5f6",
-      "t": "taxisofor / taxi driver | 50 eves jubileumi vetites",
-      "d": "2026-09-14",
-      "s": "2026-08-27",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "f7fb20f843a2bcfb",
-      "t": "studio 103 | keramia workshop | 09.14.",
-      "d": "2026-09-14",
-      "s": "2026-08-27",
-      "u": "2026-09-14"
     },
     {
       "id": "d080fb2c281b692f",
@@ -323,34 +218,6 @@
       "d": "2026-09-15",
       "s": "2026-08-27",
       "u": "2026-09-15"
-    },
-    {
-      "id": "d68d8854d04828f7",
-      "t": "eltunt a naplemente nyomozos jatek",
-      "d": "2026-09-14",
-      "s": "2026-08-27",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "7a03b27b533ca819",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-08-27",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "188b2e9915b55b97",
-      "t": "igy jartam anyatokkal kviz",
-      "d": "2026-09-14",
-      "s": "2026-08-27",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "dbd8c0dd148706ab",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-08-27",
-      "u": "2026-09-14"
     },
     {
       "id": "017cbf2ef1743cdb",
@@ -400,41 +267,6 @@
       "d": "2026-09-12",
       "s": "2026-08-27",
       "u": "2026-09-21"
-    },
-    {
-      "id": "6c6cf34232164d1c",
-      "t": "sunset cruise & daytime boat party by elb ✘ 13th sept ✘ stadt wien boat",
-      "d": "2026-09-13",
-      "s": "2026-08-27",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "58b3cffd5842c872",
-      "t": "egy zuhanas anatomiaja / anatomie d'une chute | oscar hetfo #5",
-      "d": "2026-09-14",
-      "s": "2026-08-27",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "0ff8d7f80827f745",
-      "t": "adam almai / adams aebler",
-      "d": "2026-09-14",
-      "s": "2026-08-27",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "2f40634cfe7ee5f6",
-      "t": "taxisofor / taxi driver | 50 eves jubileumi vetites",
-      "d": "2026-09-14",
-      "s": "2026-08-27",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "f7fb20f843a2bcfb",
-      "t": "studio 103 | keramia workshop | 09.14.",
-      "d": "2026-09-14",
-      "s": "2026-08-27",
-      "u": "2026-09-14"
     },
     {
       "id": "d080fb2c281b692f",
@@ -486,34 +318,6 @@
       "u": "2026-09-16"
     },
     {
-      "id": "d68d8854d04828f7",
-      "t": "eltunt a naplemente nyomozos jatek",
-      "d": "2026-09-14",
-      "s": "2026-08-27",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "7a03b27b533ca819",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-08-27",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "188b2e9915b55b97",
-      "t": "igy jartam anyatokkal kviz",
-      "d": "2026-09-14",
-      "s": "2026-08-27",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "dbd8c0dd148706ab",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-08-27",
-      "u": "2026-09-14"
-    },
-    {
       "id": "017cbf2ef1743cdb",
       "t": "altalanos kviz",
       "d": "2026-09-15",
@@ -561,41 +365,6 @@
       "d": "2026-09-12",
       "s": "2026-08-28",
       "u": "2026-09-21"
-    },
-    {
-      "id": "6c6cf34232164d1c",
-      "t": "sunset cruise & daytime boat party by elb ✘ 13th sept ✘ stadt wien boat",
-      "d": "2026-09-13",
-      "s": "2026-08-28",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "58b3cffd5842c872",
-      "t": "egy zuhanas anatomiaja / anatomie d'une chute | oscar hetfo #5",
-      "d": "2026-09-14",
-      "s": "2026-08-28",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "0ff8d7f80827f745",
-      "t": "adam almai / adams aebler",
-      "d": "2026-09-14",
-      "s": "2026-08-28",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "2f40634cfe7ee5f6",
-      "t": "taxisofor / taxi driver | 50 eves jubileumi vetites",
-      "d": "2026-09-14",
-      "s": "2026-08-28",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "f7fb20f843a2bcfb",
-      "t": "studio 103 | keramia workshop | 09.14.",
-      "d": "2026-09-14",
-      "s": "2026-08-28",
-      "u": "2026-09-14"
     },
     {
       "id": "d080fb2c281b692f",
@@ -731,34 +500,6 @@
       "u": "2026-09-17"
     },
     {
-      "id": "7a03b27b533ca819",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-08-28",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "dbd8c0dd148706ab",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-08-28",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d68d8854d04828f7",
-      "t": "eltunt a naplemente nyomozos jatek",
-      "d": "2026-09-14",
-      "s": "2026-08-28",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "188b2e9915b55b97",
-      "t": "igy jartam anyatokkal kviz",
-      "d": "2026-09-14",
-      "s": "2026-08-28",
-      "u": "2026-09-14"
-    },
-    {
       "id": "03aa1f08da298950",
       "t": "90-es evek kviz",
       "d": "2026-09-15",
@@ -848,41 +589,6 @@
       "d": "2026-09-12",
       "s": "2026-08-29",
       "u": "2026-09-21"
-    },
-    {
-      "id": "6c6cf34232164d1c",
-      "t": "sunset cruise & daytime boat party by elb ✘ 13th sept ✘ stadt wien boat",
-      "d": "2026-09-13",
-      "s": "2026-08-29",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "58b3cffd5842c872",
-      "t": "egy zuhanas anatomiaja / anatomie d'une chute | oscar hetfo #5",
-      "d": "2026-09-14",
-      "s": "2026-08-29",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "0ff8d7f80827f745",
-      "t": "adam almai / adams aebler",
-      "d": "2026-09-14",
-      "s": "2026-08-29",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "2f40634cfe7ee5f6",
-      "t": "taxisofor / taxi driver | 50 eves jubileumi vetites",
-      "d": "2026-09-14",
-      "s": "2026-08-29",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "f7fb20f843a2bcfb",
-      "t": "studio 103 | keramia workshop | 09.14.",
-      "d": "2026-09-14",
-      "s": "2026-08-29",
-      "u": "2026-09-14"
     },
     {
       "id": "d080fb2c281b692f",
@@ -1109,34 +815,6 @@
       "u": "2026-09-18"
     },
     {
-      "id": "188b2e9915b55b97",
-      "t": "igy jartam anyatokkal kviz",
-      "d": "2026-09-14",
-      "s": "2026-08-29",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "7a03b27b533ca819",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-08-29",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d68d8854d04828f7",
-      "t": "eltunt a naplemente nyomozos jatek",
-      "d": "2026-09-14",
-      "s": "2026-08-29",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "dbd8c0dd148706ab",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-08-29",
-      "u": "2026-09-14"
-    },
-    {
       "id": "03aa1f08da298950",
       "t": "90-es evek kviz",
       "d": "2026-09-15",
@@ -1261,41 +939,6 @@
       "d": "2026-09-12",
       "s": "2026-08-30",
       "u": "2026-09-21"
-    },
-    {
-      "id": "6c6cf34232164d1c",
-      "t": "sunset cruise & daytime boat party by elb ✘ 13th sept ✘ stadt wien boat",
-      "d": "2026-09-13",
-      "s": "2026-08-30",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "58b3cffd5842c872",
-      "t": "egy zuhanas anatomiaja / anatomie d'une chute | oscar hetfo #5",
-      "d": "2026-09-14",
-      "s": "2026-08-30",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "0ff8d7f80827f745",
-      "t": "adam almai / adams aebler",
-      "d": "2026-09-14",
-      "s": "2026-08-30",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "2f40634cfe7ee5f6",
-      "t": "taxisofor / taxi driver | 50 eves jubileumi vetites",
-      "d": "2026-09-14",
-      "s": "2026-08-30",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "f7fb20f843a2bcfb",
-      "t": "studio 103 | keramia workshop | 09.14.",
-      "d": "2026-09-14",
-      "s": "2026-08-30",
-      "u": "2026-09-14"
     },
     {
       "id": "d080fb2c281b692f",
@@ -1725,34 +1368,6 @@
       "u": "2026-09-19"
     },
     {
-      "id": "7a03b27b533ca819",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-08-30",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d68d8854d04828f7",
-      "t": "eltunt a naplemente nyomozos jatek",
-      "d": "2026-09-14",
-      "s": "2026-08-30",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "dbd8c0dd148706ab",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-08-30",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "188b2e9915b55b97",
-      "t": "igy jartam anyatokkal kviz",
-      "d": "2026-09-14",
-      "s": "2026-08-30",
-      "u": "2026-09-14"
-    },
-    {
       "id": "03aa1f08da298950",
       "t": "90-es evek kviz",
       "d": "2026-09-15",
@@ -1891,41 +1506,6 @@
       "d": "2026-09-12",
       "s": "2026-08-31",
       "u": "2026-09-21"
-    },
-    {
-      "id": "6c6cf34232164d1c",
-      "t": "sunset cruise & daytime boat party by elb ✘ 13th sept ✘ stadt wien boat",
-      "d": "2026-09-13",
-      "s": "2026-08-31",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "58b3cffd5842c872",
-      "t": "egy zuhanas anatomiaja / anatomie d'une chute | oscar hetfo #5",
-      "d": "2026-09-14",
-      "s": "2026-08-31",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "0ff8d7f80827f745",
-      "t": "adam almai / adams aebler",
-      "d": "2026-09-14",
-      "s": "2026-08-31",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "2f40634cfe7ee5f6",
-      "t": "taxisofor / taxi driver | 50 eves jubileumi vetites",
-      "d": "2026-09-14",
-      "s": "2026-08-31",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "f7fb20f843a2bcfb",
-      "t": "studio 103 | keramia workshop | 09.14.",
-      "d": "2026-09-14",
-      "s": "2026-08-31",
-      "u": "2026-09-14"
     },
     {
       "id": "d080fb2c281b692f",
@@ -2446,34 +2026,6 @@
       "u": "2026-09-20"
     },
     {
-      "id": "7a03b27b533ca819",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-08-31",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d68d8854d04828f7",
-      "t": "eltunt a naplemente nyomozos jatek",
-      "d": "2026-09-14",
-      "s": "2026-08-31",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "dbd8c0dd148706ab",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-08-31",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "188b2e9915b55b97",
-      "t": "igy jartam anyatokkal kviz",
-      "d": "2026-09-14",
-      "s": "2026-08-31",
-      "u": "2026-09-14"
-    },
-    {
       "id": "03aa1f08da298950",
       "t": "90-es evek kviz",
       "d": "2026-09-15",
@@ -2626,48 +2178,6 @@
       "d": "2026-09-12",
       "s": "2026-09-01",
       "u": "2026-09-21"
-    },
-    {
-      "id": "6c6cf34232164d1c",
-      "t": "sunset cruise & daytime boat party by elb ✘ 13th sept ✘ stadt wien boat",
-      "d": "2026-09-13",
-      "s": "2026-09-01",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d5eff7e1d6074ad1",
-      "t": "sunday sundown by elb & spontan ~ season closing @pontoon ~ 13 sep ~ free entry",
-      "d": "2026-09-13",
-      "s": "2026-09-01",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "58b3cffd5842c872",
-      "t": "egy zuhanas anatomiaja / anatomie d'une chute | oscar hetfo #5",
-      "d": "2026-09-14",
-      "s": "2026-09-01",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "0ff8d7f80827f745",
-      "t": "adam almai / adams aebler",
-      "d": "2026-09-14",
-      "s": "2026-09-01",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "2f40634cfe7ee5f6",
-      "t": "taxisofor / taxi driver | 50 eves jubileumi vetites",
-      "d": "2026-09-14",
-      "s": "2026-09-01",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "f7fb20f843a2bcfb",
-      "t": "studio 103 | keramia workshop | 09.14.",
-      "d": "2026-09-14",
-      "s": "2026-09-01",
-      "u": "2026-09-14"
     },
     {
       "id": "d080fb2c281b692f",
@@ -3244,34 +2754,6 @@
       "u": "2026-09-21"
     },
     {
-      "id": "7a03b27b533ca819",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-01",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d68d8854d04828f7",
-      "t": "eltunt a naplemente nyomozos jatek",
-      "d": "2026-09-14",
-      "s": "2026-09-01",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "dbd8c0dd148706ab",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-01",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "188b2e9915b55b97",
-      "t": "igy jartam anyatokkal kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-01",
-      "u": "2026-09-14"
-    },
-    {
       "id": "1ea6dccecac7337d",
       "t": "altalanos kviz",
       "d": "2026-09-15",
@@ -3424,48 +2906,6 @@
       "d": "2026-09-12",
       "s": "2026-09-02",
       "u": "2026-09-21"
-    },
-    {
-      "id": "6c6cf34232164d1c",
-      "t": "sunset cruise & daytime boat party by elb ✘ 13th sept ✘ stadt wien boat",
-      "d": "2026-09-13",
-      "s": "2026-09-02",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d5eff7e1d6074ad1",
-      "t": "sunday sundown by elb & spontan ~ season closing @pontoon ~ 13 sep ~ free entry",
-      "d": "2026-09-13",
-      "s": "2026-09-02",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "58b3cffd5842c872",
-      "t": "egy zuhanas anatomiaja / anatomie d'une chute | oscar hetfo #5",
-      "d": "2026-09-14",
-      "s": "2026-09-02",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "0ff8d7f80827f745",
-      "t": "adam almai / adams aebler",
-      "d": "2026-09-14",
-      "s": "2026-09-02",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "2f40634cfe7ee5f6",
-      "t": "taxisofor / taxi driver | 50 eves jubileumi vetites",
-      "d": "2026-09-14",
-      "s": "2026-09-02",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "f7fb20f843a2bcfb",
-      "t": "studio 103 | keramia workshop | 09.14.",
-      "d": "2026-09-14",
-      "s": "2026-09-02",
-      "u": "2026-09-14"
     },
     {
       "id": "d080fb2c281b692f",
@@ -4133,34 +3573,6 @@
       "u": "2026-09-22"
     },
     {
-      "id": "7a03b27b533ca819",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-02",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "dbd8c0dd148706ab",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-02",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "188b2e9915b55b97",
-      "t": "igy jartam anyatokkal kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-02",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d68d8854d04828f7",
-      "t": "eltunt a naplemente nyomozos jatek",
-      "d": "2026-09-14",
-      "s": "2026-09-02",
-      "u": "2026-09-14"
-    },
-    {
       "id": "03aa1f08da298950",
       "t": "90-es evek kviz",
       "d": "2026-09-15",
@@ -4308,13 +3720,6 @@
       "u": "2026-09-21"
     },
     {
-      "id": "62ba20b5ecbbabb2",
-      "t": "hetfoi tarsasozas a golyaban // jatszohaz projekt",
-      "d": "2026-09-14",
-      "s": "2026-09-02",
-      "u": "2026-09-14"
-    },
-    {
       "id": "48082863f8e89090",
       "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
       "d": "2026-09-21",
@@ -4348,48 +3753,6 @@
       "d": "2026-09-12",
       "s": "2026-09-03",
       "u": "2026-09-21"
-    },
-    {
-      "id": "6c6cf34232164d1c",
-      "t": "sunset cruise & daytime boat party by elb ✘ 13th sept ✘ stadt wien boat",
-      "d": "2026-09-13",
-      "s": "2026-09-03",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d5eff7e1d6074ad1",
-      "t": "sunday sundown by elb & spontan ~ season closing @pontoon ~ 13 sep ~ free entry",
-      "d": "2026-09-13",
-      "s": "2026-09-03",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "58b3cffd5842c872",
-      "t": "egy zuhanas anatomiaja / anatomie d'une chute | oscar hetfo #5",
-      "d": "2026-09-14",
-      "s": "2026-09-03",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "0ff8d7f80827f745",
-      "t": "adam almai / adams aebler",
-      "d": "2026-09-14",
-      "s": "2026-09-03",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "2f40634cfe7ee5f6",
-      "t": "taxisofor / taxi driver | 50 eves jubileumi vetites",
-      "d": "2026-09-14",
-      "s": "2026-09-03",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "f7fb20f843a2bcfb",
-      "t": "studio 103 | keramia workshop | 09.14.",
-      "d": "2026-09-14",
-      "s": "2026-09-03",
-      "u": "2026-09-14"
     },
     {
       "id": "d080fb2c281b692f",
@@ -5099,34 +4462,6 @@
       "u": "2026-09-23"
     },
     {
-      "id": "dbd8c0dd148706ab",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-03",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d68d8854d04828f7",
-      "t": "eltunt a naplemente nyomozos jatek",
-      "d": "2026-09-14",
-      "s": "2026-09-03",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "188b2e9915b55b97",
-      "t": "igy jartam anyatokkal kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-03",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "7a03b27b533ca819",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-03",
-      "u": "2026-09-14"
-    },
-    {
       "id": "1ea6dccecac7337d",
       "t": "altalanos kviz",
       "d": "2026-09-15",
@@ -5302,13 +4637,6 @@
       "u": "2026-09-22"
     },
     {
-      "id": "62ba20b5ecbbabb2",
-      "t": "hetfoi tarsasozas a golyaban // jatszohaz projekt",
-      "d": "2026-09-14",
-      "s": "2026-09-03",
-      "u": "2026-09-14"
-    },
-    {
       "id": "48082863f8e89090",
       "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
       "d": "2026-09-21",
@@ -5342,48 +4670,6 @@
       "d": "2026-09-12",
       "s": "2026-09-04",
       "u": "2026-09-21"
-    },
-    {
-      "id": "6c6cf34232164d1c",
-      "t": "sunset cruise & daytime boat party by elb ✘ 13th sept ✘ stadt wien boat",
-      "d": "2026-09-13",
-      "s": "2026-09-04",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d5eff7e1d6074ad1",
-      "t": "sunday sundown by elb & spontan ~ season closing @pontoon ~ 13 sep ~ free entry",
-      "d": "2026-09-13",
-      "s": "2026-09-04",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "58b3cffd5842c872",
-      "t": "egy zuhanas anatomiaja / anatomie d'une chute | oscar hetfo #5",
-      "d": "2026-09-14",
-      "s": "2026-09-04",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "0ff8d7f80827f745",
-      "t": "adam almai / adams aebler",
-      "d": "2026-09-14",
-      "s": "2026-09-04",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "2f40634cfe7ee5f6",
-      "t": "taxisofor / taxi driver | 50 eves jubileumi vetites",
-      "d": "2026-09-14",
-      "s": "2026-09-04",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "f7fb20f843a2bcfb",
-      "t": "studio 103 | keramia workshop | 09.14.",
-      "d": "2026-09-14",
-      "s": "2026-09-04",
-      "u": "2026-09-14"
     },
     {
       "id": "d080fb2c281b692f",
@@ -6177,34 +5463,6 @@
       "u": "2026-09-24"
     },
     {
-      "id": "dbd8c0dd148706ab",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-04",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "188b2e9915b55b97",
-      "t": "igy jartam anyatokkal kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-04",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d68d8854d04828f7",
-      "t": "eltunt a naplemente nyomozos jatek",
-      "d": "2026-09-14",
-      "s": "2026-09-04",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "7a03b27b533ca819",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-04",
-      "u": "2026-09-14"
-    },
-    {
       "id": "03aa1f08da298950",
       "t": "90-es evek kviz",
       "d": "2026-09-15",
@@ -6401,13 +5659,6 @@
       "u": "2026-09-23"
     },
     {
-      "id": "62ba20b5ecbbabb2",
-      "t": "hetfoi tarsasozas a golyaban // jatszohaz projekt",
-      "d": "2026-09-14",
-      "s": "2026-09-04",
-      "u": "2026-09-14"
-    },
-    {
       "id": "48082863f8e89090",
       "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
       "d": "2026-09-21",
@@ -6441,55 +5692,6 @@
       "d": "2026-09-12",
       "s": "2026-09-05",
       "u": "2026-09-21"
-    },
-    {
-      "id": "6c6cf34232164d1c",
-      "t": "sunset cruise & daytime boat party by elb ✘ 13th sept ✘ stadt wien boat",
-      "d": "2026-09-13",
-      "s": "2026-09-05",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d5eff7e1d6074ad1",
-      "t": "sunday sundown by elb & spontan ~ season closing @pontoon ~ 13 sep ~ free entry",
-      "d": "2026-09-13",
-      "s": "2026-09-05",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "58b3cffd5842c872",
-      "t": "egy zuhanas anatomiaja / anatomie d'une chute | oscar hetfo #5",
-      "d": "2026-09-14",
-      "s": "2026-09-05",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "0ff8d7f80827f745",
-      "t": "adam almai / adams aebler",
-      "d": "2026-09-14",
-      "s": "2026-09-05",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "2f40634cfe7ee5f6",
-      "t": "taxisofor / taxi driver | 50 eves jubileumi vetites",
-      "d": "2026-09-14",
-      "s": "2026-09-05",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "f7fb20f843a2bcfb",
-      "t": "studio 103 | keramia workshop | 09.14.",
-      "d": "2026-09-14",
-      "s": "2026-09-05",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "b703597ca5e5bfee",
-      "t": "lelekfeny",
-      "d": "2026-09-14",
-      "s": "2026-09-05",
-      "u": "2026-09-14"
     },
     {
       "id": "d080fb2c281b692f",
@@ -7388,34 +6590,6 @@
       "u": "2026-09-25"
     },
     {
-      "id": "dbd8c0dd148706ab",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-05",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d68d8854d04828f7",
-      "t": "eltunt a naplemente nyomozos jatek",
-      "d": "2026-09-14",
-      "s": "2026-09-05",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "188b2e9915b55b97",
-      "t": "igy jartam anyatokkal kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-05",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "7a03b27b533ca819",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-05",
-      "u": "2026-09-14"
-    },
-    {
       "id": "03aa1f08da298950",
       "t": "90-es evek kviz",
       "d": "2026-09-15",
@@ -7633,13 +6807,6 @@
       "u": "2026-09-24"
     },
     {
-      "id": "62ba20b5ecbbabb2",
-      "t": "hetfoi tarsasozas a golyaban // jatszohaz projekt",
-      "d": "2026-09-14",
-      "s": "2026-09-05",
-      "u": "2026-09-14"
-    },
-    {
       "id": "48082863f8e89090",
       "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
       "d": "2026-09-21",
@@ -7673,55 +6840,6 @@
       "d": "2026-09-12",
       "s": "2026-09-06",
       "u": "2026-09-21"
-    },
-    {
-      "id": "6c6cf34232164d1c",
-      "t": "sunset cruise & daytime boat party by elb ✘ 13th sept ✘ stadt wien boat",
-      "d": "2026-09-13",
-      "s": "2026-09-06",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d5eff7e1d6074ad1",
-      "t": "sunday sundown by elb & spontan ~ season closing @pontoon ~ 13 sep ~ free entry",
-      "d": "2026-09-13",
-      "s": "2026-09-06",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "58b3cffd5842c872",
-      "t": "egy zuhanas anatomiaja / anatomie d'une chute | oscar hetfo #5",
-      "d": "2026-09-14",
-      "s": "2026-09-06",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "0ff8d7f80827f745",
-      "t": "adam almai / adams aebler",
-      "d": "2026-09-14",
-      "s": "2026-09-06",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "2f40634cfe7ee5f6",
-      "t": "taxisofor / taxi driver | 50 eves jubileumi vetites",
-      "d": "2026-09-14",
-      "s": "2026-09-06",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "f7fb20f843a2bcfb",
-      "t": "studio 103 | keramia workshop | 09.14.",
-      "d": "2026-09-14",
-      "s": "2026-09-06",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "b703597ca5e5bfee",
-      "t": "lelekfeny",
-      "d": "2026-09-14",
-      "s": "2026-09-06",
-      "u": "2026-09-14"
     },
     {
       "id": "d080fb2c281b692f",
@@ -8788,34 +7906,6 @@
       "u": "2026-09-27"
     },
     {
-      "id": "188b2e9915b55b97",
-      "t": "igy jartam anyatokkal kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-06",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "dbd8c0dd148706ab",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-06",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "7a03b27b533ca819",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-06",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d68d8854d04828f7",
-      "t": "eltunt a naplemente nyomozos jatek",
-      "d": "2026-09-14",
-      "s": "2026-09-06",
-      "u": "2026-09-14"
-    },
-    {
       "id": "03aa1f08da298950",
       "t": "90-es evek kviz",
       "d": "2026-09-15",
@@ -9047,13 +8137,6 @@
       "u": "2026-09-25"
     },
     {
-      "id": "62ba20b5ecbbabb2",
-      "t": "hetfoi tarsasozas a golyaban // jatszohaz projekt",
-      "d": "2026-09-14",
-      "s": "2026-09-06",
-      "u": "2026-09-14"
-    },
-    {
       "id": "48082863f8e89090",
       "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
       "d": "2026-09-21",
@@ -9108,55 +8191,6 @@
       "d": "2026-09-12",
       "s": "2026-09-07",
       "u": "2026-09-21"
-    },
-    {
-      "id": "6c6cf34232164d1c",
-      "t": "sunset cruise & daytime boat party by elb ✘ 13th sept ✘ stadt wien boat",
-      "d": "2026-09-13",
-      "s": "2026-09-07",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d5eff7e1d6074ad1",
-      "t": "sunday sundown by elb & spontan ~ season closing @pontoon ~ 13 sep ~ free entry",
-      "d": "2026-09-13",
-      "s": "2026-09-07",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "58b3cffd5842c872",
-      "t": "egy zuhanas anatomiaja / anatomie d'une chute | oscar hetfo #5",
-      "d": "2026-09-14",
-      "s": "2026-09-07",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "0ff8d7f80827f745",
-      "t": "adam almai / adams aebler",
-      "d": "2026-09-14",
-      "s": "2026-09-07",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "2f40634cfe7ee5f6",
-      "t": "taxisofor / taxi driver | 50 eves jubileumi vetites",
-      "d": "2026-09-14",
-      "s": "2026-09-07",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "f7fb20f843a2bcfb",
-      "t": "studio 103 | keramia workshop | 09.14.",
-      "d": "2026-09-14",
-      "s": "2026-09-07",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "b703597ca5e5bfee",
-      "t": "lelekfeny",
-      "d": "2026-09-14",
-      "s": "2026-09-07",
-      "u": "2026-09-14"
     },
     {
       "id": "d080fb2c281b692f",
@@ -10391,34 +9425,6 @@
       "u": "2026-09-27"
     },
     {
-      "id": "7a03b27b533ca819",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-07",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "dbd8c0dd148706ab",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-07",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d68d8854d04828f7",
-      "t": "eltunt a naplemente nyomozos jatek",
-      "d": "2026-09-14",
-      "s": "2026-09-07",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "188b2e9915b55b97",
-      "t": "igy jartam anyatokkal kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-07",
-      "u": "2026-09-14"
-    },
-    {
       "id": "1ea6dccecac7337d",
       "t": "altalanos kviz",
       "d": "2026-09-15",
@@ -10657,13 +9663,6 @@
       "u": "2026-09-26"
     },
     {
-      "id": "62ba20b5ecbbabb2",
-      "t": "hetfoi tarsasozas a golyaban // jatszohaz projekt",
-      "d": "2026-09-14",
-      "s": "2026-09-07",
-      "u": "2026-09-14"
-    },
-    {
       "id": "48082863f8e89090",
       "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
       "d": "2026-09-21",
@@ -10711,55 +9710,6 @@
       "d": "2026-09-12",
       "s": "2026-09-08",
       "u": "2026-09-21"
-    },
-    {
-      "id": "6c6cf34232164d1c",
-      "t": "sunset cruise & daytime boat party by elb ✘ 13th sept ✘ stadt wien boat",
-      "d": "2026-09-13",
-      "s": "2026-09-08",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d5eff7e1d6074ad1",
-      "t": "sunday sundown by elb & spontan ~ season closing @pontoon ~ 13 sep ~ free entry",
-      "d": "2026-09-13",
-      "s": "2026-09-08",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "58b3cffd5842c872",
-      "t": "egy zuhanas anatomiaja / anatomie d'une chute | oscar hetfo #5",
-      "d": "2026-09-14",
-      "s": "2026-09-08",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "0ff8d7f80827f745",
-      "t": "adam almai / adams aebler",
-      "d": "2026-09-14",
-      "s": "2026-09-08",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "2f40634cfe7ee5f6",
-      "t": "taxisofor / taxi driver | 50 eves jubileumi vetites",
-      "d": "2026-09-14",
-      "s": "2026-09-08",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "f7fb20f843a2bcfb",
-      "t": "studio 103 | keramia workshop | 09.14.",
-      "d": "2026-09-14",
-      "s": "2026-09-08",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "b703597ca5e5bfee",
-      "t": "lelekfeny",
-      "d": "2026-09-14",
-      "s": "2026-09-08",
-      "u": "2026-09-14"
     },
     {
       "id": "d080fb2c281b692f",
@@ -12057,34 +11007,6 @@
       "u": "2026-09-27"
     },
     {
-      "id": "dbd8c0dd148706ab",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-08",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "188b2e9915b55b97",
-      "t": "igy jartam anyatokkal kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-08",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d68d8854d04828f7",
-      "t": "eltunt a naplemente nyomozos jatek",
-      "d": "2026-09-14",
-      "s": "2026-09-08",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "7a03b27b533ca819",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-08",
-      "u": "2026-09-14"
-    },
-    {
       "id": "03aa1f08da298950",
       "t": "90-es evek kviz",
       "d": "2026-09-15",
@@ -12323,13 +11245,6 @@
       "u": "2026-09-26"
     },
     {
-      "id": "62ba20b5ecbbabb2",
-      "t": "hetfoi tarsasozas a golyaban // jatszohaz projekt",
-      "d": "2026-09-14",
-      "s": "2026-09-08",
-      "u": "2026-09-14"
-    },
-    {
       "id": "48082863f8e89090",
       "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
       "d": "2026-09-21",
@@ -12377,69 +11292,6 @@
       "d": "2026-09-12",
       "s": "2026-09-09",
       "u": "2026-09-21"
-    },
-    {
-      "id": "6c6cf34232164d1c",
-      "t": "sunset cruise & daytime boat party by elb ✘ 13th sept ✘ stadt wien boat",
-      "d": "2026-09-13",
-      "s": "2026-09-09",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d5eff7e1d6074ad1",
-      "t": "sunday sundown by elb & spontan ~ season closing @pontoon ~ 13 sep ~ free entry",
-      "d": "2026-09-13",
-      "s": "2026-09-09",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "58b3cffd5842c872",
-      "t": "egy zuhanas anatomiaja / anatomie d'une chute | oscar hetfo #5",
-      "d": "2026-09-14",
-      "s": "2026-09-09",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "0ff8d7f80827f745",
-      "t": "adam almai / adams aebler",
-      "d": "2026-09-14",
-      "s": "2026-09-09",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "2f40634cfe7ee5f6",
-      "t": "taxisofor / taxi driver | 50 eves jubileumi vetites",
-      "d": "2026-09-14",
-      "s": "2026-09-09",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "f7fb20f843a2bcfb",
-      "t": "studio 103 | keramia workshop | 09.14.",
-      "d": "2026-09-14",
-      "s": "2026-09-09",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "b703597ca5e5bfee",
-      "t": "lelekfeny",
-      "d": "2026-09-14",
-      "s": "2026-09-09",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "6ce06da40652c060",
-      "t": "pihenteto yin gyakorlo",
-      "d": "2026-09-14",
-      "s": "2026-09-09",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "73c88fc0a81a1406",
-      "t": "welcome picnic & botellon @margaret island & afterparty @morrison's 2 by elb",
-      "d": "2026-09-14",
-      "s": "2026-09-09",
-      "u": "2026-09-14"
     },
     {
       "id": "d080fb2c281b692f",
@@ -13793,34 +12645,6 @@
       "u": "2026-09-28"
     },
     {
-      "id": "188b2e9915b55b97",
-      "t": "igy jartam anyatokkal kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-09",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "dbd8c0dd148706ab",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-09",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "7a03b27b533ca819",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-09",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d68d8854d04828f7",
-      "t": "eltunt a naplemente nyomozos jatek",
-      "d": "2026-09-14",
-      "s": "2026-09-09",
-      "u": "2026-09-14"
-    },
-    {
       "id": "017cbf2ef1743cdb",
       "t": "altalanos kviz",
       "d": "2026-09-15",
@@ -14080,13 +12904,6 @@
       "u": "2026-09-28"
     },
     {
-      "id": "62ba20b5ecbbabb2",
-      "t": "hetfoi tarsasozas a golyaban // jatszohaz projekt",
-      "d": "2026-09-14",
-      "s": "2026-09-09",
-      "u": "2026-09-14"
-    },
-    {
       "id": "48082863f8e89090",
       "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
       "d": "2026-09-21",
@@ -14141,76 +12958,6 @@
       "d": "2026-09-12",
       "s": "2026-09-10",
       "u": "2026-09-21"
-    },
-    {
-      "id": "6c6cf34232164d1c",
-      "t": "sunset cruise & daytime boat party by elb ✘ 13th sept ✘ stadt wien boat",
-      "d": "2026-09-13",
-      "s": "2026-09-10",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d5eff7e1d6074ad1",
-      "t": "sunday sundown by elb & spontan ~ season closing @pontoon ~ 13 sep ~ free entry",
-      "d": "2026-09-13",
-      "s": "2026-09-10",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "58b3cffd5842c872",
-      "t": "egy zuhanas anatomiaja / anatomie d'une chute | oscar hetfo #5",
-      "d": "2026-09-14",
-      "s": "2026-09-10",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "0ff8d7f80827f745",
-      "t": "adam almai / adams aebler",
-      "d": "2026-09-14",
-      "s": "2026-09-10",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "2f40634cfe7ee5f6",
-      "t": "taxisofor / taxi driver | 50 eves jubileumi vetites",
-      "d": "2026-09-14",
-      "s": "2026-09-10",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "f7fb20f843a2bcfb",
-      "t": "studio 103 | keramia workshop | 09.14.",
-      "d": "2026-09-14",
-      "s": "2026-09-10",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "b703597ca5e5bfee",
-      "t": "lelekfeny",
-      "d": "2026-09-14",
-      "s": "2026-09-10",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "6ce06da40652c060",
-      "t": "pihenteto yin gyakorlo",
-      "d": "2026-09-14",
-      "s": "2026-09-10",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "e907e8cfc0a9087f",
-      "t": "hangfurdo cserbik ritanal",
-      "d": "2026-09-14",
-      "s": "2026-09-10",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "73c88fc0a81a1406",
-      "t": "welcome picnic & botellon @margaret island & afterparty @morrison's 2 by elb",
-      "d": "2026-09-14",
-      "s": "2026-09-10",
-      "u": "2026-09-14"
     },
     {
       "id": "d080fb2c281b692f",
@@ -15676,34 +14423,6 @@
       "u": "2026-09-29"
     },
     {
-      "id": "7a03b27b533ca819",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-10",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "dbd8c0dd148706ab",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-10",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d68d8854d04828f7",
-      "t": "eltunt a naplemente nyomozos jatek",
-      "d": "2026-09-14",
-      "s": "2026-09-10",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "188b2e9915b55b97",
-      "t": "igy jartam anyatokkal kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-10",
-      "u": "2026-09-14"
-    },
-    {
       "id": "1ea6dccecac7337d",
       "t": "altalanos kviz",
       "d": "2026-09-15",
@@ -15977,13 +14696,6 @@
       "u": "2026-09-29"
     },
     {
-      "id": "62ba20b5ecbbabb2",
-      "t": "hetfoi tarsasozas a golyaban // jatszohaz projekt",
-      "d": "2026-09-14",
-      "s": "2026-09-10",
-      "u": "2026-09-14"
-    },
-    {
       "id": "48082863f8e89090",
       "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
       "d": "2026-09-21",
@@ -16038,76 +14750,6 @@
       "d": "2026-09-12",
       "s": "2026-09-11",
       "u": "2026-09-21"
-    },
-    {
-      "id": "6c6cf34232164d1c",
-      "t": "sunset cruise & daytime boat party by elb ✘ 13th sept ✘ stadt wien boat",
-      "d": "2026-09-13",
-      "s": "2026-09-11",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "cc4a8d209f4fad20",
-      "t": "sunday sundown by elb & spontan ~ pontoon ~ 13th sept ~ free entry",
-      "d": "2026-09-13",
-      "s": "2026-09-11",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "58b3cffd5842c872",
-      "t": "egy zuhanas anatomiaja / anatomie d'une chute | oscar hetfo #5",
-      "d": "2026-09-14",
-      "s": "2026-09-11",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "0ff8d7f80827f745",
-      "t": "adam almai / adams aebler",
-      "d": "2026-09-14",
-      "s": "2026-09-11",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "2f40634cfe7ee5f6",
-      "t": "taxisofor / taxi driver | 50 eves jubileumi vetites",
-      "d": "2026-09-14",
-      "s": "2026-09-11",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "f7fb20f843a2bcfb",
-      "t": "studio 103 | keramia workshop | 09.14.",
-      "d": "2026-09-14",
-      "s": "2026-09-11",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "b703597ca5e5bfee",
-      "t": "lelekfeny",
-      "d": "2026-09-14",
-      "s": "2026-09-11",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "6ce06da40652c060",
-      "t": "pihenteto yin gyakorlo",
-      "d": "2026-09-14",
-      "s": "2026-09-11",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "e907e8cfc0a9087f",
-      "t": "hangfurdo cserbik ritanal",
-      "d": "2026-09-14",
-      "s": "2026-09-11",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "73c88fc0a81a1406",
-      "t": "welcome picnic & botellon @margaret island & afterparty @morrison's 2 by elb",
-      "d": "2026-09-14",
-      "s": "2026-09-11",
-      "u": "2026-09-14"
     },
     {
       "id": "05e7b279d8bb5b16",
@@ -17664,34 +16306,6 @@
       "u": "2026-09-30"
     },
     {
-      "id": "dbd8c0dd148706ab",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-11",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "7a03b27b533ca819",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-11",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "188b2e9915b55b97",
-      "t": "igy jartam anyatokkal kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-11",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d68d8854d04828f7",
-      "t": "eltunt a naplemente nyomozos jatek",
-      "d": "2026-09-14",
-      "s": "2026-09-11",
-      "u": "2026-09-14"
-    },
-    {
       "id": "33c80effa4ab3cbf",
       "t": "altalanos kviz",
       "d": "2026-09-15",
@@ -17986,13 +16600,6 @@
       "u": "2026-09-30"
     },
     {
-      "id": "62ba20b5ecbbabb2",
-      "t": "hetfoi tarsasozas a golyaban // jatszohaz projekt",
-      "d": "2026-09-14",
-      "s": "2026-09-11",
-      "u": "2026-09-14"
-    },
-    {
       "id": "48082863f8e89090",
       "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
       "d": "2026-09-21",
@@ -18047,76 +16654,6 @@
       "d": "2026-09-12",
       "s": "2026-09-12",
       "u": "2026-09-21"
-    },
-    {
-      "id": "6c6cf34232164d1c",
-      "t": "sunset cruise & daytime boat party by elb ✘ 13th sept ✘ stadt wien boat",
-      "d": "2026-09-13",
-      "s": "2026-09-12",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "cc4a8d209f4fad20",
-      "t": "sunday sundown by elb & spontan ~ pontoon ~ 13th sept ~ free entry",
-      "d": "2026-09-13",
-      "s": "2026-09-12",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "58b3cffd5842c872",
-      "t": "egy zuhanas anatomiaja / anatomie d'une chute | oscar hetfo #5",
-      "d": "2026-09-14",
-      "s": "2026-09-12",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "0ff8d7f80827f745",
-      "t": "adam almai / adams aebler",
-      "d": "2026-09-14",
-      "s": "2026-09-12",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "2f40634cfe7ee5f6",
-      "t": "taxisofor / taxi driver | 50 eves jubileumi vetites",
-      "d": "2026-09-14",
-      "s": "2026-09-12",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "f7fb20f843a2bcfb",
-      "t": "studio 103 | keramia workshop | 09.14.",
-      "d": "2026-09-14",
-      "s": "2026-09-12",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "b703597ca5e5bfee",
-      "t": "lelekfeny",
-      "d": "2026-09-14",
-      "s": "2026-09-12",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "6ce06da40652c060",
-      "t": "pihenteto yin gyakorlo",
-      "d": "2026-09-14",
-      "s": "2026-09-12",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "e907e8cfc0a9087f",
-      "t": "hangfurdo cserbik ritanal",
-      "d": "2026-09-14",
-      "s": "2026-09-12",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "73c88fc0a81a1406",
-      "t": "welcome picnic & botellon @margaret island & afterparty @morrison's 2 by elb",
-      "d": "2026-09-14",
-      "s": "2026-09-12",
-      "u": "2026-09-14"
     },
     {
       "id": "05e7b279d8bb5b16",
@@ -19792,34 +18329,6 @@
       "u": "2026-10-04"
     },
     {
-      "id": "7a03b27b533ca819",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-12",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "d68d8854d04828f7",
-      "t": "eltunt a naplemente nyomozos jatek",
-      "d": "2026-09-14",
-      "s": "2026-09-12",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "dbd8c0dd148706ab",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-12",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "188b2e9915b55b97",
-      "t": "igy jartam anyatokkal kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-12",
-      "u": "2026-09-14"
-    },
-    {
       "id": "33c80effa4ab3cbf",
       "t": "altalanos kviz",
       "d": "2026-09-15",
@@ -20128,13 +18637,6 @@
       "u": "2026-10-01"
     },
     {
-      "id": "62ba20b5ecbbabb2",
-      "t": "hetfoi tarsasozas a golyaban // jatszohaz projekt",
-      "d": "2026-09-14",
-      "s": "2026-09-12",
-      "u": "2026-09-14"
-    },
-    {
       "id": "48082863f8e89090",
       "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
       "d": "2026-09-21",
@@ -20189,76 +18691,6 @@
       "d": "2026-09-12",
       "s": "2026-09-13",
       "u": "2026-09-21"
-    },
-    {
-      "id": "6c6cf34232164d1c",
-      "t": "sunset cruise & daytime boat party by elb ✘ 13th sept ✘ stadt wien boat",
-      "d": "2026-09-13",
-      "s": "2026-09-13",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "cc4a8d209f4fad20",
-      "t": "sunday sundown by elb & spontan ~ pontoon ~ 13th sept ~ free entry",
-      "d": "2026-09-13",
-      "s": "2026-09-13",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "58b3cffd5842c872",
-      "t": "egy zuhanas anatomiaja / anatomie d'une chute | oscar hetfo #5",
-      "d": "2026-09-14",
-      "s": "2026-09-13",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "0ff8d7f80827f745",
-      "t": "adam almai / adams aebler",
-      "d": "2026-09-14",
-      "s": "2026-09-13",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "2f40634cfe7ee5f6",
-      "t": "taxisofor / taxi driver | 50 eves jubileumi vetites",
-      "d": "2026-09-14",
-      "s": "2026-09-13",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "f7fb20f843a2bcfb",
-      "t": "studio 103 | keramia workshop | 09.14.",
-      "d": "2026-09-14",
-      "s": "2026-09-13",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "b703597ca5e5bfee",
-      "t": "lelekfeny",
-      "d": "2026-09-14",
-      "s": "2026-09-13",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "6ce06da40652c060",
-      "t": "pihenteto yin gyakorlo",
-      "d": "2026-09-14",
-      "s": "2026-09-13",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "e907e8cfc0a9087f",
-      "t": "hangfurdo cserbik ritanal",
-      "d": "2026-09-14",
-      "s": "2026-09-13",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "73c88fc0a81a1406",
-      "t": "welcome picnic & botellon @margaret island & afterparty @morrison's 2 by elb",
-      "d": "2026-09-14",
-      "s": "2026-09-13",
-      "u": "2026-09-14"
     },
     {
       "id": "05e7b279d8bb5b16",
@@ -22109,34 +20541,6 @@
       "u": "2026-10-03"
     },
     {
-      "id": "d68d8854d04828f7",
-      "t": "eltunt a naplemente nyomozos jatek",
-      "d": "2026-09-14",
-      "s": "2026-09-13",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "7a03b27b533ca819",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-13",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "188b2e9915b55b97",
-      "t": "igy jartam anyatokkal kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-13",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "dbd8c0dd148706ab",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-13",
-      "u": "2026-09-14"
-    },
-    {
       "id": "03aa1f08da298950",
       "t": "90-es evek kviz",
       "d": "2026-09-15",
@@ -22452,13 +20856,6 @@
       "u": "2026-10-02"
     },
     {
-      "id": "62ba20b5ecbbabb2",
-      "t": "hetfoi tarsasozas a golyaban // jatszohaz projekt",
-      "d": "2026-09-14",
-      "s": "2026-09-13",
-      "u": "2026-09-14"
-    },
-    {
       "id": "48082863f8e89090",
       "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
       "d": "2026-09-21",
@@ -22548,62 +20945,6 @@
       "d": "2026-09-12",
       "s": "2026-09-14",
       "u": "2026-09-21"
-    },
-    {
-      "id": "58b3cffd5842c872",
-      "t": "egy zuhanas anatomiaja / anatomie d'une chute | oscar hetfo #5",
-      "d": "2026-09-14",
-      "s": "2026-09-14",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "0ff8d7f80827f745",
-      "t": "adam almai / adams aebler",
-      "d": "2026-09-14",
-      "s": "2026-09-14",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "2f40634cfe7ee5f6",
-      "t": "taxisofor / taxi driver | 50 eves jubileumi vetites",
-      "d": "2026-09-14",
-      "s": "2026-09-14",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "f7fb20f843a2bcfb",
-      "t": "studio 103 | keramia workshop | 09.14.",
-      "d": "2026-09-14",
-      "s": "2026-09-14",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "b703597ca5e5bfee",
-      "t": "lelekfeny",
-      "d": "2026-09-14",
-      "s": "2026-09-14",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "6ce06da40652c060",
-      "t": "pihenteto yin gyakorlo",
-      "d": "2026-09-14",
-      "s": "2026-09-14",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "e907e8cfc0a9087f",
-      "t": "hangfurdo cserbik ritanal",
-      "d": "2026-09-14",
-      "s": "2026-09-14",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "73c88fc0a81a1406",
-      "t": "welcome picnic & botellon @margaret island & afterparty @morrison's 2 by elb",
-      "d": "2026-09-14",
-      "s": "2026-09-14",
-      "u": "2026-09-14"
     },
     {
       "id": "05e7b279d8bb5b16",
@@ -24601,34 +22942,6 @@
       "u": "2026-10-04"
     },
     {
-      "id": "d68d8854d04828f7",
-      "t": "eltunt a naplemente nyomozos jatek",
-      "d": "2026-09-14",
-      "s": "2026-09-14",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "188b2e9915b55b97",
-      "t": "igy jartam anyatokkal kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-14",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "dbd8c0dd148706ab",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-14",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "7a03b27b533ca819",
-      "t": "altalanos kviz",
-      "d": "2026-09-14",
-      "s": "2026-09-14",
-      "u": "2026-09-14"
-    },
-    {
       "id": "017cbf2ef1743cdb",
       "t": "altalanos kviz",
       "d": "2026-09-15",
@@ -24944,20 +23257,6 @@
       "u": "2026-10-02"
     },
     {
-      "id": "217b2a52fd2e2061",
-      "t": "kozjatek - kozossegi tarsasjatekos est",
-      "d": "2026-09-14",
-      "s": "2026-09-14",
-      "u": "2026-09-14"
-    },
-    {
-      "id": "62ba20b5ecbbabb2",
-      "t": "hetfoi tarsasozas a golyaban // jatszohaz projekt",
-      "d": "2026-09-14",
-      "s": "2026-09-14",
-      "u": "2026-09-14"
-    },
-    {
       "id": "48082863f8e89090",
       "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
       "d": "2026-09-21",
@@ -25005,60 +23304,2580 @@
       "d": "2026-09-26",
       "s": "2026-09-14",
       "u": "2026-09-26"
+    },
+    {
+      "id": "1bdfbd826e5ea3d6",
+      "t": "vad fruttik // 1. nap",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-18"
+    },
+    {
+      "id": "31569c8600b184a9",
+      "t": "kobuci alter bugi // pentek",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-18"
+    },
+    {
+      "id": "00d549586c4e3663",
+      "t": "lithium absolute classic",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "d9414226dae6cc76",
+      "t": "class of 26 / a38 hajo / 2026.09.18.",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-18"
+    },
+    {
+      "id": "ad1aa5cf9e8ba973",
+      "t": "beyond thunderdome movie night",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "d080fb2c281b692f",
+      "t": "argentin tortenetek | homo argentum | bemutato",
+      "d": "2026-09-15",
+      "s": "2026-09-15",
+      "u": "2026-09-15"
+    },
+    {
+      "id": "b41039a4686c7f3a",
+      "t": "andrej tarkovszkij: sztalker",
+      "d": "2026-09-15",
+      "s": "2026-09-15",
+      "u": "2026-09-15"
+    },
+    {
+      "id": "37303df4b5f80fd8",
+      "t": "dimenziovaltas workshop - gyurj sikbol teret",
+      "d": "2026-09-15",
+      "s": "2026-09-15",
+      "u": "2026-09-15"
+    },
+    {
+      "id": "de0b9d7b781c88eb",
+      "t": "doromb workshop",
+      "d": "2026-09-15",
+      "s": "2026-09-15",
+      "u": "2026-09-15"
+    },
+    {
+      "id": "49243535ee97c05c",
+      "t": "studio 103 | rajzklub | 09.15.",
+      "d": "2026-09-15",
+      "s": "2026-09-15",
+      "u": "2026-09-15"
+    },
+    {
+      "id": "421a9973bffa5534",
+      "t": "tuesday madness • work off party • peter makto • matias velazco / 09.15.",
+      "d": "2026-09-15",
+      "s": "2026-09-15",
+      "u": "2026-09-15"
+    },
+    {
+      "id": "dbcbac197282beb9",
+      "t": "korszakos operak - laszlo ferenc operatorteneti gyorstalpaloja",
+      "d": "2026-09-15",
+      "s": "2026-09-15",
+      "u": "2026-09-15"
+    },
+    {
+      "id": "3d963e9c639c2d38",
+      "t": "lebego hangutazas",
+      "d": "2026-09-15",
+      "s": "2026-09-15",
+      "u": "2026-09-15"
+    },
+    {
+      "id": "2ec490fa5dea3b42",
+      "t": "erasmus & international heroes' square & city park walking tour by elb",
+      "d": "2026-09-16",
+      "s": "2026-09-15",
+      "u": "2026-09-16"
+    },
+    {
+      "id": "0d4a563eedb05961",
+      "t": "az arany spatula / the golden spurtle",
+      "d": "2026-09-16",
+      "s": "2026-09-15",
+      "u": "2026-09-16"
+    },
+    {
+      "id": "6b7c2d0efc928189",
+      "t": "el camino – talald meg az utad / compostelle | premier",
+      "d": "2026-09-16",
+      "s": "2026-09-15",
+      "u": "2026-09-16"
+    },
+    {
+      "id": "21744d64686bb287",
+      "t": "isten varosa / cidade de deus",
+      "d": "2026-09-16",
+      "s": "2026-09-15",
+      "u": "2026-09-16"
+    },
+    {
+      "id": "ad09078b050a217a",
+      "t": "gazdasagi es szociologiai kerdesek 2026 kora oszen",
+      "d": "2026-09-16",
+      "s": "2026-09-15",
+      "u": "2026-09-16"
+    },
+    {
+      "id": "7f49c920cd96508e",
+      "t": "typotex konyvklub 2026 osz",
+      "d": "2026-09-16",
+      "s": "2026-09-15",
+      "u": "2026-12-09"
+    },
+    {
+      "id": "0777fa8fec92bf2b",
+      "t": "studio 103 | bordiszmuves workshop | 09.16.",
+      "d": "2026-09-16",
+      "s": "2026-09-15",
+      "u": "2026-09-16"
+    },
+    {
+      "id": "02f25f966be09adc",
+      "t": "høt spøt 2026 - sept 16",
+      "d": "2026-09-16",
+      "s": "2026-09-15",
+      "u": "2026-09-16"
+    },
+    {
+      "id": "e923271a2baeac44",
+      "t": "international speed friending & get2know games by elb @doboz",
+      "d": "2026-09-16",
+      "s": "2026-09-15",
+      "u": "2026-09-16"
+    },
+    {
+      "id": "4b370fc0008862b3",
+      "t": "erasmus point budapest grand opening by elb ✘ 16th & 23rd september",
+      "d": "2026-09-16",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "f9f814c3ac6f5fab",
+      "t": "fit fat - off kultur",
+      "d": "2026-09-16",
+      "s": "2026-09-15",
+      "u": "2026-09-16"
+    },
+    {
+      "id": "b8dcee1681d37b72",
+      "t": "de mi lett a novel?",
+      "d": "2026-09-16",
+      "s": "2026-09-15",
+      "u": "2026-09-16"
+    },
+    {
+      "id": "aa81359845fc3194",
+      "t": "beerpong pub night",
+      "d": "2026-09-16",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "a4d0824ee5ce0b1d",
+      "t": "p$zk grand opening | 09.16.",
+      "d": "2026-09-16",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "60a0813226698ca5",
+      "t": "permission to innovate — the eu ai act for decision-makers",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "1e804595eeb92f62",
+      "t": "future workforce summit 2026",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "c67b19d8a101bc17",
+      "t": "heti hetes 13. adas - 09.17.",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "b7c05c8054e7bd2e",
+      "t": "volt egyszer egy nyar / aftersun",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "b4a3b1e1f7fe254a",
+      "t": "in the mood for love / fa yeung nin wah | english subtitles",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "dd7db7dbc62a5e4c",
+      "t": "pink floyd: the wall",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "ef53cc7439995f67",
+      "t": "teakostolo es alapok – elmenyalapu bevezetes a kinai teak vilagaba",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "2ede86e6b2dc1193",
+      "t": "studio 103 | the taste of well-being - hasznos stressz | 09.17.",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "7abdcc6ede51812d",
+      "t": "egy este okinawan – repulojegy nelkul",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "189fda88005a7e94",
+      "t": "rapidrandi 35-45 ev",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "a639b297335883fb",
+      "t": "wannabe - off kultur",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "a711436786aab86d",
+      "t": "jubilee gala fashion show — 10th gsfw budapest",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "a42ea2b34adeb4e0",
+      "t": "ki vagyok en es ki vagy te - pecsen #3",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "d541cd31036188c9",
+      "t": "bekeben magammal!",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "c352f17ee1291336",
+      "t": "lebego hangtalfurdo koncert a szechenyi termal furdoben floating sound concert",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "a3388e2a0fee4a39",
+      "t": "🧠 brainiacs vol.15: quiz night at brody house 🎉",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "7c582da7cbd391b8",
+      "t": "🎸insulae koncert a babel kertemben",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "f58596d7af0fc400",
+      "t": "pal csaba vacsoraest i szeptember 17. csutortok i mom leroy bistro i budapest",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "87dc14a17a928470",
+      "t": "xv. osszjogasz - budapest park - szeptember 17.",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-18"
+    },
+    {
+      "id": "d0ea177a07feb053",
+      "t": "semmelweis semester opening - akvarium klub - 09.17",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-18"
+    },
+    {
+      "id": "6991c813c3aa0651",
+      "t": "tf gt after | romkert | 09.17.",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-18"
+    },
+    {
+      "id": "e971a3cef886a902",
+      "t": "otkert thursday 09.17. guest list",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-18"
+    },
+    {
+      "id": "1890321f7bece844",
+      "t": "edr x thursday techno | season opening | turbina | 17th sept",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-18"
+    },
+    {
+      "id": "3afa2afdb6822a7e",
+      "t": "wts nap - jotekonysagi programok",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-18"
+    },
+    {
+      "id": "e19e7ca0c0753170",
+      "t": "tudatos parkereso est rapidrandival",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-18"
+    },
+    {
+      "id": "e38fa54b36142a09",
+      "t": "erasmus & international buda castle walking tour ✘ free with elb card",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-18"
+    },
+    {
+      "id": "3e4acfe59a9c3431",
+      "t": "a levitak konyve / leviticus",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-18"
+    },
+    {
+      "id": "94a8b5724f82dca1",
+      "t": "telt haz // sold out - in memoriam tim curry: the rocky horror picture show",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-18"
+    },
+    {
+      "id": "801e93d6bc3013e1",
+      "t": "in memoriam tim curry: the rocky horror picture show",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "8b9ffe26d872bc7b",
+      "t": "watercolor workshop",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-18"
+    },
+    {
+      "id": "90b8145210aea505",
+      "t": "hangar",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "ab345093c3d45ee4",
+      "t": "somatic movement es kristaly hangtal szeansz // szeptember",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-18"
+    },
+    {
+      "id": "3d670384b004978c",
+      "t": "pov budapest closing x santsat",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "5a6dd5fa2e98184c",
+      "t": "studio 103 | matcha keramia workshop | 09.18.",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-18"
+    },
+    {
+      "id": "af6b761572e603df",
+      "t": "genezis - magyar miszteriumjatek -",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-18"
+    },
+    {
+      "id": "193b0a58577f3f6d",
+      "t": "just connect live profile match ismerkedos est | 22–42 ev",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-18"
+    },
+    {
+      "id": "597341fab6ba4a75",
+      "t": "kalaka - stenk",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-18"
+    },
+    {
+      "id": "0836e25141cfbf6e",
+      "t": "timur lenk, breastbone - off kultur",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-18"
+    },
+    {
+      "id": "8a7515e8b0299741",
+      "t": "project x back to school",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "2c2d4a8da7e79607",
+      "t": "video disco a duna-parton 09.18. (ingyenes belepes 21 oraig) @bazis balna",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "36ea8c1051039c7e",
+      "t": "the disco vol 6.",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "24a9c80395e128cf",
+      "t": "havervagy video disco a mobyban",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "59366756b0691207",
+      "t": "kalap vol.3 - egon's embrace, vox fabri vs vox funky, acideal all night long",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "df15179cba0d9408",
+      "t": "osszbuli ✘ #hataroknelkul | 2026/09/18 » @romkert",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "2af8d51a5d6c1040",
+      "t": "cavezone pres.: 360° stage @maroni 09.18. // hard techno rave",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "a9c9f79b07356a99",
+      "t": "szezonnyito rakonczai piano garden",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "bf14502c55f71087",
+      "t": "top tier🔝 | 09/18 | dopamin club",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "11b06f71006be396",
+      "t": "kakao 016 w/ auerbach, balaram, flipo, tunderke + clubroom by hardcore4kidz",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "02297af7729d3421",
+      "t": "skins club night (the era of good music & bad decisions) @ lokal 2026.09.18.",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "cd62247e9c99b1b4",
+      "t": "heated rivalry x off campus bettertogether party • akvarium klub 09.18.",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "2d70f976d6c2bd1a",
+      "t": "dojo season opening weekend",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-20"
+    },
+    {
+      "id": "3ce42567582f355b",
+      "t": "otkert friday 09.18. fan club - vma edition // upper club",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "fef69915e00fdfad",
+      "t": "09.18. dune: french 75",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "b5fc0cdaf352020d",
+      "t": "hunrox egyeni futam - hyrox szimulacios verseny - mvm dome - hyrox sim single",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "bc2e648ad80a54ec",
+      "t": "hunrox egyeni feltav futam - hyrox szim verseny -mvm dome -hyrox sim single half",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "5733a7871b14700a",
+      "t": "hunrox paros feltav futam-hyrox szim verseny-mvm dome-hyrox sim doubles half",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "e164f9cb7f4319cb",
+      "t": "hunrox-nezoi jegy - visitors",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "c0ddc76429b726ba",
+      "t": "hunrox-proba",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "529453ee825197ff",
+      "t": "game dev day konferencia 2026",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "10c926f1b097a306",
+      "t": "hunrox- gyermek jegy - children under 6",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "9cd2a38d26b618cc",
+      "t": "abovehorizont x sup budapest: dunabogdany sup tura",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "20b2d97a305a35fb",
+      "t": "bubak es a varazskonyv",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "a476c6b688ea2aea",
+      "t": "boga x monyo - rootbeer es mas finomsagok",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "9d987b443d5b1e52",
+      "t": "tomb of gul baba & rose garden guided tour / free with elb card (sign up below!)",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "7857a2c111405ae7",
+      "t": "warm up: kek pelikan / pelikan blue | english subtitles",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "0b5514dfa3ac092b",
+      "t": "moszkva ter 25. szulinap | 35mm-es vetites",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "9109e9decb1b6334",
+      "t": "telt haz // moszkva ter 25. szulinap | 35mm-es vetites + kozonsegtalalkozo",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "7b0283fa99812347",
+      "t": "⚓ cruisin x b/plr. x deepfields w/ petre inspirescu / sit / gojnea76 ⚓",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "e05cdd9bbb6ff99e",
+      "t": "charm bar: make custom ceramic bag charms",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "6a76c995d3f260b8",
+      "t": "erasmus & international pest downtown walking tour ✘ free with elb card",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "243cfbf7c02ba914",
+      "t": "x. orszagos gothic talalkozo 2026",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-20"
+    },
+    {
+      "id": "dd7f600ff98d3514",
+      "t": "tdbp: touchdesigner budapest - a hungaronode event, supported by derivative",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "3a6d6efe0d1c184f",
+      "t": "tfse - kozarmisleny ka i noi kezilabda nb i./b",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "eed00f741c78144a",
+      "t": "sunflowerz & disco moderno pres. tomato records 09.19. (free entry till 21:00)",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-20"
+    },
+    {
+      "id": "77b085d373c771d5",
+      "t": "karthago, vendeg: santa muerte - stenk",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "51e88548f655bc4d",
+      "t": "just connect – ismerkedos tarsas est | 25–42 ev ±3 ev",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "d6eeab1ef0446a0b",
+      "t": "studio 103 | keramia workshop | 09.19.",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "23b3e15a83216ba3",
+      "t": "akvarium klub — 4 program",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "22769ada25d7afaa",
+      "t": "100% rock ’n’ roll | deep purple by cry free",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "4a3c728f6e0502a4",
+      "t": "earthdance 2026 i heart & beat of humanity",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-20"
+    },
+    {
+      "id": "c60559a3fcb18937",
+      "t": "cruisin after x b/plr. x deepfields x juuz x flylow / sit/ gojnea76 / clarkent",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-20"
+    },
+    {
+      "id": "641a52adcdf6b5f4",
+      "t": "ritmo latino ✘ #sabadoboz by elb & perreu ✘ 19th sept ✘ reggaeton & mainstream",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-20"
+    },
+    {
+      "id": "55743a81e6b6aa05",
+      "t": "danza kuduro: bon voyage • romkert • 09/19",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-20"
+    },
+    {
+      "id": "d2d032cd263a2e35",
+      "t": "judgement » cat budapest ◦ 09/19 + coronita after 09/20",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-20"
+    },
+    {
+      "id": "17d1526191a459fe",
+      "t": "otkert saturday 09.19. timeless hits // we outside",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-20"
+    },
+    {
+      "id": "0c2a50825f4a3216",
+      "t": "09.19. dune: private line - hotline x balazs kicks",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-20"
+    },
+    {
+      "id": "a35b5ec150748037",
+      "t": "꧁ ༺ dead end season opening with ninnidslvx, paralich ༻ ꧂",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-20"
+    },
+    {
+      "id": "ba837aacace425bf",
+      "t": "terraplaza 64th",
+      "d": "2026-09-20",
+      "s": "2026-09-15",
+      "u": "2026-09-20"
+    },
+    {
+      "id": "3c43224002153756",
+      "t": "obudai events - golyahajo 2026",
+      "d": "2026-09-20",
+      "s": "2026-09-15",
+      "u": "2026-09-20"
+    },
+    {
+      "id": "5255a46d5c0265de",
+      "t": "bem mozi — 4 program",
+      "d": "2026-09-20",
+      "s": "2026-09-15",
+      "u": "2026-09-20"
+    },
+    {
+      "id": "3ab66efad13aba62",
+      "t": "sip & scrap",
+      "d": "2026-09-20",
+      "s": "2026-09-15",
+      "u": "2026-09-20"
+    },
+    {
+      "id": "8e81a2ca815ab987",
+      "t": "randipiknik - elsoszikra (nok: 38-50 ev, ferfiak: 40-52 ev)",
+      "d": "2026-09-20",
+      "s": "2026-09-15",
+      "u": "2026-09-20"
+    },
+    {
+      "id": "24aee11a5b2c37d9",
+      "t": "sunday sundown by elb ~ season closing @pontoon ~ 20th sept ~ free entry",
+      "d": "2026-09-20",
+      "s": "2026-09-15",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "c71e424883522512",
+      "t": "xvi. magyar privatbankari es vagyonkezeloi konferencia",
+      "d": "2026-09-21",
+      "s": "2026-09-15",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "b0c6bcab866e8a65",
+      "t": "csak egy baleset / yek tasadef sadeh | oscar hetfo #5",
+      "d": "2026-09-21",
+      "s": "2026-09-15",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "41b87a30fe07f251",
+      "t": "a cseresznye ize / taste of cherry | bemutato",
+      "d": "2026-09-21",
+      "s": "2026-09-15",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "e6224000c02bdd63",
+      "t": "miles davis: birth of the cool | bemusic history",
+      "d": "2026-09-21",
+      "s": "2026-09-15",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "a51999c7d2d1842d",
+      "t": "sunset yoga at gellert campus",
+      "d": "2026-09-21",
+      "s": "2026-09-15",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "d26dca9458d6c820",
+      "t": "techno pilates / uv pilates / akvarium klub powered by techno yoga",
+      "d": "2026-09-21",
+      "s": "2026-09-15",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "1a77c3147541616d",
+      "t": "lebego hangutazas",
+      "d": "2026-09-21",
+      "s": "2026-09-15",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "2a98d69ebb789349",
+      "t": "gki | 2030 magyar gazdasag konferencia",
+      "d": "2026-09-22",
+      "s": "2026-09-15",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "f71fee85c81b1cba",
+      "t": "erasmus & international gellert hill walking tour ✘ free with elb card",
+      "d": "2026-09-22",
+      "s": "2026-09-15",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "94d70375b4a4b3fa",
+      "t": "baraka",
+      "d": "2026-09-22",
+      "s": "2026-09-15",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "655272953606bd25",
+      "t": "rene laloux: gandahar | bemutato",
+      "d": "2026-09-22",
+      "s": "2026-09-15",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "e49584887c1043ee",
+      "t": "science cafe 2026 osz",
+      "d": "2026-09-22",
+      "s": "2026-09-15",
+      "u": "2026-12-09"
+    },
+    {
+      "id": "a9afa587d0259b79",
+      "t": "studio 103 | nemez workshop | 09.22.",
+      "d": "2026-09-22",
+      "s": "2026-09-15",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "910e2f7f038666f5",
+      "t": "limmud olvasoklub | yosef hayim yerusalmi: zachor",
+      "d": "2026-09-22",
+      "s": "2026-09-15",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "49909272afe6c48f",
+      "t": "klikkmentes buli a holdudvarban",
+      "d": "2026-09-22",
+      "s": "2026-09-15",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "3768336f632bbaed",
+      "t": "zuboly koncert a babel kertemben",
+      "d": "2026-09-22",
+      "s": "2026-09-15",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "052a05a5aefad48f",
+      "t": "what the face...?! | sales edition",
+      "d": "2026-09-23",
+      "s": "2026-09-15",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "07c70f7fd44cc091",
+      "t": "messzi eszak / the north",
+      "d": "2026-09-23",
+      "s": "2026-09-15",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "c01a66c033dc34d7",
+      "t": "chungking express | hun & eng sub",
+      "d": "2026-09-23",
+      "s": "2026-09-15",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "0c42f4f52b2df85d",
+      "t": "erasmus & international heroes' square & city park walking tour by elb",
+      "d": "2026-09-23",
+      "s": "2026-09-15",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "37e18a02b6c10f97",
+      "t": "a nagy bszdmg workshop - muveszetterapias duhongo metalra",
+      "d": "2026-09-23",
+      "s": "2026-09-15",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "dd93dc84e338e00e",
+      "t": "mazent mystery nights 🕵️",
+      "d": "2026-09-23",
+      "s": "2026-09-15",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "7a672eab43ef2aac",
+      "t": "høt spøt 2026 - sept 23",
+      "d": "2026-09-23",
+      "s": "2026-09-15",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "a3d9adbba9755b8d",
+      "t": "studio 103 | bor kartyatarto keszito workshop | 09.23.",
+      "d": "2026-09-23",
+      "s": "2026-09-15",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "b279425a8418fc6c",
+      "t": "vasasplaket - szolnoki dozsa ob i., 2. fordulo",
+      "d": "2026-09-23",
+      "s": "2026-09-15",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "6cd99dbdbb612bd8",
+      "t": "pinkpunkrz, gyikemberz, the snack - off kultur",
+      "d": "2026-09-23",
+      "s": "2026-09-15",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "56a3026083c228d5",
+      "t": "kisusti palinkafozo bemutatofozes a tulipan leparloval",
+      "d": "2026-09-24",
+      "s": "2026-09-15",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "ce0f5324cb59c04b",
+      "t": "community culture by the good persona",
+      "d": "2026-09-24",
+      "s": "2026-09-15",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "6528e068315d6679",
+      "t": "moszkva ter | english subtitles",
+      "d": "2026-09-24",
+      "s": "2026-09-15",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "0bccc771f265e33f",
+      "t": "trainspotting | 30 eves jubileumi szezon | raadas vetites",
+      "d": "2026-09-24",
+      "s": "2026-09-15",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "faafc656e009d715",
+      "t": "gajdos laszlo: magyarorszag kornyezeti kihivasai es lehetosegei",
+      "d": "2026-09-24",
+      "s": "2026-09-15",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "ea427feecf00eb47",
+      "t": "studio 103 | konyvkoto workshop | 09.24.",
+      "d": "2026-09-24",
+      "s": "2026-09-15",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "c7f9acd21130dbec",
+      "t": "5 alkalmas noi kor",
+      "d": "2026-09-24",
+      "s": "2026-09-15",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "5c5b98351819c2f7",
+      "t": "noi kor - elso nyilt alkalom",
+      "d": "2026-09-24",
+      "s": "2026-09-15",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "0c7077a0373c2397",
+      "t": "urlenykiraly x galambos peter - off kultur",
+      "d": "2026-09-24",
+      "s": "2026-09-15",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "ac902b09400214a5",
+      "t": "blink-182 + sum 41 lemezlejatszo koncertek 💥 small things + the sums 💥 stenk",
+      "d": "2026-09-24",
+      "s": "2026-09-15",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "b54b29c72e9dacd3",
+      "t": "elsa valle es a bakary trio a new orleans clubban",
+      "d": "2026-09-24",
+      "s": "2026-09-15",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "73303eb82ec8ab90",
+      "t": "az oszi bad news - masik janossal!",
+      "d": "2026-09-24",
+      "s": "2026-09-15",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "4870d483128721c6",
+      "t": "cimbaliband koncert",
+      "d": "2026-09-24",
+      "s": "2026-09-15",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "e91143635889dcf7",
+      "t": "pal csaba vacsoraest i szeptember 24. csutortok i mom leroy bistro i budapest",
+      "d": "2026-09-24",
+      "s": "2026-09-15",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "1c1cea1108d24e3e",
+      "t": "szulinap",
+      "d": "2026-09-24",
+      "s": "2026-09-15",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "9ffc97fe84957e9b",
+      "t": "🎉karoli szemeszternyito 2026🎉",
+      "d": "2026-09-24",
+      "s": "2026-09-15",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "80e1b9859ba6d3f6",
+      "t": "otkert thursday 09.24. guest list",
+      "d": "2026-09-24",
+      "s": "2026-09-15",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "96af3445a09a7991",
+      "t": "all-erasmus nations' flag party by elb ✘ remix club ✘ 24th sept",
+      "d": "2026-09-24",
+      "s": "2026-09-15",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "951c3fec90c4592c",
+      "t": "metu szemeszternyito 》romkert | 09.24.",
+      "d": "2026-09-24",
+      "s": "2026-09-15",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "74c6f1a5e03ab93e",
+      "t": "sold out // kozgaz & friends - dojo - 09.24",
+      "d": "2026-09-24",
+      "s": "2026-09-15",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "7c74483fe8344519",
+      "t": "heti hetes 14. adas - 09.25.",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "cae65e87ac0ca38a",
+      "t": "bem mozi — 4 program",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "b60f1076d0c64a2b",
+      "t": "merce szulinapi buli",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "8c3f3606387b5212",
+      "t": "sari • vargad • streetsixteen // turbina, nagyterem",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "7d2ac7526fbe9277",
+      "t": "romancok enekre es zongorara - vizsnyai botond es mattia peli koncertje",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "8fd1ba339da57988",
+      "t": "oszi szezonnyito: ismerkedes, live profile match & after party | 23–43 ev",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "3eb89af850b4eb8e",
+      "t": "studio 103 | linometszes workshop | 09.25.",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "6def2d386362ea2d",
+      "t": "jatsszunk haver! - tarsasozas a jatsz/maban",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "2e7cfb384b85de08",
+      "t": "unique @ nagyhall 2026.09.25.",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "387948774a2e08d0",
+      "t": "hegedus jozsi @ kishall 2026.09.25.",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "5112af2c417e5c28",
+      "t": "freddie koncert",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "63d4b83eec94befb",
+      "t": "„optimizmus, bufelejtes, rock and roll!” | takats tamas blues band",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "76704c10140ca376",
+      "t": "gege piano live + dj set – szeptember 25. pentek | budapest | mom leroy",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "8bc25e0760533692",
+      "t": "eclips: venjent | subsonic",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "c283f3150ee67fbf",
+      "t": "free on board budapest 09.25. moby balna",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "0aac07870ea71d1b",
+      "t": "2000s popstar boat party • disney allstar cruise • 09.25.",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "839e04f1545a0907",
+      "t": "reggaeton fest w/ raul clyde ✘ 25th sept @new orleans club ✘ elb discounted tix",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "7f0a1a377c73768f",
+      "t": "14 years of toldi",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "3aa22b7059a0b4d3",
+      "t": "starship🚀 #neverendingstory ➤ romkert // 09.25.",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "93a5e516bc65cec7",
+      "t": "romkert 2026 • season closing • 09.25-26.",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "86d67ad7698bd458",
+      "t": "dojo dstrkt w/ ramyen (fr) 09.25.",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "e1e4d3b4dd69c7ed",
+      "t": "exlusive beauty day - augusztini krisztian - venus beauty for you",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "a6122d74adbe6d7a",
+      "t": "studio 103 | fakanal keszito workshop | 09.26.",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "4fb426efd691bd70",
+      "t": "studio 103 | keramia workshop | 09.26.",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "fa503db21ff3176b",
+      "t": "studio 103 | festo workshop | 09.26.",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "8d77ab7d82449903",
+      "t": "iii. bucsuztatoi konferencia",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "cb5591c5e4d9836f",
+      "t": "vaszonkep a fotodbol, szamozott festessel",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "62272b6538fb71c7",
+      "t": "lokopiknik es kerti vasutak talalkozoja",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "460ea6725b4a4df0",
+      "t": "onismereti tura & elmenybeszamolo a magyar el camio-n - sunshine flow kozosseg",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "51fb8fc56033ff01",
+      "t": "rs-event the cream iii",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "53090477991286b9",
+      "t": "kaleidoscope fashion show - ellentetek",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "22cb7f9257b567f8",
+      "t": "bem mozi — 4 program",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "9de947dc1d576d01",
+      "t": "haccacare presents; above the city @ saddle & sky rooftop bar",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "327d0778277e0cea",
+      "t": "rockcsillagok utjan - tunyo oroksege, omega testamentum, mini art-ur - stenk",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "fe2da4d580837409",
+      "t": "why not ibiza? ✘ free open-air party by elb & spontan ✘ 26th sept ✘ zsiraf pest",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "152a57c0149d6b0d",
+      "t": "mamma mia! video disco es mozi a duna-parton 09.26. – szabadteri szezonzaro",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "0d383324be481ada",
+      "t": "akvarium klub — 4 program",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "e39330bb83fe89c5",
+      "t": "felfestjuk az ordogot a falra",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "ec52bc3ec7aed932",
+      "t": "nipplejesus - cancelled",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "dcec00ab959d2a6c",
+      "t": "darage // atno, ad hoc",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "90ee541c2b6da8ce",
+      "t": "perszephone ✤ kassa hajo ✤ szeptember 26.",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "eb2ace45571f51b8",
+      "t": "binoboi tour @ budapest // young self, veryraredome, toobey, beno",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-28"
+    },
+    {
+      "id": "e5fe92b6ed17cef3",
+      "t": "freedom fetish 2026 autumn",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "c4f78596f81891b0",
+      "t": "the whu: hungarian who tribute 10. szuletesnap - won't get fooled again!",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "caa4e17c0904874b",
+      "t": "the beatboys",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "840a1d4cd9956f8b",
+      "t": "indian nyar- lebego hangtalfurdo xvi. kerulet konrad ferenc uszoda",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "0a9651e71a250a68",
+      "t": "glow ✦ birthday 2nd dirty glitter ✦ girls only ✦ 09.26.",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "ee11e618fa49e956",
+      "t": "budai house clique x w budapest present: our house",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "c37f833ad05b90cb",
+      "t": "veszett rave presents: cosmic conquest",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "854db986c69d1140",
+      "t": "panorama progression i 26.09.2026",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "cc6179121084baaf",
+      "t": "nofear x pinkcore inv. viscerale, løus @kassa",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "8aa7ddb6208405f9",
+      "t": "hot spot 2026 grand closing - sanzu (usa) - 2026.09.26, - a38 tetoterasz",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "36646908e7e1c48a",
+      "t": "vice city 80's party",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "92629e29ff7f931d",
+      "t": "vad leszel vagy vadasz? // toldi",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "a2119e8849822989",
+      "t": "world is mine pres.: romkert season end show // 09.26.",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "43516b060555927f",
+      "t": "dojo - lucid dreams 09.26.",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "a867c70e0e52e82c",
+      "t": "janikovszky eva: velem mindig tortenik valami @ 2026.09.27. delelotti eloadas",
+      "d": "2026-09-27",
+      "s": "2026-09-15",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "07dcad463f4fe6a5",
+      "t": "janikovszky eva: velem mindig tortenik valami @ 2026.09.27. delutani eloadas",
+      "d": "2026-09-27",
+      "s": "2026-09-15",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "f166fb3aa41d908f",
+      "t": "shaun, a barany es moszatveg szornye/shaun the sheep: the beast of mossy bottom",
+      "d": "2026-09-27",
+      "s": "2026-09-15",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "84b49bbff59c85fc",
+      "t": "tokeletes napok / perfect days",
+      "d": "2026-09-27",
+      "s": "2026-09-15",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "37199bbd9cb3ba02",
+      "t": "randipiknik - elsoszikra (nok: 33-45 ev, ferfiak: 35-47 ev)",
+      "d": "2026-09-27",
+      "s": "2026-09-15",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "9018677c3064dab6",
+      "t": "25 ev – made in hungaria emlekest",
+      "d": "2026-09-27",
+      "s": "2026-09-15",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "cb93bd50df597e07",
+      "t": "tibes - kr. u. 10 - jubileumi nagykoncert",
+      "d": "2026-09-27",
+      "s": "2026-09-15",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "70f0d1ba670bdad4",
+      "t": "tanc a sivatagban / sirat | hun sub & eng sub | oscar hetfo #6",
+      "d": "2026-09-28",
+      "s": "2026-09-15",
+      "u": "2026-09-28"
+    },
+    {
+      "id": "7f61af437a9fe3c3",
+      "t": "miket nem beszelek/i swear | jotekonysagi vetites a salva vita alapitvany javara",
+      "d": "2026-09-28",
+      "s": "2026-09-15",
+      "u": "2026-09-28"
+    },
+    {
+      "id": "f911604d3d4120cd",
+      "t": "el camino – talald meg az utad / compostelle",
+      "d": "2026-09-28",
+      "s": "2026-09-15",
+      "u": "2026-09-28"
+    },
+    {
+      "id": "c5774a00c3516793",
+      "t": "symbol pizzakeszito workshop",
+      "d": "2026-09-28",
+      "s": "2026-09-15",
+      "u": "2026-09-28"
+    },
+    {
+      "id": "279d60e4d7f02f53",
+      "t": "pszichologiai jatek est a dixit-tel",
+      "d": "2026-09-28",
+      "s": "2026-09-15",
+      "u": "2026-09-28"
+    },
+    {
+      "id": "77abc6a3bd369563",
+      "t": "senki tanar ur putyin ellen / mr. nobody against putin | utolso vetites",
+      "d": "2026-09-29",
+      "s": "2026-09-15",
+      "u": "2026-09-29"
+    },
+    {
+      "id": "3f510932e0266027",
+      "t": "titkok es hazugsagok / secrets & lies | 30 eves jubileum | bemutato",
+      "d": "2026-09-29",
+      "s": "2026-09-15",
+      "u": "2026-09-29"
+    },
+    {
+      "id": "90d593d8fd64f2b0",
+      "t": "strange journey: the story of rocky horror | eng sub | in memoriam tim curry",
+      "d": "2026-09-29",
+      "s": "2026-09-15",
+      "u": "2026-09-29"
+    },
+    {
+      "id": "d783fc5ff43d6426",
+      "t": "cinema mystica visit 🔮 discounted tickets with elb - 29th september",
+      "d": "2026-09-29",
+      "s": "2026-09-15",
+      "u": "2026-09-29"
+    },
+    {
+      "id": "34df6af503f9afc1",
+      "t": "kormos anett est: a noknek nincs humora @ kishall 2026.09.29.",
+      "d": "2026-09-29",
+      "s": "2026-09-15",
+      "u": "2026-09-29"
+    },
+    {
+      "id": "0573648e652dc905",
+      "t": "klasszikusok jazz-esen! jotekonysagi adomanygyujto est a sarik peter trioval",
+      "d": "2026-09-29",
+      "s": "2026-09-15",
+      "u": "2026-09-29"
+    },
+    {
+      "id": "f4bc3956217b4d0c",
+      "t": "studio 103 | rajzklub | 09.29.",
+      "d": "2026-09-29",
+      "s": "2026-09-15",
+      "u": "2026-09-29"
+    },
+    {
+      "id": "75bb92269c23ba4b",
+      "t": "gyogyito hangok - hangutazo koncert",
+      "d": "2026-09-29",
+      "s": "2026-09-15",
+      "u": "2026-09-29"
+    },
+    {
+      "id": "c4b1582a0e04f03e",
+      "t": "akik mar nem leszunk sosem",
+      "d": "2026-09-29",
+      "s": "2026-09-15",
+      "u": "2026-09-29"
+    },
+    {
+      "id": "cf72332435fb5d1f",
+      "t": "egy utca. ezer tortenet. – interaktiv seta a falk miksa utcaban",
+      "d": "2026-09-30",
+      "s": "2026-09-15",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "61904532313e1e3f",
+      "t": "telik is, mulik is - muveszetterapia elozenere",
+      "d": "2026-09-30",
+      "s": "2026-09-15",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "02763b7e1a33ef59",
+      "t": "studio 103 | kezdo koto workshop | 09.30.",
+      "d": "2026-09-30",
+      "s": "2026-09-15",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "59d616cb319ba9f3",
+      "t": "throne of blood | akira kurosawa #3 | english subtitles",
+      "d": "2026-09-30",
+      "s": "2026-09-15",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "7ffcf440f77763b0",
+      "t": "in memoriam tim curry: the rocky horror picture show",
+      "d": "2026-09-30",
+      "s": "2026-09-15",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "49d9ff31a3d2f7d4",
+      "t": "csingisz: viccen kivul – konyvbemutato @ nagyhall 2026.09.30.",
+      "d": "2026-09-30",
+      "s": "2026-09-15",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "8df043eb3ec65dab",
+      "t": "meet irl - international social night",
+      "d": "2026-09-30",
+      "s": "2026-09-15",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "f6cb742861223af3",
+      "t": "street sixteen - off kultur",
+      "d": "2026-09-30",
+      "s": "2026-09-15",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "1ef3e9f0ff6ae45b",
+      "t": "global cooking night 2026",
+      "d": "2026-10-01",
+      "s": "2026-09-15",
+      "u": "2026-10-01"
+    },
+    {
+      "id": "850ef8ecd825c917",
+      "t": "tony - egy sef szuletese / tony | premier",
+      "d": "2026-10-01",
+      "s": "2026-09-15",
+      "u": "2026-10-01"
+    },
+    {
+      "id": "0bed2656ba031ca0",
+      "t": "reisz gabor: foldszint / english subtitles | premier",
+      "d": "2026-10-01",
+      "s": "2026-09-15",
+      "u": "2026-10-01"
+    },
+    {
+      "id": "9db87330b2fa275c",
+      "t": "mechanikus narancs / a clockwork orange",
+      "d": "2026-10-01",
+      "s": "2026-09-15",
+      "u": "2026-10-01"
+    },
+    {
+      "id": "e427800baac3d795",
+      "t": "heti hetes 15. adas - 10.01.",
+      "d": "2026-10-01",
+      "s": "2026-09-15",
+      "u": "2026-10-01"
+    },
+    {
+      "id": "3b82bfe73aaa3c61",
+      "t": "#yourbodyyourtemple day2",
+      "d": "2026-10-01",
+      "s": "2026-09-15",
+      "u": "2026-10-01"
+    },
+    {
+      "id": "d99964cd164ede2e",
+      "t": "b72 studio - trunk show & pop-up store",
+      "d": "2026-10-01",
+      "s": "2026-09-15",
+      "u": "2026-10-01"
+    },
+    {
+      "id": "37cf0026ebe8bd04",
+      "t": "budapest contemporary art fair 2026",
+      "d": "2026-10-02",
+      "s": "2026-09-15",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "e3861b7af3ec6034",
+      "t": "krater 2026",
+      "d": "2026-10-02",
+      "s": "2026-09-15",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "547c92999a75893e",
+      "t": "umamusume: pretty derby - egy uj korszak kezdete",
+      "d": "2026-10-02",
+      "s": "2026-09-15",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "08cf15680866c8d4",
+      "t": "macskafogo / cat city | 40 eves jubileum",
+      "d": "2026-10-02",
+      "s": "2026-09-15",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "28e8dacc39472411",
+      "t": "videotekas legendak #4 - ragadozo (magyarul predator) | eredeti szinkronnal",
+      "d": "2026-10-02",
+      "s": "2026-09-15",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "23e0aff63e47f908",
+      "t": "k2 workshop nyitobuli",
+      "d": "2026-10-02",
+      "s": "2026-09-15",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "805dccf3efe16e60",
+      "t": "corneus - szalagavato // turbina nagyterem",
+      "d": "2026-10-02",
+      "s": "2026-09-15",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "c35ab89520709ddf",
+      "t": "kozossegi est - hangfelszabaditas zsokaval",
+      "d": "2026-10-02",
+      "s": "2026-09-15",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "f2d24ed886700c24",
+      "t": "akvarium klub — 4 program",
+      "d": "2026-10-02",
+      "s": "2026-09-15",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "b3b9c2d42874bfee",
+      "t": "enter the doom! a$ap rocky pre-party / orenji, w, khaaro, kevinem, abo, shiracku",
+      "d": "2026-10-02",
+      "s": "2026-09-15",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "30bf092a03e7a27b",
+      "t": "b72 studio - trunk show & pop-up store",
+      "d": "2026-10-02",
+      "s": "2026-09-15",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "c2f632a65b1a4617",
+      "t": "hajos kristof es nikos stavlas koncertje az antikvariumban",
+      "d": "2026-10-02",
+      "s": "2026-09-15",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "03c3a078e53e912d",
+      "t": "soma jazz+ koncert exclusive! soma mamagesa ujra az eotvos10-ben.",
+      "d": "2026-10-02",
+      "s": "2026-09-15",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "8b301f040d4aa005",
+      "t": "samurai drive - hear no evil lemezbemutato",
+      "d": "2026-10-02",
+      "s": "2026-09-15",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "9ec98422511f5329",
+      "t": "youngers ac/dc tribute | nepstadion 1991",
+      "d": "2026-10-02",
+      "s": "2026-09-15",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "ea059a65a498cba6",
+      "t": "quasar @ atno w/ mython",
+      "d": "2026-10-02",
+      "s": "2026-09-15",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "84218116877683f7",
+      "t": "requiem.exe",
+      "d": "2026-10-02",
+      "s": "2026-09-15",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "127b4c986557dc5a",
+      "t": "turbina x daad gathering w/ dasha rush",
+      "d": "2026-10-02",
+      "s": "2026-09-15",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "d316ba9e0347e5f4",
+      "t": "rush budapest pulse 005 w/ bencsama",
+      "d": "2026-10-02",
+      "s": "2026-09-15",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "4773cecef2b2f3b1",
+      "t": "egy fasza kis buli a hajon / 100% magyar",
+      "d": "2026-10-02",
+      "s": "2026-09-15",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "584004e13f1fd6b4",
+      "t": "elle yoga weekend - find your rhythm",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "483db84d8fa448fd",
+      "t": "international model akademy workshop",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "77767708b6b7a8af",
+      "t": "tanulom magam 10",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "9f5f8444039a4742",
+      "t": "a befogadas muveszete",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "790d550c04cbe4f6",
+      "t": "sold out | pilates × afro house @dugattyus",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "a7d14a72c9476b8f",
+      "t": "oktoberfest budapest - apres ski soiree limited edition @normafa sihaz",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "e796071d402ae3f0",
+      "t": "erdofurdo x tudatos fotografia 2.",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "5d44fab14b0b797c",
+      "t": "bem mozi — 4 program",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "fabf478f3f28b4d6",
+      "t": "studio 103 | keramia workshop | 10.03.",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "54c25b7039c1d793",
+      "t": "skate cult budapest launch gorkoris buli",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "4ce164e86d9a62d3",
+      "t": "hoptoberfest - kraft ami osszekot",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "f8ee208fa08bba2c",
+      "t": "just connect – ismerkedos tarsas est | 25–42 ev",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "1a3b95bad6b1b3a7",
+      "t": "vasasplaket - kaposvari vizilabda klub kft. ob i., 4. fordulo",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "0448ba332ef8431d",
+      "t": "hajos kristof es nikos stavlas koncertje az antikvariumban",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "a32e9837d8c456df",
+      "t": "akvarium klub — 4 program",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "3c07d4327ca19e0b",
+      "t": "norbow – durer kert, nagyterem",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "ae627039bd2b4069",
+      "t": "tornoczky all access | nincs kontroll – 2026 utolshow",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "d9efad44fd2f3193",
+      "t": "erasmus & international boat party by elb ✘ 3rd oct, europa boat all night long",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "5a645e0b7a47e72b",
+      "t": "kaltes ekwa a manyiban",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-05"
+    },
+    {
+      "id": "7dd2aeaf6a7430fd",
+      "t": "daniel weirdo's groove the crew",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "11cb283ad76d1aa6",
+      "t": "all live long / bsls/gweld/kassis/scapeghxt",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "8457e2ef66eda7ef",
+      "t": "𖤓 karavan 𖤓 mσo culpa, daniel ban & daniel santiago, solar things, yorgos",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "6f5523afb9d63dc0",
+      "t": "techlab.bp invites matriark (dk), intuition - live (sp) @ turbina, nagyterem",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "2445ec25f70a9346",
+      "t": "akvawaves pres.: acid arab (dj set) @ nagyhall 2026.10.03.",
+      "d": "2026-10-03",
+      "s": "2026-09-15",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "3086b56486dec6e3",
+      "t": "xiii. nemzetkozi oraborze es ekszervasar // lurdy-haz",
+      "d": "2026-10-04",
+      "s": "2026-09-15",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "293783c0528a8ec4",
+      "t": "a voros teknos / the red turtle",
+      "d": "2026-10-04",
+      "s": "2026-09-15",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "eda60fb7af636953",
+      "t": "reisz gabor: foldszint / english subtitles | premier",
+      "d": "2026-10-04",
+      "s": "2026-09-15",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "9e37794906bfe334",
+      "t": "house of terror tour - free with elb card (sign up below!)",
+      "d": "2026-10-04",
+      "s": "2026-09-15",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "3db27c3a080b1b53",
+      "t": "pszichologia, muveszet es haverkodas a ludwigban",
+      "d": "2026-10-04",
+      "s": "2026-09-15",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "14d83bd65440963a",
+      "t": "randipiknik - elsoszikra (nok: 28-40 ev, ferfiak: 30-42 ev)",
+      "d": "2026-10-04",
+      "s": "2026-09-15",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "469b136c10cdb2fd",
+      "t": "hcw legacy: part 4",
+      "d": "2026-10-04",
+      "s": "2026-09-15",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "017cbf2ef1743cdb",
+      "t": "altalanos kviz",
+      "d": "2026-09-15",
+      "s": "2026-09-15",
+      "u": "2026-09-15"
+    },
+    {
+      "id": "1ea6dccecac7337d",
+      "t": "altalanos kviz",
+      "d": "2026-09-15",
+      "s": "2026-09-15",
+      "u": "2026-09-15"
+    },
+    {
+      "id": "33c80effa4ab3cbf",
+      "t": "altalanos kviz",
+      "d": "2026-09-15",
+      "s": "2026-09-15",
+      "u": "2026-09-15"
+    },
+    {
+      "id": "03aa1f08da298950",
+      "t": "90-es evek kviz",
+      "d": "2026-09-15",
+      "s": "2026-09-15",
+      "u": "2026-09-15"
+    },
+    {
+      "id": "6325187b2e6b199c",
+      "t": "tronviszaly nyomozos jatek",
+      "d": "2026-09-16",
+      "s": "2026-09-15",
+      "u": "2026-09-16"
+    },
+    {
+      "id": "8c4b9185ce306bf2",
+      "t": "altalnanos kviz",
+      "d": "2026-09-16",
+      "s": "2026-09-15",
+      "u": "2026-09-16"
+    },
+    {
+      "id": "3f2369dd60a8aa85",
+      "t": "szex es new york kviz",
+      "d": "2026-09-16",
+      "s": "2026-09-15",
+      "u": "2026-09-16"
+    },
+    {
+      "id": "864c0d19047afb0c",
+      "t": "zenefelismero kviz",
+      "d": "2026-09-16",
+      "s": "2026-09-15",
+      "u": "2026-09-16"
+    },
+    {
+      "id": "669c2c4696704588",
+      "t": "jobaratok kviz",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "af05971296e29d05",
+      "t": "gyilkos vacsora nyomozos jatek",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "d1c93091347cda15",
+      "t": "altalanos kviz",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "410dc9dc0cf079b9",
+      "t": "altalanos kviz",
+      "d": "2026-09-17",
+      "s": "2026-09-15",
+      "u": "2026-09-17"
+    },
+    {
+      "id": "8980b35063c700f6",
+      "t": "altalanos kviz",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-18"
+    },
+    {
+      "id": "74446d9745553dcc",
+      "t": "altalanos kviz",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-18"
+    },
+    {
+      "id": "25651d07032f3c74",
+      "t": "harry potter kviz",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "b4fee34c54f0c9ab",
+      "t": "szabadteri kviz a margit-szigeten",
+      "d": "2026-09-19",
+      "s": "2026-09-15",
+      "u": "2026-09-19"
+    },
+    {
+      "id": "bffea9641a507476",
+      "t": "altalanos kviz",
+      "d": "2026-09-21",
+      "s": "2026-09-15",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "ff1880f77c5d2056",
+      "t": "altalanos kviz",
+      "d": "2026-09-21",
+      "s": "2026-09-15",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "f05bb2af1651ee91",
+      "t": "gyilkos vacsora nyomozos jatek",
+      "d": "2026-09-21",
+      "s": "2026-09-15",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "45672053d2189a62",
+      "t": "office kviz",
+      "d": "2026-09-22",
+      "s": "2026-09-15",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "4cb7fb08361a5623",
+      "t": "altalanos kviz",
+      "d": "2026-09-22",
+      "s": "2026-09-15",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "988492cf8d6f060a",
+      "t": "altalanos kviz",
+      "d": "2026-09-22",
+      "s": "2026-09-15",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "794ece9a3c18ae03",
+      "t": "filmkviz",
+      "d": "2026-09-22",
+      "s": "2026-09-15",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "2a10e8fd6f2a3e47",
+      "t": "eltunt a naplemente nyomozos jatek",
+      "d": "2026-09-23",
+      "s": "2026-09-15",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "d11cf37e0b837db5",
+      "t": "altalanos kviz",
+      "d": "2026-09-23",
+      "s": "2026-09-15",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "017a7e340d2feff5",
+      "t": "forma-1 kviz",
+      "d": "2026-09-23",
+      "s": "2026-09-15",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "772a3808ec8ac4e7",
+      "t": "filmkviz",
+      "d": "2026-09-24",
+      "s": "2026-09-15",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "62366415d5cf7fd5",
+      "t": "office kviz",
+      "d": "2026-09-24",
+      "s": "2026-09-15",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "fd26e7464f854468",
+      "t": "altalanos kviz",
+      "d": "2026-09-24",
+      "s": "2026-09-15",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "222a0c1c0a72175e",
+      "t": "altalanos kviz",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "fefb3c9df719ebef",
+      "t": "altalanos kviz",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "c514591d79fb5b0a",
+      "t": "szex es new york kviz",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "d89f61c61b667588",
+      "t": "jobaratok kviz",
+      "d": "2026-09-28",
+      "s": "2026-09-15",
+      "u": "2026-09-28"
+    },
+    {
+      "id": "d86cade7681a5076",
+      "t": "tiltott varos nyomozos jatek",
+      "d": "2026-09-28",
+      "s": "2026-09-15",
+      "u": "2026-09-28"
+    },
+    {
+      "id": "5b59fca197ab728f",
+      "t": "altalanos kviz",
+      "d": "2026-09-28",
+      "s": "2026-09-15",
+      "u": "2026-09-28"
+    },
+    {
+      "id": "fe24205bf3c69173",
+      "t": "szuletett felesegek kviz",
+      "d": "2026-09-29",
+      "s": "2026-09-15",
+      "u": "2026-09-29"
+    },
+    {
+      "id": "823ce74d53a6e484",
+      "t": "harry potter",
+      "d": "2026-09-29",
+      "s": "2026-09-15",
+      "u": "2026-09-29"
+    },
+    {
+      "id": "e451ecb10cf6d0ce",
+      "t": "altalanos kviz",
+      "d": "2026-09-29",
+      "s": "2026-09-15",
+      "u": "2026-09-29"
+    },
+    {
+      "id": "f194df824f6009bb",
+      "t": "gyilkos vacsora nyomozos jatek",
+      "d": "2026-09-30",
+      "s": "2026-09-15",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "0045948e0ecb77ec",
+      "t": "2000-es evek kviz",
+      "d": "2026-09-30",
+      "s": "2026-09-15",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "d99fde0dbb379ede",
+      "t": "star wars kviz",
+      "d": "2026-09-30",
+      "s": "2026-09-15",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "839e18b7b39bce63",
+      "t": "tronviszaly nyomozos jatek",
+      "d": "2026-10-01",
+      "s": "2026-09-15",
+      "u": "2026-10-01"
+    },
+    {
+      "id": "0bba7789f3174f8b",
+      "t": "altalanos kviz",
+      "d": "2026-10-01",
+      "s": "2026-09-15",
+      "u": "2026-10-01"
+    },
+    {
+      "id": "511a096f19ab1018",
+      "t": "altalanos kviz",
+      "d": "2026-10-02",
+      "s": "2026-09-15",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "2f423ffa469715a7",
+      "t": "szenior tarsasjatek klub",
+      "d": "2026-09-15",
+      "s": "2026-09-15",
+      "u": "2026-09-15"
+    },
+    {
+      "id": "48082863f8e89090",
+      "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
+      "d": "2026-09-21",
+      "s": "2026-09-15",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "0f5f09356f725c41",
+      "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
+      "d": "2026-09-28",
+      "s": "2026-09-15",
+      "u": "2026-09-28"
+    },
+    {
+      "id": "7dc95175cfed442d",
+      "t": "6 alkalmas berlet - jatszohaz projekt",
+      "d": "2026-04-13",
+      "s": "2026-09-15",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "f78dec129de22e51",
+      "t": "sex action // vendeg: snakeheart - durer kert",
+      "d": "2026-09-18",
+      "s": "2026-09-15",
+      "u": "2026-09-18"
+    },
+    {
+      "id": "d56e963d33d057e4",
+      "t": "red swamp: 10assippi // til the end (usa) // selfless abuse",
+      "d": "2026-09-25",
+      "s": "2026-09-15",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "2d3aae683eabaf41",
+      "t": "interdiszciplinaris metalforum // durer kert",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "2a36949d281abcd8",
+      "t": "keep playing! – tarsasjatek jamboree",
+      "d": "2026-09-26",
+      "s": "2026-09-15",
+      "u": "2026-09-26"
     }
   ],
   "source_health": {
     "bigcitylife": {
       "consecutive_failures": 0,
-      "last_ok": "2026-09-14",
+      "last_ok": "2026-09-15",
       "last_count": 4,
       "etag": null,
       "disabled_until": null
     },
     "cooltix": {
       "consecutive_failures": 0,
-      "last_ok": "2026-09-14",
-      "last_count": 575,
+      "last_ok": "2026-09-15",
+      "last_count": 608,
       "etag": null,
       "disabled_until": null
     },
     "kvizestek": {
       "consecutive_failures": 0,
-      "last_ok": "2026-09-14",
-      "last_count": 49,
+      "last_ok": "2026-09-15",
+      "last_count": 44,
       "etag": null,
       "disabled_until": null
     },
     "tarsasjatekos": {
       "consecutive_failures": 0,
-      "last_ok": "2026-09-14",
-      "last_count": 14,
+      "last_ok": "2026-09-15",
+      "last_count": 12,
       "etag": null,
       "disabled_until": null
     },
     "tixa": {
       "consecutive_failures": 0,
-      "last_ok": "2026-09-14",
-      "last_count": 28,
+      "last_ok": "2026-09-15",
+      "last_count": 27,
       "etag": null,
       "disabled_until": null
     },
     "tokenklub": {
       "consecutive_failures": 0,
-      "last_ok": "2026-09-14",
+      "last_ok": "2026-09-15",
       "last_count": 6,
       "etag": null,
       "disabled_until": null
     }
   },
   "run_log": [
-    {
-      "date": "2026-08-22",
-      "raw": 683,
-      "after_dedup": 299,
-      "sent": 50,
-      "seconds": 20.357867078999995
-    },
     {
       "date": "2026-08-22",
       "raw": 681,
@@ -25261,6 +26080,13 @@
       "after_dedup": 381,
       "sent": 17,
       "seconds": 23.408008831000018
+    },
+    {
+      "date": "2026-09-15",
+      "raw": 701,
+      "after_dedup": 385,
+      "sent": 16,
+      "seconds": 25.52998231800001
     }
   ]
 }
