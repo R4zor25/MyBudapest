@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_run": "2026-09-20T11:22:20.742521+02:00",
+  "last_run": "2026-09-21T12:05:51.603655+02:00",
   "sent": [
     {
       "id": "7dc95175cfed442d",
@@ -269,34 +269,6 @@
       "u": "2026-12-09"
     },
     {
-      "id": "243cfbf7c02ba914",
-      "t": "x. orszagos gothic talalkozo 2026",
-      "d": "2026-09-19",
-      "s": "2026-08-31",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "4a3c728f6e0502a4",
-      "t": "earthdance 2026 i heart & beat of humanity",
-      "d": "2026-09-19",
-      "s": "2026-08-31",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "55743a81e6b6aa05",
-      "t": "danza kuduro: bon voyage • romkert • 09/19",
-      "d": "2026-09-19",
-      "s": "2026-08-31",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ba837aacace425bf",
-      "t": "terraplaza 64th",
-      "d": "2026-09-20",
-      "s": "2026-08-31",
-      "u": "2026-09-20"
-    },
-    {
       "id": "7dc95175cfed442d",
       "t": "6 alkalmas berlet - jatszohaz projekt",
       "d": "2026-04-13",
@@ -323,62 +295,6 @@
       "d": "2026-09-16",
       "s": "2026-09-01",
       "u": "2026-12-09"
-    },
-    {
-      "id": "243cfbf7c02ba914",
-      "t": "x. orszagos gothic talalkozo 2026",
-      "d": "2026-09-19",
-      "s": "2026-09-01",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "4a3c728f6e0502a4",
-      "t": "earthdance 2026 i heart & beat of humanity",
-      "d": "2026-09-19",
-      "s": "2026-09-01",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "55743a81e6b6aa05",
-      "t": "danza kuduro: bon voyage • romkert • 09/19",
-      "d": "2026-09-19",
-      "s": "2026-09-01",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "d2d032cd263a2e35",
-      "t": "judgement » cat budapest ◦ 09/19 + coronita after 09/20",
-      "d": "2026-09-19",
-      "s": "2026-09-01",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ba837aacace425bf",
-      "t": "terraplaza 64th",
-      "d": "2026-09-20",
-      "s": "2026-09-01",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "5255a46d5c0265de",
-      "t": "bem mozi — 4 program",
-      "d": "2026-09-20",
-      "s": "2026-09-01",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3ab66efad13aba62",
-      "t": "sip & scrap",
-      "d": "2026-09-20",
-      "s": "2026-09-01",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "8e81a2ca815ab987",
-      "t": "randipiknik - elsoszikra (nok: 38-50 ev, ferfiak: 40-52 ev)",
-      "d": "2026-09-20",
-      "s": "2026-09-01",
-      "u": "2026-09-20"
     },
     {
       "id": "c71e424883522512",
@@ -414,69 +330,6 @@
       "d": "2026-09-16",
       "s": "2026-09-02",
       "u": "2026-12-09"
-    },
-    {
-      "id": "243cfbf7c02ba914",
-      "t": "x. orszagos gothic talalkozo 2026",
-      "d": "2026-09-19",
-      "s": "2026-09-02",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "4a3c728f6e0502a4",
-      "t": "earthdance 2026 i heart & beat of humanity",
-      "d": "2026-09-19",
-      "s": "2026-09-02",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "55743a81e6b6aa05",
-      "t": "danza kuduro: bon voyage • romkert • 09/19",
-      "d": "2026-09-19",
-      "s": "2026-09-02",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "d2d032cd263a2e35",
-      "t": "judgement » cat budapest ◦ 09/19 + coronita after 09/20",
-      "d": "2026-09-19",
-      "s": "2026-09-02",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "17d1526191a459fe",
-      "t": "otkert saturday 09.19. timeless hits // we outside",
-      "d": "2026-09-19",
-      "s": "2026-09-02",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ba837aacace425bf",
-      "t": "terraplaza 64th",
-      "d": "2026-09-20",
-      "s": "2026-09-02",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "5255a46d5c0265de",
-      "t": "bem mozi — 4 program",
-      "d": "2026-09-20",
-      "s": "2026-09-02",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3ab66efad13aba62",
-      "t": "sip & scrap",
-      "d": "2026-09-20",
-      "s": "2026-09-02",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "8e81a2ca815ab987",
-      "t": "randipiknik - elsoszikra (nok: 38-50 ev, ferfiak: 40-52 ev)",
-      "d": "2026-09-20",
-      "s": "2026-09-02",
-      "u": "2026-09-20"
     },
     {
       "id": "c71e424883522512",
@@ -582,69 +435,6 @@
       "d": "2026-09-16",
       "s": "2026-09-03",
       "u": "2026-12-09"
-    },
-    {
-      "id": "243cfbf7c02ba914",
-      "t": "x. orszagos gothic talalkozo 2026",
-      "d": "2026-09-19",
-      "s": "2026-09-03",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "4a3c728f6e0502a4",
-      "t": "earthdance 2026 i heart & beat of humanity",
-      "d": "2026-09-19",
-      "s": "2026-09-03",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "55743a81e6b6aa05",
-      "t": "danza kuduro: bon voyage • romkert • 09/19",
-      "d": "2026-09-19",
-      "s": "2026-09-03",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "d2d032cd263a2e35",
-      "t": "judgement » cat budapest ◦ 09/19 + coronita after 09/20",
-      "d": "2026-09-19",
-      "s": "2026-09-03",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "17d1526191a459fe",
-      "t": "otkert saturday 09.19. timeless hits // we outside",
-      "d": "2026-09-19",
-      "s": "2026-09-03",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ba837aacace425bf",
-      "t": "terraplaza 64th",
-      "d": "2026-09-20",
-      "s": "2026-09-03",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "5255a46d5c0265de",
-      "t": "bem mozi — 4 program",
-      "d": "2026-09-20",
-      "s": "2026-09-03",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3ab66efad13aba62",
-      "t": "sip & scrap",
-      "d": "2026-09-20",
-      "s": "2026-09-03",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "8e81a2ca815ab987",
-      "t": "randipiknik - elsoszikra (nok: 38-50 ev, ferfiak: 40-52 ev)",
-      "d": "2026-09-20",
-      "s": "2026-09-03",
-      "u": "2026-09-20"
     },
     {
       "id": "c71e424883522512",
@@ -813,76 +603,6 @@
       "d": "2026-09-16",
       "s": "2026-09-04",
       "u": "2026-12-09"
-    },
-    {
-      "id": "2d70f976d6c2bd1a",
-      "t": "dojo season opening weekend",
-      "d": "2026-09-18",
-      "s": "2026-09-04",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "243cfbf7c02ba914",
-      "t": "x. orszagos gothic talalkozo 2026",
-      "d": "2026-09-19",
-      "s": "2026-09-04",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "4a3c728f6e0502a4",
-      "t": "earthdance 2026 i heart & beat of humanity",
-      "d": "2026-09-19",
-      "s": "2026-09-04",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "55743a81e6b6aa05",
-      "t": "danza kuduro: bon voyage • romkert • 09/19",
-      "d": "2026-09-19",
-      "s": "2026-09-04",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "d2d032cd263a2e35",
-      "t": "judgement » cat budapest ◦ 09/19 + coronita after 09/20",
-      "d": "2026-09-19",
-      "s": "2026-09-04",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "17d1526191a459fe",
-      "t": "otkert saturday 09.19. timeless hits // we outside",
-      "d": "2026-09-19",
-      "s": "2026-09-04",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ba837aacace425bf",
-      "t": "terraplaza 64th",
-      "d": "2026-09-20",
-      "s": "2026-09-04",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "5255a46d5c0265de",
-      "t": "bem mozi — 4 program",
-      "d": "2026-09-20",
-      "s": "2026-09-04",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3ab66efad13aba62",
-      "t": "sip & scrap",
-      "d": "2026-09-20",
-      "s": "2026-09-04",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "8e81a2ca815ab987",
-      "t": "randipiknik - elsoszikra (nok: 38-50 ev, ferfiak: 40-52 ev)",
-      "d": "2026-09-20",
-      "s": "2026-09-04",
-      "u": "2026-09-20"
     },
     {
       "id": "c71e424883522512",
@@ -1128,76 +848,6 @@
       "d": "2026-09-16",
       "s": "2026-09-05",
       "u": "2026-12-09"
-    },
-    {
-      "id": "2d70f976d6c2bd1a",
-      "t": "dojo season opening weekend",
-      "d": "2026-09-18",
-      "s": "2026-09-05",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "243cfbf7c02ba914",
-      "t": "x. orszagos gothic talalkozo 2026",
-      "d": "2026-09-19",
-      "s": "2026-09-05",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "4a3c728f6e0502a4",
-      "t": "earthdance 2026 i heart & beat of humanity",
-      "d": "2026-09-19",
-      "s": "2026-09-05",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "55743a81e6b6aa05",
-      "t": "danza kuduro: bon voyage • romkert • 09/19",
-      "d": "2026-09-19",
-      "s": "2026-09-05",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "d2d032cd263a2e35",
-      "t": "judgement » cat budapest ◦ 09/19 + coronita after 09/20",
-      "d": "2026-09-19",
-      "s": "2026-09-05",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "17d1526191a459fe",
-      "t": "otkert saturday 09.19. timeless hits // we outside",
-      "d": "2026-09-19",
-      "s": "2026-09-05",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ba837aacace425bf",
-      "t": "terraplaza 64th",
-      "d": "2026-09-20",
-      "s": "2026-09-05",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "5255a46d5c0265de",
-      "t": "bem mozi — 4 program",
-      "d": "2026-09-20",
-      "s": "2026-09-05",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3ab66efad13aba62",
-      "t": "sip & scrap",
-      "d": "2026-09-20",
-      "s": "2026-09-05",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "8e81a2ca815ab987",
-      "t": "randipiknik - elsoszikra (nok: 38-50 ev, ferfiak: 40-52 ev)",
-      "d": "2026-09-20",
-      "s": "2026-09-05",
-      "u": "2026-09-20"
     },
     {
       "id": "c71e424883522512",
@@ -1562,83 +1212,6 @@
       "d": "2026-09-16",
       "s": "2026-09-06",
       "u": "2026-12-09"
-    },
-    {
-      "id": "2d70f976d6c2bd1a",
-      "t": "dojo season opening weekend",
-      "d": "2026-09-18",
-      "s": "2026-09-06",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "243cfbf7c02ba914",
-      "t": "x. orszagos gothic talalkozo 2026",
-      "d": "2026-09-19",
-      "s": "2026-09-06",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "4a3c728f6e0502a4",
-      "t": "earthdance 2026 i heart & beat of humanity",
-      "d": "2026-09-19",
-      "s": "2026-09-06",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "c60559a3fcb18937",
-      "t": "cruisin after x b/plr. x deepfields x juuz x flylow / sit/ gojnea76 / clarkent",
-      "d": "2026-09-19",
-      "s": "2026-09-06",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "55743a81e6b6aa05",
-      "t": "danza kuduro: bon voyage • romkert • 09/19",
-      "d": "2026-09-19",
-      "s": "2026-09-06",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "d2d032cd263a2e35",
-      "t": "judgement » cat budapest ◦ 09/19 + coronita after 09/20",
-      "d": "2026-09-19",
-      "s": "2026-09-06",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "17d1526191a459fe",
-      "t": "otkert saturday 09.19. timeless hits // we outside",
-      "d": "2026-09-19",
-      "s": "2026-09-06",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ba837aacace425bf",
-      "t": "terraplaza 64th",
-      "d": "2026-09-20",
-      "s": "2026-09-06",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "5255a46d5c0265de",
-      "t": "bem mozi — 4 program",
-      "d": "2026-09-20",
-      "s": "2026-09-06",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3ab66efad13aba62",
-      "t": "sip & scrap",
-      "d": "2026-09-20",
-      "s": "2026-09-06",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "8e81a2ca815ab987",
-      "t": "randipiknik - elsoszikra (nok: 38-50 ev, ferfiak: 40-52 ev)",
-      "d": "2026-09-20",
-      "s": "2026-09-06",
-      "u": "2026-09-20"
     },
     {
       "id": "c71e424883522512",
@@ -2206,90 +1779,6 @@
       "d": "2026-09-16",
       "s": "2026-09-07",
       "u": "2026-12-09"
-    },
-    {
-      "id": "2d70f976d6c2bd1a",
-      "t": "dojo season opening weekend",
-      "d": "2026-09-18",
-      "s": "2026-09-07",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "243cfbf7c02ba914",
-      "t": "x. orszagos gothic talalkozo 2026",
-      "d": "2026-09-19",
-      "s": "2026-09-07",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "4a3c728f6e0502a4",
-      "t": "earthdance 2026 i heart & beat of humanity",
-      "d": "2026-09-19",
-      "s": "2026-09-07",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "c60559a3fcb18937",
-      "t": "cruisin after x b/plr. x deepfields x juuz x flylow / sit/ gojnea76 / clarkent",
-      "d": "2026-09-19",
-      "s": "2026-09-07",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "55743a81e6b6aa05",
-      "t": "danza kuduro: bon voyage • romkert • 09/19",
-      "d": "2026-09-19",
-      "s": "2026-09-07",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "d2d032cd263a2e35",
-      "t": "judgement » cat budapest ◦ 09/19 + coronita after 09/20",
-      "d": "2026-09-19",
-      "s": "2026-09-07",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "17d1526191a459fe",
-      "t": "otkert saturday 09.19. timeless hits // we outside",
-      "d": "2026-09-19",
-      "s": "2026-09-07",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ba837aacace425bf",
-      "t": "terraplaza 64th",
-      "d": "2026-09-20",
-      "s": "2026-09-07",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3c43224002153756",
-      "t": "obudai events - golyahajo 2026",
-      "d": "2026-09-20",
-      "s": "2026-09-07",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "5255a46d5c0265de",
-      "t": "bem mozi — 4 program",
-      "d": "2026-09-20",
-      "s": "2026-09-07",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3ab66efad13aba62",
-      "t": "sip & scrap",
-      "d": "2026-09-20",
-      "s": "2026-09-07",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "8e81a2ca815ab987",
-      "t": "randipiknik - elsoszikra (nok: 38-50 ev, ferfiak: 40-52 ev)",
-      "d": "2026-09-20",
-      "s": "2026-09-07",
-      "u": "2026-09-20"
     },
     {
       "id": "c71e424883522512",
@@ -3018,90 +2507,6 @@
       "d": "2026-09-16",
       "s": "2026-09-08",
       "u": "2026-12-09"
-    },
-    {
-      "id": "2d70f976d6c2bd1a",
-      "t": "dojo season opening weekend",
-      "d": "2026-09-18",
-      "s": "2026-09-08",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "243cfbf7c02ba914",
-      "t": "x. orszagos gothic talalkozo 2026",
-      "d": "2026-09-19",
-      "s": "2026-09-08",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "4a3c728f6e0502a4",
-      "t": "earthdance 2026 i heart & beat of humanity",
-      "d": "2026-09-19",
-      "s": "2026-09-08",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "c60559a3fcb18937",
-      "t": "cruisin after x b/plr. x deepfields x juuz x flylow / sit/ gojnea76 / clarkent",
-      "d": "2026-09-19",
-      "s": "2026-09-08",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "55743a81e6b6aa05",
-      "t": "danza kuduro: bon voyage • romkert • 09/19",
-      "d": "2026-09-19",
-      "s": "2026-09-08",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "d2d032cd263a2e35",
-      "t": "judgement » cat budapest ◦ 09/19 + coronita after 09/20",
-      "d": "2026-09-19",
-      "s": "2026-09-08",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "17d1526191a459fe",
-      "t": "otkert saturday 09.19. timeless hits // we outside",
-      "d": "2026-09-19",
-      "s": "2026-09-08",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ba837aacace425bf",
-      "t": "terraplaza 64th",
-      "d": "2026-09-20",
-      "s": "2026-09-08",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3c43224002153756",
-      "t": "obudai events - golyahajo 2026",
-      "d": "2026-09-20",
-      "s": "2026-09-08",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "5255a46d5c0265de",
-      "t": "bem mozi — 4 program",
-      "d": "2026-09-20",
-      "s": "2026-09-08",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3ab66efad13aba62",
-      "t": "sip & scrap",
-      "d": "2026-09-20",
-      "s": "2026-09-08",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "8e81a2ca815ab987",
-      "t": "randipiknik - elsoszikra (nok: 38-50 ev, ferfiak: 40-52 ev)",
-      "d": "2026-09-20",
-      "s": "2026-09-08",
-      "u": "2026-09-20"
     },
     {
       "id": "c71e424883522512",
@@ -3893,90 +3298,6 @@
       "d": "2026-09-16",
       "s": "2026-09-09",
       "u": "2026-12-09"
-    },
-    {
-      "id": "2d70f976d6c2bd1a",
-      "t": "dojo season opening weekend",
-      "d": "2026-09-18",
-      "s": "2026-09-09",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "243cfbf7c02ba914",
-      "t": "x. orszagos gothic talalkozo 2026",
-      "d": "2026-09-19",
-      "s": "2026-09-09",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "4a3c728f6e0502a4",
-      "t": "earthdance 2026 i heart & beat of humanity",
-      "d": "2026-09-19",
-      "s": "2026-09-09",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "c60559a3fcb18937",
-      "t": "cruisin after x b/plr. x deepfields x juuz x flylow / sit/ gojnea76 / clarkent",
-      "d": "2026-09-19",
-      "s": "2026-09-09",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "55743a81e6b6aa05",
-      "t": "danza kuduro: bon voyage • romkert • 09/19",
-      "d": "2026-09-19",
-      "s": "2026-09-09",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "d2d032cd263a2e35",
-      "t": "judgement » cat budapest ◦ 09/19 + coronita after 09/20",
-      "d": "2026-09-19",
-      "s": "2026-09-09",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "17d1526191a459fe",
-      "t": "otkert saturday 09.19. timeless hits // we outside",
-      "d": "2026-09-19",
-      "s": "2026-09-09",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ba837aacace425bf",
-      "t": "terraplaza 64th",
-      "d": "2026-09-20",
-      "s": "2026-09-09",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3c43224002153756",
-      "t": "obudai events - golyahajo 2026",
-      "d": "2026-09-20",
-      "s": "2026-09-09",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "5255a46d5c0265de",
-      "t": "bem mozi — 4 program",
-      "d": "2026-09-20",
-      "s": "2026-09-09",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3ab66efad13aba62",
-      "t": "sip & scrap",
-      "d": "2026-09-20",
-      "s": "2026-09-09",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "8e81a2ca815ab987",
-      "t": "randipiknik - elsoszikra (nok: 38-50 ev, ferfiak: 40-52 ev)",
-      "d": "2026-09-20",
-      "s": "2026-09-09",
-      "u": "2026-09-20"
     },
     {
       "id": "c71e424883522512",
@@ -4838,90 +4159,6 @@
       "d": "2026-09-16",
       "s": "2026-09-10",
       "u": "2026-12-09"
-    },
-    {
-      "id": "2d70f976d6c2bd1a",
-      "t": "dojo season opening weekend",
-      "d": "2026-09-18",
-      "s": "2026-09-10",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "243cfbf7c02ba914",
-      "t": "x. orszagos gothic talalkozo 2026",
-      "d": "2026-09-19",
-      "s": "2026-09-10",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "4a3c728f6e0502a4",
-      "t": "earthdance 2026 i heart & beat of humanity",
-      "d": "2026-09-19",
-      "s": "2026-09-10",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "c60559a3fcb18937",
-      "t": "cruisin after x b/plr. x deepfields x juuz x flylow / sit/ gojnea76 / clarkent",
-      "d": "2026-09-19",
-      "s": "2026-09-10",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "55743a81e6b6aa05",
-      "t": "danza kuduro: bon voyage • romkert • 09/19",
-      "d": "2026-09-19",
-      "s": "2026-09-10",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "d2d032cd263a2e35",
-      "t": "judgement » cat budapest ◦ 09/19 + coronita after 09/20",
-      "d": "2026-09-19",
-      "s": "2026-09-10",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "17d1526191a459fe",
-      "t": "otkert saturday 09.19. timeless hits // we outside",
-      "d": "2026-09-19",
-      "s": "2026-09-10",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ba837aacace425bf",
-      "t": "terraplaza 64th",
-      "d": "2026-09-20",
-      "s": "2026-09-10",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3c43224002153756",
-      "t": "obudai events - golyahajo 2026",
-      "d": "2026-09-20",
-      "s": "2026-09-10",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "5255a46d5c0265de",
-      "t": "bem mozi — 4 program",
-      "d": "2026-09-20",
-      "s": "2026-09-10",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3ab66efad13aba62",
-      "t": "sip & scrap",
-      "d": "2026-09-20",
-      "s": "2026-09-10",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "8e81a2ca815ab987",
-      "t": "randipiknik - elsoszikra (nok: 38-50 ev, ferfiak: 40-52 ev)",
-      "d": "2026-09-20",
-      "s": "2026-09-10",
-      "u": "2026-09-20"
     },
     {
       "id": "c71e424883522512",
@@ -5895,90 +5132,6 @@
       "d": "2026-09-16",
       "s": "2026-09-11",
       "u": "2026-12-09"
-    },
-    {
-      "id": "2d70f976d6c2bd1a",
-      "t": "dojo season opening weekend",
-      "d": "2026-09-18",
-      "s": "2026-09-11",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "243cfbf7c02ba914",
-      "t": "x. orszagos gothic talalkozo 2026",
-      "d": "2026-09-19",
-      "s": "2026-09-11",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "4a3c728f6e0502a4",
-      "t": "earthdance 2026 i heart & beat of humanity",
-      "d": "2026-09-19",
-      "s": "2026-09-11",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "c60559a3fcb18937",
-      "t": "cruisin after x b/plr. x deepfields x juuz x flylow / sit/ gojnea76 / clarkent",
-      "d": "2026-09-19",
-      "s": "2026-09-11",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "55743a81e6b6aa05",
-      "t": "danza kuduro: bon voyage • romkert • 09/19",
-      "d": "2026-09-19",
-      "s": "2026-09-11",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "d2d032cd263a2e35",
-      "t": "judgement » cat budapest ◦ 09/19 + coronita after 09/20",
-      "d": "2026-09-19",
-      "s": "2026-09-11",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "17d1526191a459fe",
-      "t": "otkert saturday 09.19. timeless hits // we outside",
-      "d": "2026-09-19",
-      "s": "2026-09-11",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ba837aacace425bf",
-      "t": "terraplaza 64th",
-      "d": "2026-09-20",
-      "s": "2026-09-11",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3c43224002153756",
-      "t": "obudai events - golyahajo 2026",
-      "d": "2026-09-20",
-      "s": "2026-09-11",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "5255a46d5c0265de",
-      "t": "bem mozi — 4 program",
-      "d": "2026-09-20",
-      "s": "2026-09-11",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3ab66efad13aba62",
-      "t": "sip & scrap",
-      "d": "2026-09-20",
-      "s": "2026-09-11",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "8e81a2ca815ab987",
-      "t": "randipiknik - elsoszikra (nok: 38-50 ev, ferfiak: 40-52 ev)",
-      "d": "2026-09-20",
-      "s": "2026-09-11",
-      "u": "2026-09-20"
     },
     {
       "id": "c71e424883522512",
@@ -7036,90 +6189,6 @@
       "d": "2026-09-16",
       "s": "2026-09-12",
       "u": "2026-12-09"
-    },
-    {
-      "id": "2d70f976d6c2bd1a",
-      "t": "dojo season opening weekend",
-      "d": "2026-09-18",
-      "s": "2026-09-12",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "243cfbf7c02ba914",
-      "t": "x. orszagos gothic talalkozo 2026",
-      "d": "2026-09-19",
-      "s": "2026-09-12",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "4a3c728f6e0502a4",
-      "t": "earthdance 2026 i heart & beat of humanity",
-      "d": "2026-09-19",
-      "s": "2026-09-12",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "c60559a3fcb18937",
-      "t": "cruisin after x b/plr. x deepfields x juuz x flylow / sit/ gojnea76 / clarkent",
-      "d": "2026-09-19",
-      "s": "2026-09-12",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "55743a81e6b6aa05",
-      "t": "danza kuduro: bon voyage • romkert • 09/19",
-      "d": "2026-09-19",
-      "s": "2026-09-12",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "d2d032cd263a2e35",
-      "t": "judgement » cat budapest ◦ 09/19 + coronita after 09/20",
-      "d": "2026-09-19",
-      "s": "2026-09-12",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "17d1526191a459fe",
-      "t": "otkert saturday 09.19. timeless hits // we outside",
-      "d": "2026-09-19",
-      "s": "2026-09-12",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ba837aacace425bf",
-      "t": "terraplaza 64th",
-      "d": "2026-09-20",
-      "s": "2026-09-12",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3c43224002153756",
-      "t": "obudai events - golyahajo 2026",
-      "d": "2026-09-20",
-      "s": "2026-09-12",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "5255a46d5c0265de",
-      "t": "bem mozi — 4 program",
-      "d": "2026-09-20",
-      "s": "2026-09-12",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3ab66efad13aba62",
-      "t": "sip & scrap",
-      "d": "2026-09-20",
-      "s": "2026-09-12",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "8e81a2ca815ab987",
-      "t": "randipiknik - elsoszikra (nok: 38-50 ev, ferfiak: 40-52 ev)",
-      "d": "2026-09-20",
-      "s": "2026-09-12",
-      "u": "2026-09-20"
     },
     {
       "id": "24aee11a5b2c37d9",
@@ -8275,104 +7344,6 @@
       "d": "2026-09-16",
       "s": "2026-09-13",
       "u": "2026-12-09"
-    },
-    {
-      "id": "2d70f976d6c2bd1a",
-      "t": "dojo season opening weekend",
-      "d": "2026-09-18",
-      "s": "2026-09-13",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "243cfbf7c02ba914",
-      "t": "x. orszagos gothic talalkozo 2026",
-      "d": "2026-09-19",
-      "s": "2026-09-13",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "4a3c728f6e0502a4",
-      "t": "earthdance 2026 i heart & beat of humanity",
-      "d": "2026-09-19",
-      "s": "2026-09-13",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "c60559a3fcb18937",
-      "t": "cruisin after x b/plr. x deepfields x juuz x flylow / sit/ gojnea76 / clarkent",
-      "d": "2026-09-19",
-      "s": "2026-09-13",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "55743a81e6b6aa05",
-      "t": "danza kuduro: bon voyage • romkert • 09/19",
-      "d": "2026-09-19",
-      "s": "2026-09-13",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "d2d032cd263a2e35",
-      "t": "judgement » cat budapest ◦ 09/19 + coronita after 09/20",
-      "d": "2026-09-19",
-      "s": "2026-09-13",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "17d1526191a459fe",
-      "t": "otkert saturday 09.19. timeless hits // we outside",
-      "d": "2026-09-19",
-      "s": "2026-09-13",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "0c2a50825f4a3216",
-      "t": "09.19. dune: private line - hotline x balazs kicks",
-      "d": "2026-09-19",
-      "s": "2026-09-13",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "a35b5ec150748037",
-      "t": "꧁ ༺ dead end season opening with ninnidslvx, paralich ༻ ꧂",
-      "d": "2026-09-19",
-      "s": "2026-09-13",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ba837aacace425bf",
-      "t": "terraplaza 64th",
-      "d": "2026-09-20",
-      "s": "2026-09-13",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3c43224002153756",
-      "t": "obudai events - golyahajo 2026",
-      "d": "2026-09-20",
-      "s": "2026-09-13",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "5255a46d5c0265de",
-      "t": "bem mozi — 4 program",
-      "d": "2026-09-20",
-      "s": "2026-09-13",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3ab66efad13aba62",
-      "t": "sip & scrap",
-      "d": "2026-09-20",
-      "s": "2026-09-13",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "8e81a2ca815ab987",
-      "t": "randipiknik - elsoszikra (nok: 38-50 ev, ferfiak: 40-52 ev)",
-      "d": "2026-09-20",
-      "s": "2026-09-13",
-      "u": "2026-09-20"
     },
     {
       "id": "24aee11a5b2c37d9",
@@ -9696,104 +8667,6 @@
       "d": "2026-09-16",
       "s": "2026-09-14",
       "u": "2026-12-09"
-    },
-    {
-      "id": "2d70f976d6c2bd1a",
-      "t": "dojo season opening weekend",
-      "d": "2026-09-18",
-      "s": "2026-09-14",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "243cfbf7c02ba914",
-      "t": "x. orszagos gothic talalkozo 2026",
-      "d": "2026-09-19",
-      "s": "2026-09-14",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "4a3c728f6e0502a4",
-      "t": "earthdance 2026 i heart & beat of humanity",
-      "d": "2026-09-19",
-      "s": "2026-09-14",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "c60559a3fcb18937",
-      "t": "cruisin after x b/plr. x deepfields x juuz x flylow / sit/ gojnea76 / clarkent",
-      "d": "2026-09-19",
-      "s": "2026-09-14",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "55743a81e6b6aa05",
-      "t": "danza kuduro: bon voyage • romkert • 09/19",
-      "d": "2026-09-19",
-      "s": "2026-09-14",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "d2d032cd263a2e35",
-      "t": "judgement » cat budapest ◦ 09/19 + coronita after 09/20",
-      "d": "2026-09-19",
-      "s": "2026-09-14",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "17d1526191a459fe",
-      "t": "otkert saturday 09.19. timeless hits // we outside",
-      "d": "2026-09-19",
-      "s": "2026-09-14",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "0c2a50825f4a3216",
-      "t": "09.19. dune: private line - hotline x balazs kicks",
-      "d": "2026-09-19",
-      "s": "2026-09-14",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "a35b5ec150748037",
-      "t": "꧁ ༺ dead end season opening with ninnidslvx, paralich ༻ ꧂",
-      "d": "2026-09-19",
-      "s": "2026-09-14",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ba837aacace425bf",
-      "t": "terraplaza 64th",
-      "d": "2026-09-20",
-      "s": "2026-09-14",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3c43224002153756",
-      "t": "obudai events - golyahajo 2026",
-      "d": "2026-09-20",
-      "s": "2026-09-14",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "5255a46d5c0265de",
-      "t": "bem mozi — 4 program",
-      "d": "2026-09-20",
-      "s": "2026-09-14",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3ab66efad13aba62",
-      "t": "sip & scrap",
-      "d": "2026-09-20",
-      "s": "2026-09-14",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "8e81a2ca815ab987",
-      "t": "randipiknik - elsoszikra (nok: 38-50 ev, ferfiak: 40-52 ev)",
-      "d": "2026-09-20",
-      "s": "2026-09-14",
-      "u": "2026-09-20"
     },
     {
       "id": "24aee11a5b2c37d9",
@@ -11264,118 +10137,6 @@
       "d": "2026-09-16",
       "s": "2026-09-15",
       "u": "2026-12-09"
-    },
-    {
-      "id": "2d70f976d6c2bd1a",
-      "t": "dojo season opening weekend",
-      "d": "2026-09-18",
-      "s": "2026-09-15",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "243cfbf7c02ba914",
-      "t": "x. orszagos gothic talalkozo 2026",
-      "d": "2026-09-19",
-      "s": "2026-09-15",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "eed00f741c78144a",
-      "t": "sunflowerz & disco moderno pres. tomato records 09.19. (free entry till 21:00)",
-      "d": "2026-09-19",
-      "s": "2026-09-15",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "4a3c728f6e0502a4",
-      "t": "earthdance 2026 i heart & beat of humanity",
-      "d": "2026-09-19",
-      "s": "2026-09-15",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "c60559a3fcb18937",
-      "t": "cruisin after x b/plr. x deepfields x juuz x flylow / sit/ gojnea76 / clarkent",
-      "d": "2026-09-19",
-      "s": "2026-09-15",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "641a52adcdf6b5f4",
-      "t": "ritmo latino ✘ #sabadoboz by elb & perreu ✘ 19th sept ✘ reggaeton & mainstream",
-      "d": "2026-09-19",
-      "s": "2026-09-15",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "55743a81e6b6aa05",
-      "t": "danza kuduro: bon voyage • romkert • 09/19",
-      "d": "2026-09-19",
-      "s": "2026-09-15",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "d2d032cd263a2e35",
-      "t": "judgement » cat budapest ◦ 09/19 + coronita after 09/20",
-      "d": "2026-09-19",
-      "s": "2026-09-15",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "17d1526191a459fe",
-      "t": "otkert saturday 09.19. timeless hits // we outside",
-      "d": "2026-09-19",
-      "s": "2026-09-15",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "0c2a50825f4a3216",
-      "t": "09.19. dune: private line - hotline x balazs kicks",
-      "d": "2026-09-19",
-      "s": "2026-09-15",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "a35b5ec150748037",
-      "t": "꧁ ༺ dead end season opening with ninnidslvx, paralich ༻ ꧂",
-      "d": "2026-09-19",
-      "s": "2026-09-15",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ba837aacace425bf",
-      "t": "terraplaza 64th",
-      "d": "2026-09-20",
-      "s": "2026-09-15",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3c43224002153756",
-      "t": "obudai events - golyahajo 2026",
-      "d": "2026-09-20",
-      "s": "2026-09-15",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "5255a46d5c0265de",
-      "t": "bem mozi — 4 program",
-      "d": "2026-09-20",
-      "s": "2026-09-15",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3ab66efad13aba62",
-      "t": "sip & scrap",
-      "d": "2026-09-20",
-      "s": "2026-09-15",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "8e81a2ca815ab987",
-      "t": "randipiknik - elsoszikra (nok: 38-50 ev, ferfiak: 40-52 ev)",
-      "d": "2026-09-20",
-      "s": "2026-09-15",
-      "u": "2026-09-20"
     },
     {
       "id": "24aee11a5b2c37d9",
@@ -12951,125 +11712,6 @@
       "d": "2026-09-16",
       "s": "2026-09-16",
       "u": "2026-12-09"
-    },
-    {
-      "id": "2d70f976d6c2bd1a",
-      "t": "dojo season opening weekend",
-      "d": "2026-09-18",
-      "s": "2026-09-16",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "243cfbf7c02ba914",
-      "t": "x. orszagos gothic talalkozo 2026",
-      "d": "2026-09-19",
-      "s": "2026-09-16",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "eed00f741c78144a",
-      "t": "sunflowerz & disco moderno pres. tomato records 09.19. (free entry till 21:00)",
-      "d": "2026-09-19",
-      "s": "2026-09-16",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "4a3c728f6e0502a4",
-      "t": "earthdance 2026 i heart & beat of humanity",
-      "d": "2026-09-19",
-      "s": "2026-09-16",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "c60559a3fcb18937",
-      "t": "cruisin after x b/plr. x deepfields x juuz x flylow / sit/ gojnea76 / clarkent",
-      "d": "2026-09-19",
-      "s": "2026-09-16",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "641a52adcdf6b5f4",
-      "t": "ritmo latino ✘ #sabadoboz by elb & perreu ✘ 19th sept ✘ reggaeton & mainstream",
-      "d": "2026-09-19",
-      "s": "2026-09-16",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "55743a81e6b6aa05",
-      "t": "danza kuduro: bon voyage • romkert • 09/19",
-      "d": "2026-09-19",
-      "s": "2026-09-16",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "d2d032cd263a2e35",
-      "t": "judgement » cat budapest ◦ 09/19 + coronita after 09/20",
-      "d": "2026-09-19",
-      "s": "2026-09-16",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "17d1526191a459fe",
-      "t": "otkert saturday 09.19. timeless hits // we outside",
-      "d": "2026-09-19",
-      "s": "2026-09-16",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "0c2a50825f4a3216",
-      "t": "09.19. dune: private line - hotline x balazs kicks",
-      "d": "2026-09-19",
-      "s": "2026-09-16",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "a35b5ec150748037",
-      "t": "꧁ ༺ dead end season opening with ninnidslvx, paralich ༻ ꧂",
-      "d": "2026-09-19",
-      "s": "2026-09-16",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ab87d09e66921c40",
-      "t": "bloc season opening w/ de, indirect movement, korodi",
-      "d": "2026-09-19",
-      "s": "2026-09-16",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ba837aacace425bf",
-      "t": "terraplaza 64th",
-      "d": "2026-09-20",
-      "s": "2026-09-16",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3c43224002153756",
-      "t": "obudai events - golyahajo 2026",
-      "d": "2026-09-20",
-      "s": "2026-09-16",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "5255a46d5c0265de",
-      "t": "bem mozi — 4 program",
-      "d": "2026-09-20",
-      "s": "2026-09-16",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3ab66efad13aba62",
-      "t": "sip & scrap",
-      "d": "2026-09-20",
-      "s": "2026-09-16",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "8e81a2ca815ab987",
-      "t": "randipiknik - elsoszikra (nok: 38-50 ev, ferfiak: 40-52 ev)",
-      "d": "2026-09-20",
-      "s": "2026-09-16",
-      "u": "2026-09-20"
     },
     {
       "id": "24aee11a5b2c37d9",
@@ -14764,132 +13406,6 @@
       "d": "2026-09-16",
       "s": "2026-09-17",
       "u": "2026-12-09"
-    },
-    {
-      "id": "2d70f976d6c2bd1a",
-      "t": "dojo season opening weekend",
-      "d": "2026-09-18",
-      "s": "2026-09-17",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "243cfbf7c02ba914",
-      "t": "x. orszagos gothic talalkozo 2026",
-      "d": "2026-09-19",
-      "s": "2026-09-17",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "eed00f741c78144a",
-      "t": "sunflowerz & disco moderno pres. tomato records 09.19. (free entry till 21:00)",
-      "d": "2026-09-19",
-      "s": "2026-09-17",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "4a3c728f6e0502a4",
-      "t": "earthdance 2026 i heart & beat of humanity",
-      "d": "2026-09-19",
-      "s": "2026-09-17",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "c60559a3fcb18937",
-      "t": "cruisin after x b/plr. x deepfields x juuz x flylow / sit/ gojnea76 / clarkent",
-      "d": "2026-09-19",
-      "s": "2026-09-17",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "641a52adcdf6b5f4",
-      "t": "ritmo latino ✘ #sabadoboz by elb & perreu ✘ 19th sept ✘ reggaeton & mainstream",
-      "d": "2026-09-19",
-      "s": "2026-09-17",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "55743a81e6b6aa05",
-      "t": "danza kuduro: bon voyage • romkert • 09/19",
-      "d": "2026-09-19",
-      "s": "2026-09-17",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "d2d032cd263a2e35",
-      "t": "judgement » cat budapest ◦ 09/19 + coronita after 09/20",
-      "d": "2026-09-19",
-      "s": "2026-09-17",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "17d1526191a459fe",
-      "t": "otkert saturday 09.19. timeless hits // we outside",
-      "d": "2026-09-19",
-      "s": "2026-09-17",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "0c2a50825f4a3216",
-      "t": "09.19. dune: private line - hotline x balazs kicks",
-      "d": "2026-09-19",
-      "s": "2026-09-17",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "a35b5ec150748037",
-      "t": "꧁ ༺ dead end season opening with ninnidslvx, paralich ༻ ꧂",
-      "d": "2026-09-19",
-      "s": "2026-09-17",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ab87d09e66921c40",
-      "t": "bloc season opening w/ de, indirect movement, korodi",
-      "d": "2026-09-19",
-      "s": "2026-09-17",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ba837aacace425bf",
-      "t": "terraplaza 64th",
-      "d": "2026-09-20",
-      "s": "2026-09-17",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3c43224002153756",
-      "t": "obudai events - golyahajo 2026",
-      "d": "2026-09-20",
-      "s": "2026-09-17",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "5255a46d5c0265de",
-      "t": "bem mozi — 4 program",
-      "d": "2026-09-20",
-      "s": "2026-09-17",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3ab66efad13aba62",
-      "t": "sip & scrap",
-      "d": "2026-09-20",
-      "s": "2026-09-17",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "c8a5fd78e7cd08d3",
-      "t": "ute - sport club csikszereda",
-      "d": "2026-09-20",
-      "s": "2026-09-17",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "8e81a2ca815ab987",
-      "t": "randipiknik - elsoszikra (nok: 38-50 ev, ferfiak: 40-52 ev)",
-      "d": "2026-09-20",
-      "s": "2026-09-17",
-      "u": "2026-09-20"
     },
     {
       "id": "24aee11a5b2c37d9",
@@ -16696,139 +15212,6 @@
       "d": "2026-09-16",
       "s": "2026-09-18",
       "u": "2026-12-09"
-    },
-    {
-      "id": "2d70f976d6c2bd1a",
-      "t": "dojo season opening weekend",
-      "d": "2026-09-18",
-      "s": "2026-09-18",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "243cfbf7c02ba914",
-      "t": "x. orszagos gothic talalkozo 2026",
-      "d": "2026-09-19",
-      "s": "2026-09-18",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "eed00f741c78144a",
-      "t": "sunflowerz & disco moderno pres. tomato records 09.19. (free entry till 21:00)",
-      "d": "2026-09-19",
-      "s": "2026-09-18",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "4a3c728f6e0502a4",
-      "t": "earthdance 2026 i heart & beat of humanity",
-      "d": "2026-09-19",
-      "s": "2026-09-18",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "c60559a3fcb18937",
-      "t": "cruisin after x b/plr. x deepfields x juuz x flylow / sit/ gojnea76 / clarkent",
-      "d": "2026-09-19",
-      "s": "2026-09-18",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "641a52adcdf6b5f4",
-      "t": "ritmo latino ✘ #sabadoboz by elb & perreu ✘ 19th sept ✘ reggaeton & mainstream",
-      "d": "2026-09-19",
-      "s": "2026-09-18",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "55743a81e6b6aa05",
-      "t": "danza kuduro: bon voyage • romkert • 09/19",
-      "d": "2026-09-19",
-      "s": "2026-09-18",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "d2d032cd263a2e35",
-      "t": "judgement » cat budapest ◦ 09/19 + coronita after 09/20",
-      "d": "2026-09-19",
-      "s": "2026-09-18",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "17d1526191a459fe",
-      "t": "otkert saturday 09.19. timeless hits // we outside",
-      "d": "2026-09-19",
-      "s": "2026-09-18",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "0c2a50825f4a3216",
-      "t": "09.19. dune: private line - hotline x balazs kicks",
-      "d": "2026-09-19",
-      "s": "2026-09-18",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "a35b5ec150748037",
-      "t": "꧁ ༺ dead end season opening with ninnidslvx, paralich ༻ ꧂",
-      "d": "2026-09-19",
-      "s": "2026-09-18",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ab87d09e66921c40",
-      "t": "bloc season opening w/ de, indirect movement, korodi",
-      "d": "2026-09-19",
-      "s": "2026-09-18",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ba837aacace425bf",
-      "t": "terraplaza 64th",
-      "d": "2026-09-20",
-      "s": "2026-09-18",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "33e62557447cb645",
-      "t": "just girls walk – ingyenes belvarosi kapcsolodos seta noknek",
-      "d": "2026-09-20",
-      "s": "2026-09-18",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3c43224002153756",
-      "t": "obudai events - golyahajo 2026",
-      "d": "2026-09-20",
-      "s": "2026-09-18",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "5255a46d5c0265de",
-      "t": "bem mozi — 4 program",
-      "d": "2026-09-20",
-      "s": "2026-09-18",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3ab66efad13aba62",
-      "t": "sip & scrap",
-      "d": "2026-09-20",
-      "s": "2026-09-18",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "c8a5fd78e7cd08d3",
-      "t": "ute - sport club csikszereda",
-      "d": "2026-09-20",
-      "s": "2026-09-18",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "8e81a2ca815ab987",
-      "t": "randipiknik - elsoszikra (nok: 38-50 ev, ferfiak: 40-52 ev)",
-      "d": "2026-09-20",
-      "s": "2026-09-18",
-      "u": "2026-09-20"
     },
     {
       "id": "24aee11a5b2c37d9",
@@ -18770,13 +17153,6 @@
       "u": "2026-09-26"
     },
     {
-      "id": "f21ac0bec95cd836",
-      "t": "kalaka egyuttes – borond odon",
-      "d": "2026-09-20",
-      "s": "2026-09-19",
-      "u": "2026-09-20"
-    },
-    {
       "id": "c3900a268e9e8c7e",
       "t": "atno fantomtap",
       "d": "2026-09-16",
@@ -18803,139 +17179,6 @@
       "d": "2026-09-18",
       "s": "2026-09-19",
       "u": "2026-10-05"
-    },
-    {
-      "id": "2d70f976d6c2bd1a",
-      "t": "dojo season opening weekend",
-      "d": "2026-09-18",
-      "s": "2026-09-19",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "243cfbf7c02ba914",
-      "t": "x. orszagos gothic talalkozo 2026",
-      "d": "2026-09-19",
-      "s": "2026-09-19",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "eed00f741c78144a",
-      "t": "sunflowerz & disco moderno pres. tomato records 09.19. (free entry till 21:00)",
-      "d": "2026-09-19",
-      "s": "2026-09-19",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "4a3c728f6e0502a4",
-      "t": "earthdance 2026 i heart & beat of humanity",
-      "d": "2026-09-19",
-      "s": "2026-09-19",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "c60559a3fcb18937",
-      "t": "cruisin after x b/plr. x deepfields x juuz x flylow / sit/ gojnea76 / clarkent",
-      "d": "2026-09-19",
-      "s": "2026-09-19",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "641a52adcdf6b5f4",
-      "t": "ritmo latino ✘ #sabadoboz by elb & perreu ✘ 19th sept ✘ reggaeton & mainstream",
-      "d": "2026-09-19",
-      "s": "2026-09-19",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "55743a81e6b6aa05",
-      "t": "danza kuduro: bon voyage • romkert • 09/19",
-      "d": "2026-09-19",
-      "s": "2026-09-19",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "d2d032cd263a2e35",
-      "t": "judgement » cat budapest ◦ 09/19 + coronita after 09/20",
-      "d": "2026-09-19",
-      "s": "2026-09-19",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "17d1526191a459fe",
-      "t": "otkert saturday 09.19. timeless hits // we outside",
-      "d": "2026-09-19",
-      "s": "2026-09-19",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "0c2a50825f4a3216",
-      "t": "09.19. dune: private line - hotline x balazs kicks",
-      "d": "2026-09-19",
-      "s": "2026-09-19",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "a35b5ec150748037",
-      "t": "꧁ ༺ dead end season opening with ninnidslvx, paralich ༻ ꧂",
-      "d": "2026-09-19",
-      "s": "2026-09-19",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ab87d09e66921c40",
-      "t": "bloc season opening w/ de, indirect movement, korodi",
-      "d": "2026-09-19",
-      "s": "2026-09-19",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "ba837aacace425bf",
-      "t": "terraplaza 64th",
-      "d": "2026-09-20",
-      "s": "2026-09-19",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "33e62557447cb645",
-      "t": "just girls walk – ingyenes belvarosi kapcsolodos seta noknek",
-      "d": "2026-09-20",
-      "s": "2026-09-19",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3c43224002153756",
-      "t": "obudai events - golyahajo 2026",
-      "d": "2026-09-20",
-      "s": "2026-09-19",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "5255a46d5c0265de",
-      "t": "bem mozi — 4 program",
-      "d": "2026-09-20",
-      "s": "2026-09-19",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3ab66efad13aba62",
-      "t": "sip & scrap",
-      "d": "2026-09-20",
-      "s": "2026-09-19",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "c8a5fd78e7cd08d3",
-      "t": "ute - sport club csikszereda",
-      "d": "2026-09-20",
-      "s": "2026-09-19",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "8e81a2ca815ab987",
-      "t": "randipiknik - elsoszikra (nok: 38-50 ev, ferfiak: 40-52 ev)",
-      "d": "2026-09-20",
-      "s": "2026-09-19",
-      "u": "2026-09-20"
     },
     {
       "id": "24aee11a5b2c37d9",
@@ -21001,55 +19244,6 @@
       "d": "2026-09-18",
       "s": "2026-09-20",
       "u": "2026-10-05"
-    },
-    {
-      "id": "ba837aacace425bf",
-      "t": "terraplaza 64th",
-      "d": "2026-09-20",
-      "s": "2026-09-20",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "33e62557447cb645",
-      "t": "just girls walk – ingyenes belvarosi kapcsolodos seta noknek",
-      "d": "2026-09-20",
-      "s": "2026-09-20",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3c43224002153756",
-      "t": "obudai events - golyahajo 2026",
-      "d": "2026-09-20",
-      "s": "2026-09-20",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "5255a46d5c0265de",
-      "t": "bem mozi — 4 program",
-      "d": "2026-09-20",
-      "s": "2026-09-20",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "3ab66efad13aba62",
-      "t": "sip & scrap",
-      "d": "2026-09-20",
-      "s": "2026-09-20",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "c8a5fd78e7cd08d3",
-      "t": "ute - sport club csikszereda",
-      "d": "2026-09-20",
-      "s": "2026-09-20",
-      "u": "2026-09-20"
-    },
-    {
-      "id": "8e81a2ca815ab987",
-      "t": "randipiknik - elsoszikra (nok: 38-50 ev, ferfiak: 40-52 ev)",
-      "d": "2026-09-20",
-      "s": "2026-09-20",
-      "u": "2026-09-20"
     },
     {
       "id": "24aee11a5b2c37d9",
@@ -23173,13 +21367,6 @@
       "u": "2026-10-02"
     },
     {
-      "id": "eb22a63d896027aa",
-      "t": "varosepitok - jatekbemutato",
-      "d": "2026-09-20",
-      "s": "2026-09-20",
-      "u": "2026-09-20"
-    },
-    {
       "id": "48082863f8e89090",
       "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
       "d": "2026-09-21",
@@ -23234,60 +21421,2482 @@
       "d": "2026-09-26",
       "s": "2026-09-20",
       "u": "2026-09-26"
+    },
+    {
+      "id": "31921f66aaaa6e38",
+      "t": "pal utcai fiuk // vendeg: the pontiac",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "25ad60ad375f4c4b",
+      "t": "kobuci alter bugi // pentek",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "12a2593fe0e2dd5e",
+      "t": "the qualitons - oszi nagykoncert",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "c3900a268e9e8c7e",
+      "t": "atno fantomtap",
+      "d": "2026-09-16",
+      "s": "2026-09-21",
+      "u": "2026-10-16"
+    },
+    {
+      "id": "9eef5bd49294137f",
+      "t": "atno haviberlet",
+      "d": "2026-09-16",
+      "s": "2026-09-21",
+      "u": "2026-10-16"
+    },
+    {
+      "id": "2ec490fa5dea3b42",
+      "t": "erasmus & international heroes' square & city park walking tour by elb",
+      "d": "2026-09-16",
+      "s": "2026-09-21",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "7f49c920cd96508e",
+      "t": "typotex konyvklub 2026 osz",
+      "d": "2026-09-16",
+      "s": "2026-09-21",
+      "u": "2026-12-09"
+    },
+    {
+      "id": "1c891df7cf018dc1",
+      "t": "cave zone - maroni",
+      "d": "2026-09-18",
+      "s": "2026-09-21",
+      "u": "2026-10-05"
+    },
+    {
+      "id": "c71e424883522512",
+      "t": "xvi. magyar privatbankari es vagyonkezeloi konferencia",
+      "d": "2026-09-21",
+      "s": "2026-09-21",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "b0c6bcab866e8a65",
+      "t": "csak egy baleset / yek tasadef sadeh | oscar hetfo #5",
+      "d": "2026-09-21",
+      "s": "2026-09-21",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "41b87a30fe07f251",
+      "t": "a cseresznye ize / taste of cherry | bemutato",
+      "d": "2026-09-21",
+      "s": "2026-09-21",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "e6224000c02bdd63",
+      "t": "miles davis: birth of the cool | bemusic history",
+      "d": "2026-09-21",
+      "s": "2026-09-21",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "a51999c7d2d1842d",
+      "t": "sunset yoga at gellert campus",
+      "d": "2026-09-21",
+      "s": "2026-09-21",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "d26dca9458d6c820",
+      "t": "techno pilates / uv pilates / akvarium klub powered by techno yoga",
+      "d": "2026-09-21",
+      "s": "2026-09-21",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "8d0500b48e8a6ffc",
+      "t": "welcome picnic & botellon @margaret island & afterparty @morrison's 2 by elb",
+      "d": "2026-09-21",
+      "s": "2026-09-21",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "1a77c3147541616d",
+      "t": "lebego hangutazas",
+      "d": "2026-09-21",
+      "s": "2026-09-21",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "2a98d69ebb789349",
+      "t": "gki | 2030 magyar gazdasag konferencia",
+      "d": "2026-09-22",
+      "s": "2026-09-21",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "f71fee85c81b1cba",
+      "t": "erasmus & international gellert hill walking tour ✘ free with elb card",
+      "d": "2026-09-22",
+      "s": "2026-09-21",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "94d70375b4a4b3fa",
+      "t": "baraka",
+      "d": "2026-09-22",
+      "s": "2026-09-21",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "93383e6563d61479",
+      "t": "rene laloux: gandahar | eng & hun sub | bemutato",
+      "d": "2026-09-22",
+      "s": "2026-09-21",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "e49584887c1043ee",
+      "t": "science cafe 2026 osz",
+      "d": "2026-09-22",
+      "s": "2026-09-21",
+      "u": "2026-12-09"
+    },
+    {
+      "id": "a9afa587d0259b79",
+      "t": "studio 103 | nemez workshop | 09.22.",
+      "d": "2026-09-22",
+      "s": "2026-09-21",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "910e2f7f038666f5",
+      "t": "limmud olvasoklub | yosef hayim yerusalmi: zachor",
+      "d": "2026-09-22",
+      "s": "2026-09-21",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "f95c1beec5e8d2a3",
+      "t": "tuesday madness • season closing vol.01 • gregory s - all boat long 09.22.",
+      "d": "2026-09-22",
+      "s": "2026-09-21",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "49909272afe6c48f",
+      "t": "klikkmentes buli a holdudvarban",
+      "d": "2026-09-22",
+      "s": "2026-09-21",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "3768336f632bbaed",
+      "t": "zuboly koncert a babel kertemben",
+      "d": "2026-09-22",
+      "s": "2026-09-21",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "052a05a5aefad48f",
+      "t": "what the face...?! | sales edition",
+      "d": "2026-09-23",
+      "s": "2026-09-21",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "acbc814b0351f3a1",
+      "t": "v. kreathlon sportnap 09.23.",
+      "d": "2026-09-23",
+      "s": "2026-09-21",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "07c70f7fd44cc091",
+      "t": "messzi eszak / the north",
+      "d": "2026-09-23",
+      "s": "2026-09-21",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "c01a66c033dc34d7",
+      "t": "chungking express | hun & eng sub",
+      "d": "2026-09-23",
+      "s": "2026-09-21",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "0c42f4f52b2df85d",
+      "t": "erasmus & international heroes' square & city park walking tour by elb",
+      "d": "2026-09-23",
+      "s": "2026-09-21",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "37e18a02b6c10f97",
+      "t": "a nagy bszdmg workshop - muveszetterapias duhongo metalra",
+      "d": "2026-09-23",
+      "s": "2026-09-21",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "dd93dc84e338e00e",
+      "t": "mazent mystery nights 🕵️",
+      "d": "2026-09-23",
+      "s": "2026-09-21",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "7a672eab43ef2aac",
+      "t": "høt spøt 2026 - sept 23",
+      "d": "2026-09-23",
+      "s": "2026-09-21",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "4b4e323bf03f740f",
+      "t": "international speed friending & get2know games by elb @doboz",
+      "d": "2026-09-23",
+      "s": "2026-09-21",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "d77ef042b59b4806",
+      "t": "erasmus point budapest grand opening by elb ✘ 16th & 23rd september",
+      "d": "2026-09-23",
+      "s": "2026-09-21",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "a3d9adbba9755b8d",
+      "t": "studio 103 | bor kartyatarto keszito workshop | 09.23.",
+      "d": "2026-09-23",
+      "s": "2026-09-21",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "6cd99dbdbb612bd8",
+      "t": "pinkpunkrz, gyikemberz, the snack - off kultur",
+      "d": "2026-09-23",
+      "s": "2026-09-21",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "ea477948de7287b4",
+      "t": "n•g•k felevnyito-09.23",
+      "d": "2026-09-23",
+      "s": "2026-09-21",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "56a3026083c228d5",
+      "t": "kisusti palinkafozo bemutatofozes a tulipan leparloval",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "ce0f5324cb59c04b",
+      "t": "community culture by the good persona",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "6528e068315d6679",
+      "t": "moszkva ter | english subtitles",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "89c41f084d681555",
+      "t": "heart of the beast | ov with no subtitles | premiere screening",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "0bccc771f265e33f",
+      "t": "trainspotting | 30 eves jubileumi szezon | raadas vetites",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "faafc656e009d715",
+      "t": "gajdos laszlo: magyarorszag kornyezeti kihivasai es lehetosegei",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "ea427feecf00eb47",
+      "t": "studio 103 | konyvkoto workshop | 09.24.",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "c7f9acd21130dbec",
+      "t": "5 alkalmas noi kor",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "5c5b98351819c2f7",
+      "t": "noi kor - elso nyilt alkalom",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "45d48ce610b70d11",
+      "t": "l’occitane x smuz candlelight joga",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "0c7077a0373c2397",
+      "t": "urlenykiraly x galambos peter - off kultur",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "ac902b09400214a5",
+      "t": "blink-182 + sum 41 lemezlejatszo koncertek 💥 small things + the sums 💥 stenk",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "b54b29c72e9dacd3",
+      "t": "elsa valle es a bakary trio a new orleans clubban",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "73303eb82ec8ab90",
+      "t": "az oszi bad news - masik janossal!",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "4870d483128721c6",
+      "t": "cimbaliband koncert",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "e91143635889dcf7",
+      "t": "pal csaba vacsoraest i szeptember 24. csutortok i mom leroy bistro i budapest",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "1c1cea1108d24e3e",
+      "t": "szulinap",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "9ffc97fe84957e9b",
+      "t": "🎉karoli szemeszternyito 2026🎉",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "80e1b9859ba6d3f6",
+      "t": "otkert thursday 09.24. guest list",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "dcbe84f3412934c2",
+      "t": "all-erasmus nations' flag party by elb ✘ remix club ✘ 24th sept",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "951c3fec90c4592c",
+      "t": "metu szemeszternyito 》romkert | 09.24.",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "74c6f1a5e03ab93e",
+      "t": "sold out // kozgaz & friends - dojo - 09.24",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "7c74483fe8344519",
+      "t": "heti hetes 14. adas - 09.25.",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "3acec9687fe32089",
+      "t": "erasmus & international buda castle walking tour ✘ free with elb card",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "cae65e87ac0ca38a",
+      "t": "bem mozi — 4 program",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "b60f1076d0c64a2b",
+      "t": "merce szulinapi buli",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "982bf9e4c07a62ca",
+      "t": "castle vibes: open-air season grand closing + after 09.25.",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "8c3f3606387b5212",
+      "t": "sari • vargad • streetsixteen // turbina, nagyterem",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "7d2ac7526fbe9277",
+      "t": "romancok enekre es zongorara - vizsnyai botond es mattia peli koncertje",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "8fd1ba339da57988",
+      "t": "oszi szezonnyito: ismerkedes, live profile match & after party | 23–43 ev",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "3eb89af850b4eb8e",
+      "t": "studio 103 | linometszes workshop | 09.25.",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "6def2d386362ea2d",
+      "t": "jatsszunk haver! - tarsasozas a jatsz/maban",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "2e7cfb384b85de08",
+      "t": "unique @ nagyhall 2026.09.25.",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "387948774a2e08d0",
+      "t": "hegedus jozsi @ kishall 2026.09.25.",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "4302f0c1f31d7768",
+      "t": "j-silk x sterea @ manyi",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "5112af2c417e5c28",
+      "t": "freddie koncert",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "63d4b83eec94befb",
+      "t": "„optimizmus, bufelejtes, rock and roll!” | takats tamas blues band",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "99cebe147f238c9b",
+      "t": "pub quiz special: the office us trivia",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "76704c10140ca376",
+      "t": "gege piano live + dj set – szeptember 25. pentek | budapest | mom leroy",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "8bc25e0760533692",
+      "t": "eclips: venjent | subsonic",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "c283f3150ee67fbf",
+      "t": "free on board budapest 09.25. moby balna",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "0aac07870ea71d1b",
+      "t": "2000s popstar boat party • disney allstar cruise • 09.25.",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "839e04f1545a0907",
+      "t": "reggaeton fest w/ raul clyde ✘ 25th sept @new orleans club ✘ elb discounted tix",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "ec8540d5df3f1fb9",
+      "t": "caliente 🌅| last flame of summer | 09/25 | dopamin club",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "7f0a1a377c73768f",
+      "t": "14 years of toldi",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "3aa22b7059a0b4d3",
+      "t": "starship🚀 #neverendingstory ➤ romkert // 09.25.",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "93a5e516bc65cec7",
+      "t": "romkert 2026 • season closing • 09.25-26.",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "86d67ad7698bd458",
+      "t": "dojo dstrkt w/ ramyen (fr) 09.25.",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "fb8b121c3f9a55e8",
+      "t": "otkert friday 09.25. season opening // get rich or die tryin",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "e1e4d3b4dd69c7ed",
+      "t": "exlusive beauty day - augusztini krisztian - venus beauty for you",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "a6122d74adbe6d7a",
+      "t": "studio 103 | fakanal keszito workshop | 09.26.",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "4fb426efd691bd70",
+      "t": "studio 103 | keramia workshop | 09.26.",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "fa503db21ff3176b",
+      "t": "studio 103 | festo workshop | 09.26.",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "8d77ab7d82449903",
+      "t": "iii. bucsuztatoi konferencia",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "cb5591c5e4d9836f",
+      "t": "vaszonkep a fotodbol, szamozott festessel",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "62272b6538fb71c7",
+      "t": "lokopiknik es kerti vasutak talalkozoja",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "460ea6725b4a4df0",
+      "t": "onismereti tura & elmenybeszamolo a magyar el camio-n - sunshine flow kozosseg",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "51fb8fc56033ff01",
+      "t": "rs-event the cream iii",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "22cb7f9257b567f8",
+      "t": "bem mozi — 5 program",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "53090477991286b9",
+      "t": "kaleidoscope fashion show - ellentetek",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "046c4c089f056335",
+      "t": "erasmus & international pest downtown walking tour ✘ free with elb card",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "9de947dc1d576d01",
+      "t": "haccacare presents; above the city @ saddle & sky rooftop bar",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "327d0778277e0cea",
+      "t": "rockcsillagok utjan - tunyo oroksege, omega testamentum, mini art-ur - stenk",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "fe2da4d580837409",
+      "t": "why not ibiza? ✘ free open-air party by elb & spontan ✘ 26th sept ✘ zsiraf pest",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "152a57c0149d6b0d",
+      "t": "mamma mia! video disco es mozi a duna-parton 09.26. – szabadteri szezonzaro",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "935a16d8e34cb5b7",
+      "t": "wlw black tie",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "0d383324be481ada",
+      "t": "akvarium klub — 4 program",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "e39330bb83fe89c5",
+      "t": "felfestjuk az ordogot a falra",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "dcec00ab959d2a6c",
+      "t": "darage // atno, ad hoc",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "90ee541c2b6da8ce",
+      "t": "perszephone ✤ kassa hajo ✤ szeptember 26.",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "eb2ace45571f51b8",
+      "t": "binoboi tour @ budapest // young self, veryraredome, toobey, beno",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-28"
+    },
+    {
+      "id": "8799b176519d3ac2",
+      "t": "tfse - szazhalombattai kse i ferfi kosarlabda nb i./b zold-csoport",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "c4f78596f81891b0",
+      "t": "the whu: hungarian who tribute 10. szuletesnap - won't get fooled again!",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "caa4e17c0904874b",
+      "t": "the beatboys",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "840a1d4cd9956f8b",
+      "t": "indian nyar- lebego hangtalfurdo xvi. kerulet konrad ferenc uszoda",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "276299f4240e6239",
+      "t": "freedom fetish autumn 2026",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "0a9651e71a250a68",
+      "t": "glow ✦ birthday 2nd dirty glitter ✦ girls only ✦ 09.26.",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "ee11e618fa49e956",
+      "t": "budai house clique x w budapest present: our house",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "3b9339db4e9b97b0",
+      "t": "the disco szeptember 26",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "c37f833ad05b90cb",
+      "t": "veszett rave presents: cosmic conquest",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "854db986c69d1140",
+      "t": "panorama progression i 26.09.2026",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "cc6179121084baaf",
+      "t": "nofear x pinkcore inv. viscerale, løus @kassa",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "dddfb8ed0829e8fd",
+      "t": "ritmo latino ✘ #sabadoboz by elb & perreu ✘ 26th sept ✘ reggaeton & mainstream",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "8aa7ddb6208405f9",
+      "t": "hot spot 2026 grand closing - sanzu (usa) - 2026.09.26, - a38 tetoterasz",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "36646908e7e1c48a",
+      "t": "vice city 80's party",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "92629e29ff7f931d",
+      "t": "vad leszel vagy vadasz? // toldi",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "a2119e8849822989",
+      "t": "world is mine pres.: romkert season end show // 09.26.",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "43516b060555927f",
+      "t": "dojo - lucid dreams 09.26.",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "219d3f11b4c2ef5b",
+      "t": "el paso ➤ budapest, cat budapest ◦ 09/26 | szombat",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "149b9d817d7f63e8",
+      "t": "otkert saturday 09.26. season opening // badgyal",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "a867c70e0e52e82c",
+      "t": "janikovszky eva: velem mindig tortenik valami @ 2026.09.27. delelotti eloadas",
+      "d": "2026-09-27",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "07dcad463f4fe6a5",
+      "t": "janikovszky eva: velem mindig tortenik valami @ 2026.09.27. delutani eloadas",
+      "d": "2026-09-27",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "f166fb3aa41d908f",
+      "t": "shaun, a barany es moszatveg szornye/shaun the sheep: the beast of mossy bottom",
+      "d": "2026-09-27",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "84b49bbff59c85fc",
+      "t": "tokeletes napok / perfect days",
+      "d": "2026-09-27",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "37199bbd9cb3ba02",
+      "t": "randipiknik - elsoszikra (nok: 33-45 ev, ferfiak: 35-47 ev)",
+      "d": "2026-09-27",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "9018677c3064dab6",
+      "t": "25 ev – made in hungaria emlekest",
+      "d": "2026-09-27",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "cb93bd50df597e07",
+      "t": "tibes - kr. u. 10 - jubileumi nagykoncert",
+      "d": "2026-09-27",
+      "s": "2026-09-21",
+      "u": "2026-09-27"
+    },
+    {
+      "id": "70f0d1ba670bdad4",
+      "t": "tanc a sivatagban / sirat | hun sub & eng sub | oscar hetfo #6",
+      "d": "2026-09-28",
+      "s": "2026-09-21",
+      "u": "2026-09-28"
+    },
+    {
+      "id": "7f61af437a9fe3c3",
+      "t": "miket nem beszelek/i swear | jotekonysagi vetites a salva vita alapitvany javara",
+      "d": "2026-09-28",
+      "s": "2026-09-21",
+      "u": "2026-09-28"
+    },
+    {
+      "id": "f911604d3d4120cd",
+      "t": "el camino – talald meg az utad / compostelle",
+      "d": "2026-09-28",
+      "s": "2026-09-21",
+      "u": "2026-09-28"
+    },
+    {
+      "id": "c5774a00c3516793",
+      "t": "symbol pizzakeszito workshop",
+      "d": "2026-09-28",
+      "s": "2026-09-21",
+      "u": "2026-09-28"
+    },
+    {
+      "id": "279d60e4d7f02f53",
+      "t": "pszichologiai jatek est a dixit-tel",
+      "d": "2026-09-28",
+      "s": "2026-09-21",
+      "u": "2026-09-28"
+    },
+    {
+      "id": "273c7d3724e032b3",
+      "t": "tfse-tent team - aramis se i ferfi futsal nb. i.",
+      "d": "2026-09-28",
+      "s": "2026-09-21",
+      "u": "2026-09-28"
+    },
+    {
+      "id": "77abc6a3bd369563",
+      "t": "senki tanar ur putyin ellen / mr. nobody against putin | utolso vetites",
+      "d": "2026-09-29",
+      "s": "2026-09-21",
+      "u": "2026-09-29"
+    },
+    {
+      "id": "3f510932e0266027",
+      "t": "titkok es hazugsagok / secrets & lies | 30 eves jubileum | bemutato",
+      "d": "2026-09-29",
+      "s": "2026-09-21",
+      "u": "2026-09-29"
+    },
+    {
+      "id": "90d593d8fd64f2b0",
+      "t": "strange journey: the story of rocky horror | eng sub | in memoriam tim curry",
+      "d": "2026-09-29",
+      "s": "2026-09-21",
+      "u": "2026-09-29"
+    },
+    {
+      "id": "d783fc5ff43d6426",
+      "t": "cinema mystica visit 🔮 discounted tickets with elb - 29th september",
+      "d": "2026-09-29",
+      "s": "2026-09-21",
+      "u": "2026-09-29"
+    },
+    {
+      "id": "34df6af503f9afc1",
+      "t": "kormos anett est: a noknek nincs humora @ kishall 2026.09.29.",
+      "d": "2026-09-29",
+      "s": "2026-09-21",
+      "u": "2026-09-29"
+    },
+    {
+      "id": "0573648e652dc905",
+      "t": "klasszikusok jazz-esen! jotekonysagi adomanygyujto est a sarik peter trioval",
+      "d": "2026-09-29",
+      "s": "2026-09-21",
+      "u": "2026-09-29"
+    },
+    {
+      "id": "75bb92269c23ba4b",
+      "t": "gyogyito hangok - hangutazo koncert",
+      "d": "2026-09-29",
+      "s": "2026-09-21",
+      "u": "2026-09-29"
+    },
+    {
+      "id": "c4b1582a0e04f03e",
+      "t": "akik mar nem leszunk sosem",
+      "d": "2026-09-29",
+      "s": "2026-09-21",
+      "u": "2026-09-29"
+    },
+    {
+      "id": "1c9ce27e8e768283",
+      "t": "kolodko hunt by esn corvinus",
+      "d": "2026-09-30",
+      "s": "2026-09-21",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "c6caa3878ccbb22a",
+      "t": "a vadon szive / magyar szinkronnal | premier",
+      "d": "2026-09-30",
+      "s": "2026-09-21",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "59d616cb319ba9f3",
+      "t": "throne of blood | akira kurosawa #3 | english subtitles",
+      "d": "2026-09-30",
+      "s": "2026-09-21",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "7ffcf440f77763b0",
+      "t": "in memoriam tim curry: the rocky horror picture show",
+      "d": "2026-09-30",
+      "s": "2026-09-21",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "cf72332435fb5d1f",
+      "t": "egy utca. ezer tortenet. – interaktiv seta a falk miksa utcaban",
+      "d": "2026-09-30",
+      "s": "2026-09-21",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "61904532313e1e3f",
+      "t": "telik is, mulik is - muveszetterapia elozenere",
+      "d": "2026-09-30",
+      "s": "2026-09-21",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "02763b7e1a33ef59",
+      "t": "studio 103 | kezdo koto workshop | 09.30.",
+      "d": "2026-09-30",
+      "s": "2026-09-21",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "49d9ff31a3d2f7d4",
+      "t": "csingisz: viccen kivul – konyvbemutato @ nagyhall 2026.09.30.",
+      "d": "2026-09-30",
+      "s": "2026-09-21",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "8df043eb3ec65dab",
+      "t": "meet irl - international social night",
+      "d": "2026-09-30",
+      "s": "2026-09-21",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "f6cb742861223af3",
+      "t": "street sixteen - off kultur",
+      "d": "2026-09-30",
+      "s": "2026-09-21",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "0e8544dec2bd3a00",
+      "t": "nation's night france by elb ✘ 30th sept @doboz ✘ free w/ elb card",
+      "d": "2026-09-30",
+      "s": "2026-09-21",
+      "u": "2026-10-01"
+    },
+    {
+      "id": "fa2fc3925cdec9f5",
+      "t": "kafkaper",
+      "d": "2026-10-01",
+      "s": "2026-09-21",
+      "u": "2026-10-01"
+    },
+    {
+      "id": "1ef3e9f0ff6ae45b",
+      "t": "global cooking night 2026",
+      "d": "2026-10-01",
+      "s": "2026-09-21",
+      "u": "2026-10-01"
+    },
+    {
+      "id": "850ef8ecd825c917",
+      "t": "tony - egy sef szuletese / tony | premier",
+      "d": "2026-10-01",
+      "s": "2026-09-21",
+      "u": "2026-10-01"
+    },
+    {
+      "id": "0bed2656ba031ca0",
+      "t": "reisz gabor: foldszint / english subtitles | premier",
+      "d": "2026-10-01",
+      "s": "2026-09-21",
+      "u": "2026-10-01"
+    },
+    {
+      "id": "9db87330b2fa275c",
+      "t": "mechanikus narancs / a clockwork orange",
+      "d": "2026-10-01",
+      "s": "2026-09-21",
+      "u": "2026-10-01"
+    },
+    {
+      "id": "e427800baac3d795",
+      "t": "heti hetes 15. adas - 10.01.",
+      "d": "2026-10-01",
+      "s": "2026-09-21",
+      "u": "2026-10-01"
+    },
+    {
+      "id": "3b82bfe73aaa3c61",
+      "t": "#yourbodyyourtemple day2",
+      "d": "2026-10-01",
+      "s": "2026-09-21",
+      "u": "2026-10-01"
+    },
+    {
+      "id": "d99964cd164ede2e",
+      "t": "b72 studio - trunk show & pop-up store",
+      "d": "2026-10-01",
+      "s": "2026-09-21",
+      "u": "2026-10-01"
+    },
+    {
+      "id": "7e29d53d5b254cbf",
+      "t": "bekeben magammal!",
+      "d": "2026-10-01",
+      "s": "2026-09-21",
+      "u": "2026-10-01"
+    },
+    {
+      "id": "0fb2bca0e19f0899",
+      "t": "pal csaba vacsoraest i oktober 1. csutortok i mom leroy bistro i budapest",
+      "d": "2026-10-01",
+      "s": "2026-09-21",
+      "u": "2026-10-01"
+    },
+    {
+      "id": "4b00f4ce2bde3dcd",
+      "t": "shelter dog walking i. by esn corvinus",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "37cf0026ebe8bd04",
+      "t": "budapest contemporary art fair 2026",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "e3861b7af3ec6034",
+      "t": "krater 2026",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "547c92999a75893e",
+      "t": "umamusume: pretty derby - egy uj korszak kezdete",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "08cf15680866c8d4",
+      "t": "macskafogo / cat city | 40 eves jubileum",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "28e8dacc39472411",
+      "t": "videotekas legendak #4 - ragadozo (magyarul predator) | eredeti szinkronnal",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "23e0aff63e47f908",
+      "t": "k2 workshop nyitobuli",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "805dccf3efe16e60",
+      "t": "corneus - szalagavato // turbina nagyterem",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "c35ab89520709ddf",
+      "t": "kozossegi est - hangfelszabaditas zsokaval",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "f2d24ed886700c24",
+      "t": "akvarium klub — 4 program",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "b3b9c2d42874bfee",
+      "t": "enter the doom! a$ap rocky pre-party / orenji, w, khaaro, kevinem, abo, shiracku",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "30bf092a03e7a27b",
+      "t": "b72 studio - trunk show & pop-up store",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "c2f632a65b1a4617",
+      "t": "hajos kristof es nikos stavlas koncertje az antikvariumban",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "03c3a078e53e912d",
+      "t": "soma jazz+ koncert exclusive! soma mamagesa ujra az eotvos10-ben.",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "8b301f040d4aa005",
+      "t": "samurai drive - hear no evil lemezbemutato",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "9ec98422511f5329",
+      "t": "youngers ac/dc tribute | nepstadion 1991",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "ef8e7374b6a8d489",
+      "t": "swamp cretures // atno, ad hoc",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "d3c442fad295787f",
+      "t": "szabadsajto klub extra",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "7fba6926d0f6d547",
+      "t": "get funky party oktober",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "ea059a65a498cba6",
+      "t": "quasar @ atno w/ mython",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "84218116877683f7",
+      "t": "requiem.exe",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "c9eb731cd82abb88",
+      "t": "triple fuego boat party",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "127b4c986557dc5a",
+      "t": "turbina x daad gathering w/ dasha rush",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "d316ba9e0347e5f4",
+      "t": "rush budapest pulse 005 w/ bencsama",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "4773cecef2b2f3b1",
+      "t": "egy fasza kis buli a hajon / 100% magyar",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "584004e13f1fd6b4",
+      "t": "elle yoga weekend - find your rhythm",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "483db84d8fa448fd",
+      "t": "international model akademy workshop",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "77767708b6b7a8af",
+      "t": "tanulom magam 10",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "9f5f8444039a4742",
+      "t": "a befogadas muveszete",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "790d550c04cbe4f6",
+      "t": "sold out | pilates × afro house @dugattyus",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "a7d14a72c9476b8f",
+      "t": "oktoberfest budapest - apres ski soiree limited edition @normafa sihaz",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "e796071d402ae3f0",
+      "t": "erdofurdo x tudatos fotografia 2.",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "5d44fab14b0b797c",
+      "t": "bem mozi — 4 program",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "fabf478f3f28b4d6",
+      "t": "studio 103 | keramia workshop | 10.03.",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "54c25b7039c1d793",
+      "t": "skate cult budapest launch gorkoris buli",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "b3df80db9f4ca0a9",
+      "t": "hoptoberfest - kraft az, ami osszekot",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "f8ee208fa08bba2c",
+      "t": "just connect – ismerkedos tarsas est | 25–42 ev",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "1a3b95bad6b1b3a7",
+      "t": "vasasplaket - kaposvari vizilabda klub kft. ob i., 4. fordulo",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "0448ba332ef8431d",
+      "t": "hajos kristof es nikos stavlas koncertje az antikvariumban",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "a32e9837d8c456df",
+      "t": "akvarium klub — 4 program",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "3c07d4327ca19e0b",
+      "t": "norbow – durer kert, nagyterem",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "ae627039bd2b4069",
+      "t": "tornoczky all access | nincs kontroll – 2026 utolshow",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-03"
+    },
+    {
+      "id": "d9efad44fd2f3193",
+      "t": "erasmus & international boat party by elb ✘ 3rd oct, europa boat all night long",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "9d5aedb2a8f679e6",
+      "t": "issa boat party x fall fest ✘ 3rd oct, europa boat",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "6ef9f8c8a0f9e5ad",
+      "t": "endo & dsvs cruise — panorama floor, 3rd october, europa boat",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "5a645e0b7a47e72b",
+      "t": "kaltes ekwa a manyiban",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-05"
+    },
+    {
+      "id": "7dd2aeaf6a7430fd",
+      "t": "daniel weirdo's groove the crew",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "11cb283ad76d1aa6",
+      "t": "all live long / bsls/gweld/kassis/scapeghxt",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "8457e2ef66eda7ef",
+      "t": "𖤓 karavan 𖤓 mσo culpa, daniel ban & daniel santiago, solar things, yorgos",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "6f5523afb9d63dc0",
+      "t": "techlab.bp invites matriark (dk), intuition - live (sp) @ turbina, nagyterem",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "6ea77fff97080ff9",
+      "t": "dojo sector w/ darco (il) 10.03.",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "2445ec25f70a9346",
+      "t": "akvawaves pres.: acid arab (dj set) @ nagyhall 2026.10.03.",
+      "d": "2026-10-03",
+      "s": "2026-09-21",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "3086b56486dec6e3",
+      "t": "xiii. nemzetkozi oraborze es ekszervasar // lurdy-haz",
+      "d": "2026-10-04",
+      "s": "2026-09-21",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "d69908ef1347ac2a",
+      "t": "studio 103 | ekszerkeszito workshop | 10.04-10.18.",
+      "d": "2026-10-04",
+      "s": "2026-09-21",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "293783c0528a8ec4",
+      "t": "a voros teknos / the red turtle",
+      "d": "2026-10-04",
+      "s": "2026-09-21",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "eda60fb7af636953",
+      "t": "reisz gabor: foldszint / english subtitles | premier",
+      "d": "2026-10-04",
+      "s": "2026-09-21",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "8d3916f09fdaa29d",
+      "t": "twin peaks: harmadik evad, 1-2-3. resz | s03e01+s03e02+s03e03",
+      "d": "2026-10-04",
+      "s": "2026-09-21",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "e41142cf23cf1add",
+      "t": "baby rave in the club",
+      "d": "2026-10-04",
+      "s": "2026-09-21",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "9e37794906bfe334",
+      "t": "house of terror tour - free with elb card (sign up below!)",
+      "d": "2026-10-04",
+      "s": "2026-09-21",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "3db27c3a080b1b53",
+      "t": "pszichologia, muveszet es haverkodas a ludwigban",
+      "d": "2026-10-04",
+      "s": "2026-09-21",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "14d83bd65440963a",
+      "t": "randipiknik - elsoszikra (nok: 28-40 ev, ferfiak: 30-42 ev)",
+      "d": "2026-10-04",
+      "s": "2026-09-21",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "469b136c10cdb2fd",
+      "t": "hcw legacy: part 4",
+      "d": "2026-10-04",
+      "s": "2026-09-21",
+      "u": "2026-10-04"
+    },
+    {
+      "id": "aca8ed69c25cdbd2",
+      "t": "elozo eletek / past lives | oscar hetfo #7",
+      "d": "2026-10-05",
+      "s": "2026-09-21",
+      "u": "2026-10-05"
+    },
+    {
+      "id": "bbc9c8a4580566b7",
+      "t": "have you got it yet? - syd barrett es a pink floyd tortenete",
+      "d": "2026-10-05",
+      "s": "2026-09-21",
+      "u": "2026-10-05"
+    },
+    {
+      "id": "bd6cbd7ca9d96685",
+      "t": "fritz lang: metropolis",
+      "d": "2026-10-05",
+      "s": "2026-09-21",
+      "u": "2026-10-05"
+    },
+    {
+      "id": "c61ccef5d3b1bc0d",
+      "t": "techno yoga // uv yoga // akvarium klub // okt. 5.",
+      "d": "2026-10-05",
+      "s": "2026-09-21",
+      "u": "2026-10-05"
+    },
+    {
+      "id": "f241bac7b76704fe",
+      "t": "symbol pizzakeszito workshop",
+      "d": "2026-10-05",
+      "s": "2026-09-21",
+      "u": "2026-10-05"
+    },
+    {
+      "id": "934a1273b5ed31f0",
+      "t": "studio 103 | keramia workshop | 10.05.",
+      "d": "2026-10-05",
+      "s": "2026-09-21",
+      "u": "2026-10-05"
+    },
+    {
+      "id": "555621094489e3a7",
+      "t": "lior raz budapesten - kozonsegtalalkozo a fauda sztarjaval",
+      "d": "2026-10-05",
+      "s": "2026-09-21",
+      "u": "2026-10-05"
+    },
+    {
+      "id": "9c5d8903263b8ad4",
+      "t": "social dialogues in art+design symposium - 6 october 2026",
+      "d": "2026-10-06",
+      "s": "2026-09-21",
+      "u": "2026-10-06"
+    },
+    {
+      "id": "93af92cd86099e9a",
+      "t": "dalai lama - a boldogsag tanitasa / wisdom of happinesst",
+      "d": "2026-10-06",
+      "s": "2026-09-21",
+      "u": "2026-10-06"
+    },
+    {
+      "id": "a02d9e5c79cdc1b1",
+      "t": "paolo sorrentino: ifjusag / youth",
+      "d": "2026-10-06",
+      "s": "2026-09-21",
+      "u": "2026-10-06"
+    },
+    {
+      "id": "941707f456e44371",
+      "t": "reisz gabor: foldszint / english subtitles | premier",
+      "d": "2026-10-06",
+      "s": "2026-09-21",
+      "u": "2026-10-06"
+    },
+    {
+      "id": "ca9e4f8d9c8b9d2b",
+      "t": "hosszu viragzas",
+      "d": "2026-10-06",
+      "s": "2026-09-21",
+      "u": "2026-10-06"
+    },
+    {
+      "id": "559f715af4bd1a6f",
+      "t": "eternity again (cz), vendeg: cz.k. sebo @ manyi",
+      "d": "2026-10-06",
+      "s": "2026-09-21",
+      "u": "2026-10-06"
+    },
+    {
+      "id": "e4ee2572e25c6138",
+      "t": "arythmetyc – lonely citizens lemezbemutato",
+      "d": "2026-10-06",
+      "s": "2026-09-21",
+      "u": "2026-10-06"
+    },
+    {
+      "id": "c40b26b74439a504",
+      "t": "social dialogues in art+design symposium - 7 october 2026",
+      "d": "2026-10-07",
+      "s": "2026-09-21",
+      "u": "2026-10-07"
+    },
+    {
+      "id": "f8ea3519947a453d",
+      "t": "designing for meaningful participation",
+      "d": "2026-10-07",
+      "s": "2026-09-21",
+      "u": "2026-10-07"
+    },
+    {
+      "id": "171a98b1756b5e35",
+      "t": "interactive immersive installation with contemporary dancers",
+      "d": "2026-10-07",
+      "s": "2026-09-21",
+      "u": "2026-10-07"
+    },
+    {
+      "id": "3ef0bd6730974a90",
+      "t": "reading disability through epistemic artefacts",
+      "d": "2026-10-07",
+      "s": "2026-09-21",
+      "u": "2026-10-07"
+    },
+    {
+      "id": "257c31e9be239f9a",
+      "t": "legyek / moscas | premier elott",
+      "d": "2026-10-07",
+      "s": "2026-09-21",
+      "u": "2026-10-07"
+    },
+    {
+      "id": "98243d7489360e59",
+      "t": "vivian maier nyomaban / finding vivian maier",
+      "d": "2026-10-07",
+      "s": "2026-09-21",
+      "u": "2026-10-07"
+    },
+    {
+      "id": "8446cae1ed15a6fe",
+      "t": "david byrne - spike lee: american utopia | bem sessions #5",
+      "d": "2026-10-07",
+      "s": "2026-09-21",
+      "u": "2026-10-07"
+    },
+    {
+      "id": "0bfe02a5a810db33",
+      "t": "szerepekbol a valodi enbe",
+      "d": "2026-10-07",
+      "s": "2026-09-21",
+      "u": "2026-10-07"
+    },
+    {
+      "id": "c9ea4efddef879ff",
+      "t": "offcourse kutyusimogato",
+      "d": "2026-10-07",
+      "s": "2026-09-21",
+      "u": "2026-10-07"
+    },
+    {
+      "id": "4515cdf9ba2babf3",
+      "t": "exclusive singles' night at lazy lion only by inner match",
+      "d": "2026-10-07",
+      "s": "2026-09-21",
+      "u": "2026-10-07"
+    },
+    {
+      "id": "7bdfcecf02971876",
+      "t": "josh meader trio - budapest, barhole",
+      "d": "2026-10-07",
+      "s": "2026-09-21",
+      "u": "2026-10-07"
+    },
+    {
+      "id": "1cbdd60ddea5a5c7",
+      "t": "exkluziv libanoni borkostolo – borok es tortenetek bejrutbol",
+      "d": "2026-10-07",
+      "s": "2026-09-21",
+      "u": "2026-10-07"
+    },
+    {
+      "id": "57e80c2ddb2ab4f3",
+      "t": "nation's night italy by elb ✘ 7th oct @doboz ✘ free w/ elb card",
+      "d": "2026-10-07",
+      "s": "2026-09-21",
+      "u": "2026-10-08"
+    },
+    {
+      "id": "af6e935bf7d9e5b6",
+      "t": "dental world 2026 - kiallitoi regisztracio",
+      "d": "2026-10-08",
+      "s": "2026-09-21",
+      "u": "2026-10-10"
+    },
+    {
+      "id": "d1b5fe6582b6e166",
+      "t": "dental world 2026 - exhibitor registration",
+      "d": "2026-10-08",
+      "s": "2026-09-21",
+      "u": "2026-10-10"
+    },
+    {
+      "id": "5edc3794cfbb77b3",
+      "t": "dental world 2026",
+      "d": "2026-10-08",
+      "s": "2026-09-21",
+      "u": "2026-10-10"
+    },
+    {
+      "id": "fb6a56b9b9e2d4c8",
+      "t": "dental world 2026 - ingyenes latogatoi regisztracio",
+      "d": "2026-10-08",
+      "s": "2026-09-21",
+      "u": "2026-10-10"
+    },
+    {
+      "id": "77b2b7fa2938cd07",
+      "t": "social dialogues in art+design symposium - 8 october 2026",
+      "d": "2026-10-08",
+      "s": "2026-09-21",
+      "u": "2026-10-08"
+    },
+    {
+      "id": "9a6a599ac5e32d05",
+      "t": "what materials know: thinking with algae and mycelium",
+      "d": "2026-10-08",
+      "s": "2026-09-21",
+      "u": "2026-10-08"
+    },
+    {
+      "id": "420a58ef1f1275b5",
+      "t": "from play to research: understanding lake balaton through cooperative gaming",
+      "d": "2026-10-08",
+      "s": "2026-09-21",
+      "u": "2026-10-08"
+    },
+    {
+      "id": "f37c23790c7369c4",
+      "t": "designing for accessible waterscapes: waterside voices affiliated workshop",
+      "d": "2026-10-08",
+      "s": "2026-09-21",
+      "u": "2026-10-08"
+    },
+    {
+      "id": "94f6881b0981495e",
+      "t": "nyar / leto",
+      "d": "2026-10-08",
+      "s": "2026-09-21",
+      "u": "2026-10-08"
+    },
+    {
+      "id": "474c9a858df0ab12",
+      "t": "az otodik pecset / the fifth seal | english subtitles",
+      "d": "2026-10-08",
+      "s": "2026-09-21",
+      "u": "2026-10-08"
+    },
+    {
+      "id": "dfc376880ddc46b6",
+      "t": "meg egy kort mindenkinek / druk",
+      "d": "2026-10-08",
+      "s": "2026-09-21",
+      "u": "2026-10-08"
+    },
+    {
+      "id": "e38464e3e28f1c88",
+      "t": "keretek kozt: a szemuveg mint a megjelenes vegso gesztusa",
+      "d": "2026-10-08",
+      "s": "2026-09-21",
+      "u": "2026-10-08"
+    },
+    {
+      "id": "f75ad2712986a5fe",
+      "t": "4 alkalmas zart csoport",
+      "d": "2026-10-08",
+      "s": "2026-09-21",
+      "u": "2026-10-08"
+    },
+    {
+      "id": "182f435531abe683",
+      "t": "rapidrandi 40-50 ev",
+      "d": "2026-10-08",
+      "s": "2026-09-21",
+      "u": "2026-10-08"
+    },
+    {
+      "id": "b51451135d3bd470",
+      "t": "la dolce vita fashion show",
+      "d": "2026-10-08",
+      "s": "2026-09-21",
+      "u": "2026-10-08"
+    },
+    {
+      "id": "aac40e04eea97e38",
+      "t": "sounds from my diary vol 2. | a concert composed by gabor jancso",
+      "d": "2026-10-08",
+      "s": "2026-09-21",
+      "u": "2026-10-08"
+    },
+    {
+      "id": "b95402f3b1d7909f",
+      "t": "a levitak konyve / leviticus",
+      "d": "2026-10-09",
+      "s": "2026-09-21",
+      "u": "2026-10-09"
+    },
+    {
+      "id": "05ab355d874020d0",
+      "t": "cowboy bebop - the movie | eng & hun subtitles",
+      "d": "2026-10-09",
+      "s": "2026-09-21",
+      "u": "2026-10-09"
+    },
+    {
+      "id": "57cdcfc059d7bce2",
+      "t": "trainspotting | 30 eves jubileumi szezon",
+      "d": "2026-10-09",
+      "s": "2026-09-21",
+      "u": "2026-10-09"
+    },
+    {
+      "id": "56927838a6b68646",
+      "t": "studio 103 | linometszes workshop | 10.09.",
+      "d": "2026-10-09",
+      "s": "2026-09-21",
+      "u": "2026-10-09"
+    },
+    {
+      "id": "6a402775fe058e17",
+      "t": "aperitivo italiano jazz&soul, ospite: liliana jazmin szucs",
+      "d": "2026-10-09",
+      "s": "2026-09-21",
+      "u": "2026-10-09"
+    },
+    {
+      "id": "5ed4e1acca5d2269",
+      "t": "schweigert fusion & groovus – fusion night @ lokal 2026.10.09.",
+      "d": "2026-10-09",
+      "s": "2026-09-21",
+      "u": "2026-10-09"
+    },
+    {
+      "id": "02b121e7a0b2d5d7",
+      "t": "a kutya vacsoraja - oszkoszono @ kishall 2026.10.09.",
+      "d": "2026-10-09",
+      "s": "2026-09-21",
+      "u": "2026-10-09"
+    },
+    {
+      "id": "d833b017af4a777a",
+      "t": "lithium night - 10. szulinapi gigaparty @ nagyhall 2026.10.09.",
+      "d": "2026-10-09",
+      "s": "2026-09-21",
+      "u": "2026-10-10"
+    },
+    {
+      "id": "6dcc047a54d1fb84",
+      "t": "cicikrisztus az apollo gallery-ben - 20h!",
+      "d": "2026-10-09",
+      "s": "2026-09-21",
+      "u": "2026-10-09"
+    },
+    {
+      "id": "ffce909685f2c0b9",
+      "t": "lagzi feszt | budapest, mom leroy",
+      "d": "2026-10-09",
+      "s": "2026-09-21",
+      "u": "2026-10-10"
+    },
+    {
+      "id": "faa6df3948a3035f",
+      "t": "beatles ’66 a the bits-szel",
+      "d": "2026-10-09",
+      "s": "2026-09-21",
+      "u": "2026-10-09"
+    },
+    {
+      "id": "fa7b1ea57fa3e49e",
+      "t": "zsomac's birthday bash - kassa - oktober 9",
+      "d": "2026-10-09",
+      "s": "2026-09-21",
+      "u": "2026-10-10"
+    },
+    {
+      "id": "1c6881b8b23e7d51",
+      "t": "birth:lab viii. ★ zigi sc, prdk, a-cray, raido, dr.ax",
+      "d": "2026-10-09",
+      "s": "2026-09-21",
+      "u": "2026-10-10"
+    },
+    {
+      "id": "16e07826209b803e",
+      "t": "casino bangkok x turbina w/ mac declos",
+      "d": "2026-10-09",
+      "s": "2026-09-21",
+      "u": "2026-10-10"
+    },
+    {
+      "id": "82c50383afb62d65",
+      "t": "eskuvo kiallitas es nyilt nap | osz",
+      "d": "2026-10-10",
+      "s": "2026-09-21",
+      "u": "2026-10-10"
+    },
+    {
+      "id": "1196694bafb1f711",
+      "t": "workshop: keszits taskat ujrahasznositott anyagokbol! ♻️ 🌱 💚",
+      "d": "2026-10-10",
+      "s": "2026-09-21",
+      "u": "2026-10-10"
+    },
+    {
+      "id": "d6024b9c36735f02",
+      "t": "studio 103 | fakanal keszito workshop | 10.10.",
+      "d": "2026-10-10",
+      "s": "2026-09-21",
+      "u": "2026-10-10"
+    },
+    {
+      "id": "21aa954056d19ce9",
+      "t": "studio 103 | keramia workshop | 10.10.",
+      "d": "2026-10-10",
+      "s": "2026-09-21",
+      "u": "2026-10-10"
+    },
+    {
+      "id": "cb4b5b193ec2dfda",
+      "t": "bem mozi — 4 program",
+      "d": "2026-10-10",
+      "s": "2026-09-21",
+      "u": "2026-10-10"
+    },
+    {
+      "id": "aca8bfafed686eea",
+      "t": "sticks and stones @ atno w/ anders navigare kalumet glook",
+      "d": "2026-10-10",
+      "s": "2026-09-21",
+      "u": "2026-10-11"
+    },
+    {
+      "id": "8a874668d0c6fa54",
+      "t": "vingardium - in the city",
+      "d": "2026-10-10",
+      "s": "2026-09-21",
+      "u": "2026-10-11"
+    },
+    {
+      "id": "a14d62e66732ba56",
+      "t": "iv. borhalo premium setalo portfolio kostolo",
+      "d": "2026-10-10",
+      "s": "2026-09-21",
+      "u": "2026-10-10"
+    },
+    {
+      "id": "5a1aee5417fa4c95",
+      "t": "vasas sc - moyra-budaors united shipping, nb i., 5. fordulo",
+      "d": "2026-10-10",
+      "s": "2026-09-21",
+      "u": "2026-10-10"
+    },
+    {
+      "id": "166b3552bf262048",
+      "t": "replika @ kishall 2026.10.10.",
+      "d": "2026-10-10",
+      "s": "2026-09-21",
+      "u": "2026-10-10"
+    },
+    {
+      "id": "e19aaf27ac8e36e7",
+      "t": "hacienda presents: latino soundsystem",
+      "d": "2026-10-10",
+      "s": "2026-09-21",
+      "u": "2026-10-11"
+    },
+    {
+      "id": "66b201878ae74c83",
+      "t": "blue spot – 20. szuletesnapi koncert",
+      "d": "2026-10-10",
+      "s": "2026-09-21",
+      "u": "2026-10-10"
+    },
+    {
+      "id": "c853adb57b64e23b",
+      "t": "lekvarherceg: reppeles a reppelesrol // turbina 10.10.",
+      "d": "2026-10-10",
+      "s": "2026-09-21",
+      "u": "2026-10-10"
+    },
+    {
+      "id": "d72f4bf69009d770",
+      "t": "berczesi jazz band lemezbemutato - new orleans music club",
+      "d": "2026-10-10",
+      "s": "2026-09-21",
+      "u": "2026-10-10"
+    },
+    {
+      "id": "b957872629a6cff9",
+      "t": "soluna 10 @ ida bistro",
+      "d": "2026-10-10",
+      "s": "2026-09-21",
+      "u": "2026-10-11"
+    },
+    {
+      "id": "1dcc03c0c3eb059d",
+      "t": "10.10 summer time sadness night insp. lana del rey part ii. @maroni budapest",
+      "d": "2026-10-10",
+      "s": "2026-09-21",
+      "u": "2026-10-11"
+    },
+    {
+      "id": "ec374ac6049a01d3",
+      "t": "liquid night invites victor ruiz",
+      "d": "2026-10-10",
+      "s": "2026-09-21",
+      "u": "2026-10-11"
+    },
+    {
+      "id": "4c5de8bd1b815eef",
+      "t": "be massive party - marriott hotel panorama hall",
+      "d": "2026-10-10",
+      "s": "2026-09-21",
+      "u": "2026-10-11"
+    },
+    {
+      "id": "7ab790f6b1a01031",
+      "t": "lavalava club season opening w/ kornel kovacs",
+      "d": "2026-10-10",
+      "s": "2026-09-21",
+      "u": "2026-10-11"
+    },
+    {
+      "id": "77fde56c62cad789",
+      "t": "hajogyari klasszik • symbol & brandus • 10.10.",
+      "d": "2026-10-10",
+      "s": "2026-09-21",
+      "u": "2026-10-11"
+    },
+    {
+      "id": "f05bb2af1651ee91",
+      "t": "gyilkos vacsora nyomozos jatek",
+      "d": "2026-09-21",
+      "s": "2026-09-21",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "bffea9641a507476",
+      "t": "altalanos kviz",
+      "d": "2026-09-21",
+      "s": "2026-09-21",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "ff1880f77c5d2056",
+      "t": "altalanos kviz",
+      "d": "2026-09-21",
+      "s": "2026-09-21",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "794ece9a3c18ae03",
+      "t": "filmkviz",
+      "d": "2026-09-22",
+      "s": "2026-09-21",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "4cb7fb08361a5623",
+      "t": "altalanos kviz",
+      "d": "2026-09-22",
+      "s": "2026-09-21",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "988492cf8d6f060a",
+      "t": "altalanos kviz",
+      "d": "2026-09-22",
+      "s": "2026-09-21",
+      "u": "2026-09-22"
+    },
+    {
+      "id": "d11cf37e0b837db5",
+      "t": "altalanos kviz",
+      "d": "2026-09-23",
+      "s": "2026-09-21",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "017a7e340d2feff5",
+      "t": "forma-1 kviz",
+      "d": "2026-09-23",
+      "s": "2026-09-21",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "2a10e8fd6f2a3e47",
+      "t": "eltunt a naplemente nyomozos jatek",
+      "d": "2026-09-23",
+      "s": "2026-09-21",
+      "u": "2026-09-23"
+    },
+    {
+      "id": "fd26e7464f854468",
+      "t": "altalanos kviz",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "772a3808ec8ac4e7",
+      "t": "filmkviz",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "62366415d5cf7fd5",
+      "t": "office kviz",
+      "d": "2026-09-24",
+      "s": "2026-09-21",
+      "u": "2026-09-24"
+    },
+    {
+      "id": "222a0c1c0a72175e",
+      "t": "altalanos kviz",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "fefb3c9df719ebef",
+      "t": "altalanos kviz",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "c514591d79fb5b0a",
+      "t": "szex es new york kviz",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "d86cade7681a5076",
+      "t": "tiltott varos nyomozos jatek",
+      "d": "2026-09-28",
+      "s": "2026-09-21",
+      "u": "2026-09-28"
+    },
+    {
+      "id": "d89f61c61b667588",
+      "t": "jobaratok kviz",
+      "d": "2026-09-28",
+      "s": "2026-09-21",
+      "u": "2026-09-28"
+    },
+    {
+      "id": "5b59fca197ab728f",
+      "t": "altalanos kviz",
+      "d": "2026-09-28",
+      "s": "2026-09-21",
+      "u": "2026-09-28"
+    },
+    {
+      "id": "fe24205bf3c69173",
+      "t": "szuletett felesegek kviz",
+      "d": "2026-09-29",
+      "s": "2026-09-21",
+      "u": "2026-09-29"
+    },
+    {
+      "id": "823ce74d53a6e484",
+      "t": "harry potter",
+      "d": "2026-09-29",
+      "s": "2026-09-21",
+      "u": "2026-09-29"
+    },
+    {
+      "id": "e451ecb10cf6d0ce",
+      "t": "altalanos kviz",
+      "d": "2026-09-29",
+      "s": "2026-09-21",
+      "u": "2026-09-29"
+    },
+    {
+      "id": "f194df824f6009bb",
+      "t": "gyilkos vacsora nyomozos jatek",
+      "d": "2026-09-30",
+      "s": "2026-09-21",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "d99fde0dbb379ede",
+      "t": "star wars kviz",
+      "d": "2026-09-30",
+      "s": "2026-09-21",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "0045948e0ecb77ec",
+      "t": "2000-es evek kviz",
+      "d": "2026-09-30",
+      "s": "2026-09-21",
+      "u": "2026-09-30"
+    },
+    {
+      "id": "0bba7789f3174f8b",
+      "t": "altalanos kviz",
+      "d": "2026-10-01",
+      "s": "2026-09-21",
+      "u": "2026-10-01"
+    },
+    {
+      "id": "839e18b7b39bce63",
+      "t": "tronviszaly nyomozos jatek",
+      "d": "2026-10-01",
+      "s": "2026-09-21",
+      "u": "2026-10-01"
+    },
+    {
+      "id": "511a096f19ab1018",
+      "t": "altalanos kviz",
+      "d": "2026-10-02",
+      "s": "2026-09-21",
+      "u": "2026-10-02"
+    },
+    {
+      "id": "2d09524453f1ae58",
+      "t": "altalanos kviz",
+      "d": "2026-10-07",
+      "s": "2026-09-21",
+      "u": "2026-10-07"
+    },
+    {
+      "id": "c1058b481bcf9324",
+      "t": "revenant - havi heavy",
+      "d": "2026-09-21",
+      "s": "2026-09-21",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "48082863f8e89090",
+      "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
+      "d": "2026-09-21",
+      "s": "2026-09-21",
+      "u": "2026-09-21"
+    },
+    {
+      "id": "0f5f09356f725c41",
+      "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
+      "d": "2026-09-28",
+      "s": "2026-09-21",
+      "u": "2026-09-28"
+    },
+    {
+      "id": "7dc95175cfed442d",
+      "t": "6 alkalmas berlet - jatszohaz projekt",
+      "d": "2026-04-13",
+      "s": "2026-09-21",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "f25d3d313e007386",
+      "t": "jatszohazberlet",
+      "d": "2026-09-21",
+      "s": "2026-09-21",
+      "u": "2027-02-28"
+    },
+    {
+      "id": "d56e963d33d057e4",
+      "t": "red swamp: 10assippi // til the end (usa) // selfless abuse",
+      "d": "2026-09-25",
+      "s": "2026-09-21",
+      "u": "2026-09-25"
+    },
+    {
+      "id": "2d3aae683eabaf41",
+      "t": "interdiszciplinaris metalforum // durer kert",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
+    },
+    {
+      "id": "3d421f9ceecda55d",
+      "t": "10.09. // gyilkos kronikak // vendegek: otvar pestis, tkyd // durer kert",
+      "d": "2026-10-09",
+      "s": "2026-09-21",
+      "u": "2026-10-09"
+    },
+    {
+      "id": "2a36949d281abcd8",
+      "t": "keep playing! – tarsasjatek jamboree",
+      "d": "2026-09-26",
+      "s": "2026-09-21",
+      "u": "2026-09-26"
     }
   ],
   "source_health": {
     "bigcitylife": {
       "consecutive_failures": 0,
-      "last_ok": "2026-09-20",
-      "last_count": 4,
+      "last_ok": "2026-09-21",
+      "last_count": 3,
       "etag": null,
       "disabled_until": null
     },
     "cooltix": {
       "consecutive_failures": 0,
-      "last_ok": "2026-09-20",
-      "last_count": 583,
+      "last_ok": "2026-09-21",
+      "last_count": 589,
       "etag": null,
       "disabled_until": null
     },
     "kvizestek": {
       "consecutive_failures": 0,
-      "last_ok": "2026-09-20",
-      "last_count": 28,
+      "last_ok": "2026-09-21",
+      "last_count": 30,
       "etag": null,
       "disabled_until": null
     },
     "tarsasjatekos": {
       "consecutive_failures": 0,
-      "last_ok": "2026-09-20",
+      "last_ok": "2026-09-21",
       "last_count": 13,
       "etag": null,
       "disabled_until": null
     },
     "tixa": {
       "consecutive_failures": 0,
-      "last_ok": "2026-09-20",
+      "last_ok": "2026-09-21",
       "last_count": 28,
       "etag": null,
       "disabled_until": null
     },
     "tokenklub": {
       "consecutive_failures": 0,
-      "last_ok": "2026-09-20",
+      "last_ok": "2026-09-21",
       "last_count": 6,
       "etag": null,
       "disabled_until": null
     }
   },
   "run_log": [
-    {
-      "date": "2026-08-23",
-      "raw": 674,
-      "after_dedup": 296,
-      "sent": 3,
-      "seconds": 16.588045252
-    },
     {
       "date": "2026-08-24",
       "raw": 673,
@@ -23490,6 +24099,13 @@
       "after_dedup": 345,
       "sent": 17,
       "seconds": 21.733762150000004
+    },
+    {
+      "date": "2026-09-21",
+      "raw": 669,
+      "after_dedup": 369,
+      "sent": 16,
+      "seconds": 18.434359221
     }
   ]
 }
