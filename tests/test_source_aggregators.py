@@ -11,7 +11,7 @@ from zoneinfo import ZoneInfo
 
 import pytest
 import yaml
-from selectolax.parser import HTMLParser
+from selectolax.lexbor import LexborHTMLParser
 from structlog.testing import capture_logs
 
 from digest.config import Config, load_config
@@ -66,7 +66,7 @@ def test_funzine_still_exposes_event_detail_links_which_is_why_it_looks_alive(
     repo_root: Path,
 ) -> None:
     html = (repo_root / "tests/fixtures/funzine_events_archive.html").read_text(encoding="utf-8")
-    tree = HTMLParser(html)
+    tree = LexborHTMLParser(html)
 
     events = {
         node.attributes.get("href")

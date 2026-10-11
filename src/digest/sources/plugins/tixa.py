@@ -6,7 +6,7 @@ from collections.abc import Iterable
 from typing import Any
 
 import structlog
-from selectolax.parser import HTMLParser
+from selectolax.lexbor import LexborHTMLParser
 
 from digest.config import Config
 from digest.fetch.base import FetchResult, FetchTask
@@ -150,7 +150,7 @@ class TixaSource:
 
 def _event_items(html: str, source_id: str) -> Iterable[dict[str, Any]]:
     """Every `Event` inside the page's `organizerEvents` / `locationEvents` ItemLists."""
-    for node in HTMLParser(html).css('script[type="application/ld+json"]'):
+    for node in LexborHTMLParser(html).css('script[type="application/ld+json"]'):
         text = node.text(deep=True, strip=False)
         if not text:
             continue

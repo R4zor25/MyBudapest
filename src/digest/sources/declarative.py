@@ -8,7 +8,7 @@ from typing import Any
 from urllib.parse import urljoin
 
 import structlog
-from selectolax.parser import HTMLParser, Node
+from selectolax.lexbor import LexborHTMLParser, LexborNode
 
 from digest.config import Config
 from digest.errors import ConfigError
@@ -224,7 +224,7 @@ class DeclarativeSource:
             return resolve_json_path(result.json, self._json_path)
         if not self._item_selector:
             return []
-        return HTMLParser(result.text).css(self._item_selector)
+        return LexborHTMLParser(result.text).css(self._item_selector)
 
     def _parse_item(self, item: Any, listing_url: str) -> RawEvent | None:
         values: dict[str, Any] = {}
@@ -272,7 +272,7 @@ class DeclarativeSource:
             return None if value is None else str(value)
 
         selector = field_spec.get("selector")
-        node: Node | None = item if not selector else item.css_first(selector)
+        node: LexborNode | None = item if not selector else item.css_first(selector)
         if node is None:
             return None
         attr = field_spec.get("attr", "text")

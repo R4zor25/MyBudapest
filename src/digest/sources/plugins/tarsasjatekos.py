@@ -8,7 +8,7 @@ from typing import Any
 from zoneinfo import ZoneInfo
 
 import structlog
-from selectolax.parser import HTMLParser
+from selectolax.lexbor import LexborHTMLParser
 
 from digest.config import Config
 from digest.errors import ConfigError, ParseError
@@ -192,7 +192,7 @@ def _description(raw: Any) -> str | None:
     # Organisers paste rich text into this field: the Csepeli club's entry arrives as
     # `<br><a class="moz-txt-link-freetext" href="...">`. §7.1 unescapes but keeps tags.
     if "<" in text:
-        text = HTMLParser(text).text(deep=True, separator=" ", strip=False)
+        text = LexborHTMLParser(text).text(deep=True, separator=" ", strip=False)
     text = _WHITESPACE_RE.sub(" ", text).strip()
     return text or None
 

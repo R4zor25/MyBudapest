@@ -10,7 +10,7 @@ from zoneinfo import ZoneInfo
 
 import pytest
 import yaml
-from selectolax.parser import HTMLParser
+from selectolax.lexbor import LexborHTMLParser
 from structlog.testing import capture_logs
 
 from digest.config import load_config
@@ -412,7 +412,7 @@ def test_redandblack_current_programme_list_is_server_rendered_empty(repo_root: 
     # would use, and they work — the source is dropped only because the container they
     # point into has nothing in it.
     html = (repo_root / "tests/fixtures/redandblack_programok.html").read_text(encoding="utf-8")
-    tree = HTMLParser(html)
+    tree = LexborHTMLParser(html)
 
     active = tree.css_first("div.programs__active")
     assert active is not None, "the 'Aktuális programjaink' container is gone; re-check the site"
@@ -421,7 +421,7 @@ def test_redandblack_current_programme_list_is_server_rendered_empty(repo_root: 
 
 def test_redandblack_every_card_on_the_page_is_a_past_event(repo_root: Path) -> None:
     html = (repo_root / "tests/fixtures/redandblack_programok.html").read_text(encoding="utf-8")
-    tree = HTMLParser(html)
+    tree = LexborHTMLParser(html)
 
     dates = [node.text(strip=True) for node in tree.css("div.news__date")]
     years = {year for text in dates for year in re.findall(r"(\d{4})\.", text)}
