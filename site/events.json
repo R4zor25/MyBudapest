@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T10:05:47Z",
+  "generated_at": "2026-10-20T09:32:04Z",
   "category_order": [
     "koncert",
     "klub",
@@ -34,38 +34,38 @@
   },
   "events": [
     {
-      "id": "fc90d28ea0261421",
-      "title": "Közjáték - Közösségi társasjátékos est",
-      "url": "https://www.google.com/calendar/event?eid=ZDVuZWFranA3azhmamtyZjVuNGVsMm1mODhfMjAyNjEwMTlUMTYwMDAwWiBrbHVib2trbHViamFfZXNlbWVueWVrQHRhcnNhc2phdGVrb3MuaHU",
-      "start": "2026-10-19T18:00:00+02:00",
+      "id": "945798ffd4246ad5",
+      "title": "Board Game Night by ELB @Hoff House /every Sunday",
+      "url": "https://cooltix.hu/event/6ab26deabb4a36159979da87",
+      "start": "2026-10-25T16:45:00+01:00",
       "start_time_known": true,
-      "effective_date": "2026-10-19",
+      "effective_date": "2026-10-25",
+      "venue": "Hoff House",
+      "district": "VI.",
+      "categories": [
+        "tarsasjatek",
+        "klub"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 11.216,
+      "group_size": 1
+    },
+    {
+      "id": "5fac612ba7f2c79c",
+      "title": "Szenior társasjáték klub",
+      "url": "https://www.google.com/calendar/event?eid=bjZyMnJxZjMwaGJtOWE2cDJkc2Y5ZTc4MW9fMjAyNjEwMjBUMTMwMDAwWiBrbHVib2trbHViamFfZXNlbWVueWVrQHRhcnNhc2phdGVrb3MuaHU",
+      "start": "2026-10-20T15:00:00+02:00",
+      "start_time_known": true,
+      "effective_date": "2026-10-20",
       "venue": "Board Game Café",
       "district": "XIII.",
       "categories": [
-        "tarsasjatek",
-        "meetup"
+        "tarsasjatek"
       ],
       "price_min": null,
       "is_free": false,
       "score": 10.0,
-      "group_size": 1
-    },
-    {
-      "id": "ee2735fd7d2da661",
-      "title": "Fink (live band) (UK)",
-      "url": "https://bigcitylife.hu/a38-hajo/fink-live-band-uk-budapest-2026-10-23",
-      "start": "2026-10-23T20:00:00+02:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-23",
-      "venue": "A38 Hajó",
-      "district": null,
-      "categories": [
-        "koncert"
-      ],
-      "price_min": 9000,
-      "is_free": false,
-      "score": 9.0,
       "group_size": 1
     },
     {
@@ -86,16 +86,16 @@
       "group_size": 1
     },
     {
-      "id": "e1ce9b618f6ccf66",
-      "title": "Vágtázó Halottkémek, Sturle Dagsland, Psycho Mutants, Itinera // Budapest, Dürer Kert",
-      "url": "https://www.tixa.hu/vhk-durer2026",
-      "start": "2026-11-07T18:00:00+01:00",
+      "id": "b1b3430a69dd6eff",
+      "title": "Bor, kvíz, zene, ősz - Pincejárat",
+      "url": "https://cooltix.hu/event/6ad637f88f0a5f56242f3575",
+      "start": "2026-11-07T14:00:00+01:00",
       "start_time_known": true,
       "effective_date": "2026-11-07",
-      "venue": "Dürer Kert",
-      "district": "XI.",
+      "venue": "Cellar Garden Budafok",
+      "district": "XXII.",
       "categories": [
-        "koncert"
+        "kviz"
       ],
       "price_min": null,
       "is_free": false,
@@ -171,41 +171,6 @@
       "is_free": false,
       "score": 8.362,
       "group_size": 4
-    },
-    {
-      "id": "ea0f2d321c3c521f",
-      "title": "Hétfői társasozás az Akváriumban // Játszóház Projekt",
-      "url": "https://www.tixa.hu/jhz261019",
-      "start": "2026-10-19T17:50:00+02:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-19",
-      "venue": "Akvárium Klub",
-      "district": "V.",
-      "categories": [
-        "tarsasjatek",
-        "koncert"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 8.0,
-      "group_size": 1
-    },
-    {
-      "id": "0e1536da3f3ae63b",
-      "title": "Általános kvíz",
-      "url": "https://foglalas.kvizestek.hu/esemenyek/altalanos-kviz-zsiraf-buda-2026-10-19-d9cca6b0",
-      "start": "2026-10-19T19:00:00+02:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-19",
-      "venue": "Zsiráf Buda",
-      "district": "II.",
-      "categories": [
-        "kviz"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 8.0,
-      "group_size": 1
     },
     {
       "id": "97294d2c437a0583",
@@ -285,6 +250,41 @@
       "effective_date": "2026-10-22",
       "venue": "Jo&Joe",
       "district": "VII.",
+      "categories": [
+        "kviz"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 8.0,
+      "group_size": 1
+    },
+    {
+      "id": "edd49af49084f01a",
+      "title": "Hétfői társasozás az Akváriumban // Játszóház Projekt",
+      "url": "https://www.tixa.hu/jhz261026",
+      "start": "2026-10-26T17:50:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-10-26",
+      "venue": "Akvárium Klub",
+      "district": "V.",
+      "categories": [
+        "tarsasjatek",
+        "koncert"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 8.0,
+      "group_size": 1
+    },
+    {
+      "id": "f5d23707c342e175",
+      "title": "Zenefelismerő kvíz",
+      "url": "https://foglalas.kvizestek.hu/esemenyek/budapest-kviz-zsiraf-buda-2026-10-26-8c7be3ff",
+      "start": "2026-10-26T19:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-10-26",
+      "venue": "Zsiráf Buda",
+      "district": "II.",
       "categories": [
         "kviz"
       ],
@@ -380,6 +380,41 @@
       "group_size": 1
     },
     {
+      "id": "19aea14e785adccb",
+      "title": "Héra Barnabás | kis szoba X Dürer Kert",
+      "url": "https://www.tixa.hu/hera-barnabas-kis-szoba-x-durer-kert-20261108",
+      "start": "2026-11-08T17:30:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-11-08",
+      "venue": "Dürer Kert",
+      "district": "XI.",
+      "categories": [
+        "koncert"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 8.0,
+      "group_size": 1
+    },
+    {
+      "id": "d3ee801533ecd046",
+      "title": "Elin Vacsoraest I Once upon a night I November 8. Vasárnap I LeBistro I Budapest",
+      "url": "https://cooltix.hu/event/6ab401c7faaac209451cc2ed",
+      "start": "2026-11-08T18:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-11-08",
+      "venue": "Le Bistro - Kitchen & More",
+      "district": "XI.",
+      "categories": [
+        "koncert",
+        "gasztro"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 7.774,
+      "group_size": 1
+    },
+    {
       "id": "1ebe9955dd074cd3",
       "title": "Skopje Via (MK)",
       "url": "https://bigcitylife.hu/a38-hajo/skopje-via-mk-budapest-2026-10-24",
@@ -432,23 +467,6 @@
       "group_size": 1
     },
     {
-      "id": "3775ffd8d913cbb9",
-      "title": "A Kert / Flop / Madrass és Barátaik",
-      "url": "https://cooltix.hu/event/6abe1b15bab93378ff93b1b7",
-      "start": "2026-11-07T20:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-07",
-      "venue": "MUZIKUM Klub & Bisztró",
-      "district": "VIII.",
-      "categories": [
-        "koncert"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 7.508,
-      "group_size": 1
-    },
-    {
       "id": "c33d6dd45fc5719c",
       "title": "Havervagy Társasjáték est",
       "url": "https://cooltix.hu/event/6acf98ef21cc96120dcbf5a1",
@@ -484,23 +502,6 @@
       "group_size": 1
     },
     {
-      "id": "d5aa5cbb8c00feee",
-      "title": "Stifler Mamája 10. szülinap - Barhole",
-      "url": "https://cooltix.hu/event/6ac4a43f04e42e16a3a19e73",
-      "start": "2026-11-07T18:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-07",
-      "venue": "BARhole Music",
-      "district": "VII.",
-      "categories": [
-        "koncert"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 7.408,
-      "group_size": 1
-    },
-    {
       "id": "0207cfc28d720357",
       "title": "Akvárium Klub — 5 program",
       "url": "https://cooltix.hu/event/6a8d55ac636779c95590d884",
@@ -519,23 +520,6 @@
       "group_size": 5
     },
     {
-      "id": "1fe642e183be5956",
-      "title": "Sepultura + Down tribute 💥 Respectful Hate, Over The Underdog 💥 STENK Lelátó",
-      "url": "https://cooltix.hu/event/6a9e55f173e7d00b94e7a2f1",
-      "start": "2026-11-07T19:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-07",
-      "venue": "STENK",
-      "district": "VIII.",
-      "categories": [
-        "koncert"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 7.104,
-      "group_size": 1
-    },
-    {
       "id": "5ec90a4cebc5e66c",
       "title": "JuliaChants – All is Love | Lemezbemutató koncert",
       "url": "https://cooltix.hu/event/6a8becbbccde513ba859fc4b",
@@ -550,6 +534,23 @@
       "price_min": null,
       "is_free": false,
       "score": 7.04,
+      "group_size": 1
+    },
+    {
+      "id": "395bf35448b132d0",
+      "title": "ZEN DOGZ bemutatja: POP-UP HIP-HOP ESTE @ MANYI",
+      "url": "https://cooltix.hu/event/6ad72404f033ed3ded607b73",
+      "start": "2026-10-22T19:00:00+02:00",
+      "start_time_known": true,
+      "effective_date": "2026-10-22",
+      "venue": "Manyi - Kulturális Műhely",
+      "district": "II.",
+      "categories": [
+        "koncert"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 7.002,
       "group_size": 1
     },
     {
@@ -570,36 +571,18 @@
       "group_size": 1
     },
     {
-      "id": "edd49af49084f01a",
-      "title": "Hétfői társasozás az Akváriumban // Játszóház Projekt",
-      "url": "https://www.tixa.hu/jhz261026",
-      "start": "2026-10-26T17:50:00+01:00",
+      "id": "ee2735fd7d2da661",
+      "title": "Fink (live band) (UK)",
+      "url": "https://bigcitylife.hu/a38-hajo/fink-live-band-uk-budapest-2026-10-23",
+      "start": "2026-10-23T20:00:00+02:00",
       "start_time_known": true,
-      "effective_date": "2026-10-26",
-      "venue": "Akvárium Klub",
-      "district": "V.",
+      "effective_date": "2026-10-23",
+      "venue": "A38 Hajó",
+      "district": null,
       "categories": [
-        "tarsasjatek",
         "koncert"
       ],
-      "price_min": null,
-      "is_free": false,
-      "score": 7.0,
-      "group_size": 1
-    },
-    {
-      "id": "f5d23707c342e175",
-      "title": "Zenefelismerő kvíz",
-      "url": "https://foglalas.kvizestek.hu/esemenyek/budapest-kviz-zsiraf-buda-2026-10-26-8c7be3ff",
-      "start": "2026-10-26T19:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-26",
-      "venue": "Zsiráf Buda",
-      "district": "II.",
-      "categories": [
-        "kviz"
-      ],
-      "price_min": null,
+      "price_min": 9000,
       "is_free": false,
       "score": 7.0,
       "group_size": 1
@@ -640,6 +623,23 @@
       "group_size": 1
     },
     {
+      "id": "6d63cbaeb362c265",
+      "title": "Tabu (18+) kvíz",
+      "url": "https://foglalas.kvizestek.hu/esemenyek/tabu-18-kviz-hauzol-cafe-2026-10-28-dfdde787",
+      "start": "2026-10-28T19:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-10-28",
+      "venue": "Hauzol Cafe",
+      "district": "VII.",
+      "categories": [
+        "kviz"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 7.0,
+      "group_size": 1
+    },
+    {
       "id": "41b9b1864888fa89",
       "title": "Halloweeni kvíz",
       "url": "https://foglalas.kvizestek.hu/esemenyek/halloweeni-kviz-cooltour-bar-3-2026-10-28-497ab867",
@@ -665,23 +665,6 @@
       "effective_date": "2026-10-28",
       "venue": "Pódium Bistro & Club",
       "district": "III.",
-      "categories": [
-        "kviz"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 7.0,
-      "group_size": 1
-    },
-    {
-      "id": "6d63cbaeb362c265",
-      "title": "Tabu (18+) kvíz",
-      "url": "https://foglalas.kvizestek.hu/esemenyek/tabu-18-kviz-hauzol-cafe-2026-10-28-dfdde787",
-      "start": "2026-10-28T19:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-28",
-      "venue": "Hauzol Cafe",
-      "district": "VII.",
       "categories": [
         "kviz"
       ],
@@ -725,37 +708,20 @@
       "group_size": 1
     },
     {
-      "id": "2ba68600ad712b60",
-      "title": "KUPLUNG Zenekar DUPLA - Aréna | 2026.11.07.",
-      "url": "https://cooltix.hu/event/695447beee19b589e9c16a92",
+      "id": "e1ce9b618f6ccf66",
+      "title": "Vágtázó Halottkémek, Sturle Dagsland, Psycho Mutants, Itinera // Budapest, Dürer Kert",
+      "url": "https://www.tixa.hu/vhk-durer2026",
       "start": "2026-11-07T18:00:00+01:00",
       "start_time_known": true,
       "effective_date": "2026-11-07",
-      "venue": "Papp László Budapest Sportaréna",
-      "district": "XIV.",
+      "venue": "Dürer Kert",
+      "district": "XI.",
       "categories": [
         "koncert"
       ],
       "price_min": null,
       "is_free": false,
       "score": 7.0,
-      "group_size": 1
-    },
-    {
-      "id": "6de0a57320e80b89",
-      "title": "Studio 103 | Kerámia workshop | 11.07.",
-      "url": "https://cooltix.hu/event/6ac81c0a23535479809ee6bc",
-      "start": "2026-11-07T14:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-07",
-      "venue": "Studio 103",
-      "district": "XI.",
-      "categories": [
-        "meetup"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 6.84,
       "group_size": 1
     },
     {
@@ -844,46 +810,12 @@
       "group_size": 1
     },
     {
-      "id": "a02d952f99d6007c",
-      "title": "Könyvklub",
-      "url": "https://cooltix.hu/event/6ad5230b38266ebfba6ce3d1",
-      "start": "2026-10-24T17:00:00+02:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-24",
-      "venue": "Ahoy! Waffle, Chocolate, Lemonade Cafe",
-      "district": "V.",
-      "categories": [
-        "egyeb"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 6.526,
-      "group_size": 1
-    },
-    {
       "id": "a18f13a8a1252b45",
       "title": "HEEP FREEDOM – HEEP BEFORE HEEP | Bemelegítés a nagy találkozásra",
       "url": "https://cooltix.hu/event/6a96de21358744723307d1e3",
       "start": "2026-10-23T20:00:00+02:00",
       "start_time_known": true,
       "effective_date": "2026-10-23",
-      "venue": "MUZIKUM Klub & Bisztró",
-      "district": "VIII.",
-      "categories": [
-        "koncert"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 6.508,
-      "group_size": 1
-    },
-    {
-      "id": "44d23698add89c2d",
-      "title": "Janis Joplin Emlékzenekar",
-      "url": "https://cooltix.hu/event/6aa78d4119acba10050ade49",
-      "start": "2026-10-24T20:00:00+02:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-24",
       "venue": "MUZIKUM Klub & Bisztró",
       "district": "VIII.",
       "categories": [
@@ -1033,20 +965,54 @@
       "group_size": 1
     },
     {
-      "id": "a1d41a242193c71c",
-      "title": "Ritmo Latino ✘ #SabaDoboz by ELB & Perreu ✘ Every Saturday",
-      "url": "https://cooltix.hu/event/6abd02818667de1ca79562ea",
-      "start": "2026-10-24T22:00:00+02:00",
+      "id": "b659dc21aa96a517",
+      "title": "ALTIN GÜN @ NagyHall 2026.11.08.",
+      "url": "https://cooltix.hu/event/6a75adc1e211b911bb673cf9",
+      "start": "2026-11-08T19:00:00+01:00",
       "start_time_known": true,
-      "effective_date": "2026-10-24",
-      "venue": "Doboz Ruin Pub & Bar",
-      "district": "VII.",
+      "effective_date": "2026-11-08",
+      "venue": "Akvárium Klub",
+      "district": "V.",
       "categories": [
-        "klub"
+        "koncert"
       ],
       "price_min": null,
       "is_free": false,
-      "score": 6.33,
+      "score": 6.362,
+      "group_size": 1
+    },
+    {
+      "id": "96f95cee65261afc",
+      "title": "4D Monster Lobsters Live Show",
+      "url": "https://cooltix.hu/event/6ad229c195daf6742ded07f2",
+      "start": "2026-11-08T19:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-11-08",
+      "venue": "Budapest",
+      "district": "VIII.",
+      "categories": [
+        "koncert"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 6.358,
+      "group_size": 1
+    },
+    {
+      "id": "056439014345c78e",
+      "title": "10.23. DŪNE X SAMBA SOIRÉE",
+      "url": "https://cooltix.hu/event/6ad658ddb1a3afa10e688677",
+      "start": "2026-10-23T23:00:00+02:00",
+      "start_time_known": true,
+      "effective_date": "2026-10-23",
+      "venue": "Széchenyi István tér 7",
+      "district": "V.",
+      "categories": [
+        "egyeb"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 6.326,
       "group_size": 1
     },
     {
@@ -1136,40 +1102,6 @@
       "group_size": 1
     },
     {
-      "id": "d7ec196dd7481668",
-      "title": "Bem Mozi — 4 program",
-      "url": "https://cooltix.hu/event/6ab5348c6dbeca32dadf4c76",
-      "start": "2026-10-23T13:30:00+02:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-23",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 6.0,
-      "group_size": 4
-    },
-    {
-      "id": "881a70ad79af041a",
-      "title": "Bem Mozi — 4 program",
-      "url": "https://cooltix.hu/event/6ab535e16dbecac8bbdfd10c",
-      "start": "2026-10-24T13:30:00+02:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-24",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 6.0,
-      "group_size": 4
-    },
-    {
       "id": "383cce0cde49c674",
       "title": "Krallice, Rivers Ablaze // Budapest, Dürer Kert",
       "url": "https://www.tixa.hu/krallice-budapest",
@@ -1204,46 +1136,12 @@
       "group_size": 1
     },
     {
-      "id": "1695e776a17e4168",
-      "title": "DRAKULA VÁR - Vajdahunyadvár 130",
-      "url": "https://cooltix.hu/event/6ac4dbe5cdbaf7265da6b04e",
-      "start": "2026-11-07T17:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-07",
-      "venue": "Mezőgazdasági Múzeum",
-      "district": "XIV.",
-      "categories": [
-        "szinhaz"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 6.0,
-      "group_size": 1
-    },
-    {
       "id": "69f0393ca8f76c5d",
       "title": "Studio 103 | Kerámia workshop | 10.24.",
       "url": "https://cooltix.hu/event/6aa80662987bd6451966d9bd",
       "start": "2026-10-24T14:00:00+02:00",
       "start_time_known": true,
       "effective_date": "2026-10-24",
-      "venue": "Studio 103",
-      "district": "XI.",
-      "categories": [
-        "meetup"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 5.84,
-      "group_size": 1
-    },
-    {
-      "id": "658ac5f6e08f71a4",
-      "title": "Studio 103 | Ékszerkészítő workshop | 11.08-11.22.",
-      "url": "https://cooltix.hu/event/6ab9764a1f8212537469a28e",
-      "start": "2026-11-08T10:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-08",
       "venue": "Studio 103",
       "district": "XI.",
       "categories": [
@@ -1289,12 +1187,46 @@
       "group_size": 1
     },
     {
+      "id": "ed33f576677055e5",
+      "title": "RandiPiknik - ElsőSzikra (Nők: 38-50 év, Férfiak: 40-52 év)",
+      "url": "https://cooltix.hu/event/6acbe5a95b655d3e3b379f1f",
+      "start": "2026-11-08T16:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-11-08",
+      "venue": "KEG Sörművház",
+      "district": "XI.",
+      "categories": [
+        "egyeb"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 5.728,
+      "group_size": 1
+    },
+    {
       "id": "c3b9aec5f32dba2c",
       "title": "HUNGARICA + VARGA MIKLÓS + KALAPÁCS JÓZSEF /// ANALOG MUSIC HALL Budapest",
       "url": "https://cooltix.hu/event/6a268128d49deab02b409633",
       "start": "2026-10-23T18:30:00+02:00",
       "start_time_known": true,
       "effective_date": "2026-10-23",
+      "venue": "Analog Music Hall",
+      "district": "XI.",
+      "categories": [
+        "egyeb"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 5.64,
+      "group_size": 1
+    },
+    {
+      "id": "b2789d0e8267bb0a",
+      "title": "HCW Legacy: Part 5 - FORRADALOM",
+      "url": "https://cooltix.hu/event/6a27083e9161070b0a0d479b",
+      "start": "2026-11-08T17:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-11-08",
       "venue": "Analog Music Hall",
       "district": "XI.",
       "categories": [
@@ -1375,6 +1307,23 @@
       "group_size": 1
     },
     {
+      "id": "3775ffd8d913cbb9",
+      "title": "A Kert / Flop / Madrass és Barátaik",
+      "url": "https://cooltix.hu/event/6abe1b15bab93378ff93b1b7",
+      "start": "2026-11-07T20:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-11-07",
+      "venue": "MUZIKUM Klub & Bisztró",
+      "district": "VIII.",
+      "categories": [
+        "koncert"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 5.508,
+      "group_size": 1
+    },
+    {
       "id": "308d0a83275141e9",
       "title": "DIA DE LOS MUERTOS - ALACALUFE - HAROM HOLLO",
       "url": "https://cooltix.hu/event/6aa979d6faf27b08797e974d",
@@ -1425,6 +1374,40 @@
       "price_min": null,
       "is_free": false,
       "score": 5.44,
+      "group_size": 1
+    },
+    {
+      "id": "d5aa5cbb8c00feee",
+      "title": "Stifler Mamája 10. szülinap - Barhole",
+      "url": "https://cooltix.hu/event/6ac4a43f04e42e16a3a19e73",
+      "start": "2026-11-07T18:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-11-07",
+      "venue": "BARhole Music",
+      "district": "VII.",
+      "categories": [
+        "koncert"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 5.408,
+      "group_size": 1
+    },
+    {
+      "id": "546cd6c5f7b8da7d",
+      "title": "Ingyenes halloweeni arcfestés a gyerekeknek - REGISZTRÁCIÓ 10.31. SAVOYAI TERASZ",
+      "url": "https://cooltix.hu/event/6ad6277b745e725347d25525",
+      "start": "2026-10-31T13:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-10-31",
+      "venue": "Savoyai Terasz",
+      "district": "I.",
+      "categories": [
+        "csaladi"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 5.398,
       "group_size": 1
     },
     {
@@ -1515,24 +1498,6 @@
       "group_size": 1
     },
     {
-      "id": "37476a54705e1b95",
-      "title": "STERBINSZKY X MYNEA BIRTHDAY ALL NIGHT LONG",
-      "url": "https://cooltix.hu/event/6a203b3d4f5fc0d561058a2d",
-      "start": "2026-11-07T23:30:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-07",
-      "venue": "Akvárium Klub",
-      "district": "V.",
-      "categories": [
-        "klub",
-        "koncert"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 5.362,
-      "group_size": 1
-    },
-    {
       "id": "6422c974b601fc00",
       "title": "Salmon footsteps x Transient trio",
       "url": "https://cooltix.hu/event/6ab29afaf1b9b65bed7c3e6f",
@@ -1567,34 +1532,16 @@
       "group_size": 1
     },
     {
-      "id": "0e13e0c7539420da",
-      "title": "Pub Quiz Special: Harry Potter Trivia",
-      "url": "https://cooltix.hu/event/6ad4e674af0f21e2db60f833",
-      "start": "2026-10-30T19:30:00+01:00",
+      "id": "e490175229ae4f21",
+      "title": "International Speed Friending & Get2Know Games by ELB @Doboz",
+      "url": "https://cooltix.hu/event/6a9058e569b2af1436a886a3",
+      "start": "2026-10-21T18:00:00+02:00",
       "start_time_known": true,
-      "effective_date": "2026-10-30",
-      "venue": "JO&JOE Budapest",
-      "district": "VII.",
-      "categories": [
-        "film",
-        "kviz"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 5.338,
-      "group_size": 1
-    },
-    {
-      "id": "ce62b73d2c44111b",
-      "title": "Día de los Muertos Party by ELB ✘ Halloween in Doboz ✘ 31st Oct",
-      "url": "https://cooltix.hu/event/6ad5d8534692077be0e857f7",
-      "start": "2026-10-31T22:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-31",
+      "effective_date": "2026-10-21",
       "venue": "Doboz Ruin Pub & Bar",
       "district": "VII.",
       "categories": [
-        "klub"
+        "egyeb"
       ],
       "price_min": null,
       "is_free": false,
@@ -1619,23 +1566,6 @@
       "group_size": 1
     },
     {
-      "id": "9a7d9aaadf127308",
-      "title": "Egy senki álmai – Győri Márton kiállítása",
-      "url": "https://cooltix.hu/event/6ac4b96f4639183ea787d915",
-      "start": "2026-11-07T19:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-07",
-      "venue": "JCC Budapest - Bálint Ház",
-      "district": "VI.",
-      "categories": [
-        "kiallitas"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 5.286,
-      "group_size": 1
-    },
-    {
       "id": "71f28026ad91cd5f",
       "title": "ShoeS RESILIO Albumbemutató koncert | Support: Dazzled",
       "url": "https://cooltix.hu/event/6ab0ee421c655372cb5e1161",
@@ -1653,40 +1583,6 @@
       "group_size": 1
     },
     {
-      "id": "3226755459a9b317",
-      "title": "SANTSAT POP-UP → Palazzo Permanens",
-      "url": "https://cooltix.hu/event/6aba5b531f82127563cdd924",
-      "start": "2026-11-07T16:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-07",
-      "venue": "Palazzo Permanens",
-      "district": "VII.",
-      "categories": [
-        "egyeb"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 5.268,
-      "group_size": 1
-    },
-    {
-      "id": "75c450a468d7b7f2",
-      "title": "True Energy // TOLDI",
-      "url": "https://cooltix.hu/event/6aa9af7cc0497685464f297f",
-      "start": "2026-11-07T23:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-07",
-      "venue": "Toldi Klub",
-      "district": "V.",
-      "categories": [
-        "egyeb"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 5.244,
-      "group_size": 1
-    },
-    {
       "id": "214977f9c7acbc6d",
       "title": "Freakin Disco | Gorg & Benzol @ KASSA Halloween",
       "url": "https://cooltix.hu/event/6ab4071cdc964e537f51819a",
@@ -1697,23 +1593,6 @@
       "district": "I.",
       "categories": [
         "koncert"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 5.2219999999999995,
-      "group_size": 1
-    },
-    {
-      "id": "730c9c292183c33b",
-      "title": "OIEE'S TRANSITION | OVERWATER Edition",
-      "url": "https://cooltix.hu/event/6ab2596e4eb33623813216c0",
-      "start": "2026-11-07T20:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-07",
-      "venue": "Kassa (Hajó)",
-      "district": "I.",
-      "categories": [
-        "egyeb"
       ],
       "price_min": null,
       "is_free": false,
@@ -1773,6 +1652,23 @@
       "group_size": 1
     },
     {
+      "id": "1fe642e183be5956",
+      "title": "Sepultura + Down tribute 💥 Respectful Hate, Over The Underdog 💥 STENK Lelátó",
+      "url": "https://cooltix.hu/event/6a9e55f173e7d00b94e7a2f1",
+      "start": "2026-11-07T19:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-11-07",
+      "venue": "STENK",
+      "district": "VIII.",
+      "categories": [
+        "koncert"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 5.104,
+      "group_size": 1
+    },
+    {
       "id": "24c3f4f52497052b",
       "title": "kék és lila álmok a manyiban: koran d. david × capsule boy",
       "url": "https://cooltix.hu/event/6ac3a15f04e42e819f1c9564",
@@ -1805,23 +1701,6 @@
       "is_free": false,
       "score": 5.0,
       "group_size": 1
-    },
-    {
-      "id": "bf0b4166ff85e03a",
-      "title": "Bem Mozi — 4 program",
-      "url": "https://cooltix.hu/event/6ac3b844f538a746b2493aa5",
-      "start": "2026-10-19T17:00:00+02:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-19",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 5.0,
-      "group_size": 4
     },
     {
       "id": "4b2666d11e5d3ecf",
@@ -1858,23 +1737,6 @@
       "group_size": 1
     },
     {
-      "id": "e0068f40abc80370",
-      "title": "Bem Mozi — 4 program",
-      "url": "https://cooltix.hu/event/6ab53a171f38c75c7319e1bc",
-      "start": "2026-10-25T13:30:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-25",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 5.0,
-      "group_size": 4
-    },
-    {
       "id": "43642a812cfba7e6",
       "title": "Dürer Varázskert - Kámfor bábszínház: Kacor király és a Kalóz",
       "url": "https://www.tixa.hu/durer-varazskert-kamfor-babszinhaz-kacor-kiraly-es-a-kaloz-20261025",
@@ -1891,23 +1753,6 @@
       "is_free": false,
       "score": 5.0,
       "group_size": 1
-    },
-    {
-      "id": "570fa784d6e0ca38",
-      "title": "Bem Mozi — 4 program",
-      "url": "https://cooltix.hu/event/6acf5d199c7c7a3bbd0b753e",
-      "start": "2026-10-30T16:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-30",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 5.0,
-      "group_size": 4
     },
     {
       "id": "c2286077f8168305",
@@ -1927,21 +1772,21 @@
       "group_size": 1
     },
     {
-      "id": "271c16cbb530ef16",
-      "title": "Bem Mozi — 4 program",
-      "url": "https://cooltix.hu/event/6acf6721f135d0533244f2a1",
-      "start": "2026-10-31T13:15:00+01:00",
+      "id": "89971d29d67bb4ab",
+      "title": "PANNON ROLLER DISCO - SPOOKY WHEELS",
+      "url": "https://cooltix.hu/event/6ad683968115010e393ff397",
+      "start": "2026-10-31T14:00:00+01:00",
       "start_time_known": true,
       "effective_date": "2026-10-31",
-      "venue": "Bem Mozi",
-      "district": "II.",
+      "venue": "Tungsram SC Sportcsarnok",
+      "district": "IV.",
       "categories": [
-        "film"
+        "egyeb"
       ],
       "price_min": null,
       "is_free": false,
       "score": 5.0,
-      "group_size": 4
+      "group_size": 1
     },
     {
       "id": "27c99c4e33bfa488",
@@ -1961,72 +1806,37 @@
       "group_size": 1
     },
     {
-      "id": "057a1a4a552d3bcb",
-      "title": "CigarTower Masterclass – A szivarozás története és művészete",
-      "url": "https://cooltix.hu/event/6ac37f16ee93a6f7c21d4d8f",
+      "id": "2c2821bce9e065bf",
+      "title": "WOLF OLIVER X BARI LACI - RNB/HIPHOP HALLOWEEN PARTY🎃",
+      "url": "https://cooltix.hu/event/6ad6505c68e0382fe67ef45a",
+      "start": "2026-10-31T22:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-10-31",
+      "venue": "LUMIN8 Rendezvényközpont",
+      "district": "III.",
+      "categories": [
+        "klub"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 5.0,
+      "group_size": 1
+    },
+    {
+      "id": "2ba68600ad712b60",
+      "title": "KUPLUNG Zenekar DUPLA - Aréna | 2026.11.07.",
+      "url": "https://cooltix.hu/event/695447beee19b589e9c16a92",
       "start": "2026-11-07T18:00:00+01:00",
       "start_time_known": true,
       "effective_date": "2026-11-07",
-      "venue": "Szépművészeti Múzeum",
+      "venue": "Papp László Budapest Sportaréna",
       "district": "XIV.",
       "categories": [
-        "egyeb"
+        "koncert"
       ],
       "price_min": null,
       "is_free": false,
       "score": 5.0,
-      "group_size": 1
-    },
-    {
-      "id": "83bd85d8bea0d639",
-      "title": "FRIDA",
-      "url": "https://cooltix.hu/event/6a4390bc3433e7d7cd8691c4",
-      "start": "2026-11-07T20:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-07",
-      "venue": "Eiffel Műhelyház",
-      "district": "X.",
-      "categories": [
-        "kiallitas"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 5.0,
-      "group_size": 1
-    },
-    {
-      "id": "af23306c09507ef8",
-      "title": "Dallammentők - A mesevilág hősei - interaktív gyermekműsor",
-      "url": "https://cooltix.hu/event/6aca7b54d713223a9db56c54",
-      "start": "2026-11-08T11:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-08",
-      "venue": "Csokonai Rendezvényház",
-      "district": "XV.",
-      "categories": [
-        "szinhaz",
-        "fesztival"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 5.0,
-      "group_size": 1
-    },
-    {
-      "id": "3cb8212415336fb6",
-      "title": "Studio 103 | Kerámia workshop | 10.19.",
-      "url": "https://cooltix.hu/event/6aa80597987bd61c48663b74",
-      "start": "2026-10-19T18:00:00+02:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-19",
-      "venue": "Studio 103",
-      "district": "XI.",
-      "categories": [
-        "meetup"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 4.84,
       "group_size": 1
     },
     {
@@ -2132,6 +1942,23 @@
       "group_size": 1
     },
     {
+      "id": "6de0a57320e80b89",
+      "title": "Studio 103 | Kerámia workshop | 11.07.",
+      "url": "https://cooltix.hu/event/6ac81c0a23535479809ee6bc",
+      "start": "2026-11-07T14:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-11-07",
+      "venue": "Studio 103",
+      "district": "XI.",
+      "categories": [
+        "meetup"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 4.84,
+      "group_size": 1
+    },
+    {
       "id": "ff06fe53776319dd",
       "title": "RandiPiknik - ElsőSzikra (Nők: 33-45 év, Férfiak: 35-47 év)",
       "url": "https://cooltix.hu/event/6ac23dcb64dcd45ef7b584f6",
@@ -2217,6 +2044,23 @@
       "group_size": 1
     },
     {
+      "id": "a02d952f99d6007c",
+      "title": "Könyvklub",
+      "url": "https://cooltix.hu/event/6ad5230b38266ebfba6ce3d1",
+      "start": "2026-10-24T17:00:00+02:00",
+      "start_time_known": true,
+      "effective_date": "2026-10-24",
+      "venue": "Ahoy! Waffle, Chocolate, Lemonade Cafe",
+      "district": "V.",
+      "categories": [
+        "egyeb"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 4.526,
+      "group_size": 1
+    },
+    {
       "id": "64a827e37b0d1227",
       "title": "Gyilkos Vacsora a Véndiákban",
       "url": "https://cooltix.hu/event/6ad0ee7447dd561b5485221c",
@@ -2265,6 +2109,23 @@
       "price_min": null,
       "is_free": false,
       "score": 4.492,
+      "group_size": 1
+    },
+    {
+      "id": "f88161cfecbd21b0",
+      "title": "Az Ökodesign rendelet (ESPR) következményei",
+      "url": "https://cooltix.hu/event/6aa8febdc5c5c240ffe57063",
+      "start": "2026-11-05T08:30:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-11-05",
+      "venue": "Corvin Dumaszínház",
+      "district": "VIII.",
+      "categories": [
+        "egyeb"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 4.482,
       "group_size": 1
     },
     {
@@ -2422,23 +2283,6 @@
       "group_size": 1
     },
     {
-      "id": "ed3f067e41970e05",
-      "title": "Örökség és választás – Schein Adél előadása a Rumbach zsinagógában",
-      "url": "https://cooltix.hu/event/6ac7a610a9afac68bcdff05c",
-      "start": "2026-10-19T17:00:00+02:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-19",
-      "venue": "Rumbach zsinagóga",
-      "district": "VII.",
-      "categories": [
-        "szinhaz"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 4.37,
-      "group_size": 1
-    },
-    {
       "id": "9368ce7fb95a2e98",
       "title": "Ízek és Textúrák Workshop Főnyedi Mátéval",
       "url": "https://cooltix.hu/event/6ac6889fac5849037cda7b46",
@@ -2507,6 +2351,40 @@
       "group_size": 1
     },
     {
+      "id": "773b3cfa9a806d23",
+      "title": "Coronita® Afterparty 2026/11/01 @CAT Budapest | VASÁRNAP 05:00-09:00",
+      "url": "https://cooltix.hu/event/6ad62c0cfb371a8704b634a6",
+      "start": "2026-11-01T05:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-11-01",
+      "venue": "CAT Budapest",
+      "district": "VII.",
+      "categories": [
+        "egyeb"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 4.352,
+      "group_size": 1
+    },
+    {
+      "id": "a1d41a242193c71c",
+      "title": "Ritmo Latino ✘ #SabaDoboz by ELB & Perreu ✘ Every Saturday",
+      "url": "https://cooltix.hu/event/6abd02818667de1ca79562ea",
+      "start": "2026-10-24T22:00:00+02:00",
+      "start_time_known": true,
+      "effective_date": "2026-10-24",
+      "venue": "Doboz Ruin Pub & Bar",
+      "district": "VII.",
+      "categories": [
+        "klub"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 4.33,
+      "group_size": 1
+    },
+    {
       "id": "07981c4798ccdcf9",
       "title": "RITMIK at DOJO 10.23.",
       "url": "https://cooltix.hu/event/6ac874c7ba13005695bc1dca",
@@ -2564,6 +2442,23 @@
       "start": "2026-10-24T23:00:00+02:00",
       "start_time_known": true,
       "effective_date": "2026-10-24",
+      "venue": "Ötkert Club",
+      "district": "V.",
+      "categories": [
+        "klub"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 4.324,
+      "group_size": 1
+    },
+    {
+      "id": "13c7d0ea55e2fccc",
+      "title": "Semmelweis Halloween - 10.29 - ÖTKERT",
+      "url": "https://cooltix.hu/event/6ad631e512858a1ec79f25c9",
+      "start": "2026-10-29T23:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-10-29",
       "venue": "Ötkert Club",
       "district": "V.",
       "categories": [
@@ -2728,12 +2623,29 @@
       "group_size": 1
     },
     {
-      "id": "c5d29131f5087fee",
-      "title": "ARANYKALITKÁKON INNEN ÉS TÚL",
-      "url": "https://cooltix.hu/event/6ad5d9bc7bbc1560aed94c0d",
-      "start": "2026-11-05T19:00:00+01:00",
+      "id": "780dbdd1af401eb1",
+      "title": "A FÖLD MESERÉGIÓNAK MESÉI A HALÁLRÓL ÉS A GYÁSZRÓL",
+      "url": "https://cooltix.hu/event/6a9ad879327afc80a7daffae",
+      "start": "2026-10-26T18:00:00+01:00",
       "start_time_known": true,
-      "effective_date": "2026-11-05",
+      "effective_date": "2026-10-26",
+      "venue": "Zöldike Klub",
+      "district": "I.",
+      "categories": [
+        "szinhaz"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 4.086,
+      "group_size": 1
+    },
+    {
+      "id": "b270488e09ba614d",
+      "title": "Dialóg / Szerzői est és beszélgetés Fábián Tamással",
+      "url": "https://cooltix.hu/event/6ad60cd8ff6f757ad4a738ce",
+      "start": "2026-11-03T19:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-11-03",
       "venue": "Dugattyús",
       "district": "II.",
       "categories": [
@@ -2796,23 +2708,6 @@
       "group_size": 1
     },
     {
-      "id": "09145bc9f9768672",
-      "title": "TRÓNVISZÁLY NYOMOZÓS JÁTÉK",
-      "url": "https://foglalas.kvizestek.hu/esemenyek/tronviszaly-nyomozos-jatek-cooltour-bar-3-2026-10-19-f1febc9e",
-      "start": "2026-10-19T19:00:00+02:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-19",
-      "venue": "Cooltour Bar 3",
-      "district": "II.",
-      "categories": [
-        "egyeb"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 4.0,
-      "group_size": 1
-    },
-    {
       "id": "3f028970298f3709",
       "title": "Hungarian Railway Museum by ESN Corvinus",
       "url": "https://cooltix.hu/event/6acfb76c6b623f37ae8769e2",
@@ -2872,6 +2767,23 @@
       "effective_date": "2026-10-24",
       "venue": "Szentmihályi Konrád Ferenc Uszoda",
       "district": "XVI.",
+      "categories": [
+        "egyeb"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 4.0,
+      "group_size": 1
+    },
+    {
+      "id": "ff810e3644ca523c",
+      "title": "A BOSZORKÁNY HAGYATÉKA NYOMOZÓS JÁTÉK",
+      "url": "https://foglalas.kvizestek.hu/esemenyek/a-boszorkany-hagyateka-nyomozos-jatek-cooltour-bar-3-2026-10-26-f5571fc3",
+      "start": "2026-10-26T19:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-10-26",
+      "venue": "Cooltour Bar 3",
+      "district": "II.",
       "categories": [
         "egyeb"
       ],
@@ -2949,16 +2861,33 @@
       "group_size": 1
     },
     {
-      "id": "a79b590c78e97355",
-      "title": "Bubák és a Varázskönyv",
-      "url": "https://cooltix.hu/event/6a1dd94a5f24f1a836d0c066",
-      "start": "2026-11-08T10:00:00+01:00",
+      "id": "1695e776a17e4168",
+      "title": "DRAKULA VÁR - Vajdahunyadvár 130",
+      "url": "https://cooltix.hu/event/6ac4dbe5cdbaf7265da6b04e",
+      "start": "2026-11-07T17:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-11-07",
+      "venue": "Mezőgazdasági Múzeum",
+      "district": "XIV.",
+      "categories": [
+        "szinhaz"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 4.0,
+      "group_size": 1
+    },
+    {
+      "id": "7ca2e7a7cdf7961a",
+      "title": "FRIDA",
+      "url": "https://cooltix.hu/event/6aa11b3beb9f17e032fcf7de",
+      "start": "2026-11-08T20:00:00+01:00",
       "start_time_known": true,
       "effective_date": "2026-11-08",
-      "venue": "Újpest Cultural Center Office.",
-      "district": "IV.",
+      "venue": "Eiffel Műhelyház",
+      "district": "X.",
       "categories": [
-        "csaladi"
+        "kiallitas"
       ],
       "price_min": null,
       "is_free": false,
@@ -3074,6 +3003,23 @@
       "start": "2026-11-05T18:00:00+01:00",
       "start_time_known": true,
       "effective_date": "2026-11-05",
+      "venue": "Studio 103",
+      "district": "XI.",
+      "categories": [
+        "meetup"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 3.84,
+      "group_size": 1
+    },
+    {
+      "id": "658ac5f6e08f71a4",
+      "title": "Studio 103 | Ékszerkészítő workshop | 11.08-11.22.",
+      "url": "https://cooltix.hu/event/6ab9764a1f8212537469a28e",
+      "start": "2026-11-08T10:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-11-08",
       "venue": "Studio 103",
       "district": "XI.",
       "categories": [
@@ -3376,6 +3322,23 @@
       "group_size": 1
     },
     {
+      "id": "25decee588f11de1",
+      "title": "TFSE - SZISE I Női kézilabda Magyar Kupa",
+      "url": "https://cooltix.hu/event/6ad1e54c5a58d523287f93c9",
+      "start": "2026-10-26T18:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-10-26",
+      "venue": "Magyar Testnevelési és Sporttudományi Egyetem Dr. Koltai Jenő Sportközpont",
+      "district": "XII.",
+      "categories": [
+        "egyeb"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 3.442,
+      "group_size": 1
+    },
+    {
       "id": "0e5e6a7d5a01182c",
       "title": "TFSE - Budapesti Bikák I Férfi Kosárlabda NB I./B Zöld-csoport",
       "url": "https://cooltix.hu/event/6ad1e8be961f2158c0662a6a",
@@ -3529,12 +3492,12 @@
       "group_size": 1
     },
     {
-      "id": "da1bf0d2ddc8a239",
-      "title": "TECHNO PILATES / UV Pilates Október / Akvárium Klub powered by TECHNO YOGA",
-      "url": "https://cooltix.hu/event/6a8ca2708638c47812e867a5",
-      "start": "2026-10-19T18:00:00+02:00",
+      "id": "37476a54705e1b95",
+      "title": "STERBINSZKY X MYNEA BIRTHDAY ALL NIGHT LONG",
+      "url": "https://cooltix.hu/event/6a203b3d4f5fc0d561058a2d",
+      "start": "2026-11-07T23:30:00+01:00",
       "start_time_known": true,
-      "effective_date": "2026-10-19",
+      "effective_date": "2026-11-07",
       "venue": "Akvárium Klub",
       "district": "V.",
       "categories": [
@@ -3598,6 +3561,23 @@
       "group_size": 1
     },
     {
+      "id": "22ffb130b77ee019",
+      "title": "ESN ELTE, ESN Semmelweis, ESN MATE, ESN LUPS Halloween party",
+      "url": "https://cooltix.hu/event/6ad3030c6aa3114c764edf41",
+      "start": "2026-10-30T20:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-10-30",
+      "venue": "Bäse Bar Budapest",
+      "district": "VI.",
+      "categories": [
+        "klub"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 3.342,
+      "group_size": 1
+    },
+    {
       "id": "ac891582ea06befe",
       "title": "Rooftop Party by ELB ✘ Joe's Rooftop ✘ 22nd October ✘ Afro House & Latin House",
       "url": "https://cooltix.hu/event/6ac9248cfee2aab3addd925e",
@@ -3608,6 +3588,24 @@
       "district": "VII.",
       "categories": [
         "klub"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 3.338,
+      "group_size": 1
+    },
+    {
+      "id": "0e13e0c7539420da",
+      "title": "Pub Quiz Special: Harry Potter Trivia",
+      "url": "https://cooltix.hu/event/6ad4e674af0f21e2db60f833",
+      "start": "2026-10-30T19:30:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-10-30",
+      "venue": "JO&JOE Budapest",
+      "district": "VII.",
+      "categories": [
+        "film",
+        "kviz"
       ],
       "price_min": null,
       "is_free": false,
@@ -3638,6 +3636,23 @@
       "start": "2026-10-21T22:00:00+02:00",
       "start_time_known": true,
       "effective_date": "2026-10-21",
+      "venue": "Doboz Ruin Pub & Bar",
+      "district": "VII.",
+      "categories": [
+        "klub"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 3.33,
+      "group_size": 1
+    },
+    {
+      "id": "ce62b73d2c44111b",
+      "title": "Día de los Muertos Party by ELB ✘ Halloween in Doboz ✘ 31st Oct",
+      "url": "https://cooltix.hu/event/6ad5d8534692077be0e857f7",
+      "start": "2026-10-31T22:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-10-31",
       "venue": "Doboz Ruin Pub & Bar",
       "district": "VII.",
       "categories": [
@@ -3853,6 +3868,23 @@
       "group_size": 1
     },
     {
+      "id": "9a7d9aaadf127308",
+      "title": "Egy senki álmai – Győri Márton kiállítása",
+      "url": "https://cooltix.hu/event/6ac4b96f4639183ea787d915",
+      "start": "2026-11-07T19:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-11-07",
+      "venue": "JCC Budapest - Bálint Ház",
+      "district": "VI.",
+      "categories": [
+        "kiallitas"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 3.286,
+      "group_size": 1
+    },
+    {
       "id": "447a299f59cc8fcf",
       "title": "🎭NO FACE HALLOWEEN🎭 // Maroni / 10.30",
       "url": "https://cooltix.hu/event/6ac2740c64dcd4986ad5a55d",
@@ -3972,20 +4004,20 @@
       "group_size": 1
     },
     {
-      "id": "cbb025a235c45149",
-      "title": "Gyilkosságok a kávéházak korában",
-      "url": "https://cooltix.hu/event/6ac0e44eb97d65a623411b01",
-      "start": "2026-10-19T18:00:00+02:00",
+      "id": "3226755459a9b317",
+      "title": "SANTSAT POP-UP → Palazzo Permanens",
+      "url": "https://cooltix.hu/event/6aba5b531f82127563cdd924",
+      "start": "2026-11-07T16:00:00+01:00",
       "start_time_known": true,
-      "effective_date": "2026-10-19",
-      "venue": "Művész Kávéház",
-      "district": "VI.",
+      "effective_date": "2026-11-07",
+      "venue": "Palazzo Permanens",
+      "district": "VII.",
       "categories": [
         "egyeb"
       ],
       "price_min": null,
       "is_free": false,
-      "score": 3.258,
+      "score": 3.268,
       "group_size": 1
     },
     {
@@ -4006,10 +4038,27 @@
       "group_size": 1
     },
     {
+      "id": "75c450a468d7b7f2",
+      "title": "True Energy // TOLDI",
+      "url": "https://cooltix.hu/event/6aa9af7cc0497685464f297f",
+      "start": "2026-11-07T23:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-11-07",
+      "venue": "Toldi Klub",
+      "district": "V.",
+      "categories": [
+        "egyeb"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 3.2439999999999998,
+      "group_size": 1
+    },
+    {
       "id": "bc7fc424de04a031",
       "title": "Nokia AI Forward '26",
       "url": "https://cooltix.hu/event/6a2021e011eda8686998aba7",
-      "start": "2026-10-21T09:00:00+02:00",
+      "start": "2026-10-21T07:30:00+02:00",
       "start_time_known": true,
       "effective_date": "2026-10-21",
       "venue": "MVM Dome",
@@ -4091,6 +4140,23 @@
       "group_size": 1
     },
     {
+      "id": "730c9c292183c33b",
+      "title": "OIEE'S TRANSITION | OVERWATER Edition",
+      "url": "https://cooltix.hu/event/6ab2596e4eb33623813216c0",
+      "start": "2026-11-07T20:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-11-07",
+      "venue": "Kassa (Hajó)",
+      "district": "I.",
+      "categories": [
+        "egyeb"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 3.222,
+      "group_size": 1
+    },
+    {
       "id": "2f657d4e47a4e517",
       "title": "Wine & Cheese Tasting by ELB @Bortodoor City ✘ 20th Oct",
       "url": "https://cooltix.hu/event/6ab3bcf6753eeb48dc30b932",
@@ -4142,23 +4208,6 @@
       "group_size": 1
     },
     {
-      "id": "c17b4cbb24f2de48",
-      "title": "Yogasailor-Gerincjóga a CoolFit-ben/2026.10.19./19:30-21.00",
-      "url": "https://cooltix.hu/event/6ace10ba2353541550951879",
-      "start": "2026-10-19T19:30:00+02:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-19",
-      "venue": "CoolFit Csepel",
-      "district": "XXI.",
-      "categories": [
-        "egyeb"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 3.118,
-      "group_size": 1
-    },
-    {
       "id": "f447b1232f4fd062",
       "title": "White Girl Music HALLOWEEN Party • Remix 16+ Daytime to Midnight • 10.31.",
       "url": "https://cooltix.hu/event/6aaa70542c0995fa1504df0b",
@@ -4193,23 +4242,6 @@
       "group_size": 1
     },
     {
-      "id": "780dbdd1af401eb1",
-      "title": "A FÖLD MESERÉGIÓNAK MESÉI A HALÁLRÓL ÉS A GYÁSZRÓL",
-      "url": "https://cooltix.hu/event/6a9ad879327afc80a7daffae",
-      "start": "2026-10-26T18:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-26",
-      "venue": "Zöldike Klub",
-      "district": "I.",
-      "categories": [
-        "szinhaz"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 3.086,
-      "group_size": 1
-    },
-    {
       "id": "38397fafffe04021",
       "title": "Tabu helyett öröm | Kriston 40 konferencia az MSTT társszervezésében",
       "url": "https://cooltix.hu/event/6ac4ffbae1ebcca547397d57",
@@ -4224,40 +4256,6 @@
       "price_min": null,
       "is_free": false,
       "score": 3.05,
-      "group_size": 1
-    },
-    {
-      "id": "d5dd5ab7b5e6fcea",
-      "title": "Az erőd / Värn | PREMIER",
-      "url": "https://cooltix.hu/event/6ab5285a6dbeca0f5ad8c0bc",
-      "start": "2026-10-20T16:00:00+02:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-20",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 3.0,
-      "group_size": 1
-    },
-    {
-      "id": "5384cb3f7544d360",
-      "title": "A nagy szépség / La grande bellezza",
-      "url": "https://cooltix.hu/event/6ac0fdd5905061549685c964",
-      "start": "2026-10-20T18:00:00+02:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-20",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 3.0,
       "group_size": 1
     },
     {
@@ -4278,23 +4276,6 @@
       "group_size": 1
     },
     {
-      "id": "ebef1686a2e09d3d",
-      "title": "Zuhanás / The Fall",
-      "url": "https://cooltix.hu/event/6ab52a1cd1e3b8b7693bfcd4",
-      "start": "2026-10-20T20:45:00+02:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-20",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 3.0,
-      "group_size": 1
-    },
-    {
       "id": "7f250c7aa20567ed",
       "title": "Piacépítő Sales Nap",
       "url": "https://cooltix.hu/event/6abb64dc6fc57e549474760a",
@@ -4305,108 +4286,6 @@
       "district": "XIII.",
       "categories": [
         "egyeb"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 3.0,
-      "group_size": 1
-    },
-    {
-      "id": "eff8550d6b6fced4",
-      "title": "Az utolsó new york-i zsebtolvaj / The Only Living Pickpocket in New York",
-      "url": "https://cooltix.hu/event/6ab52c7bb472f4adeee34a0c",
-      "start": "2026-10-21T16:30:00+02:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-21",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 3.0,
-      "group_size": 1
-    },
-    {
-      "id": "6f38ac7acf1294c6",
-      "title": "AKIRA | English subtitles",
-      "url": "https://cooltix.hu/event/6abe657a68e477f56eec48f6",
-      "start": "2026-10-21T18:30:00+02:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-21",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 3.0,
-      "group_size": 1
-    },
-    {
-      "id": "16b69427b9e8d2a5",
-      "title": "A gyűlölet / La haine",
-      "url": "https://cooltix.hu/event/6ab8ef8e6fc57eea7a5379e2",
-      "start": "2026-10-21T21:00:00+02:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-21",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 3.0,
-      "group_size": 1
-    },
-    {
-      "id": "d0175dbb03ba34c6",
-      "title": "Az örökség | PREMIER",
-      "url": "https://cooltix.hu/event/6ab52fc117a6545f41bdf6b7",
-      "start": "2026-10-22T16:00:00+02:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-22",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 3.0,
-      "group_size": 1
-    },
-    {
-      "id": "82b7da09f303b3c2",
-      "title": "Vissza a jövőbe | az eredeti magyar szinkronnal",
-      "url": "https://cooltix.hu/event/6ab531d6226daf524fe4b6d9",
-      "start": "2026-10-22T18:30:00+02:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-22",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 3.0,
-      "group_size": 1
-    },
-    {
-      "id": "acf8c4cb82151a0f",
-      "title": "Halloween Warm Up: ALKONYAT | magyar szinkronnal",
-      "url": "https://cooltix.hu/event/6ab5331e4ec5df6908d3aef3",
-      "start": "2026-10-22T21:00:00+02:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-22",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
       ],
       "price_min": null,
       "is_free": false,
@@ -4458,23 +4337,6 @@
       "district": "III.",
       "categories": [
         "outdoor"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 3.0,
-      "group_size": 1
-    },
-    {
-      "id": "ff810e3644ca523c",
-      "title": "A BOSZORKÁNY HAGYATÉKA NYOMOZÓS JÁTÉK",
-      "url": "https://foglalas.kvizestek.hu/esemenyek/a-boszorkany-hagyateka-nyomozos-jatek-cooltour-bar-3-2026-10-26-f5571fc3",
-      "start": "2026-10-26T19:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-26",
-      "venue": "Cooltour Bar 3",
-      "district": "II.",
-      "categories": [
-        "egyeb"
       ],
       "price_min": null,
       "is_free": false,
@@ -4670,40 +4532,6 @@
       "group_size": 1
     },
     {
-      "id": "4bd193a9d95a21ea",
-      "title": "Értelem és érzelem / Sense and Sensibility | PREMIER",
-      "url": "https://cooltix.hu/event/6ad3558cc01f9325184cb340",
-      "start": "2026-11-06T17:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-06",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 3.0,
-      "group_size": 1
-    },
-    {
-      "id": "c01a2e5b2d2b7a77",
-      "title": "Habfürdő / Bubble Bath | English subtitles",
-      "url": "https://cooltix.hu/event/6ad35720ae1dd28feee4a607",
-      "start": "2026-11-06T19:30:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-06",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 3.0,
-      "group_size": 1
-    },
-    {
       "id": "ea9a63426632239d",
       "title": "VESZETT RAVE PRESENTS: CYBER ATTACK",
       "url": "https://cooltix.hu/event/6acc7d7758287b9aff7a5fba",
@@ -4714,6 +4542,58 @@
       "district": "IV.",
       "categories": [
         "klub"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 3.0,
+      "group_size": 1
+    },
+    {
+      "id": "057a1a4a552d3bcb",
+      "title": "CigarTower Masterclass – A szivarozás története és művészete",
+      "url": "https://cooltix.hu/event/6ac37f16ee93a6f7c21d4d8f",
+      "start": "2026-11-07T18:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-11-07",
+      "venue": "Szépművészeti Múzeum",
+      "district": "XIV.",
+      "categories": [
+        "egyeb"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 3.0,
+      "group_size": 1
+    },
+    {
+      "id": "83bd85d8bea0d639",
+      "title": "FRIDA",
+      "url": "https://cooltix.hu/event/6a4390bc3433e7d7cd8691c4",
+      "start": "2026-11-07T20:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-11-07",
+      "venue": "Eiffel Műhelyház",
+      "district": "X.",
+      "categories": [
+        "kiallitas"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 3.0,
+      "group_size": 1
+    },
+    {
+      "id": "af23306c09507ef8",
+      "title": "Dallammentők - A mesevilág hősei - interaktív gyermekműsor",
+      "url": "https://cooltix.hu/event/6aca7b54d713223a9db56c54",
+      "start": "2026-11-08T11:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-11-08",
+      "venue": "Csokonai Rendezvényház",
+      "district": "XV.",
+      "categories": [
+        "szinhaz",
+        "fesztival"
       ],
       "price_min": null,
       "is_free": false,
@@ -4772,23 +4652,6 @@
       "group_size": 1
     },
     {
-      "id": "027895fab3aa0d4f",
-      "title": "Az ESPR következményei: szemléletváltás a textiliparban és kereskedelemben",
-      "url": "https://cooltix.hu/event/6aa8febdc5c5c240ffe57063",
-      "start": "2026-11-05T08:30:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-05",
-      "venue": "Corvin Dumaszínház",
-      "district": "VIII.",
-      "categories": [
-        "egyeb"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.482,
-      "group_size": 1
-    },
-    {
       "id": "c999e06553bd858c",
       "title": "Önismereti ismerkedős est | 28–42 év",
       "url": "https://cooltix.hu/event/6aca1a3452ce3328eb4e6d72",
@@ -4820,23 +4683,6 @@
       "price_min": null,
       "is_free": false,
       "score": 2.4539999999999997,
-      "group_size": 1
-    },
-    {
-      "id": "25decee588f11de1",
-      "title": "TFSE - SZISE I Női kézilabda Magyar Kupa",
-      "url": "https://cooltix.hu/event/6ad1e54c5a58d523287f93c9",
-      "start": "2026-10-26T18:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-26",
-      "venue": "Magyar Testnevelési és Sporttudományi Egyetem Dr. Koltai Jenő Sportközpont",
-      "district": "XII.",
-      "categories": [
-        "egyeb"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.442,
       "group_size": 1
     },
     {
@@ -4938,23 +4784,6 @@
       "district": "V.",
       "categories": [
         "klub"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.324,
-      "group_size": 1
-    },
-    {
-      "id": "7bf16ba837f8da5a",
-      "title": "Semmelweis Halloween - 10.29 - DOJO",
-      "url": "https://cooltix.hu/event/6ac7c2ad779c2339516be10d",
-      "start": "2026-10-29T23:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-29",
-      "venue": "DOJO Boutique Club",
-      "district": "V.",
-      "categories": [
-        "egyeb"
       ],
       "price_min": null,
       "is_free": false,
@@ -5115,6 +4944,23 @@
       "group_size": 1
     },
     {
+      "id": "c5d29131f5087fee",
+      "title": "ARANYKALITKÁKON INNEN ÉS TÚL",
+      "url": "https://cooltix.hu/event/6ad5d9bc7bbc1560aed94c0d",
+      "start": "2026-11-05T19:00:00+01:00",
+      "start_time_known": true,
+      "effective_date": "2026-11-05",
+      "venue": "Dugattyús",
+      "district": "II.",
+      "categories": [
+        "egyeb"
+      ],
+      "price_min": null,
+      "is_free": false,
+      "score": 2.0060000000000002,
+      "group_size": 1
+    },
+    {
       "id": "7f49c920cd96508e",
       "title": "Typotex Könyvklub 2026 ősz",
       "url": "https://cooltix.hu/event/6a70554b77e98a55aaf004a8",
@@ -5132,144 +4978,8 @@
       "group_size": 1
     },
     {
-      "id": "aa6065d0f174aa46",
-      "title": "!SOLD OUT! NAZA | World Premiere | eng sub",
-      "url": "https://cooltix.hu/event/6ac8f8175d3e9eb968547a48",
-      "start": "2026-10-26T17:15:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-26",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.0,
-      "group_size": 1
-    },
-    {
-      "id": "ab1766ec8220f9a6",
-      "title": "SOLD OUT // NAZA | World Premiere | eng sub",
-      "url": "https://cooltix.hu/event/6ac656ac8c289f178ad6f57d",
-      "start": "2026-10-26T19:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-26",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.0,
-      "group_size": 1
-    },
-    {
-      "id": "9b8b1c31e529901b",
-      "title": "NAZA | World Premiere | eng sub",
-      "url": "https://cooltix.hu/event/6ac82d6458287b2047610460",
-      "start": "2026-10-26T21:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-26",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.0,
-      "group_size": 1
-    },
-    {
-      "id": "2bbf65efb4d20b51",
-      "title": "Reisz Gábor: Földszint / English subtitles",
-      "url": "https://cooltix.hu/event/6abe74489da80b21eb8215be",
-      "start": "2026-10-27T16:30:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-27",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.0,
-      "group_size": 1
-    },
-    {
-      "id": "822ac7ea42cf09cd",
-      "title": "Bem Halloween: Halhatatlan szeretők / Only Lovers Left Alive",
-      "url": "https://cooltix.hu/event/6aca80f15b655d5d5879501b",
-      "start": "2026-10-27T21:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-27",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.0,
-      "group_size": 1
-    },
-    {
-      "id": "b0999acacc7e03b8",
-      "title": "Halloweeni fotózás - 11.28.",
-      "url": "https://cooltix.hu/event/6acff5bae43aeff5d19d4c00",
-      "start": "2026-10-28T10:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-28",
-      "venue": "Studio by Maskoff",
-      "district": "XXI.",
-      "categories": [
-        "egyeb"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.0,
-      "group_size": 1
-    },
-    {
-      "id": "797942a9673831b3",
-      "title": "Bem Halloween: Jóravaló kísértet / Pee chai dai ka",
-      "url": "https://cooltix.hu/event/6aca7f43d7132218b6b6bb9e",
-      "start": "2026-10-28T15:30:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-28",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.0,
-      "group_size": 1
-    },
-    {
-      "id": "43028558cf84976b",
-      "title": "Feldmár András 86. - Születésnapi Filmmaraton",
-      "url": "https://cooltix.hu/event/6abffbf804e42e01423a4887",
-      "start": "2026-10-28T18:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-28",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.0,
-      "group_size": 1
-    },
-    {
-      "id": "5b2de90de95958c7",
-      "title": "Halloweeni fotózás - 11.29.",
+      "id": "521c49c387a357d8",
+      "title": "Halloweeni fotózás - 10.29.",
       "url": "https://cooltix.hu/event/6acff517b349d1bc2dbb77e1",
       "start": "2026-10-29T10:00:00+01:00",
       "start_time_known": true,
@@ -5278,108 +4988,6 @@
       "district": "XXI.",
       "categories": [
         "egyeb"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.0,
-      "group_size": 1
-    },
-    {
-      "id": "27c7ea5d756f7091",
-      "title": "Bem Halloween: Drakula / Dracula: A Love Tale",
-      "url": "https://cooltix.hu/event/6aca82cc523b79c71254bdd8",
-      "start": "2026-10-29T16:30:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-29",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.0,
-      "group_size": 1
-    },
-    {
-      "id": "81ce68432948ccf9",
-      "title": "Bem Halloween: A dolog / The Thing",
-      "url": "https://cooltix.hu/event/6aca843ed71322119cb99bd4",
-      "start": "2026-10-29T19:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-29",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.0,
-      "group_size": 1
-    },
-    {
-      "id": "70c56ef2ec9b3c30",
-      "title": "Bem Halloween: Radírfej / Eraserhead",
-      "url": "https://cooltix.hu/event/6aca85f2ee26be5ce50d17f0",
-      "start": "2026-10-29T21:15:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-10-29",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.0,
-      "group_size": 1
-    },
-    {
-      "id": "253e21ff82293378",
-      "title": "Macskafogó / Cat City | 40 éves jubileum",
-      "url": "https://cooltix.hu/event/6ad0d32248c8ba5a605ab200",
-      "start": "2026-11-01T13:30:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-01",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.0,
-      "group_size": 1
-    },
-    {
-      "id": "8bb55d132929f586",
-      "title": "Tökéletes napok / Perfect Days",
-      "url": "https://cooltix.hu/event/6ad0d48ff2f2e4d4a8e403e9",
-      "start": "2026-11-01T15:30:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-01",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.0,
-      "group_size": 1
-    },
-    {
-      "id": "4923a11046b56d3e",
-      "title": "Tarr Béla: Kárhozat | 35mm-es vetítés",
-      "url": "https://cooltix.hu/event/6ad21e401376d0ffa0c75a3c",
-      "start": "2026-11-01T18:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-01",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
       ],
       "price_min": null,
       "is_free": false,
@@ -5404,169 +5012,16 @@
       "group_size": 1
     },
     {
-      "id": "95d27bea4d5adc35",
-      "title": "Tony - Egy séf születése / Tony",
-      "url": "https://cooltix.hu/event/6ad0d5e5b7b151dc7805c913",
-      "start": "2026-11-02T16:30:00+01:00",
+      "id": "a79b590c78e97355",
+      "title": "Bubák és a Varázskönyv",
+      "url": "https://cooltix.hu/event/6a1dd94a5f24f1a836d0c066",
+      "start": "2026-11-08T10:00:00+01:00",
       "start_time_known": true,
-      "effective_date": "2026-11-02",
-      "venue": "Bem Mozi",
-      "district": "II.",
+      "effective_date": "2026-11-08",
+      "venue": "Újpest Cultural Center Office.",
+      "district": "IV.",
       "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.0,
-      "group_size": 1
-    },
-    {
-      "id": "a3296e3fa7616c93",
-      "title": "NAZA | eng sub",
-      "url": "https://cooltix.hu/event/6ad0d8e40600e850458d1f31",
-      "start": "2026-11-02T18:30:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-02",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.0,
-      "group_size": 1
-    },
-    {
-      "id": "bf5c82d909e1de63",
-      "title": "Halott ember / Dead Man",
-      "url": "https://cooltix.hu/event/6ad0da8170312f323fc33bb2",
-      "start": "2026-11-02T20:30:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-02",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.0,
-      "group_size": 1
-    },
-    {
-      "id": "0d7afa4b36ba5115",
-      "title": "Táncstúdió, Tokió / Ha-Chan, Shake Your Booty!",
-      "url": "https://cooltix.hu/event/6ad0dd2f688c2dd62494102f",
-      "start": "2026-11-03T16:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-03",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.0,
-      "group_size": 1
-    },
-    {
-      "id": "ae2164e55a825f7f",
-      "title": "Száraz November a BEMben #1: Extázis - Uncut | filmvetítés + beszélgetés",
-      "url": "https://cooltix.hu/event/6acf86e4f29ea5e0b90d1e79",
-      "start": "2026-11-03T18:30:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-03",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.0,
-      "group_size": 1
-    },
-    {
-      "id": "e0fa03b579254ecd",
-      "title": "FALLEN ANGELS / Do lok tin si | ENGLISH SUBTITLES",
-      "url": "https://cooltix.hu/event/6ad0e007bf607d8c2eb6f387",
-      "start": "2026-11-03T21:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-03",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.0,
-      "group_size": 1
-    },
-    {
-      "id": "2b40f469812dff91",
-      "title": "Samsara - A lét örök körforgása",
-      "url": "https://cooltix.hu/event/6ad0e236bd25346694900e67",
-      "start": "2026-11-04T16:30:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-04",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.0,
-      "group_size": 1
-    },
-    {
-      "id": "a8d953f74b7e11f2",
-      "title": "Szia Sári! PREMIER és közönségtalálkozó",
-      "url": "https://cooltix.hu/event/6accf8d18c437b31f91714b0",
-      "start": "2026-11-04T18:30:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-04",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.0,
-      "group_size": 1
-    },
-    {
-      "id": "b8f7d2b75f685137",
-      "title": "Még egy kört mindenkinek / Druk",
-      "url": "https://cooltix.hu/event/6ad0e49bbd2534504e91721f",
-      "start": "2026-11-04T21:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-04",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
-      ],
-      "price_min": null,
-      "is_free": false,
-      "score": 2.0,
-      "group_size": 1
-    },
-    {
-      "id": "a9ff5825c171230d",
-      "title": "Tyúk / Hen",
-      "url": "https://cooltix.hu/event/6ad0e5ce5456873e633ebc7f",
-      "start": "2026-11-05T16:00:00+01:00",
-      "start_time_known": true,
-      "effective_date": "2026-11-05",
-      "venue": "Bem Mozi",
-      "district": "II.",
-      "categories": [
-        "film"
+        "csaladi"
       ],
       "price_min": null,
       "is_free": false,
