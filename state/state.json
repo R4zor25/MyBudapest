@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_run": "2026-10-24T10:58:30.262029+02:00",
+  "last_run": "2026-10-25T10:15:31.490916+01:00",
   "sent": [
     {
       "id": "7dc95175cfed442d",
@@ -927,109 +927,11 @@
       "u": "2026-12-09"
     },
     {
-      "id": "18bc74cd5d91b1a8",
-      "t": "telek szureti mulatsag",
-      "d": "2026-10-23",
-      "s": "2026-10-11",
-      "u": "2026-10-24"
-    },
-    {
       "id": "cd546da077ce3716",
       "t": "europe revival 2026 budapest",
       "d": "2026-10-23",
       "s": "2026-10-11",
       "u": "2026-10-25"
-    },
-    {
-      "id": "10381cd49d1ab054",
-      "t": "glow ✦witch, please! ✦ girls only halloween ✦ 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-11",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5486b0dc8ea03f8c",
-      "t": "palazzo opening - after",
-      "d": "2026-10-23",
-      "s": "2026-10-11",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "7b75508288d6aaf7",
-      "t": "turbina x technokunst w/ kangding ray, isu, mode",
-      "d": "2026-10-23",
-      "s": "2026-10-11",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "07981c4798ccdcf9",
-      "t": "ritmik at dojo 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-11",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f26c8ecf73fa006b",
-      "t": "tanulj kulfoldon kiallitas - studyguide -kulfoldi egyetemek budapesten es online",
-      "d": "2026-10-24",
-      "s": "2026-10-11",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "fd69ad2f0d503f3a",
-      "t": "bubak es a varazskonyv",
-      "d": "2026-10-24",
-      "s": "2026-10-11",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "881a70ad79af041a",
-      "t": "bem mozi — 4 program",
-      "d": "2026-10-24",
-      "s": "2026-10-11",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "69f0393ca8f76c5d",
-      "t": "studio 103 | keramia workshop | 10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-11",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "6566387bcc011755",
-      "t": "coffee painting workshop",
-      "d": "2026-10-24",
-      "s": "2026-10-11",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "b4749c441ce41794",
-      "t": "noteszlapok 1956-bol szinhazi megemlekezes es podiumbeszelgetes",
-      "d": "2026-10-24",
-      "s": "2026-10-11",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "110691a44bbc3bc8",
-      "t": "just vibe & live profile match ismerkedos est | 25-41 ev",
-      "d": "2026-10-24",
-      "s": "2026-10-11",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5ec90a4cebc5e66c",
-      "t": "juliachants – all is love | lemezbemutato koncert",
-      "d": "2026-10-24",
-      "s": "2026-10-11",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f1a7f9a23bcac6b8",
-      "t": "leander kills - vihar szeme - budapest i akvarium @ nagyhall 2026.10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-11",
-      "u": "2026-10-24"
     },
     {
       "id": "89c75a847dc2c084",
@@ -1039,13 +941,6 @@
       "u": "2026-10-25"
     },
     {
-      "id": "f7dfbe3a2f61a541",
-      "t": "skopje via az a38 fedelzeten",
-      "d": "2026-10-24",
-      "s": "2026-10-11",
-      "u": "2026-10-24"
-    },
-    {
       "id": "2a6206efb0fcebbd",
       "t": "halloween in a muggle town! • back to youth! • a38 hajo 10.24.",
       "d": "2026-10-24",
@@ -1053,39 +948,11 @@
       "u": "2026-10-25"
     },
     {
-      "id": "1d116da5f66b8975",
-      "t": "guns n' roses by dust n' bones - stenk lelato",
-      "d": "2026-10-24",
-      "s": "2026-10-11",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "44d23698add89c2d",
-      "t": "janis joplin emlekzenekar",
-      "d": "2026-10-24",
-      "s": "2026-10-11",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "513b0c38cdd31928",
-      "t": "moonlight lebego hangtalfurdo xvi.kerulet konrad ferenc uszoda",
-      "d": "2026-10-24",
-      "s": "2026-10-11",
-      "u": "2026-10-24"
-    },
-    {
       "id": "f0c7efc732c69b23",
       "t": "omona huge k-pop halloween madness [kassa] 2 buli 2 terem + karaoke.",
       "d": "2026-10-24",
       "s": "2026-10-11",
       "u": "2026-10-25"
-    },
-    {
-      "id": "8731bcf5f0f33641",
-      "t": "two years of kassa w/ daniel avery",
-      "d": "2026-10-24",
-      "s": "2026-10-11",
-      "u": "2026-10-24"
     },
     {
       "id": "95f023af11d87736",
@@ -1515,13 +1382,6 @@
       "u": "2026-10-31"
     },
     {
-      "id": "ca610d9c18f165d7",
-      "t": "off campus kviz",
-      "d": "2026-10-24",
-      "s": "2026-10-11",
-      "u": "2026-10-24"
-    },
-    {
       "id": "f5d23707c342e175",
       "t": "zenefelismero kviz",
       "d": "2026-10-26",
@@ -1641,109 +1501,11 @@
       "u": "2026-12-09"
     },
     {
-      "id": "18bc74cd5d91b1a8",
-      "t": "telek szureti mulatsag",
-      "d": "2026-10-23",
-      "s": "2026-10-12",
-      "u": "2026-10-24"
-    },
-    {
       "id": "cd546da077ce3716",
       "t": "europe revival 2026 budapest",
       "d": "2026-10-23",
       "s": "2026-10-12",
       "u": "2026-10-25"
-    },
-    {
-      "id": "10381cd49d1ab054",
-      "t": "glow ✦witch, please! ✦ girls only halloween ✦ 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-12",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5486b0dc8ea03f8c",
-      "t": "palazzo opening - after",
-      "d": "2026-10-23",
-      "s": "2026-10-12",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "7b75508288d6aaf7",
-      "t": "turbina x technokunst w/ kangding ray, isu, mode",
-      "d": "2026-10-23",
-      "s": "2026-10-12",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "07981c4798ccdcf9",
-      "t": "ritmik at dojo 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-12",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f26c8ecf73fa006b",
-      "t": "tanulj kulfoldon kiallitas - studyguide -kulfoldi egyetemek budapesten es online",
-      "d": "2026-10-24",
-      "s": "2026-10-12",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "fd69ad2f0d503f3a",
-      "t": "bubak es a varazskonyv",
-      "d": "2026-10-24",
-      "s": "2026-10-12",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "881a70ad79af041a",
-      "t": "bem mozi — 4 program",
-      "d": "2026-10-24",
-      "s": "2026-10-12",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "69f0393ca8f76c5d",
-      "t": "studio 103 | keramia workshop | 10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-12",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "6566387bcc011755",
-      "t": "coffee painting workshop",
-      "d": "2026-10-24",
-      "s": "2026-10-12",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "b4749c441ce41794",
-      "t": "noteszlapok 1956-bol szinhazi megemlekezes es podiumbeszelgetes",
-      "d": "2026-10-24",
-      "s": "2026-10-12",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "110691a44bbc3bc8",
-      "t": "just vibe & live profile match ismerkedos est | 25-41 ev",
-      "d": "2026-10-24",
-      "s": "2026-10-12",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5ec90a4cebc5e66c",
-      "t": "juliachants – all is love | lemezbemutato koncert",
-      "d": "2026-10-24",
-      "s": "2026-10-12",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f1a7f9a23bcac6b8",
-      "t": "leander kills - vihar szeme - budapest i akvarium @ nagyhall 2026.10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-12",
-      "u": "2026-10-24"
     },
     {
       "id": "89c75a847dc2c084",
@@ -1753,39 +1515,11 @@
       "u": "2026-10-25"
     },
     {
-      "id": "408c299f11abe6e2",
-      "t": "skopje via az a38 fedelzeten",
-      "d": "2026-10-24",
-      "s": "2026-10-12",
-      "u": "2026-10-24"
-    },
-    {
       "id": "3f935e66d3a1ec91",
       "t": "halloween in a muggle town! • back to youth! • a38 hajo 10.24.",
       "d": "2026-10-24",
       "s": "2026-10-12",
       "u": "2026-10-25"
-    },
-    {
-      "id": "1d116da5f66b8975",
-      "t": "guns n' roses by dust n' bones - stenk lelato",
-      "d": "2026-10-24",
-      "s": "2026-10-12",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "44d23698add89c2d",
-      "t": "janis joplin emlekzenekar",
-      "d": "2026-10-24",
-      "s": "2026-10-12",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "513b0c38cdd31928",
-      "t": "moonlight lebego hangtalfurdo xvi.kerulet konrad ferenc uszoda",
-      "d": "2026-10-24",
-      "s": "2026-10-12",
-      "u": "2026-10-24"
     },
     {
       "id": "f0c7efc732c69b23",
@@ -2376,13 +2110,6 @@
       "u": "2026-11-01"
     },
     {
-      "id": "ca610d9c18f165d7",
-      "t": "off campus kviz",
-      "d": "2026-10-24",
-      "s": "2026-10-12",
-      "u": "2026-10-24"
-    },
-    {
       "id": "f5d23707c342e175",
       "t": "zenefelismero kviz",
       "d": "2026-10-26",
@@ -2523,116 +2250,11 @@
       "u": "2027-04-05"
     },
     {
-      "id": "18bc74cd5d91b1a8",
-      "t": "telek szureti mulatsag",
-      "d": "2026-10-23",
-      "s": "2026-10-13",
-      "u": "2026-10-24"
-    },
-    {
       "id": "cd546da077ce3716",
       "t": "europe revival 2026 budapest",
       "d": "2026-10-23",
       "s": "2026-10-13",
       "u": "2026-10-25"
-    },
-    {
-      "id": "10381cd49d1ab054",
-      "t": "glow ✦witch, please! ✦ girls only halloween ✦ 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-13",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5486b0dc8ea03f8c",
-      "t": "palazzo opening - after",
-      "d": "2026-10-23",
-      "s": "2026-10-13",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "7b75508288d6aaf7",
-      "t": "turbina x technokunst w/ kangding ray, isu, mode",
-      "d": "2026-10-23",
-      "s": "2026-10-13",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "07981c4798ccdcf9",
-      "t": "ritmik at dojo 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-13",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5265f6a932178174",
-      "t": "csinnadratta ❋ patriotak",
-      "d": "2026-10-23",
-      "s": "2026-10-13",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f26c8ecf73fa006b",
-      "t": "tanulj kulfoldon kiallitas - studyguide -kulfoldi egyetemek budapesten es online",
-      "d": "2026-10-24",
-      "s": "2026-10-13",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "fd69ad2f0d503f3a",
-      "t": "bubak es a varazskonyv",
-      "d": "2026-10-24",
-      "s": "2026-10-13",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "881a70ad79af041a",
-      "t": "bem mozi — 4 program",
-      "d": "2026-10-24",
-      "s": "2026-10-13",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "69f0393ca8f76c5d",
-      "t": "studio 103 | keramia workshop | 10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-13",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "6566387bcc011755",
-      "t": "coffee painting workshop",
-      "d": "2026-10-24",
-      "s": "2026-10-13",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "b4749c441ce41794",
-      "t": "noteszlapok 1956-bol szinhazi megemlekezes es podiumbeszelgetes",
-      "d": "2026-10-24",
-      "s": "2026-10-13",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "110691a44bbc3bc8",
-      "t": "just vibe & live profile match ismerkedos est | 25-41 ev",
-      "d": "2026-10-24",
-      "s": "2026-10-13",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5ec90a4cebc5e66c",
-      "t": "juliachants – all is love | lemezbemutato koncert",
-      "d": "2026-10-24",
-      "s": "2026-10-13",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f1a7f9a23bcac6b8",
-      "t": "leander kills - vihar szeme - budapest i akvarium @ nagyhall 2026.10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-13",
-      "u": "2026-10-24"
     },
     {
       "id": "89c75a847dc2c084",
@@ -2642,39 +2264,11 @@
       "u": "2026-10-25"
     },
     {
-      "id": "408c299f11abe6e2",
-      "t": "skopje via az a38 fedelzeten",
-      "d": "2026-10-24",
-      "s": "2026-10-13",
-      "u": "2026-10-24"
-    },
-    {
       "id": "3f935e66d3a1ec91",
       "t": "halloween in a muggle town! • back to youth! • a38 hajo 10.24.",
       "d": "2026-10-24",
       "s": "2026-10-13",
       "u": "2026-10-25"
-    },
-    {
-      "id": "1d116da5f66b8975",
-      "t": "guns n' roses by dust n' bones - stenk lelato",
-      "d": "2026-10-24",
-      "s": "2026-10-13",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "44d23698add89c2d",
-      "t": "janis joplin emlekzenekar",
-      "d": "2026-10-24",
-      "s": "2026-10-13",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "513b0c38cdd31928",
-      "t": "moonlight lebego hangtalfurdo xvi.kerulet konrad ferenc uszoda",
-      "d": "2026-10-24",
-      "s": "2026-10-13",
-      "u": "2026-10-24"
     },
     {
       "id": "f0c7efc732c69b23",
@@ -3342,13 +2936,6 @@
       "u": "2026-11-01"
     },
     {
-      "id": "ca610d9c18f165d7",
-      "t": "off campus kviz",
-      "d": "2026-10-24",
-      "s": "2026-10-13",
-      "u": "2026-10-24"
-    },
-    {
       "id": "ff810e3644ca523c",
       "t": "a boszorkany hagyateka nyomozos jatek",
       "d": "2026-10-26",
@@ -3489,123 +3076,11 @@
       "u": "2027-04-05"
     },
     {
-      "id": "18bc74cd5d91b1a8",
-      "t": "telek szureti mulatsag",
-      "d": "2026-10-23",
-      "s": "2026-10-14",
-      "u": "2026-10-24"
-    },
-    {
       "id": "cd546da077ce3716",
       "t": "europe revival 2026 budapest",
       "d": "2026-10-23",
       "s": "2026-10-14",
       "u": "2026-10-25"
-    },
-    {
-      "id": "75b176e003b5f8e5",
-      "t": "mamma mia! video disco 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-14",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "10381cd49d1ab054",
-      "t": "glow ✦witch, please! ✦ girls only halloween ✦ 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-14",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5486b0dc8ea03f8c",
-      "t": "palazzo opening - after",
-      "d": "2026-10-23",
-      "s": "2026-10-14",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "7b75508288d6aaf7",
-      "t": "turbina x technokunst w/ kangding ray, isu, mode",
-      "d": "2026-10-23",
-      "s": "2026-10-14",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "07981c4798ccdcf9",
-      "t": "ritmik at dojo 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-14",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5265f6a932178174",
-      "t": "csinnadratta ❋ patriotak",
-      "d": "2026-10-23",
-      "s": "2026-10-14",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f26c8ecf73fa006b",
-      "t": "tanulj kulfoldon kiallitas - studyguide -kulfoldi egyetemek budapesten es online",
-      "d": "2026-10-24",
-      "s": "2026-10-14",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "fd69ad2f0d503f3a",
-      "t": "bubak es a varazskonyv",
-      "d": "2026-10-24",
-      "s": "2026-10-14",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "881a70ad79af041a",
-      "t": "bem mozi — 4 program",
-      "d": "2026-10-24",
-      "s": "2026-10-14",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "69f0393ca8f76c5d",
-      "t": "studio 103 | keramia workshop | 10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-14",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "6566387bcc011755",
-      "t": "coffee painting workshop",
-      "d": "2026-10-24",
-      "s": "2026-10-14",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "b4749c441ce41794",
-      "t": "noteszlapok 1956-bol szinhazi megemlekezes es podiumbeszelgetes",
-      "d": "2026-10-24",
-      "s": "2026-10-14",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "110691a44bbc3bc8",
-      "t": "just vibe & live profile match ismerkedos est | 25-41 ev",
-      "d": "2026-10-24",
-      "s": "2026-10-14",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5ec90a4cebc5e66c",
-      "t": "juliachants – all is love | lemezbemutato koncert",
-      "d": "2026-10-24",
-      "s": "2026-10-14",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f1a7f9a23bcac6b8",
-      "t": "leander kills - vihar szeme - budapest i akvarium @ nagyhall 2026.10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-14",
-      "u": "2026-10-24"
     },
     {
       "id": "89c75a847dc2c084",
@@ -3615,39 +3090,11 @@
       "u": "2026-10-25"
     },
     {
-      "id": "408c299f11abe6e2",
-      "t": "skopje via az a38 fedelzeten",
-      "d": "2026-10-24",
-      "s": "2026-10-14",
-      "u": "2026-10-24"
-    },
-    {
       "id": "3f935e66d3a1ec91",
       "t": "halloween in a muggle town! • back to youth! • a38 hajo 10.24.",
       "d": "2026-10-24",
       "s": "2026-10-14",
       "u": "2026-10-25"
-    },
-    {
-      "id": "1d116da5f66b8975",
-      "t": "guns n' roses by dust n' bones - stenk lelato",
-      "d": "2026-10-24",
-      "s": "2026-10-14",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "44d23698add89c2d",
-      "t": "janis joplin emlekzenekar",
-      "d": "2026-10-24",
-      "s": "2026-10-14",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "513b0c38cdd31928",
-      "t": "moonlight lebego hangtalfurdo xvi.kerulet konrad ferenc uszoda",
-      "d": "2026-10-24",
-      "s": "2026-10-14",
-      "u": "2026-10-24"
     },
     {
       "id": "f0c7efc732c69b23",
@@ -4385,13 +3832,6 @@
       "u": "2026-11-02"
     },
     {
-      "id": "ca610d9c18f165d7",
-      "t": "off campus kviz",
-      "d": "2026-10-24",
-      "s": "2026-10-14",
-      "u": "2026-10-24"
-    },
-    {
       "id": "f5d23707c342e175",
       "t": "zenefelismero kviz",
       "d": "2026-10-26",
@@ -4539,130 +3979,11 @@
       "u": "2027-04-05"
     },
     {
-      "id": "18bc74cd5d91b1a8",
-      "t": "telek szureti mulatsag",
-      "d": "2026-10-23",
-      "s": "2026-10-15",
-      "u": "2026-10-24"
-    },
-    {
       "id": "cd546da077ce3716",
       "t": "europe revival 2026 budapest",
       "d": "2026-10-23",
       "s": "2026-10-15",
       "u": "2026-10-25"
-    },
-    {
-      "id": "75b176e003b5f8e5",
-      "t": "mamma mia! video disco 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-15",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "17d9e16ab8a63195",
-      "t": "mamma mia! video disco at moby ✘ 23rd oct ✘ discounted tickets w/ elb",
-      "d": "2026-10-23",
-      "s": "2026-10-15",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "10381cd49d1ab054",
-      "t": "glow ✦witch, please! ✦ girls only halloween ✦ 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-15",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5486b0dc8ea03f8c",
-      "t": "palazzo opening - after",
-      "d": "2026-10-23",
-      "s": "2026-10-15",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "7b75508288d6aaf7",
-      "t": "turbina x technokunst w/ kangding ray, isu, mode",
-      "d": "2026-10-23",
-      "s": "2026-10-15",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "07981c4798ccdcf9",
-      "t": "ritmik at dojo 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-15",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5265f6a932178174",
-      "t": "csinnadratta ❋ patriotak",
-      "d": "2026-10-23",
-      "s": "2026-10-15",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f26c8ecf73fa006b",
-      "t": "tanulj kulfoldon kiallitas - studyguide -kulfoldi egyetemek budapesten es online",
-      "d": "2026-10-24",
-      "s": "2026-10-15",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "fd69ad2f0d503f3a",
-      "t": "bubak es a varazskonyv",
-      "d": "2026-10-24",
-      "s": "2026-10-15",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "881a70ad79af041a",
-      "t": "bem mozi — 4 program",
-      "d": "2026-10-24",
-      "s": "2026-10-15",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "69f0393ca8f76c5d",
-      "t": "studio 103 | keramia workshop | 10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-15",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "6566387bcc011755",
-      "t": "coffee painting workshop",
-      "d": "2026-10-24",
-      "s": "2026-10-15",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "b4749c441ce41794",
-      "t": "noteszlapok 1956-bol szinhazi megemlekezes es podiumbeszelgetes",
-      "d": "2026-10-24",
-      "s": "2026-10-15",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "110691a44bbc3bc8",
-      "t": "just vibe & live profile match ismerkedos est | 25-41 ev",
-      "d": "2026-10-24",
-      "s": "2026-10-15",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5ec90a4cebc5e66c",
-      "t": "juliachants – all is love | lemezbemutato koncert",
-      "d": "2026-10-24",
-      "s": "2026-10-15",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f1a7f9a23bcac6b8",
-      "t": "leander kills - vihar szeme - budapest i akvarium @ nagyhall 2026.10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-15",
-      "u": "2026-10-24"
     },
     {
       "id": "89c75a847dc2c084",
@@ -4672,39 +3993,11 @@
       "u": "2026-10-25"
     },
     {
-      "id": "f7dfbe3a2f61a541",
-      "t": "skopje via az a38 fedelzeten",
-      "d": "2026-10-24",
-      "s": "2026-10-15",
-      "u": "2026-10-24"
-    },
-    {
       "id": "2a6206efb0fcebbd",
       "t": "halloween in a muggle town! • back to youth! • a38 hajo 10.24.",
       "d": "2026-10-24",
       "s": "2026-10-15",
       "u": "2026-10-25"
-    },
-    {
-      "id": "1d116da5f66b8975",
-      "t": "guns n' roses by dust n' bones - stenk lelato",
-      "d": "2026-10-24",
-      "s": "2026-10-15",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "44d23698add89c2d",
-      "t": "janis joplin emlekzenekar",
-      "d": "2026-10-24",
-      "s": "2026-10-15",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "513b0c38cdd31928",
-      "t": "moonlight lebego hangtalfurdo xvi.kerulet konrad ferenc uszoda",
-      "d": "2026-10-24",
-      "s": "2026-10-15",
-      "u": "2026-10-24"
     },
     {
       "id": "f1b917bf027cf2c4",
@@ -5512,13 +4805,6 @@
       "u": "2026-11-03"
     },
     {
-      "id": "ca610d9c18f165d7",
-      "t": "off campus kviz",
-      "d": "2026-10-24",
-      "s": "2026-10-15",
-      "u": "2026-10-24"
-    },
-    {
       "id": "ff810e3644ca523c",
       "t": "a boszorkany hagyateka nyomozos jatek",
       "d": "2026-10-26",
@@ -5666,144 +4952,11 @@
       "u": "2027-04-05"
     },
     {
-      "id": "18bc74cd5d91b1a8",
-      "t": "telek szureti mulatsag",
-      "d": "2026-10-23",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
-    },
-    {
       "id": "cd546da077ce3716",
       "t": "europe revival 2026 budapest",
       "d": "2026-10-23",
       "s": "2026-10-16",
       "u": "2026-10-25"
-    },
-    {
-      "id": "75b176e003b5f8e5",
-      "t": "mamma mia! video disco 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "17d9e16ab8a63195",
-      "t": "mamma mia! video disco at moby ✘ 23rd oct ✘ discounted tickets w/ elb",
-      "d": "2026-10-23",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "10381cd49d1ab054",
-      "t": "glow ✦witch, please! ✦ girls only halloween ✦ 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5486b0dc8ea03f8c",
-      "t": "palazzo opening - after",
-      "d": "2026-10-23",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "7b75508288d6aaf7",
-      "t": "turbina x technokunst w/ kangding ray, isu, mode",
-      "d": "2026-10-23",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "07981c4798ccdcf9",
-      "t": "ritmik at dojo 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5265f6a932178174",
-      "t": "csinnadratta ❋ patriotak",
-      "d": "2026-10-23",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "7a94ced01497bb4c",
-      "t": "otkert friday 10.23. club 05 // get rich or die tryin",
-      "d": "2026-10-23",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f26c8ecf73fa006b",
-      "t": "tanulj kulfoldon kiallitas - studyguide -kulfoldi egyetemek budapesten es online",
-      "d": "2026-10-24",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "fd69ad2f0d503f3a",
-      "t": "bubak es a varazskonyv",
-      "d": "2026-10-24",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "881a70ad79af041a",
-      "t": "bem mozi — 4 program",
-      "d": "2026-10-24",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "69f0393ca8f76c5d",
-      "t": "studio 103 | keramia workshop | 10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "08329e4e8136423b",
-      "t": "from page to stage - a comedy workshop by bianca lala",
-      "d": "2026-10-24",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "6566387bcc011755",
-      "t": "coffee painting workshop",
-      "d": "2026-10-24",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "b4749c441ce41794",
-      "t": "noteszlapok 1956-bol szinhazi megemlekezes es podiumbeszelgetes",
-      "d": "2026-10-24",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "110691a44bbc3bc8",
-      "t": "just vibe & live profile match ismerkedos est | 25-41 ev",
-      "d": "2026-10-24",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5ec90a4cebc5e66c",
-      "t": "juliachants – all is love | lemezbemutato koncert",
-      "d": "2026-10-24",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f1a7f9a23bcac6b8",
-      "t": "leander kills - vihar szeme - budapest i akvarium @ nagyhall 2026.10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
     },
     {
       "id": "89c75a847dc2c084",
@@ -5813,39 +4966,11 @@
       "u": "2026-10-25"
     },
     {
-      "id": "f7dfbe3a2f61a541",
-      "t": "skopje via az a38 fedelzeten",
-      "d": "2026-10-24",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
-    },
-    {
       "id": "2a6206efb0fcebbd",
       "t": "halloween in a muggle town! • back to youth! • a38 hajo 10.24.",
       "d": "2026-10-24",
       "s": "2026-10-16",
       "u": "2026-10-25"
-    },
-    {
-      "id": "1d116da5f66b8975",
-      "t": "guns n' roses by dust n' bones - stenk lelato",
-      "d": "2026-10-24",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "44d23698add89c2d",
-      "t": "janis joplin emlekzenekar",
-      "d": "2026-10-24",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "513b0c38cdd31928",
-      "t": "moonlight lebego hangtalfurdo xvi.kerulet konrad ferenc uszoda",
-      "d": "2026-10-24",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
     },
     {
       "id": "f1b917bf027cf2c4",
@@ -6779,13 +5904,6 @@
       "u": "2026-11-05"
     },
     {
-      "id": "ca610d9c18f165d7",
-      "t": "off campus kviz",
-      "d": "2026-10-24",
-      "s": "2026-10-16",
-      "u": "2026-10-24"
-    },
-    {
       "id": "f5d23707c342e175",
       "t": "zenefelismero kviz",
       "d": "2026-10-26",
@@ -6933,109 +6051,11 @@
       "u": "2027-04-05"
     },
     {
-      "id": "18bc74cd5d91b1a8",
-      "t": "telek szureti mulatsag",
-      "d": "2026-10-23",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
-    },
-    {
       "id": "cd546da077ce3716",
       "t": "europe revival 2026 budapest",
       "d": "2026-10-23",
       "s": "2026-10-17",
       "u": "2026-10-25"
-    },
-    {
-      "id": "75b176e003b5f8e5",
-      "t": "mamma mia! video disco 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "17d9e16ab8a63195",
-      "t": "mamma mia! video disco at moby ✘ 23rd oct ✘ discounted tickets w/ elb",
-      "d": "2026-10-23",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "10381cd49d1ab054",
-      "t": "glow ✦witch, please! ✦ girls only halloween ✦ 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "7b75508288d6aaf7",
-      "t": "turbina x technokunst w/ kangding ray, isu, mode",
-      "d": "2026-10-23",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "07981c4798ccdcf9",
-      "t": "ritmik at dojo 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5265f6a932178174",
-      "t": "csinnadratta ❋ patriotak",
-      "d": "2026-10-23",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "7a94ced01497bb4c",
-      "t": "otkert friday 10.23. club 05 // get rich or die tryin",
-      "d": "2026-10-23",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f26c8ecf73fa006b",
-      "t": "tanulj kulfoldon kiallitas - studyguide -kulfoldi egyetemek budapesten es online",
-      "d": "2026-10-24",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "fd69ad2f0d503f3a",
-      "t": "bubak es a varazskonyv",
-      "d": "2026-10-24",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "881a70ad79af041a",
-      "t": "bem mozi — 4 program",
-      "d": "2026-10-24",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "69f0393ca8f76c5d",
-      "t": "studio 103 | keramia workshop | 10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "08329e4e8136423b",
-      "t": "from page to stage - a comedy workshop by bianca lala",
-      "d": "2026-10-24",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "ccd6946a4cc6295d",
-      "t": "tfse - khg knrc / tippmixpro noi extraliga",
-      "d": "2026-10-24",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
     },
     {
       "id": "2272d9287e54fb60",
@@ -7045,41 +6065,6 @@
       "u": "2026-10-25"
     },
     {
-      "id": "6566387bcc011755",
-      "t": "coffee painting workshop",
-      "d": "2026-10-24",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "b4749c441ce41794",
-      "t": "noteszlapok 1956-bol szinhazi megemlekezes es podiumbeszelgetes",
-      "d": "2026-10-24",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "110691a44bbc3bc8",
-      "t": "just vibe & live profile match ismerkedos est | 25-41 ev",
-      "d": "2026-10-24",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5ec90a4cebc5e66c",
-      "t": "juliachants – all is love | lemezbemutato koncert",
-      "d": "2026-10-24",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f1a7f9a23bcac6b8",
-      "t": "leander kills - vihar szeme - budapest i akvarium @ nagyhall 2026.10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
-    },
-    {
       "id": "89c75a847dc2c084",
       "t": "gerappaaa @ lokal 2026.10.24.",
       "d": "2026-10-24",
@@ -7087,39 +6072,11 @@
       "u": "2026-10-25"
     },
     {
-      "id": "f7dfbe3a2f61a541",
-      "t": "skopje via az a38 fedelzeten",
-      "d": "2026-10-24",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
-    },
-    {
       "id": "2a6206efb0fcebbd",
       "t": "halloween in a muggle town! • back to youth! • a38 hajo 10.24.",
       "d": "2026-10-24",
       "s": "2026-10-17",
       "u": "2026-10-25"
-    },
-    {
-      "id": "1d116da5f66b8975",
-      "t": "guns n' roses by dust n' bones - stenk lelato",
-      "d": "2026-10-24",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "44d23698add89c2d",
-      "t": "janis joplin emlekzenekar",
-      "d": "2026-10-24",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "513b0c38cdd31928",
-      "t": "moonlight lebego hangtalfurdo xvi.kerulet konrad ferenc uszoda",
-      "d": "2026-10-24",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
     },
     {
       "id": "95f023af11d87736",
@@ -8130,13 +7087,6 @@
       "u": "2026-11-06"
     },
     {
-      "id": "ca610d9c18f165d7",
-      "t": "off campus kviz",
-      "d": "2026-10-24",
-      "s": "2026-10-17",
-      "u": "2026-10-24"
-    },
-    {
       "id": "f5d23707c342e175",
       "t": "zenefelismero kviz",
       "d": "2026-10-26",
@@ -8291,109 +7241,11 @@
       "u": "2027-04-05"
     },
     {
-      "id": "18bc74cd5d91b1a8",
-      "t": "telek szureti mulatsag",
-      "d": "2026-10-23",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
-    },
-    {
       "id": "cd546da077ce3716",
       "t": "europe revival 2026 budapest",
       "d": "2026-10-23",
       "s": "2026-10-18",
       "u": "2026-10-25"
-    },
-    {
-      "id": "75b176e003b5f8e5",
-      "t": "mamma mia! video disco 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "17d9e16ab8a63195",
-      "t": "mamma mia! video disco at moby ✘ 23rd oct ✘ discounted tickets w/ elb",
-      "d": "2026-10-23",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "10381cd49d1ab054",
-      "t": "glow ✦witch, please! ✦ girls only halloween ✦ 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "7b75508288d6aaf7",
-      "t": "turbina x technokunst w/ kangding ray, isu, mode",
-      "d": "2026-10-23",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "07981c4798ccdcf9",
-      "t": "ritmik at dojo 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5265f6a932178174",
-      "t": "csinnadratta ❋ patriotak",
-      "d": "2026-10-23",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "7a94ced01497bb4c",
-      "t": "otkert friday 10.23. club 05 // get rich or die tryin",
-      "d": "2026-10-23",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f26c8ecf73fa006b",
-      "t": "tanulj kulfoldon kiallitas - studyguide -kulfoldi egyetemek budapesten es online",
-      "d": "2026-10-24",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "fd69ad2f0d503f3a",
-      "t": "bubak es a varazskonyv",
-      "d": "2026-10-24",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "881a70ad79af041a",
-      "t": "bem mozi — 4 program",
-      "d": "2026-10-24",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "69f0393ca8f76c5d",
-      "t": "studio 103 | keramia workshop | 10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "08329e4e8136423b",
-      "t": "from page to stage - a comedy workshop by bianca lala",
-      "d": "2026-10-24",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "ccd6946a4cc6295d",
-      "t": "tfse - khg knrc / tippmixpro noi extraliga",
-      "d": "2026-10-24",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
     },
     {
       "id": "2272d9287e54fb60",
@@ -8403,48 +7255,6 @@
       "u": "2026-10-25"
     },
     {
-      "id": "6566387bcc011755",
-      "t": "coffee painting workshop",
-      "d": "2026-10-24",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f721294b41615d65",
-      "t": "tarsasjatek est",
-      "d": "2026-10-24",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "b4749c441ce41794",
-      "t": "noteszlapok 1956-bol szinhazi megemlekezes es podiumbeszelgetes",
-      "d": "2026-10-24",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "110691a44bbc3bc8",
-      "t": "just vibe & live profile match ismerkedos est | 25-41 ev",
-      "d": "2026-10-24",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5ec90a4cebc5e66c",
-      "t": "juliachants – all is love | lemezbemutato koncert",
-      "d": "2026-10-24",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f1a7f9a23bcac6b8",
-      "t": "leander kills - vihar szeme - budapest i akvarium @ nagyhall 2026.10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
-    },
-    {
       "id": "89c75a847dc2c084",
       "t": "gerappaaa @ lokal 2026.10.24.",
       "d": "2026-10-24",
@@ -8452,39 +7262,11 @@
       "u": "2026-10-25"
     },
     {
-      "id": "f7dfbe3a2f61a541",
-      "t": "skopje via az a38 fedelzeten",
-      "d": "2026-10-24",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
-    },
-    {
       "id": "2a6206efb0fcebbd",
       "t": "halloween in a muggle town! • back to youth! • a38 hajo 10.24.",
       "d": "2026-10-24",
       "s": "2026-10-18",
       "u": "2026-10-25"
-    },
-    {
-      "id": "1d116da5f66b8975",
-      "t": "guns n' roses by dust n' bones - stenk lelato",
-      "d": "2026-10-24",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "44d23698add89c2d",
-      "t": "janis joplin emlekzenekar",
-      "d": "2026-10-24",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "513b0c38cdd31928",
-      "t": "moonlight lebego hangtalfurdo xvi.kerulet konrad ferenc uszoda",
-      "d": "2026-10-24",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
     },
     {
       "id": "95f023af11d87736",
@@ -9663,13 +8445,6 @@
       "u": "2026-11-07"
     },
     {
-      "id": "ca610d9c18f165d7",
-      "t": "off campus kviz",
-      "d": "2026-10-24",
-      "s": "2026-10-18",
-      "u": "2026-10-24"
-    },
-    {
       "id": "f5d23707c342e175",
       "t": "zenefelismero kviz",
       "d": "2026-10-26",
@@ -9817,13 +8592,6 @@
       "u": "2026-10-31"
     },
     {
-      "id": "1ebe9955dd074cd3",
-      "t": "skopje via",
-      "d": "2026-10-24",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
       "id": "2a6206efb0fcebbd",
       "t": "halloween in a muggle town! • back to youth! • a38 hajo 10.24.",
       "d": "2026-10-24",
@@ -9852,109 +8620,11 @@
       "u": "2027-04-05"
     },
     {
-      "id": "18bc74cd5d91b1a8",
-      "t": "telek szureti mulatsag",
-      "d": "2026-10-23",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
       "id": "cd546da077ce3716",
       "t": "europe revival 2026 budapest",
       "d": "2026-10-23",
       "s": "2026-10-19",
       "u": "2026-10-25"
-    },
-    {
-      "id": "75b176e003b5f8e5",
-      "t": "mamma mia! video disco 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "17d9e16ab8a63195",
-      "t": "mamma mia! video disco at moby ✘ 23rd oct ✘ discounted tickets w/ elb",
-      "d": "2026-10-23",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "10381cd49d1ab054",
-      "t": "glow ✦witch, please! ✦ girls only halloween ✦ 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "7b75508288d6aaf7",
-      "t": "turbina x technokunst w/ kangding ray, isu, mode",
-      "d": "2026-10-23",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "07981c4798ccdcf9",
-      "t": "ritmik at dojo 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5265f6a932178174",
-      "t": "csinnadratta ❋ patriotak",
-      "d": "2026-10-23",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "7a94ced01497bb4c",
-      "t": "otkert friday 10.23. club 05 // get rich or die tryin",
-      "d": "2026-10-23",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f26c8ecf73fa006b",
-      "t": "tanulj kulfoldon kiallitas - studyguide -kulfoldi egyetemek budapesten es online",
-      "d": "2026-10-24",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "fd69ad2f0d503f3a",
-      "t": "bubak es a varazskonyv",
-      "d": "2026-10-24",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "881a70ad79af041a",
-      "t": "bem mozi — 4 program",
-      "d": "2026-10-24",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "69f0393ca8f76c5d",
-      "t": "studio 103 | keramia workshop | 10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "08329e4e8136423b",
-      "t": "from page to stage - a comedy workshop by bianca lala",
-      "d": "2026-10-24",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "ccd6946a4cc6295d",
-      "t": "tfse - khg knrc / tippmixpro noi extraliga",
-      "d": "2026-10-24",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
     },
     {
       "id": "2272d9287e54fb60",
@@ -9964,81 +8634,11 @@
       "u": "2026-10-25"
     },
     {
-      "id": "6566387bcc011755",
-      "t": "coffee painting workshop",
-      "d": "2026-10-24",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f721294b41615d65",
-      "t": "tarsasjatek est",
-      "d": "2026-10-24",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "a02d952f99d6007c",
-      "t": "konyvklub",
-      "d": "2026-10-24",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "b4749c441ce41794",
-      "t": "noteszlapok 1956-bol szinhazi megemlekezes es podiumbeszelgetes",
-      "d": "2026-10-24",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "110691a44bbc3bc8",
-      "t": "just vibe & live profile match ismerkedos est | 25-41 ev",
-      "d": "2026-10-24",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5ec90a4cebc5e66c",
-      "t": "juliachants – all is love | lemezbemutato koncert",
-      "d": "2026-10-24",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f1a7f9a23bcac6b8",
-      "t": "leander kills - vihar szeme - budapest i akvarium @ nagyhall 2026.10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
       "id": "89c75a847dc2c084",
       "t": "gerappaaa @ lokal 2026.10.24.",
       "d": "2026-10-24",
       "s": "2026-10-19",
       "u": "2026-10-25"
-    },
-    {
-      "id": "1d116da5f66b8975",
-      "t": "guns n' roses by dust n' bones - stenk lelato",
-      "d": "2026-10-24",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "44d23698add89c2d",
-      "t": "janis joplin emlekzenekar",
-      "d": "2026-10-24",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "513b0c38cdd31928",
-      "t": "moonlight lebego hangtalfurdo xvi.kerulet konrad ferenc uszoda",
-      "d": "2026-10-24",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
     },
     {
       "id": "95f023af11d87736",
@@ -11371,13 +9971,6 @@
       "u": "2026-11-08"
     },
     {
-      "id": "ca610d9c18f165d7",
-      "t": "off campus kviz",
-      "d": "2026-10-24",
-      "s": "2026-10-19",
-      "u": "2026-10-24"
-    },
-    {
       "id": "ff810e3644ca523c",
       "t": "a boszorkany hagyateka nyomozos jatek",
       "d": "2026-10-26",
@@ -11532,13 +10125,6 @@
       "u": "2026-10-31"
     },
     {
-      "id": "1ebe9955dd074cd3",
-      "t": "skopje via",
-      "d": "2026-10-24",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
-    },
-    {
       "id": "2a6206efb0fcebbd",
       "t": "halloween in a muggle town! • back to youth! • a38 hajo 10.24.",
       "d": "2026-10-24",
@@ -11567,109 +10153,11 @@
       "u": "2027-04-05"
     },
     {
-      "id": "18bc74cd5d91b1a8",
-      "t": "telek szureti mulatsag",
-      "d": "2026-10-23",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
-    },
-    {
       "id": "cd546da077ce3716",
       "t": "europe revival 2026 budapest",
       "d": "2026-10-23",
       "s": "2026-10-20",
       "u": "2026-10-25"
-    },
-    {
-      "id": "75b176e003b5f8e5",
-      "t": "mamma mia! video disco 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "17d9e16ab8a63195",
-      "t": "mamma mia! video disco at moby ✘ 23rd oct ✘ discounted tickets w/ elb",
-      "d": "2026-10-23",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "10381cd49d1ab054",
-      "t": "glow ✦witch, please! ✦ girls only halloween ✦ 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "7b75508288d6aaf7",
-      "t": "turbina x technokunst w/ kangding ray, isu, mode",
-      "d": "2026-10-23",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "07981c4798ccdcf9",
-      "t": "ritmik at dojo 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5265f6a932178174",
-      "t": "csinnadratta ❋ patriotak",
-      "d": "2026-10-23",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "7a94ced01497bb4c",
-      "t": "otkert friday 10.23. club 05 // get rich or die tryin",
-      "d": "2026-10-23",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "056439014345c78e",
-      "t": "10.23. dune x samba soiree",
-      "d": "2026-10-23",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f26c8ecf73fa006b",
-      "t": "tanulj kulfoldon kiallitas - studyguide -kulfoldi egyetemek budapesten es online",
-      "d": "2026-10-24",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "fd69ad2f0d503f3a",
-      "t": "bubak es a varazskonyv",
-      "d": "2026-10-24",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "69f0393ca8f76c5d",
-      "t": "studio 103 | keramia workshop | 10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "08329e4e8136423b",
-      "t": "from page to stage - a comedy workshop by bianca lala",
-      "d": "2026-10-24",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "ccd6946a4cc6295d",
-      "t": "tfse - khg knrc / tippmixpro noi extraliga",
-      "d": "2026-10-24",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
     },
     {
       "id": "2272d9287e54fb60",
@@ -11679,74 +10167,11 @@
       "u": "2026-10-25"
     },
     {
-      "id": "6566387bcc011755",
-      "t": "coffee painting workshop",
-      "d": "2026-10-24",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f721294b41615d65",
-      "t": "tarsasjatek est",
-      "d": "2026-10-24",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "a02d952f99d6007c",
-      "t": "konyvklub",
-      "d": "2026-10-24",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "b4749c441ce41794",
-      "t": "noteszlapok 1956-bol szinhazi megemlekezes es podiumbeszelgetes",
-      "d": "2026-10-24",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "110691a44bbc3bc8",
-      "t": "just vibe & live profile match ismerkedos est | 25-41 ev",
-      "d": "2026-10-24",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5ec90a4cebc5e66c",
-      "t": "juliachants – all is love | lemezbemutato koncert",
-      "d": "2026-10-24",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f1a7f9a23bcac6b8",
-      "t": "leander kills - vihar szeme - budapest i akvarium @ nagyhall 2026.10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
-    },
-    {
       "id": "89c75a847dc2c084",
       "t": "gerappaaa @ lokal 2026.10.24.",
       "d": "2026-10-24",
       "s": "2026-10-20",
       "u": "2026-10-25"
-    },
-    {
-      "id": "1d116da5f66b8975",
-      "t": "guns n' roses by dust n' bones - stenk lelato",
-      "d": "2026-10-24",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "513b0c38cdd31928",
-      "t": "moonlight lebego hangtalfurdo xvi.kerulet konrad ferenc uszoda",
-      "d": "2026-10-24",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
     },
     {
       "id": "95f023af11d87736",
@@ -12974,13 +11399,6 @@
       "u": "2026-11-08"
     },
     {
-      "id": "ca610d9c18f165d7",
-      "t": "off campus kviz",
-      "d": "2026-10-24",
-      "s": "2026-10-20",
-      "u": "2026-10-24"
-    },
-    {
       "id": "ff810e3644ca523c",
       "t": "a boszorkany hagyateka nyomozos jatek",
       "d": "2026-10-26",
@@ -13142,13 +11560,6 @@
       "u": "2026-10-31"
     },
     {
-      "id": "1ebe9955dd074cd3",
-      "t": "skopje via",
-      "d": "2026-10-24",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
       "id": "2a6206efb0fcebbd",
       "t": "halloween in a muggle town! • back to youth! • a38 hajo 10.24.",
       "d": "2026-10-24",
@@ -13177,109 +11588,11 @@
       "u": "2027-04-05"
     },
     {
-      "id": "18bc74cd5d91b1a8",
-      "t": "telek szureti mulatsag",
-      "d": "2026-10-23",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
       "id": "cd546da077ce3716",
       "t": "europe revival 2026 budapest",
       "d": "2026-10-23",
       "s": "2026-10-21",
       "u": "2026-10-25"
-    },
-    {
-      "id": "75b176e003b5f8e5",
-      "t": "mamma mia! video disco 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "17d9e16ab8a63195",
-      "t": "mamma mia! video disco at moby ✘ 23rd oct ✘ discounted tickets w/ elb",
-      "d": "2026-10-23",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "10381cd49d1ab054",
-      "t": "glow ✦witch, please! ✦ girls only halloween ✦ 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "7b75508288d6aaf7",
-      "t": "turbina x technokunst w/ kangding ray, isu, mode",
-      "d": "2026-10-23",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "07981c4798ccdcf9",
-      "t": "ritmik at dojo 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5265f6a932178174",
-      "t": "csinnadratta ❋ patriotak",
-      "d": "2026-10-23",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "7a94ced01497bb4c",
-      "t": "otkert friday 10.23. club 05 // get rich or die tryin",
-      "d": "2026-10-23",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "056439014345c78e",
-      "t": "10.23. dune x samba soiree",
-      "d": "2026-10-23",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f26c8ecf73fa006b",
-      "t": "tanulj kulfoldon kiallitas - studyguide -kulfoldi egyetemek budapesten es online",
-      "d": "2026-10-24",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "fd69ad2f0d503f3a",
-      "t": "bubak es a varazskonyv",
-      "d": "2026-10-24",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "69f0393ca8f76c5d",
-      "t": "studio 103 | keramia workshop | 10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "08329e4e8136423b",
-      "t": "from page to stage - a comedy workshop by bianca lala",
-      "d": "2026-10-24",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "ccd6946a4cc6295d",
-      "t": "tfse - khg knrc / tippmixpro noi extraliga",
-      "d": "2026-10-24",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
     },
     {
       "id": "2272d9287e54fb60",
@@ -13289,81 +11602,11 @@
       "u": "2026-10-25"
     },
     {
-      "id": "6566387bcc011755",
-      "t": "coffee painting workshop",
-      "d": "2026-10-24",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f721294b41615d65",
-      "t": "tarsasjatek est",
-      "d": "2026-10-24",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "a02d952f99d6007c",
-      "t": "konyvklub",
-      "d": "2026-10-24",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "db45f119fbda2fd7",
-      "t": "just vibe ismerkedos est, ahol konnyu kapcsolodni 25–41 ev",
-      "d": "2026-10-24",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "b4749c441ce41794",
-      "t": "noteszlapok 1956-bol szinhazi megemlekezes es podiumbeszelgetes",
-      "d": "2026-10-24",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "110691a44bbc3bc8",
-      "t": "just vibe & live profile match ismerkedos est | 25-41 ev",
-      "d": "2026-10-24",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5ec90a4cebc5e66c",
-      "t": "juliachants – all is love | lemezbemutato koncert",
-      "d": "2026-10-24",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f1a7f9a23bcac6b8",
-      "t": "leander kills - vihar szeme - budapest i akvarium @ nagyhall 2026.10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
       "id": "89c75a847dc2c084",
       "t": "gerappaaa @ lokal 2026.10.24.",
       "d": "2026-10-24",
       "s": "2026-10-21",
       "u": "2026-10-25"
-    },
-    {
-      "id": "1d116da5f66b8975",
-      "t": "guns n' roses by dust n' bones - stenk lelato",
-      "d": "2026-10-24",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "513b0c38cdd31928",
-      "t": "moonlight lebego hangtalfurdo xvi.kerulet konrad ferenc uszoda",
-      "d": "2026-10-24",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
     },
     {
       "id": "95f023af11d87736",
@@ -14682,13 +12925,6 @@
       "u": "2026-11-09"
     },
     {
-      "id": "ca610d9c18f165d7",
-      "t": "off campus kviz",
-      "d": "2026-10-24",
-      "s": "2026-10-21",
-      "u": "2026-10-24"
-    },
-    {
       "id": "ff810e3644ca523c",
       "t": "a boszorkany hagyateka nyomozos jatek",
       "d": "2026-10-26",
@@ -14878,13 +13114,6 @@
       "u": "2026-10-31"
     },
     {
-      "id": "1ebe9955dd074cd3",
-      "t": "skopje via",
-      "d": "2026-10-24",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
       "id": "2a6206efb0fcebbd",
       "t": "halloween in a muggle town! • back to youth! • a38 hajo 10.24.",
       "d": "2026-10-24",
@@ -14913,109 +13142,11 @@
       "u": "2027-04-05"
     },
     {
-      "id": "18bc74cd5d91b1a8",
-      "t": "telek szureti mulatsag",
-      "d": "2026-10-23",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
       "id": "cd546da077ce3716",
       "t": "europe revival 2026 budapest",
       "d": "2026-10-23",
       "s": "2026-10-22",
       "u": "2026-10-25"
-    },
-    {
-      "id": "75b176e003b5f8e5",
-      "t": "mamma mia! video disco 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "17d9e16ab8a63195",
-      "t": "mamma mia! video disco at moby ✘ 23rd oct ✘ discounted tickets w/ elb",
-      "d": "2026-10-23",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "10381cd49d1ab054",
-      "t": "glow ✦witch, please! ✦ girls only halloween ✦ 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "7b75508288d6aaf7",
-      "t": "turbina x technokunst w/ kangding ray, isu, mode",
-      "d": "2026-10-23",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "07981c4798ccdcf9",
-      "t": "ritmik at dojo 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5265f6a932178174",
-      "t": "csinnadratta ❋ patriotak",
-      "d": "2026-10-23",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "7a94ced01497bb4c",
-      "t": "otkert friday 10.23. club 05 // get rich or die tryin",
-      "d": "2026-10-23",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "056439014345c78e",
-      "t": "10.23. dune x samba soiree",
-      "d": "2026-10-23",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f26c8ecf73fa006b",
-      "t": "tanulj kulfoldon kiallitas - studyguide -kulfoldi egyetemek budapesten es online",
-      "d": "2026-10-24",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "fd69ad2f0d503f3a",
-      "t": "bubak es a varazskonyv",
-      "d": "2026-10-24",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "69f0393ca8f76c5d",
-      "t": "studio 103 | keramia workshop | 10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "08329e4e8136423b",
-      "t": "from page to stage - a comedy workshop by bianca lala",
-      "d": "2026-10-24",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "ccd6946a4cc6295d",
-      "t": "tfse - khg knrc / tippmixpro noi extraliga",
-      "d": "2026-10-24",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
     },
     {
       "id": "2272d9287e54fb60",
@@ -15025,74 +13156,11 @@
       "u": "2026-10-25"
     },
     {
-      "id": "f721294b41615d65",
-      "t": "tarsasjatek est",
-      "d": "2026-10-24",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "a02d952f99d6007c",
-      "t": "konyvklub",
-      "d": "2026-10-24",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "db45f119fbda2fd7",
-      "t": "just vibe ismerkedos est, ahol konnyu kapcsolodni 25–41 ev",
-      "d": "2026-10-24",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "b4749c441ce41794",
-      "t": "noteszlapok 1956-bol szinhazi megemlekezes es podiumbeszelgetes",
-      "d": "2026-10-24",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "110691a44bbc3bc8",
-      "t": "just vibe & live profile match ismerkedos est | 25-41 ev",
-      "d": "2026-10-24",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5ec90a4cebc5e66c",
-      "t": "juliachants – all is love | lemezbemutato koncert",
-      "d": "2026-10-24",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f1a7f9a23bcac6b8",
-      "t": "leander kills - vihar szeme - budapest i akvarium @ nagyhall 2026.10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
       "id": "89c75a847dc2c084",
       "t": "gerappaaa @ lokal 2026.10.24.",
       "d": "2026-10-24",
       "s": "2026-10-22",
       "u": "2026-10-25"
-    },
-    {
-      "id": "1d116da5f66b8975",
-      "t": "guns n' roses by dust n' bones - stenk lelato",
-      "d": "2026-10-24",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "513b0c38cdd31928",
-      "t": "moonlight lebego hangtalfurdo xvi.kerulet konrad ferenc uszoda",
-      "d": "2026-10-24",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
     },
     {
       "id": "95f023af11d87736",
@@ -16495,13 +14563,6 @@
       "u": "2026-11-11"
     },
     {
-      "id": "ca610d9c18f165d7",
-      "t": "off campus kviz",
-      "d": "2026-10-24",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
       "id": "f5d23707c342e175",
       "t": "zenefelismero kviz",
       "d": "2026-10-26",
@@ -16705,13 +14766,6 @@
       "u": "2026-11-10"
     },
     {
-      "id": "889e84d795f06b9b",
-      "t": "csepeli tarsasjatek klub",
-      "d": "2026-10-24",
-      "s": "2026-10-22",
-      "u": "2026-10-24"
-    },
-    {
       "id": "edd49af49084f01a",
       "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
       "d": "2026-10-26",
@@ -16810,13 +14864,6 @@
       "u": "2026-10-31"
     },
     {
-      "id": "1ebe9955dd074cd3",
-      "t": "skopje via",
-      "d": "2026-10-24",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
       "id": "2a6206efb0fcebbd",
       "t": "halloween in a muggle town! • back to youth! • a38 hajo 10.24.",
       "d": "2026-10-24",
@@ -16845,109 +14892,11 @@
       "u": "2027-04-05"
     },
     {
-      "id": "18bc74cd5d91b1a8",
-      "t": "telek szureti mulatsag",
-      "d": "2026-10-23",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
       "id": "cd546da077ce3716",
       "t": "europe revival 2026 budapest",
       "d": "2026-10-23",
       "s": "2026-10-23",
       "u": "2026-10-25"
-    },
-    {
-      "id": "75b176e003b5f8e5",
-      "t": "mamma mia! video disco 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "17d9e16ab8a63195",
-      "t": "mamma mia! video disco at moby ✘ 23rd oct ✘ discounted tickets w/ elb",
-      "d": "2026-10-23",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "10381cd49d1ab054",
-      "t": "glow ✦witch, please! ✦ girls only halloween ✦ 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "7b75508288d6aaf7",
-      "t": "turbina x technokunst w/ kangding ray, isu, mode",
-      "d": "2026-10-23",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "07981c4798ccdcf9",
-      "t": "ritmik at dojo 10.23.",
-      "d": "2026-10-23",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5265f6a932178174",
-      "t": "csinnadratta ❋ patriotak",
-      "d": "2026-10-23",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "7a94ced01497bb4c",
-      "t": "otkert friday 10.23. club 05 // get rich or die tryin",
-      "d": "2026-10-23",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "056439014345c78e",
-      "t": "10.23. dune x samba soiree",
-      "d": "2026-10-23",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f26c8ecf73fa006b",
-      "t": "tanulj kulfoldon kiallitas - studyguide -kulfoldi egyetemek budapesten es online",
-      "d": "2026-10-24",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "fd69ad2f0d503f3a",
-      "t": "bubak es a varazskonyv",
-      "d": "2026-10-24",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "69f0393ca8f76c5d",
-      "t": "studio 103 | keramia workshop | 10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "08329e4e8136423b",
-      "t": "from page to stage - a comedy workshop by bianca lala",
-      "d": "2026-10-24",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "ccd6946a4cc6295d",
-      "t": "tfse - khg knrc / tippmixpro noi extraliga",
-      "d": "2026-10-24",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
     },
     {
       "id": "2272d9287e54fb60",
@@ -16957,74 +14906,11 @@
       "u": "2026-10-25"
     },
     {
-      "id": "f721294b41615d65",
-      "t": "tarsasjatek est",
-      "d": "2026-10-24",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "a02d952f99d6007c",
-      "t": "konyvklub",
-      "d": "2026-10-24",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "db45f119fbda2fd7",
-      "t": "just vibe ismerkedos est, ahol konnyu kapcsolodni 25–41 ev",
-      "d": "2026-10-24",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "b4749c441ce41794",
-      "t": "noteszlapok 1956-bol szinhazi megemlekezes es podiumbeszelgetes",
-      "d": "2026-10-24",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "110691a44bbc3bc8",
-      "t": "just vibe & live profile match ismerkedos est | 25-41 ev",
-      "d": "2026-10-24",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5ec90a4cebc5e66c",
-      "t": "juliachants – all is love | lemezbemutato koncert",
-      "d": "2026-10-24",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f1a7f9a23bcac6b8",
-      "t": "leander kills - vihar szeme - budapest i akvarium @ nagyhall 2026.10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
       "id": "89c75a847dc2c084",
       "t": "gerappaaa @ lokal 2026.10.24.",
       "d": "2026-10-24",
       "s": "2026-10-23",
       "u": "2026-10-25"
-    },
-    {
-      "id": "1d116da5f66b8975",
-      "t": "guns n' roses by dust n' bones - stenk lelato",
-      "d": "2026-10-24",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "513b0c38cdd31928",
-      "t": "moonlight lebego hangtalfurdo xvi.kerulet konrad ferenc uszoda",
-      "d": "2026-10-24",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
     },
     {
       "id": "95f023af11d87736",
@@ -18490,13 +16376,6 @@
       "u": "2026-11-12"
     },
     {
-      "id": "ca610d9c18f165d7",
-      "t": "off campus kviz",
-      "d": "2026-10-24",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
       "id": "f5d23707c342e175",
       "t": "zenefelismero kviz",
       "d": "2026-10-26",
@@ -18749,13 +16628,6 @@
       "u": "2026-11-11"
     },
     {
-      "id": "889e84d795f06b9b",
-      "t": "csepeli tarsasjatek klub",
-      "d": "2026-10-24",
-      "s": "2026-10-23",
-      "u": "2026-10-24"
-    },
-    {
       "id": "edd49af49084f01a",
       "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
       "d": "2026-10-26",
@@ -18854,13 +16726,6 @@
       "u": "2026-10-31"
     },
     {
-      "id": "1ebe9955dd074cd3",
-      "t": "skopje via",
-      "d": "2026-10-24",
-      "s": "2026-10-24",
-      "u": "2026-10-24"
-    },
-    {
       "id": "2a6206efb0fcebbd",
       "t": "halloween in a muggle town! • back to youth! • a38 hajo 10.24.",
       "d": "2026-10-24",
@@ -18896,41 +16761,6 @@
       "u": "2026-10-25"
     },
     {
-      "id": "f26c8ecf73fa006b",
-      "t": "tanulj kulfoldon kiallitas - studyguide -kulfoldi egyetemek budapesten es online",
-      "d": "2026-10-24",
-      "s": "2026-10-24",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "fd69ad2f0d503f3a",
-      "t": "bubak es a varazskonyv",
-      "d": "2026-10-24",
-      "s": "2026-10-24",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "69f0393ca8f76c5d",
-      "t": "studio 103 | keramia workshop | 10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-24",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "08329e4e8136423b",
-      "t": "from page to stage - a comedy workshop by bianca lala",
-      "d": "2026-10-24",
-      "s": "2026-10-24",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "ccd6946a4cc6295d",
-      "t": "tfse - khg knrc / tippmixpro noi extraliga",
-      "d": "2026-10-24",
-      "s": "2026-10-24",
-      "u": "2026-10-24"
-    },
-    {
       "id": "2272d9287e54fb60",
       "t": "tfse - csata tkk i noi kosarlabda nb i. a-csoport",
       "d": "2026-10-24",
@@ -18938,74 +16768,11 @@
       "u": "2026-10-25"
     },
     {
-      "id": "f721294b41615d65",
-      "t": "tarsasjatek est",
-      "d": "2026-10-24",
-      "s": "2026-10-24",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "a02d952f99d6007c",
-      "t": "konyvklub",
-      "d": "2026-10-24",
-      "s": "2026-10-24",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "db45f119fbda2fd7",
-      "t": "just vibe ismerkedos est, ahol konnyu kapcsolodni 25–41 ev",
-      "d": "2026-10-24",
-      "s": "2026-10-24",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "b4749c441ce41794",
-      "t": "noteszlapok 1956-bol szinhazi megemlekezes es podiumbeszelgetes",
-      "d": "2026-10-24",
-      "s": "2026-10-24",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "110691a44bbc3bc8",
-      "t": "just vibe & live profile match ismerkedos est | 25-41 ev",
-      "d": "2026-10-24",
-      "s": "2026-10-24",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "5ec90a4cebc5e66c",
-      "t": "juliachants – all is love | lemezbemutato koncert",
-      "d": "2026-10-24",
-      "s": "2026-10-24",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "f1a7f9a23bcac6b8",
-      "t": "leander kills - vihar szeme - budapest i akvarium @ nagyhall 2026.10.24.",
-      "d": "2026-10-24",
-      "s": "2026-10-24",
-      "u": "2026-10-24"
-    },
-    {
       "id": "89c75a847dc2c084",
       "t": "gerappaaa @ lokal 2026.10.24.",
       "d": "2026-10-24",
       "s": "2026-10-24",
       "u": "2026-10-25"
-    },
-    {
-      "id": "1d116da5f66b8975",
-      "t": "guns n' roses by dust n' bones - stenk lelato",
-      "d": "2026-10-24",
-      "s": "2026-10-24",
-      "u": "2026-10-24"
-    },
-    {
-      "id": "513b0c38cdd31928",
-      "t": "moonlight lebego hangtalfurdo xvi.kerulet konrad ferenc uszoda",
-      "d": "2026-10-24",
-      "s": "2026-10-24",
-      "u": "2026-10-24"
     },
     {
       "id": "95f023af11d87736",
@@ -20576,13 +18343,6 @@
       "u": "2026-11-13"
     },
     {
-      "id": "ca610d9c18f165d7",
-      "t": "off campus kviz",
-      "d": "2026-10-24",
-      "s": "2026-10-24",
-      "u": "2026-10-24"
-    },
-    {
       "id": "f5d23707c342e175",
       "t": "zenefelismero kviz",
       "d": "2026-10-26",
@@ -20842,13 +18602,6 @@
       "u": "2026-11-12"
     },
     {
-      "id": "889e84d795f06b9b",
-      "t": "csepeli tarsasjatek klub",
-      "d": "2026-10-24",
-      "s": "2026-10-24",
-      "u": "2026-10-24"
-    },
-    {
       "id": "edd49af49084f01a",
       "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
       "d": "2026-10-26",
@@ -20945,60 +18698,2104 @@
       "d": "2026-10-31",
       "s": "2026-10-24",
       "u": "2026-10-31"
+    },
+    {
+      "id": "7f49c920cd96508e",
+      "t": "typotex konyvklub 2026 osz",
+      "d": "2026-09-16",
+      "s": "2026-10-25",
+      "u": "2026-12-09"
+    },
+    {
+      "id": "e49584887c1043ee",
+      "t": "science cafe 2026 osz",
+      "d": "2026-09-22",
+      "s": "2026-10-25",
+      "u": "2026-12-09"
+    },
+    {
+      "id": "6587c929e0c69938",
+      "t": "a fold meseregionak mesei a halalrol es a gyaszrol - berlet",
+      "d": "2026-10-12",
+      "s": "2026-10-25",
+      "u": "2027-04-05"
+    },
+    {
+      "id": "cd546da077ce3716",
+      "t": "europe revival 2026 budapest",
+      "d": "2026-10-23",
+      "s": "2026-10-25",
+      "u": "2026-10-25"
+    },
+    {
+      "id": "f26c8ecf73fa006b",
+      "t": "tanulj kulfoldon kiallitas - studyguide -kulfoldi egyetemek budapesten es online",
+      "d": "2026-10-24",
+      "s": "2026-10-25",
+      "u": "2026-10-25"
+    },
+    {
+      "id": "2272d9287e54fb60",
+      "t": "tfse - csata tkk i noi kosarlabda nb i. a-csoport",
+      "d": "2026-10-24",
+      "s": "2026-10-25",
+      "u": "2026-10-25"
+    },
+    {
+      "id": "cb84ca5aa3316db3",
+      "t": "test-lelek onismereti tura - erdofurdo - sunshine flow kozosseg",
+      "d": "2026-10-25",
+      "s": "2026-10-25",
+      "u": "2026-10-25"
+    },
+    {
+      "id": "2a192d926c7e7edc",
+      "t": "rawr market",
+      "d": "2026-10-25",
+      "s": "2026-10-25",
+      "u": "2026-10-25"
+    },
+    {
+      "id": "e5401a1fa2d3473a",
+      "t": "canvas painting: create ghost paintings",
+      "d": "2026-10-25",
+      "s": "2026-10-25",
+      "u": "2026-10-25"
+    },
+    {
+      "id": "ff06fe53776319dd",
+      "t": "randipiknik - elsoszikra (nok: 33-45 ev, ferfiak: 35-47 ev)",
+      "d": "2026-10-25",
+      "s": "2026-10-25",
+      "u": "2026-10-25"
+    },
+    {
+      "id": "945798ffd4246ad5",
+      "t": "board game night by elb @hoff house /every sunday",
+      "d": "2026-10-25",
+      "s": "2026-10-25",
+      "u": "2026-10-25"
+    },
+    {
+      "id": "b082cd5df9dbd093",
+      "t": "orvosok es muveszek emlekeznek dr. vajda janos idegsebeszre a rumbach zsinagogab",
+      "d": "2026-10-25",
+      "s": "2026-10-25",
+      "u": "2026-10-25"
+    },
+    {
+      "id": "d1b481f823827081",
+      "t": "rollin’ 3rd birthday - the hungarian topsh*t party ➤ 10/25 | otkert",
+      "d": "2026-10-25",
+      "s": "2026-10-25",
+      "u": "2026-10-26"
+    },
+    {
+      "id": "780dbdd1af401eb1",
+      "t": "a fold meseregionak mesei a halalrol es a gyaszrol",
+      "d": "2026-10-26",
+      "s": "2026-10-25",
+      "u": "2026-10-26"
+    },
+    {
+      "id": "25decee588f11de1",
+      "t": "tfse - szise i noi kezilabda magyar kupa",
+      "d": "2026-10-26",
+      "s": "2026-10-25",
+      "u": "2026-10-26"
+    },
+    {
+      "id": "42ebeb46cc3b2b7f",
+      "t": "lelekfeny",
+      "d": "2026-10-26",
+      "s": "2026-10-25",
+      "u": "2026-10-26"
+    },
+    {
+      "id": "b3a4230b02773ebe",
+      "t": "karizma podcast belso kor kozonsegtalalkozo",
+      "d": "2026-10-27",
+      "s": "2026-10-25",
+      "u": "2026-10-27"
+    },
+    {
+      "id": "3b8c2b7e82d683e8",
+      "t": "studio 103 | keramia workshop | 10.27.",
+      "d": "2026-10-27",
+      "s": "2026-10-25",
+      "u": "2026-10-27"
+    },
+    {
+      "id": "257becfc8591259f",
+      "t": "legyen az! vacsora-talkshow ordog noraval",
+      "d": "2026-10-27",
+      "s": "2026-10-25",
+      "u": "2026-10-27"
+    },
+    {
+      "id": "91bd2b334cc1010b",
+      "t": "a kossuth-kod vol. 3",
+      "d": "2026-10-27",
+      "s": "2026-10-25",
+      "u": "2026-10-27"
+    },
+    {
+      "id": "45574cad7b73fe09",
+      "t": "metu graduate fashion show 2026 – a kollaboracio szinergiaja –nyilvanos bemutato",
+      "d": "2026-10-28",
+      "s": "2026-10-25",
+      "u": "2026-10-28"
+    },
+    {
+      "id": "391d5bf9bb85235b",
+      "t": "studio 103 | himzo workshop | 10.28.",
+      "d": "2026-10-28",
+      "s": "2026-10-25",
+      "u": "2026-10-28"
+    },
+    {
+      "id": "9bc1c7b610c8a198",
+      "t": "singles unscripted - exclusive international singles night",
+      "d": "2026-10-28",
+      "s": "2026-10-25",
+      "u": "2026-10-28"
+    },
+    {
+      "id": "d8149b37134d1f23",
+      "t": "nations' night by elb - benelux countries ✘ 28th oct @doboz",
+      "d": "2026-10-28",
+      "s": "2026-10-25",
+      "u": "2026-10-29"
+    },
+    {
+      "id": "2e1ad722a43cdc5b",
+      "t": "danza kuduro ◦ haunted tribute ➤ otkert | 10.28.",
+      "d": "2026-10-28",
+      "s": "2026-10-25",
+      "u": "2026-10-29"
+    },
+    {
+      "id": "521c49c387a357d8",
+      "t": "halloweeni fotozas - 10.29.",
+      "d": "2026-10-29",
+      "s": "2026-10-25",
+      "u": "2026-10-29"
+    },
+    {
+      "id": "009ca57a4afe8260",
+      "t": "autumn flower arrangement workshop | haba x ixia",
+      "d": "2026-10-29",
+      "s": "2026-10-25",
+      "u": "2026-10-29"
+    },
+    {
+      "id": "5831ad37f205afe8",
+      "t": "studio 103 | konyvkoto workshop | 10.29.",
+      "d": "2026-10-29",
+      "s": "2026-10-25",
+      "u": "2026-10-29"
+    },
+    {
+      "id": "a95b1307f4706ccc",
+      "t": "hall(g)asd masok hangjat!",
+      "d": "2026-10-29",
+      "s": "2026-10-25",
+      "u": "2026-10-29"
+    },
+    {
+      "id": "bc6655f3363020ea",
+      "t": "ficsurok es damak // kepzo golyabal",
+      "d": "2026-10-29",
+      "s": "2026-10-25",
+      "u": "2026-10-30"
+    },
+    {
+      "id": "fac417830b68d9c5",
+      "t": "nyhill & the fermentationz - live band debut @ manyi",
+      "d": "2026-10-29",
+      "s": "2026-10-25",
+      "u": "2026-10-29"
+    },
+    {
+      "id": "70f74bdb7f65adcb",
+      "t": "egy esos nap parizsban",
+      "d": "2026-10-29",
+      "s": "2026-10-25",
+      "u": "2026-10-29"
+    },
+    {
+      "id": "6541b91ce6fe36aa",
+      "t": "koktel workshop with bonnie andrews by premium gin",
+      "d": "2026-10-29",
+      "s": "2026-10-25",
+      "u": "2026-10-29"
+    },
+    {
+      "id": "946da1b0650756fa",
+      "t": "lazy lion | parfum & koktelest pap markkal | zoologist by cherry garden",
+      "d": "2026-10-29",
+      "s": "2026-10-25",
+      "u": "2026-10-29"
+    },
+    {
+      "id": "64b4843873ad1eba",
+      "t": "swamp cretures // atno, ad hoc",
+      "d": "2026-10-29",
+      "s": "2026-10-25",
+      "u": "2026-10-29"
+    },
+    {
+      "id": "543fa45631377d0e",
+      "t": "🧠 brainiacs vol.16: quiz night at brody house 🎉",
+      "d": "2026-10-29",
+      "s": "2026-10-25",
+      "u": "2026-10-29"
+    },
+    {
+      "id": "b099463a324a21e1",
+      "t": "zigzag",
+      "d": "2026-10-29",
+      "s": "2026-10-25",
+      "u": "2026-10-30"
+    },
+    {
+      "id": "63f315e7ac4e0285",
+      "t": "halloween madness by n•g•k party • 10.29.",
+      "d": "2026-10-29",
+      "s": "2026-10-25",
+      "u": "2026-10-30"
+    },
+    {
+      "id": "d155ff73d66a2c85",
+      "t": "edr x thursday techno i toldi i 29th october",
+      "d": "2026-10-29",
+      "s": "2026-10-25",
+      "u": "2026-10-30"
+    },
+    {
+      "id": "513301b21fb9fc97",
+      "t": "first aid felevfelezo 10.29.",
+      "d": "2026-10-29",
+      "s": "2026-10-25",
+      "u": "2026-10-30"
+    },
+    {
+      "id": "13c7d0ea55e2fccc",
+      "t": "semmelweis halloween - 10.29 - otkert",
+      "d": "2026-10-29",
+      "s": "2026-10-25",
+      "u": "2026-10-30"
+    },
+    {
+      "id": "fc15f4d41c17846b",
+      "t": "corvinus halloween - 10.29 - otkert",
+      "d": "2026-10-29",
+      "s": "2026-10-25",
+      "u": "2026-10-30"
+    },
+    {
+      "id": "4b13e5d8d5bac616",
+      "t": "halloweeni fotozas",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-30"
+    },
+    {
+      "id": "4fe204858260689d",
+      "t": "free vinyasa class",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-30"
+    },
+    {
+      "id": "5c024b6f28ca4184",
+      "t": "studio 103 | linometszes workshop | 10.30.",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-30"
+    },
+    {
+      "id": "5066950b6b1ddb04",
+      "t": "ute - haromszeki agyusok",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-30"
+    },
+    {
+      "id": "0744f46617860f55",
+      "t": "just vibe & live profile match ismerkedos est | 25–41 ev",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-30"
+    },
+    {
+      "id": "addea9a64c27e5af",
+      "t": "momster - halloween night for moms & girls",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "7a165c04194858a6",
+      "t": "lelekut hangfurdo alap csomag",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-30"
+    },
+    {
+      "id": "6d62399b9ba449f6",
+      "t": "borzsongas 2026 - a boros halloween!🍷🎃",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-11-19"
+    },
+    {
+      "id": "786eb579015efc80",
+      "t": "magma rise - stenk lelato",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-30"
+    },
+    {
+      "id": "7112e091a7a5af14",
+      "t": "dj bootsie quartet 360 koncert",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-30"
+    },
+    {
+      "id": "b7c10939dbc9429c",
+      "t": "linocut printing workshop",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-11-02"
+    },
+    {
+      "id": "c2286077f8168305",
+      "t": "pittyes2es es gyufa koncert",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-30"
+    },
+    {
+      "id": "8ddba25efa3b9f17",
+      "t": "mome golyabal 2026",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "0e13e0c7539420da",
+      "t": "pub quiz special: harry potter trivia",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-30"
+    },
+    {
+      "id": "0bc85e66b163697e",
+      "t": "lakatparty szingliknek halloween edition",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "8393396623052a97",
+      "t": "trick or treat, but: blues b.r.others show a muzikumban!",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-30"
+    },
+    {
+      "id": "03a6f7c1c2b3404c",
+      "t": "heaven meets hell halloween party 2026",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "71f28026ad91cd5f",
+      "t": "shoes resilio albumbemutato koncert | support: dazzled",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "0516cbf5646e7fc3",
+      "t": "csinnadratta ❋ kaosz",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "b1148cb34cc8984a",
+      "t": "pal csaba vacsoraest i oktober 30. pentek i mom leroy bistro i budapest",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-30"
+    },
+    {
+      "id": "0e5e6a7d5a01182c",
+      "t": "tfse - budapesti bikak i ferfi kosarlabda nb i./b zold-csoport",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-30"
+    },
+    {
+      "id": "1da4c116ef1c0a24",
+      "t": "blo. x voros neon ✤ the gay halloween party ✤ 10.30",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "2d048e0899be4391",
+      "t": "havervagy halloween 2026",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "ed60f72509cc8d77",
+      "t": "hideparty - halloween networking event",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "d97d94acd1ec6d9d",
+      "t": "puszipentek halloween 🎃 10.30. moby balna",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "242189a67d9f1a8e",
+      "t": "bellaka pres.: halloween",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "9646d972db721d0b",
+      "t": "haverock",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "380b07df31683114",
+      "t": "halloween boat party - ghost ship by elb ✘ 30th oct ✘ stadt wien boat",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "031f2ee6520a240f",
+      "t": "nofear halloween",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "447a299f59cc8fcf",
+      "t": "🎭no face halloween🎭 // maroni / 10.30",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "b6960f373a0e2e65",
+      "t": "otkert friday 10.30. halloween weekend day 1. // upper club",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "882ff4b6a82127df",
+      "t": "dojo house of oriental 10.30.",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "5e88bdfa801f0ebb",
+      "t": "10.30. dune x samba soiree : halloween edition",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "94c1bd1811d233a4",
+      "t": "necc party @ nagyhall 2026.10.30.",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "9e811d5efc8af65d",
+      "t": "coronita® afterparty 2026/10/31 @cat budapest | vasarnap 05:00-09:00",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "3806d50d8eda29ef",
+      "t": "el paso vs nightlife - daimond rocks (tsy) is back ➤ cat budapest // 10.31.",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "54696d4f80f95e5e",
+      "t": "studio 103 | fakanal keszito workshop | 10.31.",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "dba7bfdf789ea247",
+      "t": "studio 103 | keramia workshop | 10.31.",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "546cd6c5f7b8da7d",
+      "t": "ingyenes halloweeni arcfestes a gyerekeknek - regisztracio 10.31. savoyai terasz",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "7df4c11283261d60",
+      "t": "padel madness i.",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "37784455a9874e19",
+      "t": "photo embroidery",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "9e16260cecbd0ab2",
+      "t": "tfse - komarom vse i noi kezilabda nb i./b",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "89971d29d67bb4ab",
+      "t": "pannon roller disco - spooky wheels",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "9834f9e52534ff3a",
+      "t": "kolyok placc // oktober 31.",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "c71f35b046bc3c00",
+      "t": "vasas obuda - tfse | tippmixpro noi roplabda extraliga, 4. fordulo",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "70e748f85cdb0cdc",
+      "t": "lagzi feszt xxl \"halloween\" | budapest, obuda bay",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "3f6b4aec9c14f665",
+      "t": "vasasplaket - uvse vizilabda kft. ob i., 6. fordulo",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "f447b1232f4fd062",
+      "t": "white girl music halloween party • remix 16+ daytime to midnight • 10.31.",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "0207cfc28d720357",
+      "t": "akvarium klub — 5 program",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "18f80854ba866bcd",
+      "t": "feuer frei: volkerball xxl",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "5ab26770dbfc79af",
+      "t": "kedves szaktars! borocz laszlo es bosze adam estje",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "214977f9c7acbc6d",
+      "t": "freakin disco | gorg & benzol @ kassa halloween",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "308d0a83275141e9",
+      "t": "dia de los muertos - alacalufe - harom hollo",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "b54a80685d04ab1c",
+      "t": "ozzy halloween special show by celebration days",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "27c99c4e33bfa488",
+      "t": "rock'n'roll a sorgyarban halloween - candymen, blackwater, tom white rockabilly",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "c7b33884bfc02dde",
+      "t": "mamma mia video disco & abba live music show – a duna-parton! 10.31.",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "f59c3f6085ee4337",
+      "t": "mamma mia! video disco & live show @moby ✘ 31st oct ✘ discounted tickets w/ elb",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "a220f2c26caac9e2",
+      "t": "one night with nigel stately & antonyo// mom leroy",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "f6f5f6a533c6cdcd",
+      "t": "everflash",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "99639d513a2f18b1",
+      "t": "the blood moon halloween - w budapest",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "c87cfc9ee5dee946",
+      "t": "gta vi halloween ★ @textilgyar ★ chat boutique",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "bfd08ef1eada5f87",
+      "t": "jo&joe rooftop halloween party",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "bdcbfbfa7f3d4e7f",
+      "t": "pluto after dark - halloween party",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "cb8fdbd69bed7ccc",
+      "t": "luxfunk® radio funky party + scratch show 2026.10.31 @symbol budapest",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "0d24e5d2d4aae06c",
+      "t": "psychedelic halloween ii durer kert",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "b592a7c3f52bd23f",
+      "t": "paradise | the forbidden island ➤ 10/31 // maroni, budapest",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "1a4da45c40b98296",
+      "t": "hardcore halloween arena ✖ a retteges csarnoka │ 2026.10.31. │ orient",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "ce62b73d2c44111b",
+      "t": "dia de los muertos party by elb ✘ halloween in doboz ✘ 31st oct",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "2c2821bce9e065bf",
+      "t": "wolf oliver x bari laci - rnb/hiphop halloween party🎃",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "1eef9c1d3a82dcff",
+      "t": "halloween boat party vol.2 ✘ 31st oct ✘ zsofia boat ✘ discounted tickets by elb",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "375f522fcb1dcc9e",
+      "t": "therapy sessions halloween w/ zardonic, counterstrike, fragz",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "667684de5e394af7",
+      "t": "hardboiled halloween w/ dj tool, pneumatix",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "9bf95a4a6d5007a8",
+      "t": "otkert saturday 10.31. halloween weekend day 2. // badgyal",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "b20260c0276c1962",
+      "t": "dojo discoteca halloween edition 10.31.",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "e976eab10177a07e",
+      "t": "10.31. dune: cavalli & soraya - halloween",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "6f155bd17614ef32",
+      "t": "dilinyo halloween - gatter yankee, trash me hard - oktober 31. - a38 hajo",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "773b3cfa9a806d23",
+      "t": "coronita® afterparty 2026/11/01 @cat budapest | vasarnap 05:00-09:00",
+      "d": "2026-11-01",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "224d409807164228",
+      "t": "janikovszky eva: velem mindig tortenik valami @ kishall 2026.11.01.",
+      "d": "2026-11-01",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "849fd530d02b9276",
+      "t": "bob moses (club set) @ akvarium klub / nagyhall 11/01",
+      "d": "2026-11-01",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "ee2d44d7c9786c8f",
+      "t": "vasas sc - mtk budapest, nb i., 7. fordulo",
+      "d": "2026-11-01",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "d676babd09dc51ff",
+      "t": "dia de muertos ¤ los koyotes @ manyi",
+      "d": "2026-11-01",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "f871809b4d23575b",
+      "t": "amon amarth",
+      "d": "2026-11-02",
+      "s": "2026-10-25",
+      "u": "2026-11-03"
+    },
+    {
+      "id": "f172debc06fec1f3",
+      "t": "retrolates / retro fitness babes / akvarium klub powered by techno yoga",
+      "d": "2026-11-02",
+      "s": "2026-10-25",
+      "u": "2026-11-02"
+    },
+    {
+      "id": "72e71954ade25381",
+      "t": "studio 103 | keramia workshop | 11.02.",
+      "d": "2026-11-02",
+      "s": "2026-10-25",
+      "u": "2026-11-02"
+    },
+    {
+      "id": "9c1cdecbd5b9f168",
+      "t": "havervagy pszichologiai jatekest",
+      "d": "2026-11-02",
+      "s": "2026-10-25",
+      "u": "2026-11-02"
+    },
+    {
+      "id": "312b8d305d126fbd",
+      "t": "hausi vol. 8",
+      "d": "2026-11-02",
+      "s": "2026-10-25",
+      "u": "2026-11-03"
+    },
+    {
+      "id": "8c4c24a9d80b245e",
+      "t": "techno yoga // halloween uv yoga // akvarium klub //nov. 3.",
+      "d": "2026-11-03",
+      "s": "2026-10-25",
+      "u": "2026-11-03"
+    },
+    {
+      "id": "fecb95060169dcb9",
+      "t": "studio 103 | bordiszmuves workshop | 11.03.",
+      "d": "2026-11-03",
+      "s": "2026-10-25",
+      "u": "2026-11-03"
+    },
+    {
+      "id": "b270488e09ba614d",
+      "t": "dialog / szerzoi est es beszelgetes fabian tamassal",
+      "d": "2026-11-03",
+      "s": "2026-10-25",
+      "u": "2026-11-03"
+    },
+    {
+      "id": "0fffad4b4968a394",
+      "t": "dunyha (ro/usa/mk/hu) // nove soma solo @ manyi",
+      "d": "2026-11-03",
+      "s": "2026-10-25",
+      "u": "2026-11-03"
+    },
+    {
+      "id": "781f732c697fa834",
+      "t": "studio 103 | gyongyhimzo workshop | 11.04.",
+      "d": "2026-11-04",
+      "s": "2026-10-25",
+      "u": "2026-11-04"
+    },
+    {
+      "id": "c999e06553bd858c",
+      "t": "onismereti ismerkedos est | 28–42 ev",
+      "d": "2026-11-04",
+      "s": "2026-10-25",
+      "u": "2026-11-04"
+    },
+    {
+      "id": "f88161cfecbd21b0",
+      "t": "az okodesign rendelet (espr) kovetkezmenyei",
+      "d": "2026-11-05",
+      "s": "2026-10-25",
+      "u": "2026-11-05"
+    },
+    {
+      "id": "6cf5e74a694b89ac",
+      "t": "tedxlibertybridgewomen",
+      "d": "2026-11-05",
+      "s": "2026-10-25",
+      "u": "2026-11-05"
+    },
+    {
+      "id": "0703fb16c83ade8b",
+      "t": "studio 103 | horgolo workshop | 11.05.",
+      "d": "2026-11-05",
+      "s": "2026-10-25",
+      "u": "2026-11-05"
+    },
+    {
+      "id": "1595471854cebf25",
+      "t": "rapidrandi 35-45 ev",
+      "d": "2026-11-05",
+      "s": "2026-10-25",
+      "u": "2026-11-05"
+    },
+    {
+      "id": "8e44472be405dfa9",
+      "t": "regos matyas & vertesi ferenc dalkeltetoje // okos viola // manyi",
+      "d": "2026-11-05",
+      "s": "2026-10-25",
+      "u": "2026-11-05"
+    },
+    {
+      "id": "c5d29131f5087fee",
+      "t": "aranykalitkakon innen es tul",
+      "d": "2026-11-05",
+      "s": "2026-10-25",
+      "u": "2026-11-05"
+    },
+    {
+      "id": "04494d36d0b0836b",
+      "t": "yogasailor-gerincjoga a coolfit-ben/2026.10.26./19:30-21.00",
+      "d": "2026-11-05",
+      "s": "2026-10-25",
+      "u": "2026-11-06"
+    },
+    {
+      "id": "c21e14ee07e711ec",
+      "t": "unlimited mionetto prosecco boat by esn corvinus",
+      "d": "2026-11-05",
+      "s": "2026-10-25",
+      "u": "2026-11-05"
+    },
+    {
+      "id": "019d967bf82509f9",
+      "t": "kretro party | golyatabor aftermovie premier | 2026.11.05.",
+      "d": "2026-11-05",
+      "s": "2026-10-25",
+      "u": "2026-11-06"
+    },
+    {
+      "id": "2c5c0727485aee1d",
+      "t": "selecta x ruffline @ toldi",
+      "d": "2026-11-05",
+      "s": "2026-10-25",
+      "u": "2026-11-06"
+    },
+    {
+      "id": "f46531d992fff673",
+      "t": "this kind of cooking: book launch, cooking workshop & film with kristof & nimi",
+      "d": "2026-11-06",
+      "s": "2026-10-25",
+      "u": "2026-11-06"
+    },
+    {
+      "id": "81907ba26b2e4e2e",
+      "t": "kozossegi est - hangfelszabaditas zsokaval",
+      "d": "2026-11-06",
+      "s": "2026-10-25",
+      "u": "2026-11-06"
+    },
+    {
+      "id": "a9d78a776d7bc6a1",
+      "t": "hunjam 2026",
+      "d": "2026-11-06",
+      "s": "2026-10-25",
+      "u": "2026-11-08"
+    },
+    {
+      "id": "7e56470f6604984d",
+      "t": "studio 103 | linometszes workshop | 11.06.",
+      "d": "2026-11-06",
+      "s": "2026-10-25",
+      "u": "2026-11-06"
+    },
+    {
+      "id": "c33d6dd45fc5719c",
+      "t": "havervagy tarsasjatek est",
+      "d": "2026-11-06",
+      "s": "2026-10-25",
+      "u": "2026-11-06"
+    },
+    {
+      "id": "83189bb81efcbd90",
+      "t": "peterfy bori & love band: borimaraton 2026 @ nagyhall 2026.11.06.",
+      "d": "2026-11-06",
+      "s": "2026-10-25",
+      "u": "2026-11-06"
+    },
+    {
+      "id": "8398293f8cb3acf7",
+      "t": "kollar klemencz kamarazenekar: a lanyok nem sirnak -koncert @ kishall 2026.11.06",
+      "d": "2026-11-06",
+      "s": "2026-10-25",
+      "u": "2026-11-06"
+    },
+    {
+      "id": "270a99f71b22c52d",
+      "t": "taylo'ween - 100% taylor swift all night long - akvarium klub - november 6.",
+      "d": "2026-11-06",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "24c3f4f52497052b",
+      "t": "kek es lila almok a manyiban: koran d. david × capsule boy",
+      "d": "2026-11-06",
+      "s": "2026-10-25",
+      "u": "2026-11-06"
+    },
+    {
+      "id": "6422c974b601fc00",
+      "t": "salmon footsteps x transient trio",
+      "d": "2026-11-06",
+      "s": "2026-10-25",
+      "u": "2026-11-06"
+    },
+    {
+      "id": "846e2b7a55932bf1",
+      "t": "the best of mode oszi party a muzikumban",
+      "d": "2026-11-06",
+      "s": "2026-10-25",
+      "u": "2026-11-06"
+    },
+    {
+      "id": "9174f1b9233af25a",
+      "t": "palazzo cold nights",
+      "d": "2026-11-06",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "d32af49c49bb4c52",
+      "t": "get funky party november",
+      "d": "2026-11-06",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "ea9a63426632239d",
+      "t": "veszett rave presents: cyber attack",
+      "d": "2026-11-06",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "f85596632985873c",
+      "t": "rakonczai piano garden",
+      "d": "2026-11-06",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "36ad1c5ef05b0d84",
+      "t": "casino bangkok w/ ben klock",
+      "d": "2026-11-06",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "5e29604dc1156fae",
+      "t": "syndanz club opener @kassa",
+      "d": "2026-11-06",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "0a5c595df1402c6a",
+      "t": "liquid night invites chrstphr",
+      "d": "2026-11-06",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "7f53875927931973",
+      "t": "tribe of dojo 11.06.",
+      "d": "2026-11-06",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "610b5245a89feb4d",
+      "t": "hybrid night special → electric callboy vs falling in reverse",
+      "d": "2026-11-06",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "38397fafffe04021",
+      "t": "tabu helyett orom | kriston 40 konferencia az mstt tarsszervezeseben",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "3df8c4f48e9e5ea1",
+      "t": "urban lifestyle by elle",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "6e1b0dde61ea904e",
+      "t": "budapest guitar show 2026",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "627574fea33fc75d",
+      "t": "international aura model's workshop 2.0",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "04746e8fc93d892b",
+      "t": "workshop: keszits taskat ujrahasznositott anyagokbol! ♻️ 🌱 💚",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "6de0a57320e80b89",
+      "t": "studio 103 | keramia workshop | 11.07.",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "b1b3430a69dd6eff",
+      "t": "bor, kviz, zene, osz - pincejarat",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "3226755459a9b317",
+      "t": "santsat pop-up → palazzo permanens",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-08"
+    },
+    {
+      "id": "1695e776a17e4168",
+      "t": "drakula var - vajdahunyadvar 130",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "2ba68600ad712b60",
+      "t": "kuplung zenekar dupla - arena | 2026.11.07.",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "057a1a4a552d3bcb",
+      "t": "cigartower masterclass – a szivarozas tortenete es muveszete",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "d5aa5cbb8c00feee",
+      "t": "stifler mamaja 10. szulinap - barhole",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "a5ae4b4ccb3277d8",
+      "t": "akvarium klub — 4 program",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "1fe642e183be5956",
+      "t": "sepultura + down tribute 💥 respectful hate, over the underdog 💥 stenk lelato",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "9a7d9aaadf127308",
+      "t": "egy senki almai – gyori marton kiallitasa",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "83bd85d8bea0d639",
+      "t": "frida",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "730c9c292183c33b",
+      "t": "oiee's transition | overwater edition",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-08"
+    },
+    {
+      "id": "3775ffd8d913cbb9",
+      "t": "a kert / flop / madrass es barataik",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "553f373753c1a454",
+      "t": "vacsora",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-08"
+    },
+    {
+      "id": "75c450a468d7b7f2",
+      "t": "true energy // toldi",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-08"
+    },
+    {
+      "id": "d6393b3ce2c81fb3",
+      "t": "astro house pres. sapian (il) at dojo 11.07.",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-08"
+    },
+    {
+      "id": "37476a54705e1b95",
+      "t": "sterbinszky x mynea birthday all night long",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-08"
+    },
+    {
+      "id": "d9983f43ad9d2f01",
+      "t": "vice city 80's party",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-08"
+    },
+    {
+      "id": "a79b590c78e97355",
+      "t": "bubak es a varazskonyv",
+      "d": "2026-11-08",
+      "s": "2026-10-25",
+      "u": "2026-11-08"
+    },
+    {
+      "id": "658ac5f6e08f71a4",
+      "t": "studio 103 | ekszerkeszito workshop | 11.08-11.22.",
+      "d": "2026-11-08",
+      "s": "2026-10-25",
+      "u": "2026-11-08"
+    },
+    {
+      "id": "af23306c09507ef8",
+      "t": "dallammentok - a mesevilag hosei - interaktiv gyermekmusor",
+      "d": "2026-11-08",
+      "s": "2026-10-25",
+      "u": "2026-11-08"
+    },
+    {
+      "id": "c140eaf9b96e6b10",
+      "t": "nem ismeg meg a sajat anyam - zenes komedia- l'artistic tarsulat",
+      "d": "2026-11-08",
+      "s": "2026-10-25",
+      "u": "2026-11-08"
+    },
+    {
+      "id": "d6b40c680fa8676d",
+      "t": "house of terror tour - free with elb card (sign up below!)",
+      "d": "2026-11-08",
+      "s": "2026-10-25",
+      "u": "2026-11-08"
+    },
+    {
+      "id": "ed33f576677055e5",
+      "t": "randipiknik - elsoszikra (nok: 38-50 ev, ferfiak: 40-52 ev)",
+      "d": "2026-11-08",
+      "s": "2026-10-25",
+      "u": "2026-11-08"
+    },
+    {
+      "id": "65986f8080a8b3f8",
+      "t": "holdter filmklub: southeast asian american journeys",
+      "d": "2026-11-08",
+      "s": "2026-10-25",
+      "u": "2026-11-08"
+    },
+    {
+      "id": "b2789d0e8267bb0a",
+      "t": "hcw legacy: part 5 - forradalom",
+      "d": "2026-11-08",
+      "s": "2026-10-25",
+      "u": "2026-11-08"
+    },
+    {
+      "id": "e88acc40eb18fa4f",
+      "t": "klikkmentes grandiozusan az anytimeban + bowling, csocso, darts biliard",
+      "d": "2026-11-08",
+      "s": "2026-10-25",
+      "u": "2026-11-08"
+    },
+    {
+      "id": "d3ee801533ecd046",
+      "t": "elin vacsoraest i once upon a night i november 8. vasarnap i lebistro i budapest",
+      "d": "2026-11-08",
+      "s": "2026-10-25",
+      "u": "2026-11-08"
+    },
+    {
+      "id": "b659dc21aa96a517",
+      "t": "altin gun @ nagyhall 2026.11.08.",
+      "d": "2026-11-08",
+      "s": "2026-10-25",
+      "u": "2026-11-08"
+    },
+    {
+      "id": "2204612e8641b072",
+      "t": "4d monster lobsters live show",
+      "d": "2026-11-08",
+      "s": "2026-10-25",
+      "u": "2026-11-08"
+    },
+    {
+      "id": "7ca2e7a7cdf7961a",
+      "t": "frida",
+      "d": "2026-11-08",
+      "s": "2026-10-25",
+      "u": "2026-11-08"
+    },
+    {
+      "id": "2ef51c2a61999f39",
+      "t": "a fold meseregionak mesei a halalrol es a gyaszrol",
+      "d": "2026-11-09",
+      "s": "2026-10-25",
+      "u": "2026-11-09"
+    },
+    {
+      "id": "b93c6de85d4b7bd4",
+      "t": "nagy bernadett es dinyes daniel estje",
+      "d": "2026-11-09",
+      "s": "2026-10-25",
+      "u": "2026-11-09"
+    },
+    {
+      "id": "e90ee4beb0915759",
+      "t": "studio 103 | keramia workshop | 11.09.",
+      "d": "2026-11-09",
+      "s": "2026-10-25",
+      "u": "2026-11-09"
+    },
+    {
+      "id": "0a469924baf0a1e5",
+      "t": "myrtill es a swinguistique, vendeg: ferenczi gyorgy",
+      "d": "2026-11-09",
+      "s": "2026-10-25",
+      "u": "2026-11-09"
+    },
+    {
+      "id": "ee6468ec66ef3852",
+      "t": "wine & cheese tasting by elb @bortodoor city ✘ 10th nov",
+      "d": "2026-11-10",
+      "s": "2026-10-25",
+      "u": "2026-11-10"
+    },
+    {
+      "id": "7aa2c22ba06efe13",
+      "t": "korszakos operak - laszlo ferenc operatorteneti gyorstalpaloja",
+      "d": "2026-11-10",
+      "s": "2026-10-25",
+      "u": "2026-11-10"
+    },
+    {
+      "id": "8d12ddb21996af4e",
+      "t": "janikovszky eva: velem mindig tortenik valami @ kishall 2026.11.10.",
+      "d": "2026-11-10",
+      "s": "2026-10-25",
+      "u": "2026-11-10"
+    },
+    {
+      "id": "cfef1598b5c5c2e0",
+      "t": "pazmany jak, golyabal",
+      "d": "2026-11-10",
+      "s": "2026-10-25",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "4e8e3c6f9a9e03ab",
+      "t": "hsp fenntarthatosagi afterwork - harmadik alkalom",
+      "d": "2026-11-11",
+      "s": "2026-10-25",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "d24ef6a536afe47b",
+      "t": "morality #1",
+      "d": "2026-11-11",
+      "s": "2026-10-25",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "525c22aa41b75cc9",
+      "t": "molnar ferenc pesti zsidoi - balint haz szabadegyetem konrad miklossal",
+      "d": "2026-11-11",
+      "s": "2026-10-25",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "2e69749fa3b103e7",
+      "t": "golyabal",
+      "d": "2026-11-11",
+      "s": "2026-10-25",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "8279727f692318de",
+      "t": "just vibe & profile match ismerkedos est | 30–45 ev",
+      "d": "2026-11-12",
+      "s": "2026-10-25",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "32c74b0c253bb4d0",
+      "t": "book break budapest | november 12.",
+      "d": "2026-11-12",
+      "s": "2026-10-25",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "a9b125a756092aea",
+      "t": "apa csak egy van?! - ram",
+      "d": "2026-11-12",
+      "s": "2026-10-25",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "e795c05b7951a341",
+      "t": "szekely marci, lugosi dani, hajba aron akusztik - stenk lelato",
+      "d": "2026-11-12",
+      "s": "2026-10-25",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "bf9855edd519be37",
+      "t": "ciganyok mulatsagok: kale lulugyi x ciganyhangok",
+      "d": "2026-11-12",
+      "s": "2026-10-25",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "3f3c57fb7acec56c",
+      "t": "lassusag / slowness",
+      "d": "2026-11-12",
+      "s": "2026-10-25",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "6956208cb9305ef9",
+      "t": "magzat | nyug @ manyi",
+      "d": "2026-11-12",
+      "s": "2026-10-25",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "22ce3c204fe2fda1",
+      "t": "english stand-up comedy special with ahmet bilge",
+      "d": "2026-11-12",
+      "s": "2026-10-25",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "648c28cbe52b4ec5",
+      "t": "pal csaba vacsoraest i november 12. csutortok i mom leroy bistro i budapest",
+      "d": "2026-11-12",
+      "s": "2026-10-25",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "6b7b38dd3dfaeade",
+      "t": "loud cloud invites: captain knuckles @ turbina club room",
+      "d": "2026-11-12",
+      "s": "2026-10-25",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "0ea8e9e2d47039df",
+      "t": "formalo erok // folyekony kostolo",
+      "d": "2026-11-13",
+      "s": "2026-10-25",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "c87f251eea68d136",
+      "t": "csakvari laszlo lemezbemutato - stenk lelato",
+      "d": "2026-11-13",
+      "s": "2026-10-25",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "0b1cb40a7c7e0c8a",
+      "t": "kisbetus unnepnapok x arcosok @ kishall 2026.11.13.",
+      "d": "2026-11-13",
+      "s": "2026-10-25",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "8e3544e58015d62d",
+      "t": "lithium night classic @ nagyhall 2026.11.13.",
+      "d": "2026-11-13",
+      "s": "2026-10-25",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "407033a81dba36f0",
+      "t": "felre tarsulat: muveszet",
+      "d": "2026-11-13",
+      "s": "2026-10-25",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "ae50fbc3529ad163",
+      "t": "varhegyutca",
+      "d": "2026-11-13",
+      "s": "2026-10-25",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "e8253f8d9091e8e2",
+      "t": "sexy & safe 11.13. - 🔥party night & s*x education❤️by masculan & partners",
+      "d": "2026-11-13",
+      "s": "2026-10-25",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "6977107228c90e67",
+      "t": "mad about marilyn a manyi-ban!",
+      "d": "2026-11-13",
+      "s": "2026-10-25",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "c2b781a9990ac732",
+      "t": "torok pali, tormy (live) ep. bemutato 11.13 vendegek: tzapa, keezart @kassa",
+      "d": "2026-11-13",
+      "s": "2026-10-25",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "1a92c575fed8941c",
+      "t": "silver rust | szuletesnapi koncert a muzikumban!",
+      "d": "2026-11-13",
+      "s": "2026-10-25",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "95675c4b93f55636",
+      "t": "rumble xxl",
+      "d": "2026-11-13",
+      "s": "2026-10-25",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "4e05ca6fe064cde1",
+      "t": "eclips: sota",
+      "d": "2026-11-13",
+      "s": "2026-10-25",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "99060c3ddee8081d",
+      "t": "5 years of kink w/ d.dan | club room: dirty cash",
+      "d": "2026-11-13",
+      "s": "2026-10-25",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "1a54cfa66165c5b7",
+      "t": "next level pres.: modestep live (uk) - a38 hajo - 2026.11.13.",
+      "d": "2026-11-13",
+      "s": "2026-10-25",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "fb05aa3ecd77c44e",
+      "t": "ff kongresszus 2026 teszt",
+      "d": "2026-11-14",
+      "s": "2026-10-25",
+      "u": "2026-11-16"
+    },
+    {
+      "id": "9c03bc6a9f8cfcb5",
+      "t": "bubak es a varazskonyv",
+      "d": "2026-11-14",
+      "s": "2026-10-25",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "aa92b22841dd9ef2",
+      "t": "studio 103 | gyapjutunder-keszito workshop | 11.14.",
+      "d": "2026-11-14",
+      "s": "2026-10-25",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "ff810e3644ca523c",
+      "t": "a boszorkany hagyateka nyomozos jatek",
+      "d": "2026-10-26",
+      "s": "2026-10-25",
+      "u": "2026-10-26"
+    },
+    {
+      "id": "f5d23707c342e175",
+      "t": "zenefelismero kviz",
+      "d": "2026-10-26",
+      "s": "2026-10-25",
+      "u": "2026-10-26"
+    },
+    {
+      "id": "e1e6699895232d3a",
+      "t": "harry potter kviz",
+      "d": "2026-10-27",
+      "s": "2026-10-25",
+      "u": "2026-10-27"
+    },
+    {
+      "id": "280639a1afbd1aa0",
+      "t": "szex es new york kviz",
+      "d": "2026-10-27",
+      "s": "2026-10-25",
+      "u": "2026-10-27"
+    },
+    {
+      "id": "6d63cbaeb362c265",
+      "t": "tabu (18+) kviz",
+      "d": "2026-10-28",
+      "s": "2026-10-25",
+      "u": "2026-10-28"
+    },
+    {
+      "id": "944e35908bd0c7ed",
+      "t": "altalanos kviz",
+      "d": "2026-10-28",
+      "s": "2026-10-25",
+      "u": "2026-10-28"
+    },
+    {
+      "id": "41b9b1864888fa89",
+      "t": "halloweeni kviz",
+      "d": "2026-10-28",
+      "s": "2026-10-25",
+      "u": "2026-10-28"
+    },
+    {
+      "id": "233edc4faf5cf9b5",
+      "t": "altalanos kviz",
+      "d": "2026-10-28",
+      "s": "2026-10-25",
+      "u": "2026-10-28"
+    },
+    {
+      "id": "8f72bb5b5fe91518",
+      "t": "altalanos kviz",
+      "d": "2026-10-29",
+      "s": "2026-10-25",
+      "u": "2026-10-29"
+    },
+    {
+      "id": "6cf47553d795bae7",
+      "t": "szex es new york",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-30"
+    },
+    {
+      "id": "3625f7b13b68f9b7",
+      "t": "altalanos kviz",
+      "d": "2026-10-30",
+      "s": "2026-10-25",
+      "u": "2026-10-30"
+    },
+    {
+      "id": "4a9341f30959d0ec",
+      "t": "halloweeni kviz",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "8c4da60d83d3a557",
+      "t": "altalanos kviz",
+      "d": "2026-11-01",
+      "s": "2026-10-25",
+      "u": "2026-11-01"
+    },
+    {
+      "id": "5a29ea3917d3875e",
+      "t": "eltunt a naplemente nyomozos jatek",
+      "d": "2026-11-02",
+      "s": "2026-10-25",
+      "u": "2026-11-02"
+    },
+    {
+      "id": "bfd384be16f2918b",
+      "t": "altalanos kviz",
+      "d": "2026-11-02",
+      "s": "2026-10-25",
+      "u": "2026-11-02"
+    },
+    {
+      "id": "e6323336633c110d",
+      "t": "szex es new york kviz",
+      "d": "2026-11-03",
+      "s": "2026-10-25",
+      "u": "2026-11-03"
+    },
+    {
+      "id": "c326a865c82edce1",
+      "t": "office kviz",
+      "d": "2026-11-03",
+      "s": "2026-10-25",
+      "u": "2026-11-03"
+    },
+    {
+      "id": "52f30da3141234c5",
+      "t": "trash kviz",
+      "d": "2026-11-04",
+      "s": "2026-10-25",
+      "u": "2026-11-04"
+    },
+    {
+      "id": "a06cab21390191d8",
+      "t": "igy jartam anyatokkal",
+      "d": "2026-11-04",
+      "s": "2026-10-25",
+      "u": "2026-11-04"
+    },
+    {
+      "id": "156f78458450c07e",
+      "t": "jobaratok kviz",
+      "d": "2026-11-04",
+      "s": "2026-10-25",
+      "u": "2026-11-04"
+    },
+    {
+      "id": "6dbaf65a9c6f060c",
+      "t": "igy jartam anyatokkal",
+      "d": "2026-11-05",
+      "s": "2026-10-25",
+      "u": "2026-11-05"
+    },
+    {
+      "id": "8a327ba76c7a6a31",
+      "t": "altalanos kviz",
+      "d": "2026-11-06",
+      "s": "2026-10-25",
+      "u": "2026-11-06"
+    },
+    {
+      "id": "ebbf7fa19a8d45c4",
+      "t": "agymenok kviz",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "db4b6f22eca0c771",
+      "t": "filmkviz",
+      "d": "2026-11-08",
+      "s": "2026-10-25",
+      "u": "2026-11-08"
+    },
+    {
+      "id": "b7fcee6d05287491",
+      "t": "altalanos kviz",
+      "d": "2026-11-09",
+      "s": "2026-10-25",
+      "u": "2026-11-09"
+    },
+    {
+      "id": "117a204137ec9f61",
+      "t": "2010-es evek",
+      "d": "2026-11-09",
+      "s": "2026-10-25",
+      "u": "2026-11-09"
+    },
+    {
+      "id": "e27b8ae43570d1cf",
+      "t": "deep space nyomozos jatek",
+      "d": "2026-11-09",
+      "s": "2026-10-25",
+      "u": "2026-11-09"
+    },
+    {
+      "id": "ec22b5254ca94495",
+      "t": "focis kviz",
+      "d": "2026-11-10",
+      "s": "2026-10-25",
+      "u": "2026-11-10"
+    },
+    {
+      "id": "d9fe29f3c4b2af10",
+      "t": "altalanos kviz",
+      "d": "2026-11-10",
+      "s": "2026-10-25",
+      "u": "2026-11-10"
+    },
+    {
+      "id": "efbda2c7e53bd687",
+      "t": "jobaratok kviz",
+      "d": "2026-11-10",
+      "s": "2026-10-25",
+      "u": "2026-11-10"
+    },
+    {
+      "id": "1e1b5252c517bbeb",
+      "t": "altalanos kviz",
+      "d": "2026-11-11",
+      "s": "2026-10-25",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "da0e517578d913a6",
+      "t": "gta kviz",
+      "d": "2026-11-11",
+      "s": "2026-10-25",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "a5e1aa7f6038dbd0",
+      "t": "szuletett felesegek kviz",
+      "d": "2026-11-11",
+      "s": "2026-10-25",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "a8db95c7065771b3",
+      "t": "disney kviz",
+      "d": "2026-11-11",
+      "s": "2026-10-25",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "33859c13fcac0d88",
+      "t": "office kviz",
+      "d": "2026-11-11",
+      "s": "2026-10-25",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "77ed3ecb91a09b68",
+      "t": "altalanos kviz",
+      "d": "2026-11-11",
+      "s": "2026-10-25",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "ebb312df85a68359",
+      "t": "altalanos kviz",
+      "d": "2026-11-12",
+      "s": "2026-10-25",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "1a22e873083265d3",
+      "t": "altalanos kviz",
+      "d": "2026-11-13",
+      "s": "2026-10-25",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "79c0fd21c90960b2",
+      "t": "harry potter kviz",
+      "d": "2026-11-13",
+      "s": "2026-10-25",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "2fa772a6e3fc9ff6",
+      "t": "veres oratorony - tarsasjatekos kaland - kiserleti jatekalkalom",
+      "d": "2026-10-25",
+      "s": "2026-10-25",
+      "u": "2026-10-25"
+    },
+    {
+      "id": "edd49af49084f01a",
+      "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
+      "d": "2026-10-26",
+      "s": "2026-10-25",
+      "u": "2026-10-26"
+    },
+    {
+      "id": "7dc95175cfed442d",
+      "t": "6 alkalmas berlet - jatszohaz projekt",
+      "d": "2026-04-13",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
+    },
+    {
+      "id": "c3b5f726eb7db6e7",
+      "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
+      "d": "2026-11-02",
+      "s": "2026-10-25",
+      "u": "2026-11-02"
+    },
+    {
+      "id": "05a3ffe41a47d766",
+      "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
+      "d": "2026-11-09",
+      "s": "2026-10-25",
+      "u": "2026-11-09"
+    },
+    {
+      "id": "f25d3d313e007386",
+      "t": "jatszohazberlet",
+      "d": "2026-09-21",
+      "s": "2026-10-25",
+      "u": "2027-02-28"
+    },
+    {
+      "id": "43642a812cfba7e6",
+      "t": "durer varazskert - kamfor babszinhaz: kacor kiraly es a kaloz",
+      "d": "2026-10-25",
+      "s": "2026-10-25",
+      "u": "2026-10-25"
+    },
+    {
+      "id": "383cce0cde49c674",
+      "t": "krallice, rivers ablaze // budapest, durer kert",
+      "d": "2026-10-29",
+      "s": "2026-10-25",
+      "u": "2026-10-29"
+    },
+    {
+      "id": "6054f5a79b98577c",
+      "t": "jazzbois // durer kert",
+      "d": "2026-11-06",
+      "s": "2026-10-25",
+      "u": "2026-11-06"
+    },
+    {
+      "id": "b10c1d9c47ddf362",
+      "t": "iamyank live band // durer kert, vendeg: pancakewar",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "e1ce9b618f6ccf66",
+      "t": "vagtazo halottkemek, sturle dagsland, psycho mutants, itinera // budapest, durer kert",
+      "d": "2026-11-07",
+      "s": "2026-10-25",
+      "u": "2026-11-07"
+    },
+    {
+      "id": "19aea14e785adccb",
+      "t": "hera barnabas | kis szoba x durer kert",
+      "d": "2026-11-08",
+      "s": "2026-10-25",
+      "u": "2026-11-08"
+    },
+    {
+      "id": "61e6cf53acebfa5d",
+      "t": "monolord (swe), mars red sky (fr) - durer kert",
+      "d": "2026-11-10",
+      "s": "2026-10-25",
+      "u": "2026-11-10"
+    },
+    {
+      "id": "f38bd1b33389991c",
+      "t": "erdling, johnny tupolev // budapest, durer kert",
+      "d": "2026-11-11",
+      "s": "2026-10-25",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "7691b1539514f061",
+      "t": "token tarsasjatek klub",
+      "d": "2026-10-31",
+      "s": "2026-10-25",
+      "u": "2026-10-31"
     }
   ],
   "source_health": {
     "bigcitylife": {
       "consecutive_failures": 0,
-      "last_ok": "2026-10-24",
+      "last_ok": "2026-10-25",
       "last_count": 2,
       "etag": null,
       "disabled_until": null
     },
     "cooltix": {
       "consecutive_failures": 0,
-      "last_ok": "2026-10-24",
-      "last_count": 585,
+      "last_ok": "2026-10-25",
+      "last_count": 566,
       "etag": null,
       "disabled_until": null
     },
     "kvizestek": {
       "consecutive_failures": 0,
-      "last_ok": "2026-10-24",
-      "last_count": 68,
+      "last_ok": "2026-10-25",
+      "last_count": 67,
       "etag": null,
       "disabled_until": null
     },
     "tarsasjatekos": {
       "consecutive_failures": 0,
-      "last_ok": "2026-10-24",
-      "last_count": 17,
+      "last_ok": "2026-10-25",
+      "last_count": 15,
       "etag": null,
       "disabled_until": null
     },
     "tixa": {
       "consecutive_failures": 0,
-      "last_ok": "2026-10-24",
+      "last_ok": "2026-10-25",
       "last_count": 38,
       "etag": null,
       "disabled_until": null
     },
     "tokenklub": {
       "consecutive_failures": 0,
-      "last_ok": "2026-10-24",
+      "last_ok": "2026-10-25",
       "last_count": 5,
       "etag": null,
       "disabled_until": null
     }
   },
   "run_log": [
-    {
-      "date": "2026-09-18",
-      "raw": 725,
-      "after_dedup": 389,
-      "sent": 15,
-      "seconds": 21.593440549999997
-    },
     {
       "date": "2026-09-19",
       "raw": 701,
@@ -21201,6 +20998,13 @@
       "after_dedup": 306,
       "sent": 13,
       "seconds": 28.560067204000006
+    },
+    {
+      "date": "2026-10-25",
+      "raw": 693,
+      "after_dedup": 300,
+      "sent": 15,
+      "seconds": 27.933539190999994
     }
   ]
 }
