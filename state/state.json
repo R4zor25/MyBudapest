@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_run": "2026-11-10T13:49:42.617434+01:00",
+  "last_run": "2026-11-11T12:59:31.831586+01:00",
   "sent": [
     {
       "id": "7f49c920cd96508e",
@@ -955,13 +955,6 @@
       "u": "2027-02-28"
     },
     {
-      "id": "61e6cf53acebfa5d",
-      "t": "monolord (swe), mars red sky (fr) - durer kert",
-      "d": "2026-11-10",
-      "s": "2026-10-21",
-      "u": "2026-11-10"
-    },
-    {
       "id": "7f49c920cd96508e",
       "t": "typotex konyvklub 2026 osz",
       "d": "2026-09-16",
@@ -988,27 +981,6 @@
       "d": "2026-10-30",
       "s": "2026-10-22",
       "u": "2026-11-19"
-    },
-    {
-      "id": "ee6468ec66ef3852",
-      "t": "wine & cheese tasting by elb @bortodoor city ✘ 10th nov",
-      "d": "2026-11-10",
-      "s": "2026-10-22",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "7aa2c22ba06efe13",
-      "t": "korszakos operak - laszlo ferenc operatorteneti gyorstalpaloja",
-      "d": "2026-11-10",
-      "s": "2026-10-22",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "8d12ddb21996af4e",
-      "t": "janikovszky eva: velem mindig tortenik valami @ kishall 2026.11.10.",
-      "d": "2026-11-10",
-      "s": "2026-10-22",
-      "u": "2026-11-10"
     },
     {
       "id": "cfef1598b5c5c2e0",
@@ -1018,39 +990,11 @@
       "u": "2026-11-11"
     },
     {
-      "id": "ec22b5254ca94495",
-      "t": "focis kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-22",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "d9fe29f3c4b2af10",
-      "t": "altalanos kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-22",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "efbda2c7e53bd687",
-      "t": "jobaratok kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-22",
-      "u": "2026-11-10"
-    },
-    {
       "id": "f25d3d313e007386",
       "t": "jatszohazberlet",
       "d": "2026-09-21",
       "s": "2026-10-22",
       "u": "2027-02-28"
-    },
-    {
-      "id": "61e6cf53acebfa5d",
-      "t": "monolord (swe), mars red sky (fr) - durer kert",
-      "d": "2026-11-10",
-      "s": "2026-10-22",
-      "u": "2026-11-10"
     },
     {
       "id": "7f49c920cd96508e",
@@ -1079,27 +1023,6 @@
       "d": "2026-10-30",
       "s": "2026-10-23",
       "u": "2026-11-19"
-    },
-    {
-      "id": "ee6468ec66ef3852",
-      "t": "wine & cheese tasting by elb @bortodoor city ✘ 10th nov",
-      "d": "2026-11-10",
-      "s": "2026-10-23",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "7aa2c22ba06efe13",
-      "t": "korszakos operak - laszlo ferenc operatorteneti gyorstalpaloja",
-      "d": "2026-11-10",
-      "s": "2026-10-23",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "8d12ddb21996af4e",
-      "t": "janikovszky eva: velem mindig tortenik valami @ kishall 2026.11.10.",
-      "d": "2026-11-10",
-      "s": "2026-10-23",
-      "u": "2026-11-10"
     },
     {
       "id": "cfef1598b5c5c2e0",
@@ -1135,27 +1058,6 @@
       "d": "2026-11-11",
       "s": "2026-10-23",
       "u": "2026-11-12"
-    },
-    {
-      "id": "ec22b5254ca94495",
-      "t": "focis kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-23",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "d9fe29f3c4b2af10",
-      "t": "altalanos kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-23",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "efbda2c7e53bd687",
-      "t": "jobaratok kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-23",
-      "u": "2026-11-10"
     },
     {
       "id": "a8db95c7065771b3",
@@ -1207,13 +1109,6 @@
       "u": "2027-02-28"
     },
     {
-      "id": "61e6cf53acebfa5d",
-      "t": "monolord (swe), mars red sky (fr) - durer kert",
-      "d": "2026-11-10",
-      "s": "2026-10-23",
-      "u": "2026-11-10"
-    },
-    {
       "id": "f38bd1b33389991c",
       "t": "erdling, johnny tupolev // budapest, durer kert",
       "d": "2026-11-11",
@@ -1247,27 +1142,6 @@
       "d": "2026-10-30",
       "s": "2026-10-24",
       "u": "2026-11-19"
-    },
-    {
-      "id": "ee6468ec66ef3852",
-      "t": "wine & cheese tasting by elb @bortodoor city ✘ 10th nov",
-      "d": "2026-11-10",
-      "s": "2026-10-24",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "7aa2c22ba06efe13",
-      "t": "korszakos operak - laszlo ferenc operatorteneti gyorstalpaloja",
-      "d": "2026-11-10",
-      "s": "2026-10-24",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "8d12ddb21996af4e",
-      "t": "janikovszky eva: velem mindig tortenik valami @ kishall 2026.11.10.",
-      "d": "2026-11-10",
-      "s": "2026-10-24",
-      "u": "2026-11-10"
     },
     {
       "id": "cfef1598b5c5c2e0",
@@ -1375,27 +1249,6 @@
       "u": "2026-11-13"
     },
     {
-      "id": "efbda2c7e53bd687",
-      "t": "jobaratok kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-24",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "d9fe29f3c4b2af10",
-      "t": "altalanos kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-24",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "ec22b5254ca94495",
-      "t": "focis kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-24",
-      "u": "2026-11-10"
-    },
-    {
       "id": "33859c13fcac0d88",
       "t": "office kviz",
       "d": "2026-11-11",
@@ -1452,13 +1305,6 @@
       "u": "2027-02-28"
     },
     {
-      "id": "61e6cf53acebfa5d",
-      "t": "monolord (swe), mars red sky (fr) - durer kert",
-      "d": "2026-11-10",
-      "s": "2026-10-24",
-      "u": "2026-11-10"
-    },
-    {
       "id": "f38bd1b33389991c",
       "t": "erdling, johnny tupolev // budapest, durer kert",
       "d": "2026-11-11",
@@ -1492,27 +1338,6 @@
       "d": "2026-10-30",
       "s": "2026-10-25",
       "u": "2026-11-19"
-    },
-    {
-      "id": "ee6468ec66ef3852",
-      "t": "wine & cheese tasting by elb @bortodoor city ✘ 10th nov",
-      "d": "2026-11-10",
-      "s": "2026-10-25",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "7aa2c22ba06efe13",
-      "t": "korszakos operak - laszlo ferenc operatorteneti gyorstalpaloja",
-      "d": "2026-11-10",
-      "s": "2026-10-25",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "8d12ddb21996af4e",
-      "t": "janikovszky eva: velem mindig tortenik valami @ kishall 2026.11.10.",
-      "d": "2026-11-10",
-      "s": "2026-10-25",
-      "u": "2026-11-10"
     },
     {
       "id": "cfef1598b5c5c2e0",
@@ -1739,27 +1564,6 @@
       "u": "2026-11-14"
     },
     {
-      "id": "ec22b5254ca94495",
-      "t": "focis kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-25",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "d9fe29f3c4b2af10",
-      "t": "altalanos kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-25",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "efbda2c7e53bd687",
-      "t": "jobaratok kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-25",
-      "u": "2026-11-10"
-    },
-    {
       "id": "1e1b5252c517bbeb",
       "t": "altalanos kviz",
       "d": "2026-11-11",
@@ -1830,13 +1634,6 @@
       "u": "2027-02-28"
     },
     {
-      "id": "61e6cf53acebfa5d",
-      "t": "monolord (swe), mars red sky (fr) - durer kert",
-      "d": "2026-11-10",
-      "s": "2026-10-25",
-      "u": "2026-11-10"
-    },
-    {
       "id": "f38bd1b33389991c",
       "t": "erdling, johnny tupolev // budapest, durer kert",
       "d": "2026-11-11",
@@ -1870,27 +1667,6 @@
       "d": "2026-10-30",
       "s": "2026-10-26",
       "u": "2026-11-19"
-    },
-    {
-      "id": "ee6468ec66ef3852",
-      "t": "wine & cheese tasting by elb @bortodoor city ✘ 10th nov",
-      "d": "2026-11-10",
-      "s": "2026-10-26",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "7aa2c22ba06efe13",
-      "t": "korszakos operak - laszlo ferenc operatorteneti gyorstalpaloja",
-      "d": "2026-11-10",
-      "s": "2026-10-26",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "8d12ddb21996af4e",
-      "t": "janikovszky eva: velem mindig tortenik valami @ kishall 2026.11.10.",
-      "d": "2026-11-10",
-      "s": "2026-10-26",
-      "u": "2026-11-10"
     },
     {
       "id": "cfef1598b5c5c2e0",
@@ -2299,27 +2075,6 @@
       "u": "2026-11-15"
     },
     {
-      "id": "efbda2c7e53bd687",
-      "t": "jobaratok kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-26",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "d9fe29f3c4b2af10",
-      "t": "altalanos kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-26",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "299172d7d3a122ac",
-      "t": "vintage football jersey x pop cafe - focis kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-26",
-      "u": "2026-11-10"
-    },
-    {
       "id": "a5e1aa7f6038dbd0",
       "t": "szuletett felesegek kviz",
       "d": "2026-11-11",
@@ -2404,13 +2159,6 @@
       "u": "2027-02-28"
     },
     {
-      "id": "61e6cf53acebfa5d",
-      "t": "monolord (swe), mars red sky (fr) - durer kert",
-      "d": "2026-11-10",
-      "s": "2026-10-26",
-      "u": "2026-11-10"
-    },
-    {
       "id": "f38bd1b33389991c",
       "t": "erdling, johnny tupolev // budapest, durer kert",
       "d": "2026-11-11",
@@ -2451,27 +2199,6 @@
       "d": "2026-10-30",
       "s": "2026-10-27",
       "u": "2026-11-19"
-    },
-    {
-      "id": "ee6468ec66ef3852",
-      "t": "wine & cheese tasting by elb @bortodoor city ✘ 10th nov",
-      "d": "2026-11-10",
-      "s": "2026-10-27",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "7aa2c22ba06efe13",
-      "t": "korszakos operak - laszlo ferenc operatorteneti gyorstalpaloja",
-      "d": "2026-11-10",
-      "s": "2026-10-27",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "8d12ddb21996af4e",
-      "t": "janikovszky eva: velem mindig tortenik valami @ kishall 2026.11.10.",
-      "d": "2026-11-10",
-      "s": "2026-10-27",
-      "u": "2026-11-10"
     },
     {
       "id": "cfef1598b5c5c2e0",
@@ -2950,13 +2677,6 @@
       "u": "2027-02-28"
     },
     {
-      "id": "61e6cf53acebfa5d",
-      "t": "monolord (swe), mars red sky (fr) - durer kert",
-      "d": "2026-11-10",
-      "s": "2026-10-27",
-      "u": "2026-11-10"
-    },
-    {
       "id": "f38bd1b33389991c",
       "t": "erdling, johnny tupolev // budapest, durer kert",
       "d": "2026-11-11",
@@ -2997,34 +2717,6 @@
       "d": "2026-10-30",
       "s": "2026-10-28",
       "u": "2026-11-19"
-    },
-    {
-      "id": "0b01ec319f6009dd",
-      "t": "telekom talks - a hangzas kulisszai - mitol szol igazan jol egy koncert? @ lokal",
-      "d": "2026-11-10",
-      "s": "2026-10-28",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "8d12ddb21996af4e",
-      "t": "janikovszky eva: velem mindig tortenik valami @ kishall 2026.11.10.",
-      "d": "2026-11-10",
-      "s": "2026-10-28",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "ee6468ec66ef3852",
-      "t": "wine & cheese tasting by elb @bortodoor city ✘ 10th nov",
-      "d": "2026-11-10",
-      "s": "2026-10-28",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "7aa2c22ba06efe13",
-      "t": "korszakos operak - laszlo ferenc operatorteneti gyorstalpaloja",
-      "d": "2026-11-10",
-      "s": "2026-10-28",
-      "u": "2026-11-10"
     },
     {
       "id": "cfef1598b5c5c2e0",
@@ -3566,27 +3258,6 @@
       "u": "2026-11-16"
     },
     {
-      "id": "efbda2c7e53bd687",
-      "t": "jobaratok kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-28",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "d9fe29f3c4b2af10",
-      "t": "altalanos kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-28",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "299172d7d3a122ac",
-      "t": "vintage football jersey x pop cafe - focis kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-28",
-      "u": "2026-11-10"
-    },
-    {
       "id": "da0e517578d913a6",
       "t": "gta kviz",
       "d": "2026-11-11",
@@ -3720,13 +3391,6 @@
       "u": "2027-02-28"
     },
     {
-      "id": "61e6cf53acebfa5d",
-      "t": "monolord (swe), mars red sky (fr) - durer kert",
-      "d": "2026-11-10",
-      "s": "2026-10-28",
-      "u": "2026-11-10"
-    },
-    {
       "id": "f38bd1b33389991c",
       "t": "erdling, johnny tupolev // budapest, durer kert",
       "d": "2026-11-11",
@@ -3767,34 +3431,6 @@
       "d": "2026-10-30",
       "s": "2026-10-29",
       "u": "2026-11-19"
-    },
-    {
-      "id": "0b01ec319f6009dd",
-      "t": "telekom talks - a hangzas kulisszai - mitol szol igazan jol egy koncert? @ lokal",
-      "d": "2026-11-10",
-      "s": "2026-10-29",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "8d12ddb21996af4e",
-      "t": "janikovszky eva: velem mindig tortenik valami @ kishall 2026.11.10.",
-      "d": "2026-11-10",
-      "s": "2026-10-29",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "ee6468ec66ef3852",
-      "t": "wine & cheese tasting by elb @bortodoor city ✘ 10th nov",
-      "d": "2026-11-10",
-      "s": "2026-10-29",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "7aa2c22ba06efe13",
-      "t": "korszakos operak - laszlo ferenc operatorteneti gyorstalpaloja",
-      "d": "2026-11-10",
-      "s": "2026-10-29",
-      "u": "2026-11-10"
     },
     {
       "id": "cfef1598b5c5c2e0",
@@ -4385,27 +4021,6 @@
       "u": "2026-11-17"
     },
     {
-      "id": "d9fe29f3c4b2af10",
-      "t": "altalanos kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-29",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "299172d7d3a122ac",
-      "t": "vintage football jersey x pop cafe - focis kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-29",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "efbda2c7e53bd687",
-      "t": "jobaratok kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-29",
-      "u": "2026-11-10"
-    },
-    {
       "id": "da0e517578d913a6",
       "t": "gta kviz",
       "d": "2026-11-11",
@@ -4553,13 +4168,6 @@
       "u": "2027-02-28"
     },
     {
-      "id": "61e6cf53acebfa5d",
-      "t": "monolord (swe), mars red sky (fr) - durer kert",
-      "d": "2026-11-10",
-      "s": "2026-10-29",
-      "u": "2026-11-10"
-    },
-    {
       "id": "f38bd1b33389991c",
       "t": "erdling, johnny tupolev // budapest, durer kert",
       "d": "2026-11-11",
@@ -4600,34 +4208,6 @@
       "d": "2026-10-30",
       "s": "2026-10-30",
       "u": "2026-11-19"
-    },
-    {
-      "id": "0b01ec319f6009dd",
-      "t": "telekom talks - a hangzas kulisszai - mitol szol igazan jol egy koncert? @ lokal",
-      "d": "2026-11-10",
-      "s": "2026-10-30",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "8d12ddb21996af4e",
-      "t": "janikovszky eva: velem mindig tortenik valami @ kishall 2026.11.10.",
-      "d": "2026-11-10",
-      "s": "2026-10-30",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "ee6468ec66ef3852",
-      "t": "wine & cheese tasting by elb @bortodoor city ✘ 10th nov",
-      "d": "2026-11-10",
-      "s": "2026-10-30",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "7aa2c22ba06efe13",
-      "t": "korszakos operak - laszlo ferenc operatorteneti gyorstalpaloja",
-      "d": "2026-11-10",
-      "s": "2026-10-30",
-      "u": "2026-11-10"
     },
     {
       "id": "cfef1598b5c5c2e0",
@@ -5239,20 +4819,6 @@
       "u": "2026-11-19"
     },
     {
-      "id": "d9fe29f3c4b2af10",
-      "t": "altalanos kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-30",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "299172d7d3a122ac",
-      "t": "vintage football jersey x pop cafe - focis kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-30",
-      "u": "2026-11-10"
-    },
-    {
       "id": "1e1b5252c517bbeb",
       "t": "altalanos kviz",
       "d": "2026-11-11",
@@ -5449,13 +5015,6 @@
       "u": "2027-02-28"
     },
     {
-      "id": "61e6cf53acebfa5d",
-      "t": "monolord (swe), mars red sky (fr) - durer kert",
-      "d": "2026-11-10",
-      "s": "2026-10-30",
-      "u": "2026-11-10"
-    },
-    {
       "id": "f38bd1b33389991c",
       "t": "erdling, johnny tupolev // budapest, durer kert",
       "d": "2026-11-11",
@@ -5496,34 +5055,6 @@
       "d": "2026-10-30",
       "s": "2026-10-31",
       "u": "2026-11-19"
-    },
-    {
-      "id": "0b01ec319f6009dd",
-      "t": "telekom talks - a hangzas kulisszai - mitol szol igazan jol egy koncert? @ lokal",
-      "d": "2026-11-10",
-      "s": "2026-10-31",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "8d12ddb21996af4e",
-      "t": "janikovszky eva: velem mindig tortenik valami @ kishall 2026.11.10.",
-      "d": "2026-11-10",
-      "s": "2026-10-31",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "ee6468ec66ef3852",
-      "t": "wine & cheese tasting by elb @bortodoor city ✘ 10th nov",
-      "d": "2026-11-10",
-      "s": "2026-10-31",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "7aa2c22ba06efe13",
-      "t": "korszakos operak - laszlo ferenc operatorteneti gyorstalpaloja",
-      "d": "2026-11-10",
-      "s": "2026-10-31",
-      "u": "2026-11-10"
     },
     {
       "id": "cfef1598b5c5c2e0",
@@ -6233,20 +5764,6 @@
       "u": "2026-11-20"
     },
     {
-      "id": "d9fe29f3c4b2af10",
-      "t": "altalanos kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-31",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "299172d7d3a122ac",
-      "t": "vintage football jersey x pop cafe - focis kviz",
-      "d": "2026-11-10",
-      "s": "2026-10-31",
-      "u": "2026-11-10"
-    },
-    {
       "id": "1e1b5252c517bbeb",
       "t": "altalanos kviz",
       "d": "2026-11-11",
@@ -6443,13 +5960,6 @@
       "u": "2027-02-28"
     },
     {
-      "id": "61e6cf53acebfa5d",
-      "t": "monolord (swe), mars red sky (fr) - durer kert",
-      "d": "2026-11-10",
-      "s": "2026-10-31",
-      "u": "2026-11-10"
-    },
-    {
       "id": "f38bd1b33389991c",
       "t": "erdling, johnny tupolev // budapest, durer kert",
       "d": "2026-11-11",
@@ -6490,34 +6000,6 @@
       "d": "2026-10-30",
       "s": "2026-11-01",
       "u": "2026-11-19"
-    },
-    {
-      "id": "0b01ec319f6009dd",
-      "t": "telekom talks - a hangzas kulisszai - mitol szol igazan jol egy koncert? @ lokal",
-      "d": "2026-11-10",
-      "s": "2026-11-01",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "8d12ddb21996af4e",
-      "t": "janikovszky eva: velem mindig tortenik valami @ kishall 2026.11.10.",
-      "d": "2026-11-10",
-      "s": "2026-11-01",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "ee6468ec66ef3852",
-      "t": "wine & cheese tasting by elb @bortodoor city ✘ 10th nov",
-      "d": "2026-11-10",
-      "s": "2026-11-01",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "7aa2c22ba06efe13",
-      "t": "korszakos operak - laszlo ferenc operatorteneti gyorstalpaloja",
-      "d": "2026-11-10",
-      "s": "2026-11-01",
-      "u": "2026-11-10"
     },
     {
       "id": "cfef1598b5c5c2e0",
@@ -7402,20 +6884,6 @@
       "u": "2026-11-21"
     },
     {
-      "id": "d9fe29f3c4b2af10",
-      "t": "altalanos kviz",
-      "d": "2026-11-10",
-      "s": "2026-11-01",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "299172d7d3a122ac",
-      "t": "vintage football jersey x pop cafe - focis kviz",
-      "d": "2026-11-10",
-      "s": "2026-11-01",
-      "u": "2026-11-10"
-    },
-    {
       "id": "33859c13fcac0d88",
       "t": "office kviz",
       "d": "2026-11-11",
@@ -7619,13 +7087,6 @@
       "u": "2027-02-28"
     },
     {
-      "id": "61e6cf53acebfa5d",
-      "t": "monolord (swe), mars red sky (fr) - durer kert",
-      "d": "2026-11-10",
-      "s": "2026-11-01",
-      "u": "2026-11-10"
-    },
-    {
       "id": "f38bd1b33389991c",
       "t": "erdling, johnny tupolev // budapest, durer kert",
       "d": "2026-11-11",
@@ -7673,34 +7134,6 @@
       "d": "2026-10-30",
       "s": "2026-11-02",
       "u": "2026-11-19"
-    },
-    {
-      "id": "0b01ec319f6009dd",
-      "t": "telekom talks - a hangzas kulisszai - mitol szol igazan jol egy koncert? @ lokal",
-      "d": "2026-11-10",
-      "s": "2026-11-02",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "8d12ddb21996af4e",
-      "t": "janikovszky eva: velem mindig tortenik valami @ kishall 2026.11.10.",
-      "d": "2026-11-10",
-      "s": "2026-11-02",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "ee6468ec66ef3852",
-      "t": "wine & cheese tasting by elb @bortodoor city ✘ 10th nov",
-      "d": "2026-11-10",
-      "s": "2026-11-02",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "7aa2c22ba06efe13",
-      "t": "korszakos operak - laszlo ferenc operatorteneti gyorstalpaloja",
-      "d": "2026-11-10",
-      "s": "2026-11-02",
-      "u": "2026-11-10"
     },
     {
       "id": "cfef1598b5c5c2e0",
@@ -8725,20 +8158,6 @@
       "u": "2026-11-22"
     },
     {
-      "id": "299172d7d3a122ac",
-      "t": "vintage football jersey x pop cafe - focis kviz",
-      "d": "2026-11-10",
-      "s": "2026-11-02",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "d9fe29f3c4b2af10",
-      "t": "altalanos kviz",
-      "d": "2026-11-10",
-      "s": "2026-11-02",
-      "u": "2026-11-10"
-    },
-    {
       "id": "33859c13fcac0d88",
       "t": "office kviz",
       "d": "2026-11-11",
@@ -8949,13 +8368,6 @@
       "u": "2027-02-28"
     },
     {
-      "id": "61e6cf53acebfa5d",
-      "t": "monolord (swe), mars red sky (fr) - durer kert",
-      "d": "2026-11-10",
-      "s": "2026-11-02",
-      "u": "2026-11-10"
-    },
-    {
       "id": "f38bd1b33389991c",
       "t": "erdling, johnny tupolev // budapest, durer kert",
       "d": "2026-11-11",
@@ -9003,34 +8415,6 @@
       "d": "2026-10-30",
       "s": "2026-11-03",
       "u": "2026-11-19"
-    },
-    {
-      "id": "0b01ec319f6009dd",
-      "t": "telekom talks - a hangzas kulisszai - mitol szol igazan jol egy koncert? @ lokal",
-      "d": "2026-11-10",
-      "s": "2026-11-03",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "8d12ddb21996af4e",
-      "t": "janikovszky eva: velem mindig tortenik valami @ kishall 2026.11.10.",
-      "d": "2026-11-10",
-      "s": "2026-11-03",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "ee6468ec66ef3852",
-      "t": "wine & cheese tasting by elb @bortodoor city ✘ 10th nov",
-      "d": "2026-11-10",
-      "s": "2026-11-03",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "7aa2c22ba06efe13",
-      "t": "korszakos operak - laszlo ferenc operatorteneti gyorstalpaloja",
-      "d": "2026-11-10",
-      "s": "2026-11-03",
-      "u": "2026-11-10"
     },
     {
       "id": "cfef1598b5c5c2e0",
@@ -10111,20 +9495,6 @@
       "u": "2026-11-22"
     },
     {
-      "id": "d9fe29f3c4b2af10",
-      "t": "altalanos kviz",
-      "d": "2026-11-10",
-      "s": "2026-11-03",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "299172d7d3a122ac",
-      "t": "vintage football jersey x pop cafe - focis kviz",
-      "d": "2026-11-10",
-      "s": "2026-11-03",
-      "u": "2026-11-10"
-    },
-    {
       "id": "1e1b5252c517bbeb",
       "t": "altalanos kviz",
       "d": "2026-11-11",
@@ -10342,13 +9712,6 @@
       "u": "2027-02-28"
     },
     {
-      "id": "61e6cf53acebfa5d",
-      "t": "monolord (swe), mars red sky (fr) - durer kert",
-      "d": "2026-11-10",
-      "s": "2026-11-03",
-      "u": "2026-11-10"
-    },
-    {
       "id": "f38bd1b33389991c",
       "t": "erdling, johnny tupolev // budapest, durer kert",
       "d": "2026-11-11",
@@ -10389,41 +9752,6 @@
       "d": "2026-10-12",
       "s": "2026-11-04",
       "u": "2027-04-05"
-    },
-    {
-      "id": "0b01ec319f6009dd",
-      "t": "telekom talks - a hangzas kulisszai - mitol szol igazan jol egy koncert? @ lokal",
-      "d": "2026-11-10",
-      "s": "2026-11-04",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "8d12ddb21996af4e",
-      "t": "janikovszky eva: velem mindig tortenik valami @ kishall 2026.11.10.",
-      "d": "2026-11-10",
-      "s": "2026-11-04",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "3501365e8484be6d",
-      "t": "🎬 zsifi extra: ada, anyam az epitesz",
-      "d": "2026-11-10",
-      "s": "2026-11-04",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "ee6468ec66ef3852",
-      "t": "wine & cheese tasting by elb @bortodoor city ✘ 10th nov",
-      "d": "2026-11-10",
-      "s": "2026-11-04",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "7aa2c22ba06efe13",
-      "t": "korszakos operak - laszlo ferenc operatorteneti gyorstalpaloja",
-      "d": "2026-11-10",
-      "s": "2026-11-04",
-      "u": "2026-11-10"
     },
     {
       "id": "cfef1598b5c5c2e0",
@@ -11588,20 +10916,6 @@
       "u": "2026-11-23"
     },
     {
-      "id": "299172d7d3a122ac",
-      "t": "vintage football jersey x pop cafe - focis kviz",
-      "d": "2026-11-10",
-      "s": "2026-11-04",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "d9fe29f3c4b2af10",
-      "t": "altalanos kviz",
-      "d": "2026-11-10",
-      "s": "2026-11-04",
-      "u": "2026-11-10"
-    },
-    {
       "id": "da0e517578d913a6",
       "t": "gta kviz",
       "d": "2026-11-11",
@@ -11840,13 +11154,6 @@
       "u": "2027-02-28"
     },
     {
-      "id": "61e6cf53acebfa5d",
-      "t": "monolord (swe), mars red sky (fr) - durer kert",
-      "d": "2026-11-10",
-      "s": "2026-11-04",
-      "u": "2026-11-10"
-    },
-    {
       "id": "f38bd1b33389991c",
       "t": "erdling, johnny tupolev // budapest, durer kert",
       "d": "2026-11-11",
@@ -11887,41 +11194,6 @@
       "d": "2026-10-12",
       "s": "2026-11-05",
       "u": "2027-04-05"
-    },
-    {
-      "id": "0b01ec319f6009dd",
-      "t": "telekom talks - a hangzas kulisszai - mitol szol igazan jol egy koncert? @ lokal",
-      "d": "2026-11-10",
-      "s": "2026-11-05",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "8d12ddb21996af4e",
-      "t": "janikovszky eva: velem mindig tortenik valami @ kishall 2026.11.10.",
-      "d": "2026-11-10",
-      "s": "2026-11-05",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "3501365e8484be6d",
-      "t": "🎬 zsifi extra: ada, anyam az epitesz",
-      "d": "2026-11-10",
-      "s": "2026-11-05",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "ee6468ec66ef3852",
-      "t": "wine & cheese tasting by elb @bortodoor city ✘ 10th nov",
-      "d": "2026-11-10",
-      "s": "2026-11-05",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "7aa2c22ba06efe13",
-      "t": "korszakos operak - laszlo ferenc operatorteneti gyorstalpaloja",
-      "d": "2026-11-10",
-      "s": "2026-11-05",
-      "u": "2026-11-10"
     },
     {
       "id": "cfef1598b5c5c2e0",
@@ -13198,20 +12470,6 @@
       "u": "2026-11-25"
     },
     {
-      "id": "299172d7d3a122ac",
-      "t": "vintage football jersey x pop cafe - focis kviz",
-      "d": "2026-11-10",
-      "s": "2026-11-05",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "d9fe29f3c4b2af10",
-      "t": "altalanos kviz",
-      "d": "2026-11-10",
-      "s": "2026-11-05",
-      "u": "2026-11-10"
-    },
-    {
       "id": "33859c13fcac0d88",
       "t": "office kviz",
       "d": "2026-11-11",
@@ -13471,13 +12729,6 @@
       "u": "2027-02-28"
     },
     {
-      "id": "61e6cf53acebfa5d",
-      "t": "monolord (swe), mars red sky (fr) - durer kert",
-      "d": "2026-11-10",
-      "s": "2026-11-05",
-      "u": "2026-11-10"
-    },
-    {
       "id": "f38bd1b33389991c",
       "t": "erdling, johnny tupolev // budapest, durer kert",
       "d": "2026-11-11",
@@ -13518,41 +12769,6 @@
       "d": "2026-10-12",
       "s": "2026-11-06",
       "u": "2027-04-05"
-    },
-    {
-      "id": "0b01ec319f6009dd",
-      "t": "telekom talks - a hangzas kulisszai - mitol szol igazan jol egy koncert? @ lokal",
-      "d": "2026-11-10",
-      "s": "2026-11-06",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "8d12ddb21996af4e",
-      "t": "janikovszky eva: velem mindig tortenik valami @ kishall 2026.11.10.",
-      "d": "2026-11-10",
-      "s": "2026-11-06",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "3501365e8484be6d",
-      "t": "🎬 zsifi extra: ada, anyam az epitesz",
-      "d": "2026-11-10",
-      "s": "2026-11-06",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "ee6468ec66ef3852",
-      "t": "wine & cheese tasting by elb @bortodoor city ✘ 10th nov",
-      "d": "2026-11-10",
-      "s": "2026-11-06",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "7aa2c22ba06efe13",
-      "t": "korszakos operak - laszlo ferenc operatorteneti gyorstalpaloja",
-      "d": "2026-11-10",
-      "s": "2026-11-06",
-      "u": "2026-11-10"
     },
     {
       "id": "cfef1598b5c5c2e0",
@@ -14906,20 +14122,6 @@
       "u": "2026-11-25"
     },
     {
-      "id": "299172d7d3a122ac",
-      "t": "vintage football jersey x pop cafe - focis kviz",
-      "d": "2026-11-10",
-      "s": "2026-11-06",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "d9fe29f3c4b2af10",
-      "t": "altalanos kviz",
-      "d": "2026-11-10",
-      "s": "2026-11-06",
-      "u": "2026-11-10"
-    },
-    {
       "id": "77ed3ecb91a09b68",
       "t": "altalanos kviz",
       "d": "2026-11-11",
@@ -15207,13 +14409,6 @@
       "u": "2027-02-28"
     },
     {
-      "id": "61e6cf53acebfa5d",
-      "t": "monolord (swe), mars red sky (fr) - durer kert",
-      "d": "2026-11-10",
-      "s": "2026-11-06",
-      "u": "2026-11-10"
-    },
-    {
       "id": "f38bd1b33389991c",
       "t": "erdling, johnny tupolev // budapest, durer kert",
       "d": "2026-11-11",
@@ -15254,41 +14449,6 @@
       "d": "2026-10-12",
       "s": "2026-11-07",
       "u": "2027-04-05"
-    },
-    {
-      "id": "0b01ec319f6009dd",
-      "t": "telekom talks - a hangzas kulisszai - mitol szol igazan jol egy koncert? @ lokal",
-      "d": "2026-11-10",
-      "s": "2026-11-07",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "8d12ddb21996af4e",
-      "t": "janikovszky eva: velem mindig tortenik valami @ kishall 2026.11.10.",
-      "d": "2026-11-10",
-      "s": "2026-11-07",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "3501365e8484be6d",
-      "t": "🎬 zsifi extra: ada, anyam az epitesz",
-      "d": "2026-11-10",
-      "s": "2026-11-07",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "ee6468ec66ef3852",
-      "t": "wine & cheese tasting by elb @bortodoor city ✘ 10th nov",
-      "d": "2026-11-10",
-      "s": "2026-11-07",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "7aa2c22ba06efe13",
-      "t": "korszakos operak - laszlo ferenc operatorteneti gyorstalpaloja",
-      "d": "2026-11-10",
-      "s": "2026-11-07",
-      "u": "2026-11-10"
     },
     {
       "id": "cfef1598b5c5c2e0",
@@ -16747,20 +15907,6 @@
       "u": "2026-11-27"
     },
     {
-      "id": "299172d7d3a122ac",
-      "t": "vintage football jersey x pop cafe - focis kviz",
-      "d": "2026-11-10",
-      "s": "2026-11-07",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "d9fe29f3c4b2af10",
-      "t": "altalanos kviz",
-      "d": "2026-11-10",
-      "s": "2026-11-07",
-      "u": "2026-11-10"
-    },
-    {
       "id": "da0e517578d913a6",
       "t": "gta kviz",
       "d": "2026-11-11",
@@ -17062,13 +16208,6 @@
       "u": "2027-02-28"
     },
     {
-      "id": "61e6cf53acebfa5d",
-      "t": "monolord (swe), mars red sky (fr) - durer kert",
-      "d": "2026-11-10",
-      "s": "2026-11-07",
-      "u": "2026-11-10"
-    },
-    {
       "id": "f38bd1b33389991c",
       "t": "erdling, johnny tupolev // budapest, durer kert",
       "d": "2026-11-11",
@@ -17116,41 +16255,6 @@
       "d": "2026-10-12",
       "s": "2026-11-08",
       "u": "2027-04-05"
-    },
-    {
-      "id": "0b01ec319f6009dd",
-      "t": "telekom talks - a hangzas kulisszai - mitol szol igazan jol egy koncert? @ lokal",
-      "d": "2026-11-10",
-      "s": "2026-11-08",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "8d12ddb21996af4e",
-      "t": "janikovszky eva: velem mindig tortenik valami @ kishall 2026.11.10.",
-      "d": "2026-11-10",
-      "s": "2026-11-08",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "3501365e8484be6d",
-      "t": "🎬 zsifi extra: ada, anyam az epitesz",
-      "d": "2026-11-10",
-      "s": "2026-11-08",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "ee6468ec66ef3852",
-      "t": "wine & cheese tasting by elb @bortodoor city ✘ 10th nov",
-      "d": "2026-11-10",
-      "s": "2026-11-08",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "7aa2c22ba06efe13",
-      "t": "korszakos operak - laszlo ferenc operatorteneti gyorstalpaloja",
-      "d": "2026-11-10",
-      "s": "2026-11-08",
-      "u": "2026-11-10"
     },
     {
       "id": "cfef1598b5c5c2e0",
@@ -18805,20 +17909,6 @@
       "u": "2026-11-28"
     },
     {
-      "id": "299172d7d3a122ac",
-      "t": "vintage football jersey x pop cafe - focis kviz",
-      "d": "2026-11-10",
-      "s": "2026-11-08",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "d9fe29f3c4b2af10",
-      "t": "altalanos kviz",
-      "d": "2026-11-10",
-      "s": "2026-11-08",
-      "u": "2026-11-10"
-    },
-    {
       "id": "da0e517578d913a6",
       "t": "gta kviz",
       "d": "2026-11-11",
@@ -19134,13 +18224,6 @@
       "u": "2027-02-28"
     },
     {
-      "id": "61e6cf53acebfa5d",
-      "t": "monolord (swe), mars red sky (fr) - durer kert",
-      "d": "2026-11-10",
-      "s": "2026-11-08",
-      "u": "2026-11-10"
-    },
-    {
       "id": "f38bd1b33389991c",
       "t": "erdling, johnny tupolev // budapest, durer kert",
       "d": "2026-11-11",
@@ -19181,41 +18264,6 @@
       "d": "2026-10-12",
       "s": "2026-11-09",
       "u": "2027-04-05"
-    },
-    {
-      "id": "0b01ec319f6009dd",
-      "t": "telekom talks - a hangzas kulisszai - mitol szol igazan jol egy koncert? @ lokal",
-      "d": "2026-11-10",
-      "s": "2026-11-09",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "8d12ddb21996af4e",
-      "t": "janikovszky eva: velem mindig tortenik valami @ kishall 2026.11.10.",
-      "d": "2026-11-10",
-      "s": "2026-11-09",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "3501365e8484be6d",
-      "t": "🎬 zsifi extra: ada, anyam az epitesz",
-      "d": "2026-11-10",
-      "s": "2026-11-09",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "ee6468ec66ef3852",
-      "t": "wine & cheese tasting by elb @bortodoor city ✘ 10th nov",
-      "d": "2026-11-10",
-      "s": "2026-11-09",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "7aa2c22ba06efe13",
-      "t": "korszakos operak - laszlo ferenc operatorteneti gyorstalpaloja",
-      "d": "2026-11-10",
-      "s": "2026-11-09",
-      "u": "2026-11-10"
     },
     {
       "id": "cfef1598b5c5c2e0",
@@ -21129,20 +20177,6 @@
       "u": "2026-11-29"
     },
     {
-      "id": "299172d7d3a122ac",
-      "t": "vintage football jersey x pop cafe - focis kviz",
-      "d": "2026-11-10",
-      "s": "2026-11-09",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "d9fe29f3c4b2af10",
-      "t": "altalanos kviz",
-      "d": "2026-11-10",
-      "s": "2026-11-09",
-      "u": "2026-11-10"
-    },
-    {
       "id": "569885872d3bfc12",
       "t": "altalanos kviz",
       "d": "2026-11-11",
@@ -21479,13 +20513,6 @@
       "u": "2027-02-28"
     },
     {
-      "id": "61e6cf53acebfa5d",
-      "t": "monolord (swe), mars red sky (fr) - durer kert",
-      "d": "2026-11-10",
-      "s": "2026-11-09",
-      "u": "2026-11-10"
-    },
-    {
       "id": "f38bd1b33389991c",
       "t": "erdling, johnny tupolev // budapest, durer kert",
       "d": "2026-11-11",
@@ -21533,41 +20560,6 @@
       "d": "2026-10-12",
       "s": "2026-11-10",
       "u": "2027-04-05"
-    },
-    {
-      "id": "0b01ec319f6009dd",
-      "t": "telekom talks - a hangzas kulisszai - mitol szol igazan jol egy koncert? @ lokal",
-      "d": "2026-11-10",
-      "s": "2026-11-10",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "8d12ddb21996af4e",
-      "t": "janikovszky eva: velem mindig tortenik valami @ kishall 2026.11.10.",
-      "d": "2026-11-10",
-      "s": "2026-11-10",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "3501365e8484be6d",
-      "t": "🎬 zsifi extra: ada, anyam az epitesz",
-      "d": "2026-11-10",
-      "s": "2026-11-10",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "ee6468ec66ef3852",
-      "t": "wine & cheese tasting by elb @bortodoor city ✘ 10th nov",
-      "d": "2026-11-10",
-      "s": "2026-11-10",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "7aa2c22ba06efe13",
-      "t": "korszakos operak - laszlo ferenc operatorteneti gyorstalpaloja",
-      "d": "2026-11-10",
-      "s": "2026-11-10",
-      "u": "2026-11-10"
     },
     {
       "id": "cfef1598b5c5c2e0",
@@ -23551,20 +22543,6 @@
       "u": "2026-11-29"
     },
     {
-      "id": "299172d7d3a122ac",
-      "t": "vintage football jersey x pop cafe - focis kviz",
-      "d": "2026-11-10",
-      "s": "2026-11-10",
-      "u": "2026-11-10"
-    },
-    {
-      "id": "d9fe29f3c4b2af10",
-      "t": "altalanos kviz",
-      "d": "2026-11-10",
-      "s": "2026-11-10",
-      "u": "2026-11-10"
-    },
-    {
       "id": "da0e517578d913a6",
       "t": "gta kviz",
       "d": "2026-11-11",
@@ -23894,13 +22872,6 @@
       "u": "2026-11-29"
     },
     {
-      "id": "d42cc416a0b39f34",
-      "t": "szenior tarsasjatek klub",
-      "d": "2026-11-10",
-      "s": "2026-11-10",
-      "u": "2026-11-10"
-    },
-    {
       "id": "ce9394b98f624016",
       "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
       "d": "2026-11-16",
@@ -23920,13 +22891,6 @@
       "d": "2026-09-21",
       "s": "2026-11-10",
       "u": "2027-02-28"
-    },
-    {
-      "id": "61e6cf53acebfa5d",
-      "t": "monolord (swe), mars red sky (fr) - durer kert",
-      "d": "2026-11-10",
-      "s": "2026-11-10",
-      "u": "2026-11-10"
     },
     {
       "id": "f38bd1b33389991c",
@@ -23955,60 +22919,2503 @@
       "d": "2026-11-28",
       "s": "2026-11-10",
       "u": "2026-11-28"
+    },
+    {
+      "id": "7f49c920cd96508e",
+      "t": "typotex konyvklub 2026 osz",
+      "d": "2026-09-16",
+      "s": "2026-11-11",
+      "u": "2026-12-09"
+    },
+    {
+      "id": "e49584887c1043ee",
+      "t": "science cafe 2026 osz",
+      "d": "2026-09-22",
+      "s": "2026-11-11",
+      "u": "2026-12-09"
+    },
+    {
+      "id": "6587c929e0c69938",
+      "t": "a fold meseregionak mesei a halalrol es a gyaszrol - berlet",
+      "d": "2026-10-12",
+      "s": "2026-11-11",
+      "u": "2027-04-05"
+    },
+    {
+      "id": "5ed1c59c918d2271",
+      "t": "isaca masodik szerdai eloadas (hibrid) - 2026. november",
+      "d": "2026-11-11",
+      "s": "2026-11-11",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "4e8e3c6f9a9e03ab",
+      "t": "hsp fenntarthatosagi afterwork - harmadik alkalom",
+      "d": "2026-11-11",
+      "s": "2026-11-11",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "d24ef6a536afe47b",
+      "t": "morality #1",
+      "d": "2026-11-11",
+      "s": "2026-11-11",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "525c22aa41b75cc9",
+      "t": "molnar ferenc pesti zsidoi - balint haz szabadegyetem konrad miklossal",
+      "d": "2026-11-11",
+      "s": "2026-11-11",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "425ada56c04c7f54",
+      "t": "quiz night by elb @doboz",
+      "d": "2026-11-11",
+      "s": "2026-11-11",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "f7a4cfc0a07b8b6e",
+      "t": "studio 103 | novenynevelo workshop | 11.11.",
+      "d": "2026-11-11",
+      "s": "2026-11-11",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "06adae8c11d394d4",
+      "t": "vasas obuda - ute | tippmixpro noi roplabda extraliga, 7. fordulo",
+      "d": "2026-11-11",
+      "s": "2026-11-11",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "87611b0b537a2aba",
+      "t": "vasasplaket - szegedi ve - goodwill pharma fortacell ob i., 8. fordulo",
+      "d": "2026-11-11",
+      "s": "2026-11-11",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "438ddbc0dbaf1fbd",
+      "t": "obudai events - golyabal 2026",
+      "d": "2026-11-11",
+      "s": "2026-11-11",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "dced62b92c18fa44",
+      "t": "nation's night france vol. 2 by elb ✘ 11th nov @doboz",
+      "d": "2026-11-11",
+      "s": "2026-11-11",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "1ca4860cd67838aa",
+      "t": "🍂 ೀ⋆。 novemberi gong fu cha 5.30 ೀ⋆。 🍁",
+      "d": "2026-11-12",
+      "s": "2026-11-11",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "8279727f692318de",
+      "t": "just vibe & profile match ismerkedos est | 30–45 ev",
+      "d": "2026-11-12",
+      "s": "2026-11-11",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "32c74b0c253bb4d0",
+      "t": "book break budapest | november 12.",
+      "d": "2026-11-12",
+      "s": "2026-11-11",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "e795c05b7951a341",
+      "t": "szekely marci, lugosi dani, hajba aron akusztik - stenk lelato",
+      "d": "2026-11-12",
+      "s": "2026-11-11",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "a9b125a756092aea",
+      "t": "apa csak egy van?! - ram",
+      "d": "2026-11-12",
+      "s": "2026-11-11",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "3f3c57fb7acec56c",
+      "t": "lassusag / slowness",
+      "d": "2026-11-12",
+      "s": "2026-11-11",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "de9feecf79574e2d",
+      "t": "an taibhse | film screening & conversation",
+      "d": "2026-11-12",
+      "s": "2026-11-11",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "6956208cb9305ef9",
+      "t": "magzat | nyug @ manyi",
+      "d": "2026-11-12",
+      "s": "2026-11-11",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "22ce3c204fe2fda1",
+      "t": "english stand-up comedy special with ahmet bilge",
+      "d": "2026-11-12",
+      "s": "2026-11-11",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "648c28cbe52b4ec5",
+      "t": "pal csaba vacsoraest i november 12. csutortok i mom leroy bistro i budapest",
+      "d": "2026-11-12",
+      "s": "2026-11-11",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "9c09b8df769a049f",
+      "t": "wattson bar - egyetemi alapozo",
+      "d": "2026-11-12",
+      "s": "2026-11-11",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "bfe59c2a6d2f3ac5",
+      "t": "tfse - gykc uni gyor i ferfi kosarlabda nb i./b zold-csoport",
+      "d": "2026-11-12",
+      "s": "2026-11-11",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "6b7b38dd3dfaeade",
+      "t": "loud cloud invites: captain knuckles @ turbina club room",
+      "d": "2026-11-12",
+      "s": "2026-11-11",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "b0219ad7385743c8",
+      "t": "mome allstars x mome zaj",
+      "d": "2026-11-12",
+      "s": "2026-11-11",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "2eeb3b8ad8739cc5",
+      "t": "world is mine: flashback / 11.12. -thursday / otkert - best of 2010's",
+      "d": "2026-11-12",
+      "s": "2026-11-11",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "1d73c7b2174badaa",
+      "t": "shelter dog walking ii. by esn corvinus",
+      "d": "2026-11-13",
+      "s": "2026-11-11",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "6c159d26b84f0fb5",
+      "t": "ute - budapest jegkorong akademia hc",
+      "d": "2026-11-13",
+      "s": "2026-11-11",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "756041d200ebf274",
+      "t": "akvarium klub — 4 program",
+      "d": "2026-11-13",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "c87f251eea68d136",
+      "t": "csakvari laszlo lemezbemutato - stenk lelato",
+      "d": "2026-11-13",
+      "s": "2026-11-11",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "407033a81dba36f0",
+      "t": "felre tarsulat: muveszet",
+      "d": "2026-11-13",
+      "s": "2026-11-11",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "ae50fbc3529ad163",
+      "t": "varhegyutca",
+      "d": "2026-11-13",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "e8253f8d9091e8e2",
+      "t": "sexy & safe 11.13. - 🔥party night & s*x education❤️by masculan & partners",
+      "d": "2026-11-13",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "3ee6de7ffcfc3411",
+      "t": "dojo art disco 11.13.",
+      "d": "2026-11-13",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "6977107228c90e67",
+      "t": "mad about marilyn a manyi-ban!",
+      "d": "2026-11-13",
+      "s": "2026-11-11",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "4e95d181655acb90",
+      "t": "torok pali, tormy ep. bemutato live session 11.13 vendegek: tzapa, keezart kassa",
+      "d": "2026-11-13",
+      "s": "2026-11-11",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "1a92c575fed8941c",
+      "t": "silver rust | szuletesnapi koncert a muzikumban!",
+      "d": "2026-11-13",
+      "s": "2026-11-11",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "f8a8e29c79eb2b3d",
+      "t": "why not ibiza? by elb & spontan ✘ 13th nov ✘ vektor",
+      "d": "2026-11-13",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "95675c4b93f55636",
+      "t": "rumble xxl",
+      "d": "2026-11-13",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "4e05ca6fe064cde1",
+      "t": "eclips: sota",
+      "d": "2026-11-13",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "99060c3ddee8081d",
+      "t": "5 years of kink w/ d.dan | club room: dirty cash",
+      "d": "2026-11-13",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "c244a2e9c9470f10",
+      "t": "otkert friday 11.13. superstars // fukumean",
+      "d": "2026-11-13",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "1009fcaedd078d49",
+      "t": "11.13. dune x kalamajka pop up",
+      "d": "2026-11-13",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "5a0b10975b639178",
+      "t": "puszipentek a mobyban! 💋 11.13.",
+      "d": "2026-11-13",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "1a54cfa66165c5b7",
+      "t": "next level pres.: modestep live (uk) - a38 hajo - 2026.11.13.",
+      "d": "2026-11-13",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "fb05aa3ecd77c44e",
+      "t": "ff kongresszus 2026 teszt",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-16"
+    },
+    {
+      "id": "7f90716749b3236d",
+      "t": "ff social",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "9c03bc6a9f8cfcb5",
+      "t": "bubak es a varazskonyv",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "aa92b22841dd9ef2",
+      "t": "studio 103 | gyapjutunder-keszito workshop | 11.14.",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "8bcfa6f6c62bae7f",
+      "t": "studio 103 | keramia workshop | 11.14.",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "ea2bec76bb9f5080",
+      "t": "pilates × afro house @dugattyus",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "6fc63cd009f482e0",
+      "t": "photo embroidery workshop",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "417b9124dbf1dff6",
+      "t": "karacsonyi csaladi fotozas",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "355e3315611702a1",
+      "t": "hotline @ electric toast 11.14.",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "487c9cbf277db2ce",
+      "t": "bogi neni gyerekkoncert",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "6ac9116e3c2d8879",
+      "t": "skate cult budapest - twilight gorkoris buli",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "25f316e0aaedce48",
+      "t": "ne agyald tul! - onsimereti beszelgetokor - sunshine flow club",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "209049240f409962",
+      "t": "boardgames & hungarian",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "e1b48d6ada1600cb",
+      "t": "x-faktor elo show - 11.14.",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "cd3f3936eef5617e",
+      "t": "teszt 2",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "18c6d6a1f25b9f48",
+      "t": "mszk40",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "0ddd4e7fde325679",
+      "t": "just vibe & tarsasozos ismerkedos est | 25–41 ev",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "6fdb21b7c002581b",
+      "t": "drk presents: kell egy jo kabat party",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "1d6fd419ce6dc172",
+      "t": "wlw tarot",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "c844333f97e36613",
+      "t": "barking babies lemezbemutato, vendeg: transkepler, pogon",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "a3c9195f29bf3dc9",
+      "t": "akvarium klub — 5 program",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-16"
+    },
+    {
+      "id": "9ff353aa922d11f9",
+      "t": "cicikrisztus az apollo gallery-ben",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "9c57d1c7636926ff",
+      "t": "funktasztikus - stenk lelato",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "9f2ac4cc03d5ae0a",
+      "t": "ute - vesc tippmixpro noi extraliga 7. fordulo",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "f63bbf930bf39e64",
+      "t": "tamas vamos & friends – free english stand-up comedy night",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "5fc47426352f4640",
+      "t": ": jarboe+zu : purkar :",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "90a66dbe19cc32bf",
+      "t": "the getnos (rolling stones tribute): hot stuff",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "1520cbf1c14e8ccd",
+      "t": "marvel pub quiz night",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "9c07c804c56ee231",
+      "t": "4/4 bass focus @atno",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "4611311b893cdd82",
+      "t": "leisure @ease deep & groovy",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "ff8ec8a5c0edd0e3",
+      "t": "haccacare presents; throwback vibez @ mom leroy",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "6b8c06ebaa4a3555",
+      "t": "ethnotech ● kassa hajo",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "4211643d74d16c44",
+      "t": "back to the 2000's & reggaeton party by elb ✘ 2 dance floors in doboz ✘ 14th nov",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "b60428a1d224b46d",
+      "t": "carousel pres.: sadboiclique",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "be0e6493652c25bf",
+      "t": "the hive: ivy lab",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "e825c4f533b81003",
+      "t": "turbina on progressive sounds vol.01",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "4aa5275c40bc71bd",
+      "t": "kattt // vedat b2b beta all night long // toldi",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "92817a0f79a59bc8",
+      "t": "sector w/ peace control (us) at dojo 11.14.",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "c60aae06cd603d4b",
+      "t": "cooling ❘ 2026/11/14 | 23:00-08:00 ❘ cat budapest",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "0342540ae9f23205",
+      "t": "otkert saturday 11.14. timeless hits // benin boys",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "a79909ef849252ed",
+      "t": "11.14. dune: matteo diop",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "5ce7bc5fc2a8b969",
+      "t": "total 80's / a38",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "72f6bc3c970a8f35",
+      "t": "mastery blife expo",
+      "d": "2026-11-15",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "ee4d523f948ffb80",
+      "t": "szerb antal 125 - tematikus seta a varnegyedben 15. turnus",
+      "d": "2026-11-15",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "5a2c5a5211ad6abf",
+      "t": "szerb antal 125 - tematikus seta a varnegyedben 16. turnus",
+      "d": "2026-11-15",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "9d979a98bec64bfd",
+      "t": "randipiknik - tarsasest (nok: 33-47 ev, ferfiak: 33-47 ev)",
+      "d": "2026-11-15",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "d3e56f03534eba77",
+      "t": "csajos tarsasjatek delutan",
+      "d": "2026-11-15",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "e271c95596410d51",
+      "t": "board game night by elb @hoff house /every sunday",
+      "d": "2026-11-15",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "4c7298d3ce7a6fbc",
+      "t": "dalok, amelyek a szivunkben elnek – a zurichi zsinagogakorus koncertje",
+      "d": "2026-11-15",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "018ead31984f1ac5",
+      "t": "ute - feha19",
+      "d": "2026-11-15",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "58474b63e7994d28",
+      "t": "genfi dark folk es post-rock a manyiban: yuri (ch) x paracosm",
+      "d": "2026-11-15",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "b0feb7e89faa9164",
+      "t": "lombok kozott, onismereti kirandulas",
+      "d": "2026-11-16",
+      "s": "2026-11-11",
+      "u": "2026-11-16"
+    },
+    {
+      "id": "8386c2f4167fe0ee",
+      "t": "xiv. music hungary konferencia & showcase",
+      "d": "2026-11-16",
+      "s": "2026-11-11",
+      "u": "2026-11-17"
+    },
+    {
+      "id": "6e4ad53237fda62e",
+      "t": "techno pilates / uv pilates november / akvarium klub powered by techno yoga",
+      "d": "2026-11-16",
+      "s": "2026-11-11",
+      "u": "2026-11-16"
+    },
+    {
+      "id": "6a2df0fb852c8891",
+      "t": "studio 103 | keramia workshop | 11.16.",
+      "d": "2026-11-16",
+      "s": "2026-11-11",
+      "u": "2026-11-16"
+    },
+    {
+      "id": "39dfd5ecbc15d865",
+      "t": "a bujasag szonettjei",
+      "d": "2026-11-16",
+      "s": "2026-11-11",
+      "u": "2026-11-16"
+    },
+    {
+      "id": "a987a530b90feb27",
+      "t": "szel hozott, tuz viszi el",
+      "d": "2026-11-16",
+      "s": "2026-11-11",
+      "u": "2026-11-16"
+    },
+    {
+      "id": "272defae8e1dff26",
+      "t": "yogasailor-gerincjoga a coolfit-ben/2026.11.16./19:30-21.00",
+      "d": "2026-11-16",
+      "s": "2026-11-11",
+      "u": "2026-11-16"
+    },
+    {
+      "id": "692dce6cea21ea05",
+      "t": "keso esti hangfurdo",
+      "d": "2026-11-16",
+      "s": "2026-11-11",
+      "u": "2026-11-16"
+    },
+    {
+      "id": "86909eaa5bf925c3",
+      "t": "becs - parizs / leczky marcel es farkas botond koncertje",
+      "d": "2026-11-17",
+      "s": "2026-11-11",
+      "u": "2026-11-17"
+    },
+    {
+      "id": "2af0152d3cce461c",
+      "t": "piacepito mini trening – vegvari tiborral",
+      "d": "2026-11-17",
+      "s": "2026-11-11",
+      "u": "2026-11-17"
+    },
+    {
+      "id": "dcb28eaa239b4409",
+      "t": "studio 103 | konyvkoto workshop | 11.17.",
+      "d": "2026-11-17",
+      "s": "2026-11-11",
+      "u": "2026-11-17"
+    },
+    {
+      "id": "651eb0957c2e5901",
+      "t": "a feny belulrol fakad!",
+      "d": "2026-11-17",
+      "s": "2026-11-11",
+      "u": "2026-11-17"
+    },
+    {
+      "id": "51caa556ca8d0c39",
+      "t": "come together budapest",
+      "d": "2026-11-17",
+      "s": "2026-11-11",
+      "u": "2026-11-17"
+    },
+    {
+      "id": "82578639d3ee3308",
+      "t": "klikkmentes a time out marketben",
+      "d": "2026-11-17",
+      "s": "2026-11-11",
+      "u": "2026-11-17"
+    },
+    {
+      "id": "b588f9f1f8bddf0c",
+      "t": "dilemma #1 - till attila",
+      "d": "2026-11-18",
+      "s": "2026-11-11",
+      "u": "2026-11-18"
+    },
+    {
+      "id": "af9c55b280f97dfa",
+      "t": "uno championship by elb @doboz",
+      "d": "2026-11-18",
+      "s": "2026-11-11",
+      "u": "2026-11-18"
+    },
+    {
+      "id": "bb3fccb3c7f909c7",
+      "t": "tulelesbol a teremtesbe",
+      "d": "2026-11-18",
+      "s": "2026-11-11",
+      "u": "2026-11-18"
+    },
+    {
+      "id": "b98963a4686d4f54",
+      "t": "international singles night (in english) | 25–40",
+      "d": "2026-11-18",
+      "s": "2026-11-11",
+      "u": "2026-11-18"
+    },
+    {
+      "id": "af19f5c7e69805e5",
+      "t": "autumn affair - exclusive international singles' night",
+      "d": "2026-11-18",
+      "s": "2026-11-11",
+      "u": "2026-11-18"
+    },
+    {
+      "id": "5f2cad0f91421b76",
+      "t": "nation's night germany vol. 2 ✘ 18th nov @doboz",
+      "d": "2026-11-18",
+      "s": "2026-11-11",
+      "u": "2026-11-19"
+    },
+    {
+      "id": "c49852fc9454ff5a",
+      "t": "beaujolais day – harom nemzet variacioja egy temara 🇭🇺🇪🇸🇫🇷",
+      "d": "2026-11-18",
+      "s": "2026-11-11",
+      "u": "2026-11-22"
+    },
+    {
+      "id": "9a38006d0c93798e",
+      "t": "sport forum hungary 2026",
+      "d": "2026-11-19",
+      "s": "2026-11-11",
+      "u": "2026-11-19"
+    },
+    {
+      "id": "113e140f2af568b9",
+      "t": "jovoallo vallalat 2027 – esg es versenykepesseg konferencia",
+      "d": "2026-11-19",
+      "s": "2026-11-11",
+      "u": "2026-11-19"
+    },
+    {
+      "id": "892bc464a69a0366",
+      "t": "friisberg leadership gala",
+      "d": "2026-11-19",
+      "s": "2026-11-11",
+      "u": "2026-11-19"
+    },
+    {
+      "id": "5ae2ffb83d875f57",
+      "t": "fliegauf benedek: rampa (ramp, 2022, 15 perc, magyar nyelvu vr rovidfilm)",
+      "d": "2026-11-19",
+      "s": "2026-11-11",
+      "u": "2026-11-19"
+    },
+    {
+      "id": "55544da0907bbbf0",
+      "t": "lelekfeny",
+      "d": "2026-11-19",
+      "s": "2026-11-11",
+      "u": "2026-11-19"
+    },
+    {
+      "id": "1fad103852d3b361",
+      "t": "studio 103 | the taste of well-being - iranyvaltasok | 11.19.",
+      "d": "2026-11-19",
+      "s": "2026-11-11",
+      "u": "2026-11-19"
+    },
+    {
+      "id": "c9e42680552cffce",
+      "t": "rapidrandi 30-40 ev",
+      "d": "2026-11-19",
+      "s": "2026-11-11",
+      "u": "2026-11-19"
+    },
+    {
+      "id": "7c5dd60383724158",
+      "t": "2 years of kassa | mordai kollektiva, the great marton conspiracy",
+      "d": "2026-11-19",
+      "s": "2026-11-11",
+      "u": "2026-11-19"
+    },
+    {
+      "id": "00d92c5712532d0c",
+      "t": "medusza × kisocean @ manyi",
+      "d": "2026-11-19",
+      "s": "2026-11-11",
+      "u": "2026-11-19"
+    },
+    {
+      "id": "82713db54ad8001f",
+      "t": "november rain lebego hangtalfurdo elysium lakopark",
+      "d": "2026-11-19",
+      "s": "2026-11-11",
+      "u": "2026-11-19"
+    },
+    {
+      "id": "808782933d130ad0",
+      "t": "girls to the front!",
+      "d": "2026-11-19",
+      "s": "2026-11-11",
+      "u": "2026-11-20"
+    },
+    {
+      "id": "379d8d62fdd9005f",
+      "t": "metu golyabal 2026 》brandus | 11.19.",
+      "d": "2026-11-19",
+      "s": "2026-11-11",
+      "u": "2026-11-20"
+    },
+    {
+      "id": "9190f186edebca02",
+      "t": "rollin' • otkert • the hungarian topsh*t party • 11/19",
+      "d": "2026-11-19",
+      "s": "2026-11-11",
+      "u": "2026-11-20"
+    },
+    {
+      "id": "b21a25b07263fcba",
+      "t": "edr x thursday trance i vektor i 19th november",
+      "d": "2026-11-19",
+      "s": "2026-11-11",
+      "u": "2026-11-20"
+    },
+    {
+      "id": "8d04e9ab54fb8493",
+      "t": "kapcsolodas napja - mentalhigienes konferencia es workshop - 2026. november 20.",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-20"
+    },
+    {
+      "id": "5d21c4f77ada392b",
+      "t": "elle design pop-up // 2026",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-22"
+    },
+    {
+      "id": "a796a4e8af0ff136",
+      "t": "tudatos parkapcsolati est blannerekkel",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-20"
+    },
+    {
+      "id": "d328c2a0c5df87bf",
+      "t": "normafa hike by esn corvinus",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-20"
+    },
+    {
+      "id": "1de270a31658d1ad",
+      "t": "erdojaro wlw party nov 20. 17:00 deci pub",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "a919379ca4e009a3",
+      "t": "ute - deac",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-20"
+    },
+    {
+      "id": "c1f19dbc026806b8",
+      "t": "kutya bileta ws",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-20"
+    },
+    {
+      "id": "99e39f1901ca8b83",
+      "t": "bryan adams by room service, dire straits by watermark - stenk lelato",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-20"
+    },
+    {
+      "id": "cee3c62090e1f1d6",
+      "t": "studio 103 | bileta keszito workshop | 11.20.",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-20"
+    },
+    {
+      "id": "2ebe7922a2d2bb98",
+      "t": "moon walker - wasteland country tour - off kultur, budapest",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-20"
+    },
+    {
+      "id": "99ce31d61fac7a23",
+      "t": "akvarium klub — 6 program",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-20"
+    },
+    {
+      "id": "3a02230b842a567c",
+      "t": "berczesi robert szoloest, vendeg: neonhal - barhole",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-20"
+    },
+    {
+      "id": "3a4fc2dcec99a6bf",
+      "t": "kvaterka / 11.20. / manyi / vendeg: pipacs",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-20"
+    },
+    {
+      "id": "8e30bed19166d9e4",
+      "t": "felre tarsulat: de mi lett a novel?",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-20"
+    },
+    {
+      "id": "1fc5249bda96a096",
+      "t": "biro es fia: a bor es az irodalom metszete",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-20"
+    },
+    {
+      "id": "b76dfad5306abed1",
+      "t": "bon jovi show a backstage pubban!",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-20"
+    },
+    {
+      "id": "ca16cecb9586c795",
+      "t": "ethnotech x fono: olah annamari, vendeg: musica moralia solo",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-20"
+    },
+    {
+      "id": "9a69d7cb86404e60",
+      "t": "tfse - pte-peac i ferfi kosarlabda nb i./b zold-csoport",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-20"
+    },
+    {
+      "id": "f244f188fb40acad",
+      "t": "the disco november",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "c9813dbd487df46a",
+      "t": "gece budapest — turkish night by the danube",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "3a61e7bf02454306",
+      "t": "2 years of kassa w/ daniel avery",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "2374165c306cefe9",
+      "t": "requiem back to back to the future",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "8cb880a2ac1687e1",
+      "t": "elmegyek mulatni | kale lulugyi x infragandhi",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "edbf3f033ffa0e74",
+      "t": "blo. x voros neon ✤ pop emergency ✤ gay party ✤ 11.20.",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "e19bc9010e8829c9",
+      "t": "techlab.bp 7 years ::: sioc",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "7ae282b8aa3f5799",
+      "t": "technokunst x turbina present: tkst 003 release party w/ takaaki itoh, deepbass",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "8d17f620ac7ad11d",
+      "t": "crime w/ an chen",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "9aad53c0d976296d",
+      "t": "hotline @ palazzo permanens",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "211feee9c6b14611",
+      "t": "dojo majo 11.20.",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "7bcae82c63406025",
+      "t": "otkert friday - 16th bday weekend day 1. // upper club",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "c479dd2005a9ecaa",
+      "t": "babamama es kidexpo 2026",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-22"
+    },
+    {
+      "id": "1d16e55e6c2be4f7",
+      "t": "bubak es a varazskonyv",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "a4e6b188674e3ed0",
+      "t": "egylepcsos palinkafozo bemutatofozes",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "a5d0f7809da851c0",
+      "t": "studio 103 | fakanal keszito workshop | 11.21.",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "fe4dd823e6aab9fa",
+      "t": "studio 103 | keramia workshop | 11.21.",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "be98cda75b89245c",
+      "t": "studio 103 | festo workshop | 11.21.",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "8071112115989e10",
+      "t": "migrating textures at tanshera",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "48d6f23e4ca3f135",
+      "t": "uj nok zenes szeansza koncert a kristaly szinterben",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "6c4911b829389136",
+      "t": "vasas sc - motherson mosonmagyarovari kc, nb i., 9. fordulo",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "ddf26d4b2fcf6326",
+      "t": "x-faktor elo show - 11.21.",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "eab8b82617a1e0dd",
+      "t": "tfse - vasas akademia i noi kosarlabda nb i. a-csoport",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "569130c8fc4a381b",
+      "t": "hollywoodoo, vendeg: the juice - stenk lelato",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "d6acd6e660609177",
+      "t": "loci jatszik @ kishall 2026.11.21.",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "259fe314782ef35d",
+      "t": "fannisza x tendo lemezbemutato2 @ lokal 2026.11.21.",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "edecb55ce71eebb3",
+      "t": "pal utcai fiuk vendeg: the pontiac @ nagyhall 2026.11.21.",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "aa10524f535ac559",
+      "t": "mayberian sanskulotts //turbina, nagyterem",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "1be75f7123c1f29d",
+      "t": "a visszateres - berki patrik nagykoncert",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "10aa0cc970385773",
+      "t": "hungarian & polish sound clash: mt. saint michel (dj) | tymek papior (live) | ga",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "9c05e1483c36a145",
+      "t": "norinova bridal show",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "6eb56708d94351ba",
+      "t": "spktr : scivias",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "f2b073a58b3bd95d",
+      "t": "no code es pearl jam budapest 96",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "be9f5c6d1f8b7cfc",
+      "t": "gege piano live + dj set – november 21. szombat | budapest | mom leroy",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-22"
+    },
+    {
+      "id": "00f2e5fd32b0e05f",
+      "t": "manas autumn ritual i faders i gotalien i hypogeo",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-22"
+    },
+    {
+      "id": "cc094d7a59a4f40d",
+      "t": "bellaka pres.: dance city",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-22"
+    },
+    {
+      "id": "89e7cdeff2ba3fc9",
+      "t": "coronita® allstars ✦ 2026/11/21 » symbol, budapest",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-22"
+    },
+    {
+      "id": "b18f1f517b36b6eb",
+      "t": "dojo 11.21. lucid dreams w/ speedy",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-22"
+    },
+    {
+      "id": "f0e2287fa138cafb",
+      "t": "otkert friday - 16th bday weekend day 2. // we outside",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-22"
+    },
+    {
+      "id": "9438cf0204257fa9",
+      "t": "pilates & padel social club - by rolly x jonas reka",
+      "d": "2026-11-22",
+      "s": "2026-11-11",
+      "u": "2026-11-22"
+    },
+    {
+      "id": "75afbb22b6a1d301",
+      "t": "just girls connect brunch – vasarnap delelott uj baratnokkel a nosh-ban",
+      "d": "2026-11-22",
+      "s": "2026-11-11",
+      "u": "2026-11-22"
+    },
+    {
+      "id": "60a6b5370d4ef454",
+      "t": "arcok visszapillantoban | in the rearview - november 22.",
+      "d": "2026-11-22",
+      "s": "2026-11-11",
+      "u": "2026-11-22"
+    },
+    {
+      "id": "0c5cde9fe2de21e9",
+      "t": "studio 103 | butyoklabas talka farago workshop | 11.22.",
+      "d": "2026-11-22",
+      "s": "2026-11-11",
+      "u": "2026-11-22"
+    },
+    {
+      "id": "b5a344168ca56b27",
+      "t": "pannon roller disco - uv roller disco",
+      "d": "2026-11-22",
+      "s": "2026-11-11",
+      "u": "2026-11-22"
+    },
+    {
+      "id": "fd4b2f2a271eaba1",
+      "t": "randipiknik - elsoszikra (nok: 28-40 ev, ferfiak: 30-42 ev)",
+      "d": "2026-11-22",
+      "s": "2026-11-11",
+      "u": "2026-11-22"
+    },
+    {
+      "id": "8ee2e0ef08217992",
+      "t": ".°• kombucha a teak tukreben • vol.2 • eloadas es workshop",
+      "d": "2026-11-22",
+      "s": "2026-11-11",
+      "u": "2026-11-23"
+    },
+    {
+      "id": "264351b870dd6d96",
+      "t": "ez az a nap! worship night: hillsong london worship x eden @ nagyhall 2026.11.22",
+      "d": "2026-11-22",
+      "s": "2026-11-11",
+      "u": "2026-11-22"
+    },
+    {
+      "id": "160772ab9fdbfb80",
+      "t": "tfse - mav elore foxconn / tippmixpro ferfi extraliga",
+      "d": "2026-11-22",
+      "s": "2026-11-11",
+      "u": "2026-11-22"
+    },
+    {
+      "id": "a4f40fdf3710a4de",
+      "t": "a fold meseregionak mesei a halalrol es a gyaszrol",
+      "d": "2026-11-23",
+      "s": "2026-11-11",
+      "u": "2026-11-23"
+    },
+    {
+      "id": "41bbf5b66ad82fca",
+      "t": "studio 103 | keramia workshop | 11.23.",
+      "d": "2026-11-23",
+      "s": "2026-11-11",
+      "u": "2026-11-23"
+    },
+    {
+      "id": "5def599cfb44262f",
+      "t": "az ero benned van - motivacios est kiss krisztaval",
+      "d": "2026-11-23",
+      "s": "2026-11-11",
+      "u": "2026-11-23"
+    },
+    {
+      "id": "9e3a7dd03a018572",
+      "t": "top 100 magyar bor dijatado gala es nagykostolo",
+      "d": "2026-11-24",
+      "s": "2026-11-11",
+      "u": "2026-11-24"
+    },
+    {
+      "id": "af02af0937301723",
+      "t": "isaca est 2026",
+      "d": "2026-11-24",
+      "s": "2026-11-11",
+      "u": "2026-11-24"
+    },
+    {
+      "id": "36646843ae993de9",
+      "t": "ket rabbi es egy rabbijelolt, 120 ev es a hosszu elet titka",
+      "d": "2026-11-24",
+      "s": "2026-11-11",
+      "u": "2026-11-24"
+    },
+    {
+      "id": "f0523ad783a0ddf1",
+      "t": "visszaadhatja egy konyv a haboru valosagat? – beszelgetes twardoch uj regenyerol",
+      "d": "2026-11-24",
+      "s": "2026-11-11",
+      "u": "2026-11-24"
+    },
+    {
+      "id": "af27e6c0d916a499",
+      "t": "legyen az! vacsora-talkshow simon kornellal",
+      "d": "2026-11-24",
+      "s": "2026-11-11",
+      "u": "2026-11-24"
+    },
+    {
+      "id": "1c03b79494aa7881",
+      "t": "vi. rotary \"mini\"connect - vedjuk magunkat a csalok ellen!",
+      "d": "2026-11-24",
+      "s": "2026-11-11",
+      "u": "2026-11-24"
+    },
+    {
+      "id": "b39ba98eef92f1a5",
+      "t": "heti hetes 16. adas - 11.25.",
+      "d": "2026-11-25",
+      "s": "2026-11-11",
+      "u": "2026-11-25"
+    },
+    {
+      "id": "5a90e671b5974ad6",
+      "t": "studio 103 | nemez workshop | 11.25.",
+      "d": "2026-11-25",
+      "s": "2026-11-11",
+      "u": "2026-11-25"
+    },
+    {
+      "id": "d62f2cd180228e32",
+      "t": "mazent mystery nights 🕵️",
+      "d": "2026-11-25",
+      "s": "2026-11-11",
+      "u": "2026-11-25"
+    },
+    {
+      "id": "81602972cd42ab6c",
+      "t": "zsakutcak onismereti ebreszto",
+      "d": "2026-11-25",
+      "s": "2026-11-11",
+      "u": "2026-11-25"
+    },
+    {
+      "id": "41de2cfb95a4a59f",
+      "t": "szabadsajto klub extra",
+      "d": "2026-11-25",
+      "s": "2026-11-11",
+      "u": "2026-11-25"
+    },
+    {
+      "id": "fca9c8f8e54f333b",
+      "t": "candlelit dinner – le petit beefbar budapest x jo malone london🌲",
+      "d": "2026-11-25",
+      "s": "2026-11-11",
+      "u": "2026-11-25"
+    },
+    {
+      "id": "cf013a564352d016",
+      "t": "turbina hajtomu vitaest 2.0",
+      "d": "2026-11-25",
+      "s": "2026-11-11",
+      "u": "2026-11-25"
+    },
+    {
+      "id": "eefd0c22e0bcb410",
+      "t": "ute - gyergyoi hoki klub",
+      "d": "2026-11-26",
+      "s": "2026-11-11",
+      "u": "2026-11-26"
+    },
+    {
+      "id": "7e3aec2a8bd962a6",
+      "t": "a 13. utas | nyomozos ismerkedos est 25-45 eves kor",
+      "d": "2026-11-26",
+      "s": "2026-11-11",
+      "u": "2026-11-26"
+    },
+    {
+      "id": "67e876fd20b1279d",
+      "t": "hadron lundgren x psychedelic rainbow warrior peace force",
+      "d": "2026-11-26",
+      "s": "2026-11-11",
+      "u": "2026-11-26"
+    },
+    {
+      "id": "daa03e3a5021f978",
+      "t": "a legjobb reppturne - mulato aztekok, cet, omlas - manyi",
+      "d": "2026-11-26",
+      "s": "2026-11-11",
+      "u": "2026-11-27"
+    },
+    {
+      "id": "3408d1313010cef7",
+      "t": "kiad + reni&boka - stenk lelato",
+      "d": "2026-11-26",
+      "s": "2026-11-11",
+      "u": "2026-11-26"
+    },
+    {
+      "id": "03e3055b12bb4f1c",
+      "t": "bodri birtok borkostoloja a corner’s pubban",
+      "d": "2026-11-26",
+      "s": "2026-11-11",
+      "u": "2026-11-26"
+    },
+    {
+      "id": "91023dfe28d58c4b",
+      "t": "🧠 brainiacs vol.17: quiz night at brody house 🎉",
+      "d": "2026-11-26",
+      "s": "2026-11-11",
+      "u": "2026-11-26"
+    },
+    {
+      "id": "d8ea5c051b74c2ab",
+      "t": "azeri kostolo – borok a kaukazus elaknasitott duloibol",
+      "d": "2026-11-26",
+      "s": "2026-11-11",
+      "u": "2026-11-26"
+    },
+    {
+      "id": "f074345150742f37",
+      "t": "pal csaba vacsoraest i november 26. csutortok i mom leroy bistro i budapest",
+      "d": "2026-11-26",
+      "s": "2026-11-11",
+      "u": "2026-11-26"
+    },
+    {
+      "id": "09ccc2d48b1e23de",
+      "t": "tf golyabal 2026 • tf aula • 11.26.",
+      "d": "2026-11-26",
+      "s": "2026-11-11",
+      "u": "2026-11-27"
+    },
+    {
+      "id": "399c2b4dba2a180b",
+      "t": "kassa boat party by esn corvinus",
+      "d": "2026-11-26",
+      "s": "2026-11-11",
+      "u": "2026-11-27"
+    },
+    {
+      "id": "3c9fee118f3f03ca",
+      "t": "kaotik",
+      "d": "2026-11-26",
+      "s": "2026-11-11",
+      "u": "2026-11-27"
+    },
+    {
+      "id": "454becc10248e2b9",
+      "t": "teknacht: freetek rave 11.26.",
+      "d": "2026-11-26",
+      "s": "2026-11-11",
+      "u": "2026-11-27"
+    },
+    {
+      "id": "aa37c3c2c87fa056",
+      "t": "boom pres. dakiti – un verano sin fin 🇵🇷🐰",
+      "d": "2026-11-26",
+      "s": "2026-11-11",
+      "u": "2026-11-27"
+    },
+    {
+      "id": "705c2e59256ad0ae",
+      "t": "60+ szalon | penz es nyugalom – szalonest papszt krisztaval",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-11-27"
+    },
+    {
+      "id": "be92361c69fba737",
+      "t": "vegzetes vacsora - cellar garden",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-11-27"
+    },
+    {
+      "id": "fd2beb095fe67e0d",
+      "t": "studio 103 | linometszes workshop | 11.27.",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-11-27"
+    },
+    {
+      "id": "64e3a4e05f46b417",
+      "t": "halaadas napi vacsora",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-11-27"
+    },
+    {
+      "id": "c29097e8db187916",
+      "t": "palo canto - ritual of connection // kassa hajo",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-11-27"
+    },
+    {
+      "id": "316a95e7bdb5c886",
+      "t": "hol van a zse? lemezbemutato",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-11-27"
+    },
+    {
+      "id": "ca84ad55ebe5e584",
+      "t": "stone temple pilots tribute 💥 stone pilots 💥 bandram 💥 stenk lelato",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-11-27"
+    },
+    {
+      "id": "d1d1ec496f5a28c8",
+      "t": "dentaklub x bortarsasag v2",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-12-02"
+    },
+    {
+      "id": "6322f5d554e354f2",
+      "t": "ngz presents: rager \"yin es yang\" @ nagyhall 2026.11.27.",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-11-27"
+    },
+    {
+      "id": "273a6342824b6afd",
+      "t": "furmint and the city",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-11-27"
+    },
+    {
+      "id": "a9393535eec0c0b4",
+      "t": "kossuth-kod vol. 4. a vitaklub evadzaroja.",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-11-27"
+    },
+    {
+      "id": "580037f17bb99fad",
+      "t": "happy birthday mr. hendrix",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-11-27"
+    },
+    {
+      "id": "7adeb8975c89e1ee",
+      "t": "lagzi feszt | budapest, mom leroy",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "7f42f5157d662643",
+      "t": "nota bene - 3rd birthday",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "665b7f5b5f269c9b",
+      "t": "endo invites subotnik (de) // toldi",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "8845b05ca2dba294",
+      "t": "club punk: mood swings // permanens palazzo",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "fa6f61dfbde07e18",
+      "t": "lidocain night // durer kert",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "82d276053f4060ee",
+      "t": "duckshell // durer kert",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-11-27"
+    },
+    {
+      "id": "6fefe87d92099c72",
+      "t": "nofear invites olmatri ××",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "acd1143682aa90e8",
+      "t": "gpf by col:lab @ kassa",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "7bfa6eac9520d049",
+      "t": "otkert friday 11.27. friends giving // get rich or die tryin",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "08f08407a006cce9",
+      "t": "discoteca by budai house clique i 11.27. i dojo",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "0d8dd4215c095426",
+      "t": "your plan b: realize yourself in the ai era",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "6919f840d294af93",
+      "t": "te, hogy vagy? - noi egeszsegnap - hosszan.elni.jol.",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "249a87b30e2390d4",
+      "t": "vii. sihaz kupa",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "5a8ba8142122aa5c",
+      "t": "1 napos elvonulas 10.00-16.00",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "66e0c0d69ad6b785",
+      "t": "padel & pilates (zenith padel obuda) 11.28.",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "2d38dca7bf95a1b5",
+      "t": "christmas clay ornament painting",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "7b6b76721f1ac6b0",
+      "t": "padel x daytime house music x joga",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "f167ae7b5dee51ba",
+      "t": "groove and glow",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "9a2bbc25b8ef46ec",
+      "t": "x-faktor elo show - 11.28.",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "b915129b0bfb7d8a",
+      "t": "karacsonyi zenes vacsoraest szolga-toth melindaval",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "73f101643b0c33b3",
+      "t": "just vibe & tarsasozos ismerkedos est | 28–43 ev",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "5d17e62b0c9aeb1b",
+      "t": "uw7: magus szulinap w/ otvar pestis, khaaro, fini, xike, wimmr, sassy",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "ffcfda1ef35c1a75",
+      "t": "lakotelep // beach beach bm dupla lemezbemutato, vendeg: the safe one",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "123b73b533d7b446",
+      "t": "kraak & smaak @ kishall 2026.11.28. szombat",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "a6cb70b8fd9513b7",
+      "t": "filo @ nagyhall 2026.11.28.",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "972ed9d82c384f74",
+      "t": "jambalaya new orleans music show @ lokal 2026.11.28.",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "77e7c0980e9abc43",
+      "t": "lil frakk - melegitos hessz '26 //tubina",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "247507a3303d74d3",
+      "t": "audioslave + john frusciante tribute 💥 gasoline, curtains up 💥 barhole music",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "a2b098b686cd9e4b",
+      "t": "rock'n'roll a sorgyarban - candymen, lantos gabor & the king's men, tom white",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "a2a93aabf5398902",
+      "t": "as karma brings x mhorai x moments before disaster - stenk lelato",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "645a30532c3f031a",
+      "t": "helter skelter a the bits-szel",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "ba966680acd78d6a",
+      "t": "pub quiz special: friends trivia",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "5b31518794848e12",
+      "t": "lagzi feszt | budapest, mom leroy",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-29"
+    },
+    {
+      "id": "d81b787605d293e1",
+      "t": "glow ✦ mafia girlz ✦ 11.28. ✦ girls only party",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-29"
+    },
+    {
+      "id": "08486cd4a970db3c",
+      "t": "luxfunk® radio funky party + scratch show 2026.11.28 @symbol budapest",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-29"
+    },
+    {
+      "id": "de64843ad6e0a2f6",
+      "t": "daisey's 🥂grand open🥂 // 11.28🎉",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-29"
+    },
+    {
+      "id": "6dec46215fca681a",
+      "t": "dica & antidot @ palazzo permanens",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-29"
+    },
+    {
+      "id": "69e9fb4b7d1dc978",
+      "t": "alkototabor x turbina present: alkototabor showcase / andrey pushkarev",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-29"
+    },
+    {
+      "id": "14896c8c3095932b",
+      "t": "otkert saturday 11.28. timeless hits // badgyal",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-29"
+    },
+    {
+      "id": "53e8271a3f71217a",
+      "t": "dojo 11.28. sector w/ echonomist",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-29"
+    },
+    {
+      "id": "5555047e1d532e26",
+      "t": "sokk ⚡️ rock & metal party ⚡️ stenk lelato",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-29"
+    },
+    {
+      "id": "2abfca4d8043e06a",
+      "t": "metrolepcso futoverseny - mtse x bkv zrt.",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-29"
+    },
+    {
+      "id": "e70b7bfaf9113bc7",
+      "t": "xiv. nemzetkozi oraborze es ekszervasar /lurdy haz / 11.29.",
+      "d": "2026-11-29",
+      "s": "2026-11-11",
+      "u": "2026-11-29"
+    },
+    {
+      "id": "977a1d1398db6352",
+      "t": "studio 103 | ekszerkeszito workshop | 11.29-12.13.",
+      "d": "2026-11-29",
+      "s": "2026-11-11",
+      "u": "2026-11-29"
+    },
+    {
+      "id": "f17ed4a42edefe08",
+      "t": "studio 103 | bor notesz keszito workshop | 11.29.",
+      "d": "2026-11-29",
+      "s": "2026-11-11",
+      "u": "2026-11-29"
+    },
+    {
+      "id": "f94fd000e76aa87d",
+      "t": "arcok visszapillantoban | in the rearview - november 29.",
+      "d": "2026-11-29",
+      "s": "2026-11-11",
+      "u": "2026-11-29"
+    },
+    {
+      "id": "3c6c0c5638133ba7",
+      "t": "felt ornament embroidery workshop",
+      "d": "2026-11-29",
+      "s": "2026-11-11",
+      "u": "2026-11-29"
+    },
+    {
+      "id": "5b1e58808402f378",
+      "t": "randipiknik - elsoszikra (nok: 33-45 ev, ferfiak: 35-47 ev)",
+      "d": "2026-11-29",
+      "s": "2026-11-11",
+      "u": "2026-11-29"
+    },
+    {
+      "id": "75b2faf31bb2e4ca",
+      "t": "studio 103 | keramia workshop | 11.30.",
+      "d": "2026-11-30",
+      "s": "2026-11-11",
+      "u": "2026-11-30"
+    },
+    {
+      "id": "224b76c023cc6849",
+      "t": "yin joga relaxacio",
+      "d": "2026-11-30",
+      "s": "2026-11-11",
+      "u": "2026-11-30"
+    },
+    {
+      "id": "f210dfc378fae3d8",
+      "t": "keso esti hangfurdo",
+      "d": "2026-11-30",
+      "s": "2026-11-11",
+      "u": "2026-11-30"
+    },
+    {
+      "id": "056b7115b29c30a2",
+      "t": "amira satey hangversenye",
+      "d": "2026-11-30",
+      "s": "2026-11-11",
+      "u": "2026-11-30"
+    },
+    {
+      "id": "f09e69aacd58b810",
+      "t": "turbina take off 2.0",
+      "d": "2026-11-30",
+      "s": "2026-11-11",
+      "u": "2026-11-30"
+    },
+    {
+      "id": "c64a021b0fe42bce",
+      "t": "jazz and more - more than jazz",
+      "d": "2026-11-30",
+      "s": "2026-11-11",
+      "u": "2026-11-30"
+    },
+    {
+      "id": "a88232db3dbf815d",
+      "t": "„ki vagyok en?”",
+      "d": "2026-11-30",
+      "s": "2026-11-11",
+      "u": "2026-11-30"
+    },
+    {
+      "id": "a5e1aa7f6038dbd0",
+      "t": "szuletett felesegek kviz",
+      "d": "2026-11-11",
+      "s": "2026-11-11",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "1e1b5252c517bbeb",
+      "t": "altalanos kviz",
+      "d": "2026-11-11",
+      "s": "2026-11-11",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "569885872d3bfc12",
+      "t": "altalanos kviz",
+      "d": "2026-11-11",
+      "s": "2026-11-11",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "77ed3ecb91a09b68",
+      "t": "altalanos kviz",
+      "d": "2026-11-11",
+      "s": "2026-11-11",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "ebb312df85a68359",
+      "t": "altalanos kviz",
+      "d": "2026-11-12",
+      "s": "2026-11-11",
+      "u": "2026-11-12"
+    },
+    {
+      "id": "79c0fd21c90960b2",
+      "t": "harry potter kviz",
+      "d": "2026-11-13",
+      "s": "2026-11-11",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "1a22e873083265d3",
+      "t": "altalanos kviz",
+      "d": "2026-11-13",
+      "s": "2026-11-11",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "f8538634f39d6a2b",
+      "t": "star wars kviz",
+      "d": "2026-11-13",
+      "s": "2026-11-11",
+      "u": "2026-11-13"
+    },
+    {
+      "id": "ec95a3309bf9fb9f",
+      "t": "altalanos kviz",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "50c6f6f0b2b8cfa3",
+      "t": "vampirnaplok kviz",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "b571f971eb462268",
+      "t": "off campus kviz",
+      "d": "2026-11-14",
+      "s": "2026-11-11",
+      "u": "2026-11-14"
+    },
+    {
+      "id": "32b9b340425c74fa",
+      "t": "altalanos kviz",
+      "d": "2026-11-15",
+      "s": "2026-11-11",
+      "u": "2026-11-15"
+    },
+    {
+      "id": "853e75a951863384",
+      "t": "tiltott varos nyomozos jatek",
+      "d": "2026-11-16",
+      "s": "2026-11-11",
+      "u": "2026-11-16"
+    },
+    {
+      "id": "ff01bb7c1de86d4d",
+      "t": "deep space nyomozos jatek",
+      "d": "2026-11-16",
+      "s": "2026-11-11",
+      "u": "2026-11-16"
+    },
+    {
+      "id": "818eae9b0dfa3c09",
+      "t": "altalanos kviz",
+      "d": "2026-11-16",
+      "s": "2026-11-11",
+      "u": "2026-11-16"
+    },
+    {
+      "id": "f42390a1679e9b49",
+      "t": "altalanos kviz",
+      "d": "2026-11-16",
+      "s": "2026-11-11",
+      "u": "2026-11-16"
+    },
+    {
+      "id": "659a5d836bd0754a",
+      "t": "altalanos kviz",
+      "d": "2026-11-17",
+      "s": "2026-11-11",
+      "u": "2026-11-17"
+    },
+    {
+      "id": "ece1aa231ed4420d",
+      "t": "tronok harca kviz",
+      "d": "2026-11-17",
+      "s": "2026-11-11",
+      "u": "2026-11-17"
+    },
+    {
+      "id": "56a8221c0eaa562c",
+      "t": "jobaratok kviz",
+      "d": "2026-11-17",
+      "s": "2026-11-11",
+      "u": "2026-11-17"
+    },
+    {
+      "id": "dfffb4e6def4fc10",
+      "t": "2000-es evek kviz",
+      "d": "2026-11-18",
+      "s": "2026-11-11",
+      "u": "2026-11-18"
+    },
+    {
+      "id": "e8442379a4d956df",
+      "t": "harry potter kviz",
+      "d": "2026-11-18",
+      "s": "2026-11-11",
+      "u": "2026-11-18"
+    },
+    {
+      "id": "8ce8f01b83085064",
+      "t": "harry potter kviz",
+      "d": "2026-11-18",
+      "s": "2026-11-11",
+      "u": "2026-11-18"
+    },
+    {
+      "id": "bf914bb1cda826cd",
+      "t": "rick es morty kviz",
+      "d": "2026-11-18",
+      "s": "2026-11-11",
+      "u": "2026-11-18"
+    },
+    {
+      "id": "93aa18f4ed333975",
+      "t": "zenefelismeros kviz",
+      "d": "2026-11-18",
+      "s": "2026-11-11",
+      "u": "2026-11-18"
+    },
+    {
+      "id": "5cd1231733f38aca",
+      "t": "disney kviz",
+      "d": "2026-11-20",
+      "s": "2026-11-11",
+      "u": "2026-11-20"
+    },
+    {
+      "id": "cc51eb2de63ab48f",
+      "t": "gta kviz",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-21"
+    },
+    {
+      "id": "e9e9f3d826bbd7ee",
+      "t": "gasztro kviz",
+      "d": "2026-11-22",
+      "s": "2026-11-11",
+      "u": "2026-11-22"
+    },
+    {
+      "id": "c92292de6774ddf7",
+      "t": "altalanos kviz",
+      "d": "2026-11-23",
+      "s": "2026-11-11",
+      "u": "2026-11-23"
+    },
+    {
+      "id": "12853710cb6a31e8",
+      "t": "deep space nyomozos jatek",
+      "d": "2026-11-23",
+      "s": "2026-11-11",
+      "u": "2026-11-23"
+    },
+    {
+      "id": "30ecb93870786b47",
+      "t": "budapest kviz",
+      "d": "2026-11-23",
+      "s": "2026-11-11",
+      "u": "2026-11-23"
+    },
+    {
+      "id": "60d62e05367db03f",
+      "t": "gta kviz",
+      "d": "2026-11-24",
+      "s": "2026-11-11",
+      "u": "2026-11-24"
+    },
+    {
+      "id": "7ec24424feaada53",
+      "t": "altalanos kviz",
+      "d": "2026-11-24",
+      "s": "2026-11-11",
+      "u": "2026-11-24"
+    },
+    {
+      "id": "fbf804fe11e9744e",
+      "t": "csajos kviz",
+      "d": "2026-11-24",
+      "s": "2026-11-11",
+      "u": "2026-11-24"
+    },
+    {
+      "id": "e2393951b5fd12e6",
+      "t": "zenefelismero kviz",
+      "d": "2026-11-25",
+      "s": "2026-11-11",
+      "u": "2026-11-25"
+    },
+    {
+      "id": "400ba8ab2aa1807e",
+      "t": "tabu (+18) kviz",
+      "d": "2026-11-25",
+      "s": "2026-11-11",
+      "u": "2026-11-25"
+    },
+    {
+      "id": "0abd4dd7fc479d19",
+      "t": "altalanos kviz",
+      "d": "2026-11-25",
+      "s": "2026-11-11",
+      "u": "2026-11-25"
+    },
+    {
+      "id": "62723f1dde991e72",
+      "t": "altalanos kviz",
+      "d": "2026-11-25",
+      "s": "2026-11-11",
+      "u": "2026-11-25"
+    },
+    {
+      "id": "665ec50a735db76b",
+      "t": "office kviz",
+      "d": "2026-11-26",
+      "s": "2026-11-11",
+      "u": "2026-11-26"
+    },
+    {
+      "id": "cc052b8875452c13",
+      "t": "harry potter kviz",
+      "d": "2026-11-26",
+      "s": "2026-11-11",
+      "u": "2026-11-26"
+    },
+    {
+      "id": "a6600892ffc397ec",
+      "t": "star wars kviz",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-11-27"
+    },
+    {
+      "id": "0d43be7d3a7cc477",
+      "t": "altalanos kviz",
+      "d": "2026-11-27",
+      "s": "2026-11-11",
+      "u": "2026-11-27"
+    },
+    {
+      "id": "c71cf86b32433cc1",
+      "t": "jotekonysagi kviz - anyak az anyakert alapitvanyert",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "ef43f50dffd05d04",
+      "t": "2000-es evek kviz",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "0360f1cef46737bf",
+      "t": "alkonyat kviz",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
+    },
+    {
+      "id": "cc74609c6341d456",
+      "t": "trash kviz",
+      "d": "2026-11-29",
+      "s": "2026-11-11",
+      "u": "2026-11-29"
+    },
+    {
+      "id": "a6b661e67c789534",
+      "t": "gyilkos vacsora nyomozos jatek",
+      "d": "2026-11-30",
+      "s": "2026-11-11",
+      "u": "2026-11-30"
+    },
+    {
+      "id": "d8f3d5b8fdbd044a",
+      "t": "altalanos kviz",
+      "d": "2026-11-30",
+      "s": "2026-11-11",
+      "u": "2026-11-30"
+    },
+    {
+      "id": "eeb41bae2614918a",
+      "t": "onboarding - tarsasjatekos alapok - kingdomino es firkafilm",
+      "d": "2026-11-11",
+      "s": "2026-11-11",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "ce9394b98f624016",
+      "t": "hetfoi tarsasozas az akvariumban // jatszohaz projekt",
+      "d": "2026-11-16",
+      "s": "2026-11-11",
+      "u": "2026-11-16"
+    },
+    {
+      "id": "d1d899b6080054c7",
+      "t": "hetfoi tarsasozas a stenk lelatoban // jatszohaz projekt",
+      "d": "2026-11-23",
+      "s": "2026-11-11",
+      "u": "2026-11-23"
+    },
+    {
+      "id": "f25d3d313e007386",
+      "t": "jatszohazberlet",
+      "d": "2026-09-21",
+      "s": "2026-11-11",
+      "u": "2027-02-28"
+    },
+    {
+      "id": "f38bd1b33389991c",
+      "t": "erdling, johnny tupolev // budapest, durer kert",
+      "d": "2026-11-11",
+      "s": "2026-11-11",
+      "u": "2026-11-11"
+    },
+    {
+      "id": "80ae5554f69a06fb",
+      "t": "token klub a tarsasjatekok unnepen",
+      "d": "2026-11-21",
+      "s": "2026-11-11",
+      "u": "2026-11-22"
+    },
+    {
+      "id": "32fbd477917c34ae",
+      "t": "token tarsasjatek klub",
+      "d": "2026-11-28",
+      "s": "2026-11-11",
+      "u": "2026-11-28"
     }
   ],
   "source_health": {
     "bigcitylife": {
       "consecutive_failures": 0,
-      "last_ok": "2026-11-10",
+      "last_ok": "2026-11-11",
       "last_count": 0,
       "etag": null,
       "disabled_until": null
     },
     "cooltix": {
       "consecutive_failures": 0,
-      "last_ok": "2026-11-10",
-      "last_count": 588,
+      "last_ok": "2026-11-11",
+      "last_count": 603,
       "etag": null,
       "disabled_until": null
     },
     "kvizestek": {
       "consecutive_failures": 0,
-      "last_ok": "2026-11-10",
-      "last_count": 55,
+      "last_ok": "2026-11-11",
+      "last_count": 52,
       "etag": null,
       "disabled_until": null
     },
     "tarsasjatekos": {
       "consecutive_failures": 0,
-      "last_ok": "2026-11-10",
+      "last_ok": "2026-11-11",
       "last_count": 15,
       "etag": null,
       "disabled_until": null
     },
     "tixa": {
       "consecutive_failures": 0,
-      "last_ok": "2026-11-10",
-      "last_count": 34,
+      "last_ok": "2026-11-11",
+      "last_count": 32,
       "etag": null,
       "disabled_until": null
     },
     "tokenklub": {
       "consecutive_failures": 0,
-      "last_ok": "2026-11-10",
+      "last_ok": "2026-11-11",
       "last_count": 3,
       "etag": null,
       "disabled_until": null
     }
   },
   "run_log": [
-    {
-      "date": "2026-10-12",
-      "raw": 714,
-      "after_dedup": 368,
-      "sent": 17,
-      "seconds": 27.241375956
-    },
     {
       "date": "2026-10-13",
       "raw": 714,
@@ -24211,6 +25618,13 @@
       "after_dedup": 361,
       "sent": 14,
       "seconds": 20.254808304
+    },
+    {
+      "date": "2026-11-11",
+      "raw": 705,
+      "after_dedup": 362,
+      "sent": 18,
+      "seconds": 20.390760430999997
     }
   ]
 }
